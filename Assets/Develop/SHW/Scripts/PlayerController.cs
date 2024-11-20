@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float power;       // ÆøÅºÆÄ¿ö
     [SerializeField] int bombCount;     // ÆøÅº¼ö 
 
+    [SerializeField] Animator animator;
+
     private void Start()
     {
 
@@ -23,6 +25,15 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3();
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.z = Input.GetAxisRaw("Vertical");
+
+        if (moveDir.x != 0 || moveDir.z != 0)
+        {
+            animator.SetBool("Move", true);
+        }
+        else
+        {
+            animator.SetBool("Move",false);
+        }
 
         // ¿òÁ÷ÀÌÁö ¾Ê¾ÒÀ» ½Ã 
         if (moveDir == Vector3.zero)

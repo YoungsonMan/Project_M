@@ -32,21 +32,22 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            animator.SetBool("Move",false);
+            animator.SetBool("Move", false);
         }
 
         // 움직이지 않았을 시 
         if (moveDir == Vector3.zero)
             return;
 
-        // 대각 입력 시 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+
+        // 동시 입력 시 다른 방향 움직임 제한
+        if(moveDir.x !=0)
         {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                // TODO : 동시 입력시 현재 이동을 멈춤. 추후 이동하던 방향으로 계속 이동하는 쪽으로 
-                return;
-            }
+            moveDir.z = 0;
+        }
+        else if(moveDir.z != 0) 
+        {
+            moveDir.x = 0;
         }
 
         transform.Translate(moveDir.normalized * speed * Time.deltaTime, Space.World);

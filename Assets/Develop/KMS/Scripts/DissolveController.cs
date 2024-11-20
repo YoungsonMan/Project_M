@@ -9,6 +9,7 @@ public class DissolveController : MonoBehaviour
     public Shader dissolveShader;           // Dissolve 효과를 위한 셰이더
     public Texture noiseTexture;            // Dissolve 효과에 사용될 노이즈 텍스처
     public float dissolveSpeed = 0.5f;      // 오브젝트가 소멸되는 속도 조절 변수
+    public float delayTime = 1.5f;          // 딜레이 타임 지난 후 소멸 시작
 
     private void Start()
     {
@@ -41,10 +42,12 @@ public class DissolveController : MonoBehaviour
     /// </summary>
     private IEnumerator DissolveEffect()
     {
+        yield return new WaitForSeconds(delayTime);
+
         float dissolveAmount = 0;
 
         // 점진적 소멸.
-        while (dissolveAmount < 1.0f)
+        while (dissolveAmount < 0.3f)
         {
             dissolveAmount += Time.deltaTime * dissolveSpeed;
             dissolveMaterial.SetFloat("_DissolveAmount", dissolveAmount);

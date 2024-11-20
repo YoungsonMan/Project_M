@@ -113,3 +113,4 @@ MonoBehaviour:
   dissolveShader: {fileID: 4800000, guid: 773c51ed9f3ad0b45a0928ae52a15ea7, type: 3}
   noiseTexture: {fileID: 2800000, guid: 3caf33891b8efbd4b902719e4603d61c, type: 3}
   dissolveSpeed: 0.5
+  delayTime: 1.5

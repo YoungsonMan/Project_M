@@ -6,7 +6,7 @@ public class ProceduralDestruction : MonoBehaviour
 {
     [Header("부서지는 벽 세팅")]
     public int fragmentsCount = 10;         // 부서지는 조각 갯수
-    public float explosionForce = 20f;      // 폭발범위
+    public float explosionForce = 30f;      // 폭발범위
     public float explosionRadius = 5f;      // 폭발반경
     public GameObject fragmentPrefab;       // 부서진 조각
     public Transform parentContainer;       // 부서진 조각들을 담을 곳
@@ -23,7 +23,7 @@ public class ProceduralDestruction : MonoBehaviour
             // 파편들에게 랜덤 방향으로 폭발력 적용.
             Rigidbody rb = fragment.GetComponent<Rigidbody>();
             
-            if(!rb)
+            if(rb)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }

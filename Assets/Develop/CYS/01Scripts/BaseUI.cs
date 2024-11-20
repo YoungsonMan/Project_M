@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseUI : MonoBehaviour
 {
     private Dictionary<string, GameObject> gameObjectDic;
-    private Dictionary<string, Component> componentDic;
+    private Dictionary<(string, System.Type), Component> componentDic;
 
     protected virtual void Awake()
     {
@@ -15,7 +15,7 @@ public class BaseUI : MonoBehaviour
     {
         Transform[] transforms = GetComponentsInChildren<Transform>(true);
         gameObjectDic = new Dictionary<string, GameObject>(transforms.Length << 2);
-        componentDic = new Dictionary<string, Component>();
+        componentDic = new Dictionary<(string, System.Type), Component>();
         foreach (Transform child in transforms)
         {
             // 혹시 이름 겹쳐서 추가 안되면 알 수 있도록 로그 띄우기.
@@ -40,7 +40,7 @@ public class BaseUI : MonoBehaviour
     {
         // Ex) Button 게임오브젝트 안에 Image 컴포넌트의 키 : Button_Image
         // Ex) Chest 게임오브젝트 안에 Transform 컴포넌트의 키 : Chest_Transform
-        string key = $"{name}_{typeof(T).Name}"; // 반복사용되니까 key 캐싱
+        (string, System.Type) key = (name, typeof(T)); // 반복사용되니까 key 캐싱
 
         // 1. Component 딕셔너리에 이미 있을때(찾아본적이 있는경우) : 이미 찾았던거 주기
         componentDic.TryGetValue(key, out Component component);

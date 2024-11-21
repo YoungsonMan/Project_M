@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed;       // 플레이어 속도
-    [SerializeField] float power;       // 폭탄파워
-    [SerializeField] int bombCount;     // 폭탄수 
+    private PlayerStatus _status;
 
     [SerializeField] Rigidbody rigid;
 
     [SerializeField] Animator animator;
+
+    private void Awake()
+    {
+        _status = GetComponent<PlayerStatus>();
+    }
 
     private void Start()
     {
@@ -20,9 +23,16 @@ public class PlayerController : MonoBehaviour
         // 플레이어 소유권자 일경우
         Move();
 
+        // 폭탄 설치
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetBoom();
+        }
+
+        // (테스트) 플레이어 물풍선에 갇힘
+        if(Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            BindBubble();
         }
     }
 
@@ -59,12 +69,24 @@ public class PlayerController : MonoBehaviour
         }
 
         // 리지드 바디로 이동
-        rigid.velocity = moveDir.normalized * speed;
+        rigid.velocity = moveDir.normalized * _status.speed;
         transform.forward = moveDir;
     }
 
     public void SetBoom()
     {
         // TODO : 폭탄 설치
+    }
+
+    // 물풍선에 갇히는 기능
+    public void BindBubble()
+    {
+
+    }
+
+    // 풍선에 충돌을 감지하여 물풍선에 갇히게 한다.
+    private void OnCollisionEnter(Collision collision)
+    {
+        BindBubble();
     }
 }

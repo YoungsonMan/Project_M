@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
@@ -14,8 +15,11 @@ public class Bubble : MonoBehaviour
     {
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
+    }
 
-        _animator.SetBool("isBubble",true);
+    private void OnEnable()
+    {
+        _animator.SetBool("isBubble", true);
         // n초 후 물방울 비활성화
         StartCoroutine(BubbleRoutine());
     }

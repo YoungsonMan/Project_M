@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (_status.isBubble == true) return;
-
         Vector3 moveDir = new Vector3();
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.z = Input.GetAxisRaw("Vertical");
@@ -89,10 +87,11 @@ public class PlayerController : MonoBehaviour
             _status.isBubble = true;
 
             // 이동 함수 실행 중 넘어왔을 경우의 초기화?
-            rigid.velocity = Vector3.zero;
-            animator.SetBool("Move", false);
+            //rigid.velocity = Vector3.zero;
+            //animator.SetBool("Move", false);
 
-            animator.SetBool("isBubble",true);
+            // 갇혔을때 느리게 이동을 위한 
+
             bubble.SetActive(true);
         }
 

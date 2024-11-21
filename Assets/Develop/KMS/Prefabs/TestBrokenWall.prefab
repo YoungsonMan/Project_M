@@ -146,6 +146,11 @@ MonoBehaviour:
   explosionRadius: 5
   fragmentPrefab: {fileID: 3038958918739036102, guid: c8a074b0c315e1b41894673556402dd4, type: 3}
   parentContainer: {fileID: 840778828302628933}
+  itemPrefabs:
+  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
+  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
+  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
+  itemSpawnChance: 0.7
 --- !u!1 &4825299243425173334
 GameObject:
   m_ObjectHideFlags: 0

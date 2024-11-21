@@ -38,6 +38,9 @@ public class WaterBomb : MonoBehaviour
     /// <param name="placerPosition">폭탄을 설치하는 오브젝트의 position</param>
     public void SetLocation(Vector3 placerPosition)
     {
-        transform.position = placerPosition;
+        Vector3 offset = new(0, 0.5f, 0);
+        Vector3 location = new Vector3(Mathf.RoundToInt(placerPosition.x), 0, Mathf.RoundToInt(placerPosition.z)) + offset;
+
+        transform.position = location;
     }
 }

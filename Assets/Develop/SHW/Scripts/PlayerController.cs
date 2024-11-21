@@ -8,9 +8,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    public bool isBubble;
+    [SerializeField] GameObject bubble;
+
     private void Awake()
     {
         _status = GetComponent<PlayerStatus>();
+        isBubble = false;
+        bubble.SetActive(false);
     }
 
     private void Start()
@@ -21,7 +26,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // 플레이어 소유권자 일경우
-        Move();
+        if (isBubble == false)
+        {
+            Move();
+        }
 
         // 폭탄 설치
         if (Input.GetKeyDown(KeyCode.Space))
@@ -29,15 +37,23 @@ public class PlayerController : MonoBehaviour
             SetBoom();
         }
 
-        // (테스트) 플레이어 물풍선에 갇힘
-        if(Input.GetKeyDown(KeyCode.Keypad0))
+        // (테스트) 폭탄에 갇힐 경우
+        if(Input.GetKeyDown(KeyCode.B))
         {
             BindBubble();
+        }
+        // 임시
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            isBubble = false;
+            bubble.SetActive(false);
         }
     }
 
     public void Move()
     {
+        if(isBubble == true) return;
+
         Vector3 moveDir = new Vector3();
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.z = Input.GetAxisRaw("Vertical");
@@ -78,15 +94,27 @@ public class PlayerController : MonoBehaviour
         // TODO : 폭탄 설치
     }
 
-    // 물풍선에 갇히는 기능
     public void BindBubble()
     {
+        Debug.Log("물방울에 갇힘!");
+        isBubble = true;
 
+        // 이동 함수 실행 중 넘어왔을 경우의 초기화?
+        rigid.velocity = Vector3.zero;
+        animator.SetBool("Move",false);
+
+        // 물방울 활성화
+        bubble.SetActive(true);
+        
+        // 활성화 동안 스피드 감소
+        // n초 후 물방울 비활성화
+        // 캐릭터 사망
     }
 
-    // 풍선에 충돌을 감지하여 물풍선에 갇히게 한다.
+    // 충돌 감지
     private void OnCollisionEnter(Collision collision)
     {
-        BindBubble();
+        // 바닥과 충돌해도 실행되서 임시로 주석처리
+        // BindBubble();
     }
 }

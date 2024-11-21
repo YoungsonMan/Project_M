@@ -94,6 +94,9 @@ public class ProceduralDestruction : MonoBehaviour
             }
         }
 
+        // 아이템 생성 확률에 따라 스폰
+        SpawnItem();
+
         Destroy(gameObject);
     }
 

@@ -49,6 +49,7 @@ MonoBehaviour:
   speed: 5
   power: 0
   bombCount: 0
+  animator: {fileID: 815692183}
 --- !u!95 &815692183
 Animator:
   serializedVersion: 5
@@ -149,7 +150,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 53a03a1bd2d84d44dbfb0dab1200b8fe, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
 --- !u!4 &5323386284024336105 stripped
 Transform:

@@ -11,6 +11,23 @@ public class ProceduralDestruction : MonoBehaviour
     public GameObject fragmentPrefab;       // 부서진 조각
     public Transform parentContainer;       // 부서진 조각들을 담을 곳
 
+    [Header("캐릭터 설정")]
+    public Collider characterCollider;
+
+    private void Awake()
+    {
+        GameObject character = GameObject.FindWithTag("Player");
+
+        if (character)
+        {
+            characterCollider = character.GetComponent<Collider>();
+        }
+        else
+        {
+            Debug.LogWarning("Player 태그를 가진 오브젝트가 존재하지 않습니다.");
+        }
+    }
+
     /// <summary>
     /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 메서드.
     /// </summary>
@@ -26,6 +43,16 @@ public class ProceduralDestruction : MonoBehaviour
             if(rb)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            }
+
+            // 캐릭터와의 충돌 무시
+            if (characterCollider != null)
+            {
+                Collider fragmentCollider = fragment.GetComponent<Collider>();
+                if (fragmentCollider)
+                {
+                    Physics.IgnoreCollision(fragmentCollider, characterCollider);
+                }
             }
         }
 

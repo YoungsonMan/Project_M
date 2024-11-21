@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
             rigid.velocity = Vector3.zero;
             animator.SetBool("Move", false);
 
+            animator.SetBool("isBubble",true);
             bubble.SetActive(true);
         }
 

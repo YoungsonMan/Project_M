@@ -11,25 +11,59 @@ public class ProceduralDestruction : MonoBehaviour
     public GameObject fragmentPrefab;       // 부서진 조각
     public Transform parentContainer;       // 부서진 조각들을 담을 곳
 
-    [Header("캐릭터 설정")]
-    public Collider characterCollider;
+    private static List<Collider> playerColliders; // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
+
+    /// <summary>
+    /// 테스트용 메서드
+    /// </summary>
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            DestroyObject();
+        }
+    }
 
     private void Awake()
     {
-        GameObject character = GameObject.FindWithTag("Player");
-
-        if (character)
+        // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
+        if (playerColliders == null)
         {
-            characterCollider = character.GetComponent<Collider>();
+            CachePlayerColliders();
+        }
+    }
+
+    /// <summary>
+    /// Player 태그를 가진 모든 Collider를 캐싱
+    /// </summary>
+    private void CachePlayerColliders()
+    {
+        playerColliders = new List<Collider>();
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            Collider collider = player.GetComponent<Collider>();
+            if (collider != null)
+            {
+                playerColliders.Add(collider);
+            }
+        }
+
+        if (playerColliders.Count == 0)
+        {
+            Debug.LogWarning("Player 태그를 가진 Collider를 찾지 못했습니다.");
         }
         else
         {
-            Debug.LogWarning("Player 태그를 가진 오브젝트가 존재하지 않습니다.");
+            foreach (Collider collider in playerColliders)
+                Debug.Log($"Player 태그 : {collider.name}");
         }
     }
 
     /// <summary>
     /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 메서드.
+    /// 네트워크 동작시 해당 부분을 Rpc로 변환해서 동작해야한다.
     /// </summary>
     public void DestroyObject()
     {
@@ -45,13 +79,13 @@ public class ProceduralDestruction : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
 
-            // 캐릭터와의 충돌 무시
-            if (characterCollider != null)
+            // 모든 Player와의 충돌 무시
+            Collider fragmentCollider = fragment.GetComponent<Collider>();
+            if (fragmentCollider != null)
             {
-                Collider fragmentCollider = fragment.GetComponent<Collider>();
-                if (fragmentCollider)
+                foreach (Collider playerCollider in playerColliders)
                 {
-                    Physics.IgnoreCollision(fragmentCollider, characterCollider);
+                    Physics.IgnoreCollision(fragmentCollider, playerCollider);
                 }
             }
         }

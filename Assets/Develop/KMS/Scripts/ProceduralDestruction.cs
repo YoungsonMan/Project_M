@@ -6,13 +6,68 @@ public class ProceduralDestruction : MonoBehaviour
 {
     [Header("부서지는 벽 세팅")]
     public int fragmentsCount = 10;         // 부서지는 조각 갯수
-    public float explosionForce = 20f;      // 폭발범위
+    public float explosionForce = 30f;      // 폭발범위
     public float explosionRadius = 5f;      // 폭발반경
     public GameObject fragmentPrefab;       // 부서진 조각
     public Transform parentContainer;       // 부서진 조각들을 담을 곳
 
+    private static List<Collider> playerColliders; // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
+
+    [Header("아이템 스폰 설정")]
+    public GameObject[] itemPrefabs;        // 생성될 아이템 프리팹
+    public float itemSpawnChance = 0.3f;    // 아이템 생성 확률
+
+    /// <summary>
+    /// 테스트용 메서드
+    /// </summary>
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            DestroyObject();
+        }
+    }
+
+    private void Awake()
+    {
+        // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
+        if (playerColliders == null)
+        {
+            CachePlayerColliders();
+        }
+    }
+
+    /// <summary>
+    /// Player 태그를 가진 모든 Collider를 캐싱
+    /// </summary>
+    private void CachePlayerColliders()
+    {
+        playerColliders = new List<Collider>();
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            Collider collider = player.GetComponent<Collider>();
+            if (collider != null)
+            {
+                playerColliders.Add(collider);
+            }
+        }
+
+        if (playerColliders.Count == 0)
+        {
+            Debug.LogWarning("Player 태그를 가진 Collider를 찾지 못했습니다.");
+        }
+        else
+        {
+            foreach (Collider collider in playerColliders)
+                Debug.Log($"Player 태그 : {collider.name}");
+        }
+    }
+
     /// <summary>
     /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 메서드.
+    /// 네트워크 동작시 해당 부분을 Rpc로 변환해서 동작해야한다.
     /// </summary>
     public void DestroyObject()
     {
@@ -23,11 +78,24 @@ public class ProceduralDestruction : MonoBehaviour
             // 파편들에게 랜덤 방향으로 폭발력 적용.
             Rigidbody rb = fragment.GetComponent<Rigidbody>();
             
-            if(!rb)
+            if(rb)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
+
+            // 모든 Player와의 충돌 무시
+            Collider fragmentCollider = fragment.GetComponent<Collider>();
+            if (fragmentCollider != null)
+            {
+                foreach (Collider playerCollider in playerColliders)
+                {
+                    Physics.IgnoreCollision(fragmentCollider, playerCollider);
+                }
+            }
         }
+
+        // 아이템 생성 확률에 따라 스폰
+        SpawnItem();
 
         Destroy(gameObject);
     }
@@ -65,5 +133,21 @@ public class ProceduralDestruction : MonoBehaviour
         }
 
         return fragments;
+    }
+
+    /// <summary>
+    /// 벽이 부서질시 생성되는 스폰 아이템
+    /// </summary>
+    private void SpawnItem()
+    {
+        // 랜덤 확률로 아이템 생성
+        if (Random.value <= itemSpawnChance)
+        {
+            // 아이템 프리팹 중 하나를 랜덤 선택
+            int randomIndex = Random.Range(0, itemPrefabs.Length);
+            GameObject item = Instantiate(itemPrefabs[randomIndex], transform.position, Quaternion.identity);
+
+            Debug.Log("아이템 생성: " + item.name);
+        }
     }
 }

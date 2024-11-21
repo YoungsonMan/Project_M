@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2894059319385511641}
   - component: {fileID: 9201777413279076172}
   - component: {fileID: 7296059769168922628}
-  - component: {fileID: 2576513685217620624}
+  - component: {fileID: 279097296295488617}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -129,7 +129,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2576513685217620624
+--- !u!114 &279097296295488617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,10 +142,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragmentsCount: 10
-  explosionForce: 20
+  explosionForce: 30
   explosionRadius: 5
   fragmentPrefab: {fileID: 3038958918739036102, guid: c8a074b0c315e1b41894673556402dd4, type: 3}
   parentContainer: {fileID: 840778828302628933}
+  itemPrefabs:
+  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
+  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
+  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
+  itemSpawnChance: 0.7
 --- !u!1 &4825299243425173334
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6574083303863263084}
   m_Layer: 0
-  m_Name: TestBorkenWall
+  m_Name: TestBrokenWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

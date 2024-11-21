@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Animator animator;
 
-    public bool isBubble;
+    // public bool isBubble;
     [SerializeField] GameObject bubble;
 
     private void Awake()
     {
         _status = GetComponent<PlayerStatus>();
-        isBubble = false;
+        _status.isBubble = false;
         bubble.SetActive(false);
     }
 
@@ -26,33 +26,18 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // 플레이어 소유권자 일경우
-        if (isBubble == false)
-        {
-            Move();
-        }
+        Move();
 
         // 폭탄 설치
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetBoom();
         }
-
-        // (테스트) 폭탄에 갇힐 경우
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            BindBubble();
-        }
-        // 임시
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            isBubble = false;
-            bubble.SetActive(false);
-        }
     }
 
     public void Move()
     {
-        if(isBubble == true) return;
+        if (_status.isBubble == true) return;
 
         Vector3 moveDir = new Vector3();
         moveDir.x = Input.GetAxisRaw("Horizontal");
@@ -94,27 +79,21 @@ public class PlayerController : MonoBehaviour
         // TODO : 폭탄 설치
     }
 
-    public void BindBubble()
-    {
-        Debug.Log("물방울에 갇힘!");
-        isBubble = true;
-
-        // 이동 함수 실행 중 넘어왔을 경우의 초기화?
-        rigid.velocity = Vector3.zero;
-        animator.SetBool("Move",false);
-
-        // 물방울 활성화
-        bubble.SetActive(true);
-        
-        // 활성화 동안 스피드 감소
-        // n초 후 물방울 비활성화
-        // 캐릭터 사망
-    }
-
     // 충돌 감지
     private void OnCollisionEnter(Collision collision)
     {
-        // 바닥과 충돌해도 실행되서 임시로 주석처리
-        // BindBubble();
+        // 물줄기에 닿았을 경우
+        if (collision.gameObject.name == "test")
+        {
+            Debug.Log("물방울에 갇힘!");
+            _status.isBubble = true;
+
+            // 이동 함수 실행 중 넘어왔을 경우의 초기화?
+            rigid.velocity = Vector3.zero;
+            animator.SetBool("Move", false);
+
+            bubble.SetActive(true);
+        }
+
     }
 }

@@ -455,10 +455,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 279097296295488617, guid: 943b88b69755a974c9cff61dffa8b8cf, type: 3}
       propertyPath: explosionRadius
       value: 5
@@ -823,10 +819,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 279097296295488617, guid: 943b88b69755a974c9cff61dffa8b8cf, type: 3}
       propertyPath: explosionRadius
       value: 5
@@ -1157,10 +1149,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 279097296295488617, guid: 943b88b69755a974c9cff61dffa8b8cf, type: 3}
       propertyPath: explosionRadius
       value: 5

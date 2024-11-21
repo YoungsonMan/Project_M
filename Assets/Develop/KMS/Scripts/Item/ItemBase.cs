@@ -12,15 +12,17 @@ public abstract class ItemBase : MonoBehaviour
         // 플레이어와 충돌시
         if (other.CompareTag("Player"))
         {
+            Debug.Log($"{other.name}이 아이템을 습득했습니다.");
             isPickup = true;
             ApplyEffect(other.gameObject);
             OnPickedUp();
         }
         // 물줄기와 충돌시
-        else if (other.CompareTag("WaterStream"))   // 임의로 현재 입력한 tag
-        {
-            OnHitByWaterStream();
-        }
+        // TODO : Interface를 만들어 두었기에 해당 Interface에 입력 후 삭제하도록 진행한다.
+        //else if (other.CompareTag("WaterStream"))   // 임의로 현재 입력한 tag
+        //{
+        //    OnHitByWaterStream();
+        //}
     }
 
     /// <summary>

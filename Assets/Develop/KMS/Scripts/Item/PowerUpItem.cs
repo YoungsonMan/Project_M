@@ -8,9 +8,11 @@ public class PowerUpItem : ItemBase
 
     public override void ApplyEffect(GameObject player)
     {
+        Debug.Log("파워 아이템을 습득했습니다.");
         PlayerStatus playerStatus = player.GetComponent<PlayerStatus>();
         if (playerStatus)
         {
+            Debug.Log("파워가 증가 합니다.");
             //playerStatus.power += powerIncrease;
         }
     }

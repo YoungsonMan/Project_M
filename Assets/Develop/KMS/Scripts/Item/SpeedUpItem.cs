@@ -8,9 +8,11 @@ public class SpeedUpItem : ItemBase
 
     public override void ApplyEffect(GameObject player)
     {
+        Debug.Log("스피드 아이템을 습득했습니다.");
         PlayerStatus playerStatus = player.GetComponent<PlayerStatus>();
         if (playerStatus)
         {
+            Debug.Log("스피드가 증가 합니다.");
             //playerStatus.speed += speedIncreaseAmount;
         }
     }

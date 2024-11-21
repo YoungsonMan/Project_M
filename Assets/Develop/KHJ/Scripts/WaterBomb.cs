@@ -6,12 +6,16 @@ using UnityEngine.Pool;
 public class WaterBomb : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
+    [SerializeField] private int _range = 1;
     [SerializeField] private LayerMask _layerMask;
 
-    private WaitForSeconds _delay;
-    private IObjectPool<WaterBomb> _objectPool;
+    [Header("Explosion Effect")]
+    [SerializeField] GameObject _effect;
 
-    public IObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
+    private WaitForSeconds _delay;
+    private ObjectPool<WaterBomb> _objectPool;
+
+    public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
 
     private void OnEnable()
     {
@@ -29,7 +33,24 @@ public class WaterBomb : MonoBehaviour
     {
         yield return _delay;
 
+        CreateExplosion();
+
         _objectPool.Release(this);
+    }
+
+    private void CreateExplosion()
+    {
+        // Center
+        Instantiate(_effect, transform.position, Quaternion.identity);
+
+        // 4-way(up, down, right, left)
+        for (int i = 1; i <= _range; i++)
+        {
+            Instantiate(_effect, transform.position + i * transform.forward, Quaternion.identity);
+            Instantiate(_effect, transform.position - i * transform.forward, Quaternion.identity);
+            Instantiate(_effect, transform.position + i * transform.right, Quaternion.identity);
+            Instantiate(_effect, transform.position - i * transform.right, Quaternion.identity);
+        }
     }
 
 

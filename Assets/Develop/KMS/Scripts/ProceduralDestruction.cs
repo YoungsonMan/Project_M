@@ -13,6 +13,10 @@ public class ProceduralDestruction : MonoBehaviour
 
     private static List<Collider> playerColliders; // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
 
+    [Header("아이템 스폰 설정")]
+    public GameObject[] itemPrefabs;        // 생성될 아이템 프리팹
+    public float itemSpawnChance = 0.3f;    // 아이템 생성 확률
+
     /// <summary>
     /// 테스트용 메서드
     /// </summary>
@@ -126,5 +130,21 @@ public class ProceduralDestruction : MonoBehaviour
         }
 
         return fragments;
+    }
+
+    /// <summary>
+    /// 벽이 부서질시 생성되는 스폰 아이템
+    /// </summary>
+    private void SpawnItem()
+    {
+        // 랜덤 확률로 아이템 생성
+        if (Random.value <= itemSpawnChance)
+        {
+            // 아이템 프리팹 중 하나를 랜덤 선택
+            int randomIndex = Random.Range(0, itemPrefabs.Length);
+            GameObject item = Instantiate(itemPrefabs[randomIndex], transform.position, Quaternion.identity);
+
+            Debug.Log("아이템 생성: " + item.name);
+        }
     }
 }

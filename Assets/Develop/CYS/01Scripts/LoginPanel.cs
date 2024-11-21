@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Auth;
 using Firebase.Extensions;
@@ -13,11 +12,13 @@ public class LoginPanel : BaseUI
     [SerializeField] TMP_InputField _emailInputField;
     [SerializeField] TMP_InputField _pwInputField;
 
-    [SerializeField] Image _nicknamePanel;
-    [SerializeField] Image _verificationPanel;
+    // [SerializeField] Image _nicknamePanel;
+    // [SerializeField] Image _verificationPanel;
 
-
+    // 밑에 따로 스크립트 빼서 관리하기???
     [SerializeField] GameObject _signUpPanel;
+    [SerializeField] GameObject _verificationPanel;
+    [SerializeField] GameObject _nicknamePanel;
 
     private void OnEnable()
     {
@@ -45,17 +46,18 @@ public class LoginPanel : BaseUI
         GetUI<Button>("ResetPWButton");
 
         // VerificationPanel
-        _verificationPanel = GetUI<Image>("VerificationPanel");
+        _verificationPanel = GetUI("VerificationPanel");
         GetUI<TMP_Text>("WaitingText");
         GetUI<Button>("VerificationCancelButton");
 
         // NicknamePanel
-        _nicknamePanel = GetUI<Image>("NicknamePanel");
+        _nicknamePanel = GetUI("NicknamePanel");
         GetUI<TMP_Text>("NicknameText");
         GetUI<TMP_InputField>("NicknameInputField");
         GetUI<Button>("ConfirmButton");
 
         _signUpPanel = GetUI("SignUpPanel");
+        
     }
 
     public void SubscirbesEvents()
@@ -117,12 +119,12 @@ public class LoginPanel : BaseUI
         if (user.IsEmailVerified == false)
         {
             // TODO: 이메일 인증창(Panel) 생성후 창 활성화
-            // verificationPanel....
+            _verificationPanel.gameObject.SetActive(true);
         }
         else if (user.DisplayName == "")
         {
             // TODO: 닉네임 없으면 닉네임 만드는창 활성화
-            // nicknamePanel...
+            _nicknamePanel.gameObject.SetActive(true);
         }
         else
         {
@@ -130,5 +132,6 @@ public class LoginPanel : BaseUI
             PhotonNetwork.ConnectUsingSettings();
         }
     }
+
 
 }

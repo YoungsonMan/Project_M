@@ -25,7 +25,6 @@ public class SignUpPanel : BaseUI
     }
     private void Init()
     {
-
         // ID & PW
         // TMP_Text
         GetUI<TMP_Text>("SignUpIDText");
@@ -36,7 +35,7 @@ public class SignUpPanel : BaseUI
         _signUpIDInputField = GetUI<TMP_InputField>("SignUpIDInputField");
         GetUI<TMP_Text>("SignUpIDPlaceholder").text = "example@gmail.com";
         _signUpPWInputField = GetUI<TMP_InputField>("SignUpPWInputField");
-        GetUI<TMP_Text>("SUPWinputPlaceholder").text = "Cannot be too simple like\n qwer1234";
+        GetUI<TMP_Text>("SUPWinputPlaceholder").text = "Cannot be too simple like\n qwer1234 & longer than 6 chars";
         _PWConfirmInputField = GetUI<TMP_InputField>("PWConfirmInputField");
         GetUI<TMP_Text>("PWConfirmplaceholder").text = "Must to match with the password.";
 
@@ -61,7 +60,7 @@ public class SignUpPanel : BaseUI
 
     public void SignUp()
     {
-        Debug.Log("SignUpButton 테스트 로그 : 회원가입!");
+        Debug.Log("SignUpButton 테스트 로그 : 회원가입버튼 눌림");
 
         string _email = _signUpIDInputField.text;
         string _password = _signUpPWInputField.text;
@@ -86,6 +85,7 @@ public class SignUpPanel : BaseUI
             }
             if (task.IsFaulted)
             {
+                /* 일단 인증에러 팝업창나게하는거 중지
                 Firebase.FirebaseException exception = task.Exception.InnerException as Firebase.FirebaseException;
                 switch ((AuthError)exception.ErrorCode)
                 {
@@ -95,13 +95,14 @@ public class SignUpPanel : BaseUI
                         _checkPopup.SetActive(true);
                         break;
                 }
+                */
 
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
                 return;
             }
+            // 체크팝업 _checkPopup.SetActive(true);
 
             // Firebase user has been created.
-            _checkPopup.SetActive(true);
             AuthResult result = task.Result;
             Debug.Log($"Firebase user created successfully: {result.User.DisplayName} ({result.User.UserId})");
             gameObject.SetActive(false);

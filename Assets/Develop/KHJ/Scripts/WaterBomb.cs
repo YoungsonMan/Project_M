@@ -27,8 +27,18 @@ public class WaterBomb : MonoBehaviour
         _delay = new WaitForSeconds(_lifeTime);
     }
 
+    private void OnDisable()
+    {
+        if(_deactiveCoroutine != null)
+        {
+            StopCoroutine(_deactiveCoroutine);
+            _deactiveCoroutine = null;
+        }
+    }
+
     private void Deactivate() => StartCoroutine(DeactivateRoutine());
 
+    private Coroutine _deactiveCoroutine;
     IEnumerator DeactivateRoutine()
     {
         yield return _delay;
@@ -61,8 +71,7 @@ public class WaterBomb : MonoBehaviour
     /// <returns>해당 위치에 물풍선 설치 가능 여부</returns>
     public bool SetLocation(Vector3 placerPosition)
     {
-        Vector3 offset = new(0, 0.5f, 0);
-        Vector3 location = new Vector3(Mathf.RoundToInt(placerPosition.x), 0, Mathf.RoundToInt(placerPosition.z)) + offset;
+        Vector3 location = new Vector3(Mathf.RoundToInt(placerPosition.x), 0, Mathf.RoundToInt(placerPosition.z));
 
         // Inspect validation of location
         Collider[] others = Physics.OverlapSphere(location, 0.3f, _layerMask);

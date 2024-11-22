@@ -14,8 +14,9 @@ public class WaterBombPlacer : MonoBehaviour
     [SerializeField] private int _defaultCapacity = 8;
     [Tooltip("Maximum pool size")]
     [SerializeField] private int _maxPoolSize = 8;
-    
+
     private ObjectPool<WaterBomb> _waterBombPool;
+    private PlayerStatus _playerStatus;
 
     private void Awake()
     {
@@ -26,6 +27,8 @@ public class WaterBombPlacer : MonoBehaviour
 
     private void Start()
     {
+        _playerStatus = GetComponent<PlayerStatus>();
+
         for (int i = 0; i < _maxPoolSize; i++)
         {
             CreateWaterBomb();
@@ -40,7 +43,8 @@ public class WaterBombPlacer : MonoBehaviour
             WaterBomb waterBomb = _waterBombPool.Get();
             if (waterBomb == null)
                 return;
-            
+
+            waterBomb.Range = (int)_playerStatus.power;
             waterBomb.SetLocation(transform.position);
         }
     }

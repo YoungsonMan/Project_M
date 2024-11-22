@@ -12,24 +12,24 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
-       preSpeed = speed;
+       //preSpeed = speed;
     }
 
     private void Update()
     {
         Debug.Log($"{speed}");
-        if (isBubble == false)
-        {
-            speed = preSpeed;
-        }
+        //if (isBubble == false)
+        //{
+        //    speed = preSpeed;
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "test")
-        {
-            preSpeed = speed;
-            speed = 0.5f;
-        }
+        //if(collision.gameObject.name == "test")
+        //{
+        //    preSpeed = speed;
+        //    speed = 0.5f;
+        //}
     }
 }

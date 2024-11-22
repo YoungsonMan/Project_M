@@ -713,6 +713,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5323386283925807557, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
   m_PrefabInstance: {fileID: 5323386283648342097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2098898255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098898254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0ae311f5c97b34e833c1dfa63872d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterBombPrefab: {fileID: 3751117291715941344, guid: 0c023f6f3df1b1945b2d7fa8068aaa71, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 8
+  _maxPoolSize: 8
 --- !u!1001 &5323386283648342097
 PrefabInstance:
   m_ObjectHideFlags: 0

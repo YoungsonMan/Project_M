@@ -1,37 +1,33 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IExplosionInteractable
 {
-    private PlayerStatus _status;
+    private PlayerStatus _status;           // 플레이어 스탯 가져옴
 
-    [SerializeField] Rigidbody rigid;
+    [SerializeField] Rigidbody rigid;       // 이동을 위한 rigidbody
 
-    [SerializeField] Animator animator;
+    [SerializeField] Animator animator;     // 플레이어 애니메이션 실행
 
-    // public bool isBubble;
-    [SerializeField] GameObject bubble;
+    [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
+
+    private float preSpeed;
 
     private void Awake()
     {
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
-    }
-
-    private void Start()
-    {
-
+        preSpeed = _status.speed;
     }
 
     private void Update()
     {
-        // 플레이어 소유권자 일경우
+        // TODO : 플레이어 소유권자일 경우의 조건문 추가 필요
         Move();
 
-        // 폭탄 설치
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_status.isBubble == false)
         {
-            SetBoom();
+            _status.speed = preSpeed;
         }
     }
 
@@ -72,28 +68,27 @@ public class PlayerController : MonoBehaviour
         transform.forward = moveDir;
     }
 
-    public void SetBoom()
-    {
-        // TODO : 폭탄 설치
-    }
-
     // 충돌 감지
     private void OnCollisionEnter(Collision collision)
     {
-        // 물줄기에 닿았을 경우
-        if (collision.gameObject.name == "test")
-        {
-            Debug.Log("물방울에 갇힘!");
-            _status.isBubble = true;
+        //// 물줄기에 닿았을 경우
+        //if (collision.gameObject.name == "test")
+        //{
+        //    Debug.Log("물방울에 갇힘!");
 
-            // 이동 함수 실행 중 넘어왔을 경우의 초기화?
-            //rigid.velocity = Vector3.zero;
-            //animator.SetBool("Move", false);
+        //    _status.isBubble = true;
+        //    bubble.SetActive(true);
+        //}
+    }
 
-            // 갇혔을때 느리게 이동을 위한 
+    public bool Interact()
+    {
+        Debug.Log("물방울에 갇힘!");
 
-            bubble.SetActive(true);
-        }
+        _status.isBubble = true;
+        bubble.SetActive(true);
+        _status.speed = 0.5f;
 
+        return false;
     }
 }

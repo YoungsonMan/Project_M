@@ -77,6 +77,6 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
         _status.isBubble = true;
         bubble.SetActive(true);
 
-        return false;
+        return true;
     }
 }

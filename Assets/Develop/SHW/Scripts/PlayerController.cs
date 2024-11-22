@@ -43,10 +43,10 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
         }
 
         // 계속 이동 방지
-        if (moveDir.magnitude < 0.1)
-        {
-            rigid.velocity = Vector3.zero;
-        }
+        //if (moveDir.magnitude < 0.1)
+        //{
+        //    rigid.velocity = Vector3.zero;
+        //}
 
         // 동시 입력 시 다른 방향 움직임 제한
         if (moveDir.x != 0)
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
 
     public bool Interact()
     {
-        Debug.Log("물방울에 갇힘!");
+        // Debug.Log("물방울에 갇힘!");
 
         _status.isBubble = true;
         bubble.SetActive(true);

@@ -26,7 +26,7 @@ public class Bubble : MonoBehaviour
 
     IEnumerator BubbleRoutine()
     {
-        Debug.Log("코루틴 시작");
+        // Debug.Log("코루틴 시작");
         // (임시) 5초 뒤에 터지는 것으로 작성
         yield return new WaitForSeconds(5f);
         bubble.SetActive(false);

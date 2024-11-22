@@ -808,6 +808,7 @@ GameObject:
   - component: {fileID: 4933010848008553555}
   - component: {fileID: 4933010848008553549}
   - component: {fileID: 4933010848008553554}
+  - component: {fileID: 8778489441878398935}
   m_Layer: 5
   m_Name: RoomEntry
   m_TagString: Untagged
@@ -879,6 +880,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8778489441878398935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4933010848008553552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2c4af69948fd141a7b0a919d27ba2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roomName: {fileID: 0}
+  _currentPlayer: {fileID: 0}
+  _joinRoomButton: {fileID: 0}
 --- !u!1 &4933010848388649647
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +907,7 @@ GameObject:
   - component: {fileID: 4933010848388649640}
   - component: {fileID: 4933010848388649641}
   m_Layer: 5
-  m_Name: RoomMiniMap
+  m_Name: RoomMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

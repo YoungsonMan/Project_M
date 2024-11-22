@@ -103,6 +103,7 @@ public class LoginPanel : BaseUI
                Debug.Log($"User signed in successfully: {result.User.DisplayName} ({result.User.UserId})");
                CheckUserInfo();
            });
+
         
     }
     public void CheckUserInfo()
@@ -118,12 +119,12 @@ public class LoginPanel : BaseUI
 
         if (user.IsEmailVerified == false)
         {
-            // TODO: 이메일 인증창(Panel) 생성후 창 활성화
+            // 이메일인증 안됐으면 인증창 활성화
             _verificationPanel.gameObject.SetActive(true);
         }
         else if (user.DisplayName == "")
         {
-            // TODO: 닉네임 없으면 닉네임 만드는창 활성화
+            // 닉네임 없으면 닉네임 만드는창 활성화
             _nicknamePanel.gameObject.SetActive(true);
         }
         else

@@ -13,7 +13,7 @@ public class IncreaseBoamItem : ItemBase
         if (playerStatus)
         {
             Debug.Log("풍선의 갯수가 증가 합니다.");
-            //playerStatus.bombCount += balloonCountIncrease;
+            playerStatus.bombCount += balloonCountIncrease;
         }
     }
 }

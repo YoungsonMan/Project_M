@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemBase : MonoBehaviour
+public abstract class ItemBase : MonoBehaviour, IExplosionInteractable
 {
     public string itemName;         // 아이템 이름
     public bool isPickup = false;   // 아이템이 픽업되었는지 여부
@@ -46,5 +46,11 @@ public abstract class ItemBase : MonoBehaviour
     {
         Debug.Log($"{itemName}이(가) 물줄기에 의해 제거되었습니다.");
         Destroy(gameObject);
+    }
+
+    public virtual bool Interact()
+    {
+        OnHitByWaterStream();
+        return true;
     }
 }

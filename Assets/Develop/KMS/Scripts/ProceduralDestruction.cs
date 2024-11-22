@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralDestruction : MonoBehaviour
+public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
 {
     [Header("부서지는 벽 세팅")]
     public int fragmentsCount = 10;         // 부서지는 조각 갯수
@@ -149,5 +149,11 @@ public class ProceduralDestruction : MonoBehaviour
 
             Debug.Log("아이템 생성: " + item.name);
         }
+    }
+
+    public bool Interact()
+    {
+        DestroyObject();
+        return true;
     }
 }

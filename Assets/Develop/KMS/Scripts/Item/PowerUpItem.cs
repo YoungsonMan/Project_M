@@ -13,7 +13,7 @@ public class PowerUpItem : ItemBase
         if (playerStatus)
         {
             Debug.Log("파워가 증가 합니다.");
-            //playerStatus.power += powerIncrease;
+            playerStatus.power += powerIncrease;
         }
     }
 }

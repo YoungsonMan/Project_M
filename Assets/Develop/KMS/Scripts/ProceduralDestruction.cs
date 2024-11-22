@@ -28,7 +28,7 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
         }
     }
 
-    private void Awake()
+    private void OnEnable()
     {
         // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
         if (playerColliders == null)
@@ -83,15 +83,17 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
 
-            // 모든 Player와의 충돌 무시
-            Collider fragmentCollider = fragment.GetComponent<Collider>();
-            if (fragmentCollider != null)
-            {
-                foreach (Collider playerCollider in playerColliders)
-                {
-                    Physics.IgnoreCollision(fragmentCollider, playerCollider);
-                }
-            }
+            //// 모든 Player와의 충돌 무시
+            //Collider fragmentCollider = fragment.GetComponent<Collider>();
+            //if (fragmentCollider != null)
+            //{
+            //    Debug.Log("동작");
+
+            //    foreach (Collider playerCollider in playerColliders)
+            //    {
+            //        Physics.IgnoreCollision(fragmentCollider, playerCollider);
+            //    }
+            //}
         }
 
         // 아이템 생성 확률에 따라 스폰

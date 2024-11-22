@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 851820315}
   - component: {fileID: 851820314}
   - component: {fileID: 851820317}
+  - component: {fileID: 1725356303773676155}
   m_Layer: 3
   m_Name: Bubble
   m_TagString: Untagged
@@ -99,6 +100,20 @@ SphereCollider:
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &851820317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851820312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bd6792a98dfa42bd00166360487cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5323386283925807557}
+  bubble: {fileID: 851820312}
+--- !u!114 &1725356303773676155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,8 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  power: 0
-  bombCount: 0
+  power: 1
+  bombCount: 1
   isBubble: 0
 --- !u!114 &2098898255
 MonoBehaviour:

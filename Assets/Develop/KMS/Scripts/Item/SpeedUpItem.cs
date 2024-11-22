@@ -13,7 +13,7 @@ public class SpeedUpItem : ItemBase
         if (playerStatus)
         {
             Debug.Log("스피드가 증가 합니다.");
-            //playerStatus.speed += speedIncreaseAmount;
+            playerStatus.speed += speedIncreaseAmount;
         }
     }
 }

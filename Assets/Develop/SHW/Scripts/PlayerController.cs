@@ -10,25 +10,20 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
 
     [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
 
-    private float preSpeed;
+    // 물방울 안에 갇혔을 때 속도 느리게 설정
+    private float bubbleSpeed = 0.5f;
 
     private void Awake()
     {
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
-        preSpeed = _status.speed;
     }
 
     private void Update()
     {
         // TODO : 플레이어 소유권자일 경우의 조건문 추가 필요
         Move();
-
-        if (_status.isBubble == false)
-        {
-            _status.speed = preSpeed;
-        }
     }
 
     public void Move()
@@ -64,21 +59,15 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
         }
 
         // 리지드 바디로 이동
-        rigid.velocity = moveDir.normalized * _status.speed;
+        if (_status.isBubble == true)
+        {
+            rigid.velocity = moveDir.normalized * bubbleSpeed;
+        }
+        else
+        {
+            rigid.velocity = moveDir.normalized * _status.speed;
+        }
         transform.forward = moveDir;
-    }
-
-    // 충돌 감지
-    private void OnCollisionEnter(Collision collision)
-    {
-        //// 물줄기에 닿았을 경우
-        //if (collision.gameObject.name == "test")
-        //{
-        //    Debug.Log("물방울에 갇힘!");
-
-        //    _status.isBubble = true;
-        //    bubble.SetActive(true);
-        //}
     }
 
     public bool Interact()
@@ -87,7 +76,6 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
 
         _status.isBubble = true;
         bubble.SetActive(true);
-        _status.speed = 0.5f;
 
         return false;
     }

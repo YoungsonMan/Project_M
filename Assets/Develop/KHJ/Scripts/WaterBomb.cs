@@ -16,10 +16,14 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     private WaitForSeconds _delay;
     private ObjectPool<WaterBomb> _objectPool;
 
+    private bool _isExploded;
+
     public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
 
     private void OnEnable()
     {
+        _isExploded = false;
+
         Deactivate();
     }
 
@@ -49,6 +53,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private void Explode()
     {
+        _isExploded = true;
+
         int upEnd = _range;
         int downEnd = _range;
         int rightEnd = _range;
@@ -91,7 +97,6 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         {
             if (Physics.Raycast(origin + offset, direction, out hit, 1f, _judgeLayerMask))
             {
-                Debug.Log("Something hit by ray");
                 // Find IExplosionInteractable
                 IExplosionInteractable interactable = null;
                 Transform curTransform = hit.transform;
@@ -106,13 +111,11 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
                 if (interactable == null)
                     break;
-                Debug.Log("It was interactable");
 
                 // Interact
                 isContinue = interactable.Interact();
                 if (!isContinue)
                     break;
-                Debug.Log("It continued waterstream");
             }
 
             offset += direction;
@@ -143,8 +146,10 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     public bool Interact()
     {
-        Debug.Log("Explode by other waterbomb");
-        Explode();
+        if (!_isExploded)
+        {
+            Explode();
+        }
         return false;
     }
 }

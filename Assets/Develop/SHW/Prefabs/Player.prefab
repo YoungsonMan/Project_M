@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 851820316}
   - component: {fileID: 851820315}
   - component: {fileID: 851820314}
+  - component: {fileID: 851820317}
   m_Layer: 3
   m_Name: Bubble
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 851820312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5323386283925807556}
@@ -92,11 +93,25 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851820312}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &851820317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851820312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bd6792a98dfa42bd00166360487cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5323386283925807557}
+  bubble: {fileID: 851820312}
 --- !u!1 &5323386283925807557
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,9 +126,10 @@ GameObject:
   - component: {fileID: 815692183}
   - component: {fileID: 815692182}
   - component: {fileID: 2098898258}
+  - component: {fileID: 2098898255}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: 2098898257}
   animator: {fileID: 815692183}
-  isBubble: 0
   bubble: {fileID: 851820312}
 --- !u!114 &2098898258
 MonoBehaviour:
@@ -217,6 +232,23 @@ MonoBehaviour:
   speed: 5
   power: 0
   bombCount: 0
+  isBubble: 0
+--- !u!114 &2098898255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323386283925807557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0ae311f5c97b34e833c1dfa63872d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterBombPrefab: {fileID: 3751117291715941344, guid: 0c023f6f3df1b1945b2d7fa8068aaa71, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 8
+  _maxPoolSize: 8
 --- !u!1001 &5323386284024206403
 PrefabInstance:
   m_ObjectHideFlags: 0

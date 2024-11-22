@@ -8,7 +8,6 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _range = 1;
     [SerializeField] private LayerMask _waterBombLayerMask;
-    [SerializeField] private LayerMask _judgeLayerMask;
 
     [Header("Explosion Effect")]
     [SerializeField] GameObject _effect;
@@ -91,7 +90,7 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
         for(int range = 0; range < maxRange; range++)
         {
-            if (Physics.Raycast(origin + offset, direction, out hit, 1f, _judgeLayerMask))
+            if (Physics.Raycast(origin + offset, direction, out hit, 1f))
             {
                 // Find IExplosionInteractable
                 IExplosionInteractable interactable = null;

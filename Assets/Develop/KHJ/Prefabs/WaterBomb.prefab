@@ -69,6 +69,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Body
       objectReference: {fileID: 0}
+    - target: {fileID: 8312367346019621673, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8651598107160478099, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
       propertyPath: m_RootOrder
       value: 0

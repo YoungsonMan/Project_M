@@ -19,6 +19,7 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     private bool _isExploded;
 
     public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
+    public int Range { set { _range = value; } }
 
     private void OnEnable()
     {

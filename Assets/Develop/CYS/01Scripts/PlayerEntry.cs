@@ -10,10 +10,22 @@ using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerEntry : BaseUI
 {
-    [SerializeField] TMP_Text _readyText;
+    // [SerializeField] GameObject _playerImage; ("PlayerImage") ³ªÁß¿¡ 
     [SerializeField] TMP_Text _nameText;
+    [SerializeField] TMP_Text _readyText;
     [SerializeField] Button _readyButton;
 
+    private void OnEnable()
+    {
+        Init();        
+    }
+    private void Init()
+    {
+        _nameText = GetUI<TMP_Text>("PlayerNameText");
+        _readyText = GetUI<TMP_Text>("ReadyText");
+        _readyButton = GetUI<Button>("");
+
+    }
     public void SetPlayer(Player player)
     {
         if(player.IsMasterClient)

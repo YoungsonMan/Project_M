@@ -39,6 +39,7 @@ public class RoomPanel : BaseUI
     }
     private void Init()
     {
+        GetUI<Button>("PreviousButton").onClick.AddListener(LeaveRoom);
         _startButton = GetUI<Button>("StartButton");
         _startButton.onClick.AddListener(StartGame);
     }
@@ -112,7 +113,7 @@ public class RoomPanel : BaseUI
     }
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel("GameScene"); // 게임 연결하면서 이름따라서 변경
+        PhotonNetwork.LoadLevel("GameStartTest"); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 

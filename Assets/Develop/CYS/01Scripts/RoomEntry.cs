@@ -27,11 +27,22 @@ public class RoomEntry : BaseUI
     // RoomStatus, waiting => isOpen || started => !isOpen
     // RoomSetting, public => isOpen || private => !isOpen
 
+    private void OnEnable()
+    {
+        Init();
+    }
     public void SetRoomInfo(RoomInfo info)
     {
         _roomTitle.text = info.Name;
         _roomCapacity.text = $"{info.PlayerCount} / {info.MaxPlayers}";
         _roomJoinButton.interactable = info.PlayerCount < info.MaxPlayers;
+    }
+    private void Init()
+    {
+        _roomTitle = GetUI<TMP_Text>("RoomTitle");
+        _roomCapacity = GetUI<TMP_Text>("RoomCapacity");
+        _roomJoinButton = GetUI<Button>("RoomJoinButton");
+        _roomJoinButton.onClick.AddListener(JoinRoom);
     }
 
     public void JoinRoom()

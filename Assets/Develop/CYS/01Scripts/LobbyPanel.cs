@@ -93,7 +93,7 @@ public class LobbyPanel : BaseUI
         _createRoomText = GetUI<TMP_Text>("CreateRoomText");
 
         _quickStartButton = GetUI<Button>("QuickStartButton");
-        // _quickStartButton.onClick.AddListener(); 랜덤조인 활성화해야됨
+        _quickStartButton.onClick.AddListener(RandomMatching); 
         _quickStartText = GetUI<TMP_Text>("QuickStartText");
 
         _roomListPanel = GetUI("RoomListPanel");
@@ -108,6 +108,8 @@ public class LobbyPanel : BaseUI
         GetUI<Button>("CreateRoomCancelButton").onClick.AddListener(CreateRoomCancel);
 
 
+
+       // UpdateRoomList();
        // TestLog();
     }
     private void TestLog()
@@ -154,6 +156,18 @@ public class LobbyPanel : BaseUI
 
         PhotonNetwork.CreateRoom(roomName, options); 
         // 방 패널 만들어야됨
+    }
+    public void RandomMatching()
+    {
+        Debug.Log("랜덤 매칭 요청");
+
+        // 비어 있는 방이 없으면 들어가지 않는 방식
+        // PhotonNetwork.JoinRandomRoom();
+
+        // 비어 있는 방이 없으면 새로 방을 만들어서 들어가는 방식
+        string name = $"Room {Random.Range(1000, 10000)}";
+        RoomOptions options = new RoomOptions() { MaxPlayers = 8 };
+        PhotonNetwork.JoinRandomOrCreateRoom(roomName: name, roomOptions: options);
     }
 
     public void UpdateRoomList(List<RoomInfo> roomList)

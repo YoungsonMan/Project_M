@@ -6,28 +6,29 @@ using Photon.Realtime;
 
 public class LobbyScene : MonoBehaviourPunCallbacks
 {
-    public enum Panel { Login, Menu, Lobby, Room } // 메인메뉴에 로비가 같이있어서 음..???
+    public enum Panel { Login, Lobby, Room } // 메인메뉴에 로비가 같이있어서 음..???
 
     [SerializeField] LoginPanel _loginPanel;
-    [SerializeField] MainPanel _mainPanel;
+    // [SerializeField] MainPanel _mainPanel;
     [SerializeField] LobbyPanel _lobbyPanel;
     [SerializeField] RoomPanel _roomPanel;
 
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        if (PhotonNetwork.InRoom)
+        if (PhotonNetwork.InRoom == true)
         {
             SetActivePanel(Panel.Room);
+        }
+        else if (PhotonNetwork.IsConnected)
+        {
+           // PhotonNetwork.InLobby;
+            SetActivePanel(Panel.Lobby);
         }
         else if (PhotonNetwork.InLobby)
         {
             SetActivePanel(Panel.Lobby);
         }
-       // else if (PhotonNetwork.IsConnected)
-       // {
-       //     SetActivePanel(Panel.Menu);
-       // }
         else
         {
             SetActivePanel(Panel.Login);
@@ -48,6 +49,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         Debug.Log("접속에 성공했다! (OnConnectedToMaster)");
        // SetActivePanel(Panel.Menu);
         SetActivePanel(Panel.Lobby);
+        PhotonNetwork.JoinLobby();
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -60,13 +62,13 @@ public class LobbyScene : MonoBehaviourPunCallbacks
          SetActivePanel(Panel.Lobby);
         // 같이 입장해야되서 일단 이런식으로 되면안됨
     }
-    public override void OnLeftLobby()
-    {
-        Debug.Log("로비 퇴장 성공");
-        _lobbyPanel.ClearRoomEntries();
-        SetActivePanel(Panel.Menu);
-    }
-
+   // public override void OnLeftLobby()
+   // {
+   //     Debug.Log("로비 퇴장 성공");
+   //     _lobbyPanel.ClearRoomEntries();
+   //     SetActivePanel(Panel.Menu);
+   // }
+   // 로비가 메인씬이라 딱히 필요가 없음.
 
 
     public override void OnJoinedRoom()
@@ -77,7 +79,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         Debug.Log("방 퇴장 성공");
-        SetActivePanel(Panel.Menu);
+        SetActivePanel(Panel.Lobby);
     }
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {

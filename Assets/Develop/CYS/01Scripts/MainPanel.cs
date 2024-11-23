@@ -46,11 +46,11 @@ public class MainPanel : BaseUI
     {
         _lobbyPanel = GetUI("LobbyPanel");
         _logOutButton = GetUI<Button>("LogOutButton");
-        _logOutText = GetUI<TMP_Text>("LogOutText");
-        
-        
-        TestLog();
-        
+        _logOutButton = GetUI<Button>("LogOutButton");
+        _logOutButton.onClick.AddListener(LogOut);
+
+        // TestLog();
+
     }
 
     public void JoinLobby()

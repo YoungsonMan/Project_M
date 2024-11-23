@@ -14,6 +14,7 @@ public class PlayerEntry : BaseUI
     [SerializeField] TMP_Text _nameText;
     [SerializeField] TMP_Text _readyText;
     [SerializeField] Button _readyButton;
+    [SerializeField] GameObject _readyButtonText;
 
     private void OnEnable()
     {
@@ -21,9 +22,11 @@ public class PlayerEntry : BaseUI
     }
     private void Init()
     {
-      //  _nameText = GetUI<TMP_Text>("PlayerNameText");
-      //  _readyText = GetUI<TMP_Text>("ReadyText");
-      //  _readyButton = GetUI<Button>("ReadyButton");
+        _nameText = GetUI<TMP_Text>("PlayerNameText");
+        _readyText = GetUI<TMP_Text>("ReadyText");
+        _readyButton = GetUI<Button>("ReadyButton");
+        _readyButtonText = GetUI("ReadyButtonText");
+        _readyButton.onClick.AddListener(Ready);
 
     }
     public void SetPlayer(Player player)
@@ -71,11 +74,13 @@ public class PlayerEntry : BaseUI
             PhotonNetwork.LocalPlayer.SetReady(true);
             _readyText.text = "Ready";
             Debug.Log($"준비상태: {ready}");
+            _readyButtonText.SetActive(false);
         }
         else
         {
             PhotonNetwork.LocalPlayer.SetReady(false);
             _readyText.text = "";
+            _readyButtonText.SetActive(true);
         }
     }
 

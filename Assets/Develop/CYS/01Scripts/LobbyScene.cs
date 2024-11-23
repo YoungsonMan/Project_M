@@ -24,10 +24,10 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         {
             SetActivePanel(Panel.Lobby);
         }
-        else if (PhotonNetwork.IsConnected)
-        {
-            SetActivePanel(Panel.Menu);
-        }
+       // else if (PhotonNetwork.IsConnected)
+       // {
+       //     SetActivePanel(Panel.Menu);
+       // }
         else
         {
             SetActivePanel(Panel.Login);
@@ -37,17 +37,17 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     private void SetActivePanel(Panel panel)
     {
         _loginPanel.gameObject.SetActive(panel == Panel.Login);
-        _mainPanel.gameObject.SetActive(panel == Panel.Menu);
+        //_mainPanel.gameObject.SetActive(panel == Panel.Menu);
+        _lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
         _roomPanel.gameObject.SetActive(panel == Panel.Room);
-        //_lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
         // 껏다켰따하는구조라 같이돌면 서로 돌면서 서로 꺼줌
 
     }
     public override void OnConnectedToMaster()
     {
         Debug.Log("접속에 성공했다! (OnConnectedToMaster)");
-        SetActivePanel(Panel.Menu);
-       // SetActivePanel(Panel.Lobby);
+       // SetActivePanel(Panel.Menu);
+        SetActivePanel(Panel.Lobby);
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -57,7 +57,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("로비 입장 성공");
-        // SetActivePanel(Panel.Lobby);
+         SetActivePanel(Panel.Lobby);
         // 같이 입장해야되서 일단 이런식으로 되면안됨
     }
     public override void OnLeftLobby()

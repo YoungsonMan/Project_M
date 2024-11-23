@@ -54,6 +54,7 @@ public class RoomPanel : BaseUI
         Debug.Log($"User ID: \t\t {user.UserId}");
         Debug.Log("");
     }
+   
     public void UpdatePlayers()
     {
         foreach (PlayerEntry entry in _playerEntries)

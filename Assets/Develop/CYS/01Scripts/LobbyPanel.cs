@@ -24,6 +24,36 @@ public class LobbyPanel : BaseUI
      *                  - RLSBSAHandle
      *      
      */
+    /* Objects in UI
+     * + UserInfoDropdown (캐릭터정보창 / dropdownButton) 상시오픈 버튼누르면 올라가기
+     *  - UserInfoLabel
+     *  - UserInfoArrow (downArrow Image)
+     *  - UserInfoTemplate
+     *      - UserInfoViewport
+     *          - UserInfoContent
+     *              - UserInfoList
+     *                  - UserInfoListBackground   // 얘들은 없앨수도??
+     *                  - UserInfoListCheckmark
+     *                  - UserInfoListLabel
+     *
+     * + LobbyPanel // 얘는 따로 스크립트 또 붙여서 운영
+     * 
+     * + LogOutButton
+     *  - LogOutText
+     * 
+     */
+    [SerializeField] TMP_Dropdown _userInfoDropdown;
+    // TODO : 유저 데이터베이스 구성으로 따라 뭘 보여줄지 의논해보고 구성하기.
+
+    // mainPanel
+
+    // [SerializeField] GameObject _lobbyPanel;
+    [SerializeField] GameObject _mainPanel;  //뒤에 그냥 배경벽지
+    [SerializeField] Button _logOutButton;
+    [SerializeField] TMP_Text _logOutText;
+    // -----------------------------------------------
+
+
 
     [SerializeField] GameObject _lobbyPanel;
     [SerializeField] Button _createRoomButton;
@@ -48,6 +78,15 @@ public class LobbyPanel : BaseUI
     }
     public void Init()
     {
+        // from mainPanel
+
+        _mainPanel = GetUI("MainPanel");
+
+        _logOutButton = GetUI<Button>("LogOutButton");
+        _logOutButton.onClick.AddListener(LogOut);
+        _logOutText = GetUI<TMP_Text>("LogOutText");
+
+
         _lobbyPanel = GetUI("LobbyPanel");
         _createRoomButton = GetUI<Button>("CreateRoomButton");
         _createRoomButton.onClick.AddListener(CreateRoomMenu);
@@ -69,7 +108,7 @@ public class LobbyPanel : BaseUI
         GetUI<Button>("CreateRoomCancelButton").onClick.AddListener(CreateRoomCancel);
 
 
-        TestLog();
+       // TestLog();
     }
     private void TestLog()
     {
@@ -155,6 +194,13 @@ public class LobbyPanel : BaseUI
             Destroy(roomDictionary[name].gameObject);
         }
         roomDictionary.Clear();
+    }
+
+    // From mainPanel
+    public void LogOut()
+    {
+        Debug.Log("로그아웃 테스트 로그");
+        PhotonNetwork.Disconnect();
     }
 
 }

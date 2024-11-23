@@ -11,7 +11,7 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
     public GameObject fragmentPrefab;       // 부서진 조각
     public Transform parentContainer;       // 부서진 조각들을 담을 곳
 
-    private static List<Collider> playerColliders; // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
+    private List<Collider> playerColliders; // Player 태그를 가진 모든 캐릭터의 Collider 리스트
 
     [Header("아이템 스폰 설정")]
     public GameObject[] itemPrefabs;        // 생성될 아이템 프리팹
@@ -28,7 +28,7 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
         if (playerColliders == null)
@@ -83,17 +83,17 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
 
-            //// 모든 Player와의 충돌 무시
-            //Collider fragmentCollider = fragment.GetComponent<Collider>();
-            //if (fragmentCollider != null)
-            //{
-            //    Debug.Log("동작");
+            // 모든 Player와의 충돌 무시
+            Collider fragmentCollider = fragment.GetComponent<Collider>();
+            if (fragmentCollider != null)
+            {
+                Debug.Log("동작");
 
-            //    foreach (Collider playerCollider in playerColliders)
-            //    {
-            //        Physics.IgnoreCollision(fragmentCollider, playerCollider);
-            //    }
-            //}
+                foreach (Collider playerCollider in playerColliders)
+                {
+                    Physics.IgnoreCollision(fragmentCollider, playerCollider);
+                }
+            }
         }
 
         // 아이템 생성 확률에 따라 스폰
@@ -156,6 +156,6 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
     public bool Interact()
     {
         DestroyObject();
-        return true;
+        return false;
     }
 }

@@ -5,7 +5,7 @@ Shader "Custom/DissolveShader"
         _MainTex ("Texture", 2D) = "white" {}
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _DissolveAmount ("Dissolve Amount", Range(0,1)) = 0
-        _EdgeColor ("Edge Color", Color) = (1, 0.5, 0, 1)
+        _EdgeColor ("Edge Color", Color) = (0.1, 0.1, 0.1, 1)
     }
     SubShader
     {

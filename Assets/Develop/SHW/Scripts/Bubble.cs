@@ -10,16 +10,19 @@ public class Bubble : MonoBehaviour
 
     private PlayerStatus _status;
     private Animator _animator;
+    private WaterBombPlacer _placer;
 
     private void Awake()
     {
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
+        _placer = player.GetComponent<WaterBombPlacer>();
     }
 
     private void OnEnable()
     {
         _animator.SetBool("isBubble", true);
+        _placer.enabled = false;
         // n초 후 물방울 비활성화
         StartCoroutine(BubbleRoutine());
     }
@@ -45,6 +48,7 @@ public class Bubble : MonoBehaviour
             bubble.SetActive(false);
             _animator.SetBool("isBubble", false);
             _status.isBubble = false;
+            _placer.enabled = true;
         }
         // 적이 방울을 터치할 경우
         if (other.gameObject.name == "testEnemy")

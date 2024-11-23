@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using System.Drawing;
+//using System.Drawing;
 using TMPro;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
@@ -21,9 +21,9 @@ public class PlayerEntry : BaseUI
     }
     private void Init()
     {
-        _nameText = GetUI<TMP_Text>("PlayerNameText");
-        _readyText = GetUI<TMP_Text>("ReadyText");
-        _readyButton = GetUI<Button>("");
+      //  _nameText = GetUI<TMP_Text>("PlayerNameText");
+      //  _readyText = GetUI<TMP_Text>("ReadyText");
+      //  _readyButton = GetUI<Button>("ReadyButton");
 
     }
     public void SetPlayer(Player player)
@@ -44,6 +44,7 @@ public class PlayerEntry : BaseUI
         if (player.GetReady())
         {
             _readyText.text = "Ready";
+            // _readyButton.transition.;
         }
         else
         {

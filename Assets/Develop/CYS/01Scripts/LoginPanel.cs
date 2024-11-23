@@ -23,6 +23,7 @@ public class LoginPanel : BaseUI
     private void OnEnable()
     {
         Init();
+        TestLogin();
     }
   //  private void Start()
   //  {
@@ -59,6 +60,16 @@ public class LoginPanel : BaseUI
         _signUpPanel = GetUI("SignUpPanel");
         
     }
+
+    /// <summary>
+    /// 테스트 편하게하려는 로그인 코드
+    /// </summary>
+    public void TestLogin()
+    {
+        _emailInputField.text = "ysc1350@gmail.com";
+        _pwInputField.text = "q1w2e3r4";
+    }
+
 
     public void SubscirbesEvents()
     {

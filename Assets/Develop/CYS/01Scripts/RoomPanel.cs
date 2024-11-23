@@ -6,6 +6,7 @@ using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
+using Firebase.Auth;
 
 
 public class RoomPanel : BaseUI
@@ -15,16 +16,43 @@ public class RoomPanel : BaseUI
 
     private void OnEnable()
     {
+        UpdatePlayers();
 
-        
+        PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
+
+        PhotonNetwork.LocalPlayer.SetReady(false);
+        PhotonNetwork.LocalPlayer.SetLoad(false);
+
+
+        // 레디상태 체크로그
+        bool ready = PhotonNetwork.LocalPlayer.GetReady();
+        Debug.Log($"레디상태: {ready}");
+
+        Init();
+
+        // TestLog();
+
     }
     private void OnDisable()
     {
-        
+        PlayerNumbering.OnPlayerNumberingChanged -= UpdatePlayers;
     }
     private void Init()
     {
-
+        _startButton = GetUI<Button>("StartButton");
+        _startButton.onClick.AddListener(StartGame);
+    }
+    private void TestLog()
+    {
+        FirebaseUser user = BackendManager.Auth.CurrentUser;
+        if (user == null)
+            return;
+        Debug.Log("룸패널 테스트로그");
+        Debug.Log($"Display Name: \t {user.DisplayName}");
+        Debug.Log($"Email Address: \t {user.Email}");
+        Debug.Log($"Email Verification: \t {user.IsEmailVerified}");
+        Debug.Log($"User ID: \t\t {user.UserId}");
+        Debug.Log("");
     }
     public void UpdatePlayers()
     {

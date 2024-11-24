@@ -25,7 +25,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
            // PhotonNetwork.InLobby;
             SetActivePanel(Panel.Lobby);
         }
-        else if (PhotonNetwork.InLobby)
+        else if (PhotonNetwork.InLobby)  // 이거 비활성화 해도 될지도.. 레디관련 테스트해봐야함
         {
             SetActivePanel(Panel.Lobby);
         }

@@ -117,7 +117,7 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
             GameObject fragment = Instantiate(fragmentPrefab, randomPos, Random.rotation); //Rpc로 변경 예정.
             
             // 조각의 크기를 무작위로 조정(다양성 부여)
-            float randomScale = Random.Range(0.1f, 0.4f);
+            float randomScale = Random.Range(0.5f, 1f);
             fragment.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             // 조각에 물리적 속성 추가
@@ -147,7 +147,7 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
         {
             // 아이템 프리팹 중 하나를 랜덤 선택
             int randomIndex = Random.Range(0, itemPrefabs.Length);
-            GameObject item = Instantiate(itemPrefabs[randomIndex], transform.position, Quaternion.identity);
+            GameObject item = Instantiate(itemPrefabs[randomIndex], transform.position, Quaternion.identity, parentContainer);
 
             Debug.Log("아이템 생성: " + item.name);
         }

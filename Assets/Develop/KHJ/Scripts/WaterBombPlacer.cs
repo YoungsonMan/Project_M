@@ -17,6 +17,7 @@ public class WaterBombPlacer : MonoBehaviour
 
     private ObjectPool<WaterBomb> _waterBombPool;
     private PlayerStatus _playerStatus;
+    [SerializeField] private int _curBombCount;
 
     private void Awake()
     {
@@ -37,28 +38,41 @@ public class WaterBombPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _waterBombPool.CountAll == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _curBombCount < _playerStatus.bombCount)
         {
             // Get waterbomb from pool
             WaterBomb waterBomb = _waterBombPool.Get();
             if (waterBomb == null)
                 return;
 
-            waterBomb.Range = (int)_playerStatus.power;
-            waterBomb.SetLocation(transform.position);
+            if (waterBomb.SetLocation(transform.position))
+            {
+                waterBomb.Range = (int)_playerStatus.power;
+            }
         }
     }
 
     #region ObjectPool Callbacks
     private WaterBomb CreateWaterBomb()
     {
+        _curBombCount++;
         WaterBomb waterBomb = Instantiate(_waterBombPrefab);
         waterBomb.ObjectPool = _waterBombPool;
         return waterBomb;
     }
 
-    private void OnGetFromPool(WaterBomb pooledObject) => pooledObject.gameObject.SetActive(true);
-    private void OnReleaseToPool(WaterBomb pooledObject) => pooledObject.gameObject.SetActive(false);
+    private void OnGetFromPool(WaterBomb pooledObject)
+    {
+        _curBombCount++;
+        pooledObject.gameObject.SetActive(true);
+    }
+
+    private void OnReleaseToPool(WaterBomb pooledObject)
+    {
+        pooledObject.gameObject.SetActive(false);
+        _curBombCount--;
+    }
+
     private void OnDestroyPooledObject(WaterBomb pooledObject) => Destroy(pooledObject.gameObject);
     #endregion
 }

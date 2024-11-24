@@ -1257,8 +1257,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2098898255, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
+      propertyPath: _maxPoolSize
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2098898258, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
       propertyPath: power
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098898258, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
+      propertyPath: bombCount
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5323386283925807556, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
@@ -1267,15 +1275,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5323386283925807556, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.059593
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5323386283925807556, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010025024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5323386283925807556, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4305434
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5323386283925807556, guid: 888100afd2def2e43bcdd19ee470d63b, type: 3}
       propertyPath: m_LocalRotation.w

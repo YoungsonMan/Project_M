@@ -13,7 +13,7 @@ Shader "Custom/DissolveShader"
         LOD 200
 
         CGPROGRAM
-        #pragma surface surf Lambert alpha:fade addshdow // 그림자 옵션 추가
+        #pragma surface surf Lambert alpha:fade // 그림자 옵션 추가
 
         sampler2D  _MainTex;
         sampler2D  _NoiseTex;

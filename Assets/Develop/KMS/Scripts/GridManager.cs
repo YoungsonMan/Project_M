@@ -60,13 +60,14 @@ public class GridManager : MonoBehaviour
             for (int x = 0; x < mapData.GetLength(1); x++)
             {
                 Vector3 position = new Vector3(x + offset.x, offset.y, -z + offset.z);
+                Vector3 WallPos = new Vector3(x + offset.x, 0.5f + offset.y, -z + offset.z);
                 Vector3 spawnPos = new Vector3(x + offset.x, -1f + offset.y, -z + offset.z);
                 GameObject tileObject = null;
 
                 switch (mapData[z, x])
                 {
                     case 1: // 벽
-                        tileObject = Instantiate(wallPrefab, position, Quaternion.identity, zParent.transform);
+                        tileObject = Instantiate(wallPrefab, WallPos, Quaternion.identity, zParent.transform);
                         break;
                     case 2: // 파괴 가능한 장애물
                         if (obstaclePrefabs != null && obstaclePrefabs.Count > 0)

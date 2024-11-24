@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public GameObject wallPrefab;       // 고정된 벽
-    public GameObject obstaclePrefab;   // 파괴 가능한 장애물
+    public List<GameObject> obstaclePrefabs;   // 파괴 가능한 장애물
     public GameObject spawnPointPrefab; // 플레이어 스폰 지점
     public GameObject groundPlane;      // 바닥 Plane
     public Vector3 offset;              // 맵 전체 위치 조정
@@ -69,7 +69,11 @@ public class GridManager : MonoBehaviour
                         tileObject = Instantiate(wallPrefab, position, Quaternion.identity, zParent.transform);
                         break;
                     case 2: // 파괴 가능한 장애물
-                        tileObject = Instantiate(obstaclePrefab, position, Quaternion.identity, zParent.transform);
+                        if (obstaclePrefabs != null && obstaclePrefabs.Count > 0)
+                        {
+                            GameObject randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)];
+                            tileObject = Instantiate(randomObstacle, position, Quaternion.identity, zParent.transform);
+                        }
                         break;
                     case 3: // 스폰 지점
                         tileObject = Instantiate(spawnPointPrefab, spawnPos, Quaternion.identity, zParent.transform);

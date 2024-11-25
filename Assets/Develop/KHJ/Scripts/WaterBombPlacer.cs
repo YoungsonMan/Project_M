@@ -43,19 +43,22 @@ public class WaterBombPlacer : MonoBehaviourPun
         {
             if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _curBombCount < _playerStatus.bombCount)
             {
-                photonView.RPC(nameof(PlaceBomb), RpcTarget.AllViaServer);
+                photonView.RPC(nameof(PlaceBomb), RpcTarget.All);
             }
         }
     }
 
     [PunRPC]
-    private void PlaceBomb()
+    private void PlaceBomb(PhotonMessageInfo info)
     {
+        float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+
         // Get waterbomb from pool
         WaterBomb waterBomb = _waterBombPool.Get();
         if (waterBomb == null)
             return;
 
+        waterBomb.Lag = lag;
         if (waterBomb.SetLocation(transform.position))
         {
             waterBomb.Range = (int)_playerStatus.power;

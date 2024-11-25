@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SpawnPointManager : MonoBehaviour
 {
-    private List<Vector3> spawnPoints = new List<Vector3>();
+    public List<Vector3> spawnPoints;
 
+    private void OnEnable()
+    {
+        LoadSpawnPoints();
+    }
 
-    public List<Vector3> GetSpawnPoints()
+    public void LoadSpawnPoints()
     {
         if (spawnPoints.Count == 0)
         {
@@ -22,7 +26,5 @@ public class SpawnPointManager : MonoBehaviour
                 spawnPoints.Add(pos);
             }
         }
-
-        return spawnPoints;
     }
 }

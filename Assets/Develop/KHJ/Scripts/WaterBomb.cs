@@ -34,6 +34,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private void OnDisable()
     {
+        transform.position = new Vector3(-50, 0, -50);  // setting zone
+
         if(_deactiveCoroutine != null)
         {
             StopCoroutine(_deactiveCoroutine);

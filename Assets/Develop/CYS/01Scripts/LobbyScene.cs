@@ -49,7 +49,9 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         }
 
         // From ChatManager
-        // PhotonNetwork.ConnectUsingSettings();
+        // PhotonNetwork.ConnectUsingSettings(); 
+        // 위 함수는 connects to a dedicated server that provides rooms, matchmaking, and communication
+        // 지금 상황에서는 바로 방으로 연결되버려서 쓸 수 없음.
         _chatDisplay = _chatContent.transform.GetChild(0).gameObject;
         _photonView = GetComponent<PhotonView>();
         Debug.Log("ChatManager테스트 디버그@Start");

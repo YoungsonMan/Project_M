@@ -83,9 +83,18 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     {
         // Debug.Log("¹°¹æ¿ï¿¡ °¤Èû!");
 
-        _status.isBubble = true;
-        bubble.SetActive(true);
+        //_status.isBubble = true;
+        //bubble.SetActive(true);
+
+        photonView.RPC("BubbledRPC", RpcTarget.All);
 
         return true;
+    }
+
+    [PunRPC]
+    public void BubbledRPC()
+    {
+        _status.isBubble = true;
+        bubble.SetActive(true);
     }
 }

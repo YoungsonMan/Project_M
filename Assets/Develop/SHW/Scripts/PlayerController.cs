@@ -1,6 +1,7 @@
+using Photon.Pun;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IExplosionInteractable
+public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 {
     private PlayerStatus _status;           // 플레이어 스탯 가져옴
 
@@ -22,7 +23,9 @@ public class PlayerController : MonoBehaviour, IExplosionInteractable
 
     private void Update()
     {
-        // TODO : 플레이어 소유권자일 경우의 조건문 추가 필요
+        if (photonView.IsMine == false)
+            return;
+
         Move();
     }
 

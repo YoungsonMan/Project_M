@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
             rigid.velocity = moveDir.normalized * _status.speed;
         }
 
-        Debug.Log($"{moveDir}");
+        // Debug.Log($"{moveDir}");
         // 입력이 없어도 방향을 유지
         if(moveDir.magnitude > 0.1)
         {

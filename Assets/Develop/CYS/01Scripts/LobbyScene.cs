@@ -3,6 +3,7 @@ using UnityEngine;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class LobbyScene : MonoBehaviourPunCallbacks
 {
@@ -12,6 +13,19 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     // [SerializeField] MainPanel _mainPanel;
     [SerializeField] LobbyPanel _lobbyPanel;
     [SerializeField] RoomPanel _roomPanel;
+
+
+    // ChatFunction
+    public GameObject _chatContent;
+    public TMP_InputField _chatInputField;
+
+    PhotonView _photonView;
+
+    GameObject _chatDisplay;
+
+    string _userName;
+
+
 
     private void Start()
     {
@@ -33,6 +47,20 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         {
             SetActivePanel(Panel.Login);
         }
+
+        // From ChatManager
+        // PhotonNetwork.ConnectUsingSettings();
+        _chatDisplay = _chatContent.transform.GetChild(0).gameObject;
+        _photonView = GetComponent<PhotonView>();
+        Debug.Log("ChatManager테스트 디버그@Start");
+
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && _chatInputField.isFocused == false)
+        {
+            _chatInputField.ActivateInputField();
+        }
     }
 
     private void SetActivePanel(Panel panel)
@@ -50,6 +78,8 @@ public class LobbyScene : MonoBehaviourPunCallbacks
        // SetActivePanel(Panel.Menu);
         SetActivePanel(Panel.Lobby);
         PhotonNetwork.JoinLobby();
+
+        _userName = PhotonNetwork.LocalPlayer.NickName;
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -59,7 +89,11 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("로비 입장 성공");
-         SetActivePanel(Panel.Lobby);
+        SetActivePanel(Panel.Lobby);
+
+        //Chat 관련 FromChatManager
+        AddChatMessage("connect user : " + PhotonNetwork.LocalPlayer.NickName);
+
         // 같이 입장해야되서 일단 이런식으로 되면안됨
     }
    // public override void OnLeftLobby()
@@ -126,6 +160,32 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     {
         Debug.LogWarning($"랜덤 매칭 실패, 사유 : {message}");
     }
+    public void OnEndEditEvent()
+    {
+       // if (Input.GetKeyDown(KeyCode.Return))
+       // {
+            Debug.Log("채팅엔터 테스트");
+            string strMessage = _userName + " : " + _chatInputField.text;
+
+            // target 받는이 모두에게 inputField에 적힌대로 
+            _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
+            _chatInputField.text = "";
+       // }
+    }
+
+    // From ChatManager 채팅관련 함수들
+    void AddChatMessage(string message)
+    {
+        GameObject goText = Instantiate(_chatDisplay, _chatContent.transform);
+        goText.GetComponent<TextMeshProUGUI>().text = message;
+        _chatDisplay.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+    }
+    [PunRPC]
+    void RPC_Chat(string message)
+    {
+        AddChatMessage(message);
+    }
+
 
 }
 

@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bubble : MonoBehaviour
+public class Bubble : MonoBehaviourPun
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject bubble;
@@ -51,7 +52,8 @@ public class Bubble : MonoBehaviour
             _placer.enabled = true;
         }
         // 적이 방울을 터치할 경우
-        if (other.gameObject.name == "testEnemy")
+        // (임시) 하여튼 플레이어가 와서 터치하면 터짐
+        if (other.gameObject.layer == 3)
         {
             bubble.SetActive(false);
             //_animator.SetBool("isBubble", false);

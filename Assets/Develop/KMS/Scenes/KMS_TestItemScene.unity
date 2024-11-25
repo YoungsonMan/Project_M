@@ -56802,6 +56802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapGenerate
       objectReference: {fileID: 0}
+    - target: {fileID: 5739775961978685414, guid: 1f25b795c421f9f4f9ee105bb689e070, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5739775961978685415, guid: 1f25b795c421f9f4f9ee105bb689e070, type: 3}
       propertyPath: wallPrefab
       value: 

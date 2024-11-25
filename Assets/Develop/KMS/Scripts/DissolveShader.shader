@@ -5,7 +5,7 @@ Shader "Custom/DissolveShader"
         _MainTex ("Texture", 2D) = "white" {}
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _DissolveAmount ("Dissolve Amount", Range(0,1)) = 0
-        _EdgeColor ("Edge Color", Color) = (1, 0.5, 0, 1)
+        _EdgeColor ("Edge Color", Color) = (0.1, 0.1, 0.1, 1)
     }
     SubShader
     {
@@ -13,7 +13,7 @@ Shader "Custom/DissolveShader"
         LOD 200
 
         CGPROGRAM
-        #pragma surface surf Lambert alpha:fade addshdow // 그림자 옵션 추가
+        #pragma surface surf Lambert alpha:fade // 그림자 옵션 추가
 
         sampler2D  _MainTex;
         sampler2D  _NoiseTex;

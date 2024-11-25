@@ -11,6 +11,9 @@ public class DissolveController : MonoBehaviour
     public float dissolveSpeed = 0.5f;      // 오브젝트가 소멸되는 속도 조절 변수
     public float delayTime = 1.5f;          // 딜레이 타임 지난 후 소멸 시작
 
+    private Color initialEdgeColor = new Color(0.1f, 0.1f, 0.1f, 1f); // 초기 색상
+    private Color finalEdgeColor = new Color(1f, 1f, 1f, 1f);
+
     private void Start()
     {
         // 원본 메터리얼 저장
@@ -19,13 +22,18 @@ public class DissolveController : MonoBehaviour
         // Dissolve 메터리얼 생성
         dissolveMaterial = new Material(dissolveShader);
 
-        // 원본 메터리얼의 텍스처와 색상 복사
-        dissolveMaterial.mainTexture = originalMaterial.mainTexture;
+        // Dissolve 메터리얼 생성
+        dissolveMaterial = new Material(dissolveShader)
+        {
+            mainTexture = originalMaterial.mainTexture
+        };
         dissolveMaterial.SetColor("_Color", originalMaterial.color);
         dissolveMaterial.SetTexture("_NoiseTex", noiseTexture);
+        dissolveMaterial.SetColor("_EdgeColor", initialEdgeColor);
 
-        // 소멸시작
-        StartDestruction();
+        // Dissolve 효과 시작
+        GetComponent<Renderer>().material = dissolveMaterial;
+        StartCoroutine(DissolveEffect());
     }
 
     /// <summary>
@@ -44,15 +52,28 @@ public class DissolveController : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
 
-        float dissolveAmount = 0;
+        // EdgeColor 변화 시작
+        float transitionTime = 0.5f;
+        float elapsedTime = 0f;
 
-        // 점진적 소멸.
+        while (elapsedTime < transitionTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            // EdgeColor를 점진적으로 변경
+            Color currentEdgeColor = Color.Lerp(initialEdgeColor, finalEdgeColor, elapsedTime / transitionTime);
+            dissolveMaterial.SetColor("_EdgeColor", currentEdgeColor);
+
+            yield return null;
+        }
+
+        // 소멸 진행
+        float dissolveAmount = 0f;
         while (dissolveAmount < 0.3f)
         {
             dissolveAmount += Time.deltaTime * dissolveSpeed;
             dissolveMaterial.SetFloat("_DissolveAmount", dissolveAmount);
             yield return null;
-
         }
 
         // 소멸 완료 후 오브젝트 제거.

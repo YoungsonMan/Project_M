@@ -113,7 +113,7 @@ public class RoomPanel : BaseUI
     }
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel("KMS_TestItemScene"); // 게임 연결하면서 이름따라서 변경
+        PhotonNetwork.LoadLevel("PlayerTestScene"); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 

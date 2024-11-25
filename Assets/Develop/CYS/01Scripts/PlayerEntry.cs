@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using System.Drawing;
+//using System.Drawing;
 using TMPro;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
@@ -14,6 +14,7 @@ public class PlayerEntry : BaseUI
     [SerializeField] TMP_Text _nameText;
     [SerializeField] TMP_Text _readyText;
     [SerializeField] Button _readyButton;
+    [SerializeField] GameObject _readyButtonText;
 
     private void OnEnable()
     {
@@ -23,7 +24,9 @@ public class PlayerEntry : BaseUI
     {
         _nameText = GetUI<TMP_Text>("PlayerNameText");
         _readyText = GetUI<TMP_Text>("ReadyText");
-        _readyButton = GetUI<Button>("");
+        _readyButton = GetUI<Button>("ReadyButton");
+        _readyButtonText = GetUI("ReadyButtonText");
+        _readyButton.onClick.AddListener(Ready);
 
     }
     public void SetPlayer(Player player)
@@ -44,6 +47,7 @@ public class PlayerEntry : BaseUI
         if (player.GetReady())
         {
             _readyText.text = "Ready";
+            // _readyButton.transition.;
         }
         else
         {
@@ -70,11 +74,13 @@ public class PlayerEntry : BaseUI
             PhotonNetwork.LocalPlayer.SetReady(true);
             _readyText.text = "Ready";
             Debug.Log($"준비상태: {ready}");
+            _readyButtonText.SetActive(false);
         }
         else
         {
             PhotonNetwork.LocalPlayer.SetReady(false);
             _readyText.text = "";
+            _readyButtonText.SetActive(true);
         }
     }
 

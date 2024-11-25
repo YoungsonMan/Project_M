@@ -38,14 +38,19 @@ public class MainPanel : BaseUI
     private void OnEnable()
     {
         Init();
+        _lobbyPanel.SetActive(true); 
+
     }
 
     private void Init()
     {
         _lobbyPanel = GetUI("LobbyPanel");
         _logOutButton = GetUI<Button>("LogOutButton");
-        _logOutText = GetUI<TMP_Text>("LogOutText");
-        JoinLobby();
+        _logOutButton = GetUI<Button>("LogOutButton");
+        _logOutButton.onClick.AddListener(LogOut);
+
+        // TestLog();
+
     }
 
     public void JoinLobby()
@@ -59,6 +64,22 @@ public class MainPanel : BaseUI
     {
         Debug.Log("로그아웃 테스트 로그");
         PhotonNetwork.Disconnect();
+    }
+
+    private void TestLog()
+    {
+        FirebaseUser user = BackendManager.Auth.CurrentUser;
+        if (user == null)
+        {
+            Debug.Log("플레이어가 로그인이 올바르지않습니다.");
+            return;
+        }
+        Debug.Log("룸패널 테스트로그");
+        Debug.Log($"Display Name: \t {user.DisplayName}");
+        Debug.Log($"Email Address: \t {user.Email}");
+        Debug.Log($"Email Verification: \t {user.IsEmailVerified}");
+        Debug.Log($"User ID: \t\t {user.UserId}");
+        Debug.Log("");
     }
 
 }

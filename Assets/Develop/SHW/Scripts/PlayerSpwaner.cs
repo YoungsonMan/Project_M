@@ -15,10 +15,7 @@ public class PlayerSpwaner : MonoBehaviourPun
         // 플레이어 아이디를 찾아서 
         // 아이디에 할당되는 번호와 스폰 포인트 일치
         spawnPointManager = GameObject.Find("MapContainer").GetComponent<SpawnPointManager>();
-        spawnPoints = spawnPointManager.spawnPoints;
-        // int num = photonView.Owner.GetPlayerNumber();
-        //Debug.Log($"{photonView.ViewID}");
-        Debug.Log($"{num}");
+        spawnPoints = spawnPointManager.spawnPoints;   
          spawnPoint = spawnPoints[num];
         
 

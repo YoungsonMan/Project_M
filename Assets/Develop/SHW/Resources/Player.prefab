@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 851820315}
   - component: {fileID: 851820314}
   - component: {fileID: 851820317}
-  - component: {fileID: 1725356303773676155}
+  - component: {fileID: 7419649438223639742}
   m_Layer: 3
   m_Name: Bubble
   m_TagString: Untagged
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5323386283925807557}
   bubble: {fileID: 851820312}
---- !u!114 &1725356303773676155
+--- !u!114 &7419649438223639742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +122,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 851820312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf8bd6792a98dfa42bd00166360487cf, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5323386283925807557}
-  bubble: {fileID: 851820312}
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5323386283925807557
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +152,7 @@ GameObject:
   - component: {fileID: 2098898255}
   - component: {fileID: 7762270565432547969}
   - component: {fileID: 7835219133514881729}
+  - component: {fileID: -6851490057093700692}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -287,6 +296,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7835219133514881729}
+  - {fileID: -6851490057093700692}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -306,6 +316,33 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &-6851490057093700692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323386283925807557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: Move
+  - Type: 4
+    SynchronizeType: 2
+    Name: isBubble
+  - Type: 4
+    SynchronizeType: 2
+    Name: isDead
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1001 &5323386284024206403
 PrefabInstance:
   m_ObjectHideFlags: 0

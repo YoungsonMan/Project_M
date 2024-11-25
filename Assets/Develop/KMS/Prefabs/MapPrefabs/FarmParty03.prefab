@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 7657194624377633753}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10013,7 +10013,7 @@ GameObject:
   - component: {fileID: 7203986055177338054}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11238,7 +11238,7 @@ GameObject:
   - component: {fileID: 4996559585786817186}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23714,7 +23714,7 @@ GameObject:
   - component: {fileID: 6172368425419625757}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26511,7 +26511,7 @@ GameObject:
   - component: {fileID: 4684136421079755236}
   m_Layer: 0
   m_Name: GroundPlane
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27485,6 +27485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3134661920790847605}
+  - component: {fileID: 7654735589471874054}
   m_Layer: 0
   m_Name: MapContainer
   m_TagString: Untagged
@@ -27520,6 +27521,18 @@ Transform:
   m_Father: {fileID: 7772803956207544896}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7654735589471874054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990099059494999144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec1be8d908f3874eb40d38268584619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8014932199074900601
 GameObject:
   m_ObjectHideFlags: 0

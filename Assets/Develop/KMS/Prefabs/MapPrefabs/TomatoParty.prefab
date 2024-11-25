@@ -4527,6 +4527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3076753398174835076}
+  - component: {fileID: 3650731114132374918}
   m_Layer: 0
   m_Name: MapContainer
   m_TagString: Untagged
@@ -4562,6 +4563,18 @@ Transform:
   m_Father: {fileID: 5869600273866843519}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3650731114132374918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3076753398174835077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec1be8d908f3874eb40d38268584619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3076753398175136906
 GameObject:
   m_ObjectHideFlags: 0
@@ -8831,7 +8844,7 @@ GameObject:
   - component: {fileID: 3076753398412706339}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18332,7 +18345,7 @@ GameObject:
   - component: {fileID: 3076753398950261472}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23041,7 +23054,7 @@ GameObject:
   - component: {fileID: 3076753399210244903}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30262,7 +30275,7 @@ GameObject:
   - component: {fileID: 3076753399710924632}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

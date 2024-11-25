@@ -17,12 +17,6 @@ public abstract class ItemBase : MonoBehaviour, IExplosionInteractable
             ApplyEffect(other.gameObject);
             OnPickedUp();
         }
-        // 물줄기와 충돌시
-        // TODO : Interface를 만들어 두었기에 해당 Interface에 입력 후 삭제하도록 진행한다.
-        //else if (other.CompareTag("WaterStream"))   // 임의로 현재 입력한 tag
-        //{
-        //    OnHitByWaterStream();
-        //}
     }
 
     /// <summary>

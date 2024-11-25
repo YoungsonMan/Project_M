@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
+public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
 {
     [Header("부서지는 벽 세팅")]
     public int fragmentsCount = 10;         // 부서지는 조각 갯수
@@ -25,43 +26,6 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
         if(Input.GetKeyDown(KeyCode.X))
         {
             DestroyObject();
-        }
-    }
-
-    private void Start()
-    {
-        // Player 태그를 가진 모든 캐릭터의 Collider를 캐싱
-        if (playerColliders == null)
-        {
-            CachePlayerColliders();
-        }
-    }
-
-    /// <summary>
-    /// Player 태그를 가진 모든 Collider를 캐싱
-    /// </summary>
-    private void CachePlayerColliders()
-    {
-        playerColliders = new List<Collider>();
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            Collider collider = player.GetComponent<Collider>();
-            if (collider != null)
-            {
-                playerColliders.Add(collider);
-            }
-        }
-
-        if (playerColliders.Count == 0)
-        {
-            Debug.LogWarning("Player 태그를 가진 Collider를 찾지 못했습니다.");
-        }
-        else
-        {
-            foreach (Collider collider in playerColliders)
-                Debug.Log($"Player 태그 : {collider.name}");
         }
     }
 
@@ -89,9 +53,14 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
             {
                 Debug.Log("동작");
 
-                foreach (Collider playerCollider in playerColliders)
+                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject player in players)
                 {
-                    Physics.IgnoreCollision(fragmentCollider, playerCollider);
+                    Collider playerCollider = player.GetComponent<Collider>();
+                    if (playerCollider != null)
+                    {
+                        Physics.IgnoreCollision(fragmentCollider, playerCollider);
+                    }
                 }
             }
         }
@@ -147,7 +116,12 @@ public class ProceduralDestruction : MonoBehaviour, IExplosionInteractable
         {
             // 아이템 프리팹 중 하나를 랜덤 선택
             int randomIndex = Random.Range(0, itemPrefabs.Length);
-            GameObject item = Instantiate(itemPrefabs[randomIndex], transform.position, Quaternion.identity, parentContainer);
+            GameObject item = PhotonNetwork.Instantiate($"Item/{itemPrefabs[randomIndex].name}", transform.position, Quaternion.identity);
+
+            if(parentContainer)
+            {
+                item.transform.SetParent(parentContainer);
+            }
 
             Debug.Log("아이템 생성: " + item.name);
         }

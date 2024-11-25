@@ -1,28 +1,25 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemBase : MonoBehaviour, IExplosionInteractable
+public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
 {
     public string itemName;         // 아이템 이름
     public bool isPickup = false;   // 아이템이 픽업되었는지 여부
 
     private void OnTriggerEnter(Collider other)
     {
-        // 플레이어와 충돌시
         if (other.CompareTag("Player"))
         {
             Debug.Log($"{other.name}이 아이템을 습득했습니다.");
-            isPickup = true;
-            ApplyEffect(other.gameObject);
-            OnPickedUp();
+            PhotonView playerView = other.GetComponent<PhotonView>();
+
+            if (playerView != null && playerView.IsMine)
+            {
+                photonView.RPC(nameof(OnPickedUp_RPC), RpcTarget.AllBuffered, playerView.ViewID);
+            }
         }
-        // 물줄기와 충돌시
-        // TODO : Interface를 만들어 두었기에 해당 Interface에 입력 후 삭제하도록 진행한다.
-        //else if (other.CompareTag("WaterStream"))   // 임의로 현재 입력한 tag
-        //{
-        //    OnHitByWaterStream();
-        //}
     }
 
     /// <summary>
@@ -33,10 +30,21 @@ public abstract class ItemBase : MonoBehaviour, IExplosionInteractable
     /// <summary>
     /// 아이템이 픽업된 후 추가적으로 처리할 동작
     /// </summary>
-    protected virtual void OnPickedUp()
+    [PunRPC]
+    protected virtual void OnPickedUp_RPC(int playerViewID)
     {
-        // 픽업 후 아이템 오브젝트 제거
-        Destroy(gameObject);
+        PhotonView playerPhotonView = PhotonView.Find(playerViewID);
+        if (playerPhotonView != null)
+        {
+            GameObject player = playerPhotonView.gameObject;
+            ApplyEffect(player);
+        }
+
+        // 모든 클라이언트에서 동기화된 아이템 삭제
+        if (photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     /// <summary>

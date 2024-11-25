@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class WaterBombPlacer : MonoBehaviour
+public class WaterBombPlacer : MonoBehaviourPun
 {
     [Header("WaterBomb Object Pool")]
     [Tooltip("WaterBomb prefab to place")]
@@ -38,17 +39,29 @@ public class WaterBombPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _curBombCount < _playerStatus.bombCount)
+        if (photonView.IsMine)
         {
-            // Get waterbomb from pool
-            WaterBomb waterBomb = _waterBombPool.Get();
-            if (waterBomb == null)
-                return;
-
-            if (waterBomb.SetLocation(transform.position))
+            if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _curBombCount < _playerStatus.bombCount)
             {
-                waterBomb.Range = (int)_playerStatus.power;
+                photonView.RPC(nameof(PlaceBomb), RpcTarget.All);
             }
+        }
+    }
+
+    [PunRPC]
+    private void PlaceBomb(PhotonMessageInfo info)
+    {
+        float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+
+        // Get waterbomb from pool
+        WaterBomb waterBomb = _waterBombPool.Get();
+        if (waterBomb == null)
+            return;
+
+        waterBomb.Lag = lag;
+        if (waterBomb.SetLocation(transform.position))
+        {
+            waterBomb.Range = (int)_playerStatus.power;
         }
     }
 

@@ -12,24 +12,20 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     [Header("Explosion Effect")]
     [SerializeField] GameObject _effect;
 
-    private WaitForSeconds _delay;
     private ObjectPool<WaterBomb> _objectPool;
 
     private bool _isExploded;
+    private float _lag;
 
     public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
     public int Range { set { _range = value; } }
+    public float Lag { set { _lag = value; } }
 
     private void OnEnable()
     {
         _isExploded = false;
 
         Deactivate();
-    }
-
-    private void Start()
-    {
-        _delay = new WaitForSeconds(_lifeTime);
     }
 
     private void OnDisable()
@@ -48,7 +44,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     private Coroutine _deactiveCoroutine;
     IEnumerator DeactivateRoutine()
     {
-        yield return _delay;
+        Debug.Log($"{gameObject.name}({gameObject.GetInstanceID()}) will explode after {_lifeTime - _lag}s.");
+        yield return new WaitForSeconds(_lifeTime - _lag);
 
         Explode();
     }

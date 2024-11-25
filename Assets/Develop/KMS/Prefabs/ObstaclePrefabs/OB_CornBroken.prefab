@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragmentsCount: 10
+  fragmentsCount: 1
   explosionForce: 30
   explosionRadius: 5
   fragmentPrefab: {fileID: 4437168965681276882, guid: fa7eca19865b06a4eabef3eb563a7bab, type: 3}

@@ -7,13 +7,26 @@ using UnityEngine;
 public class TestScene : MonoBehaviourPunCallbacks
 {
     public const string RoomName = "TestRoom";
+    private PlayerSpwaner spawner;
+    private int playerNum;
 
     private void Start()
     {
+        spawner = GetComponent<PlayerSpwaner>();
+
         // 닉네임도 일단 대충 랜덤 부여
         PhotonNetwork.LocalPlayer.NickName = $"Player {Random.Range(1000, 10000)}";
         // 시작하자마자 접속할거니깐
         PhotonNetwork.ConnectUsingSettings();
+
+        Player player;
+        // player.ActorNumber = 1;
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        playerNum = newPlayer.ActorNumber;
+        // spawner.PlayerSpawn(playerNum);
     }
 
     // 그냥 서버말고 마스터 서버에 접속시키자
@@ -45,14 +58,7 @@ public class TestScene : MonoBehaviourPunCallbacks
         Debug.Log("게임 시작");
 
         // 테스트용 게임 시작 부분
-        PlayerSpawn();
+         spawner.PlayerSpawn(PhotonNetwork.LocalPlayer.ActorNumber-1);
     }
 
-    private void PlayerSpawn()
-    {
-        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-
-        // 리소스의 폴더안쪽에 들었다면 폴더의 주소로 작성 (예 : GameObject/Player)
-        PhotonNetwork.Instantiate("Player", randomPos, Quaternion.identity);
-    }
 }

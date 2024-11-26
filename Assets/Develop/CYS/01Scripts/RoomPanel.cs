@@ -14,6 +14,11 @@ public class RoomPanel : BaseUI
     [SerializeField] PlayerEntry[] _playerEntries;
     [SerializeField] Button _startButton;
 
+    // TODO:
+    // 맵을 int로 번호를 할당시키고 
+    // 맵을 고르면
+    // 시작할때 그 int 번호로 씬을 불러오기.
+
     private void OnEnable()
     {
         UpdatePlayers();
@@ -113,7 +118,7 @@ public class RoomPanel : BaseUI
     }
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel("PlayerTestScene"); // 게임 연결하면서 이름따라서 변경
+        PhotonNetwork.LoadLevel("KMS_ICE_Scene"); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 

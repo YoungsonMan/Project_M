@@ -20,6 +20,19 @@ public class PlayerStatus : MonoBehaviour
     {
     }
 
+    private void Update()
+    {
+        LimitSpeed();
+    }
+
+    public void LimitSpeed()
+    {
+        if(speed > 10)
+        {
+            speed = 10;
+        }
+    }
+
     //public void SetTeamColor()
     //{
     //    switch (curTeam)

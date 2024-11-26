@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Develop/KMS/Scenes/KMS_ICE_Scene.unity
     guid: e7c9a95656b9855449a6fdae97000857
+  - enabled: 1
+    path: Assets/Develop/KMS/Scenes/KMS_FarmStroyScene.unity
+    guid: 2d41b9e8b70ea374595c87056f6f2821
   m_configObjects: {}

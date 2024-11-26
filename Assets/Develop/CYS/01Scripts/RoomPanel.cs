@@ -114,6 +114,10 @@ public class RoomPanel : BaseUI
     public void StartGame()
     {
         PhotonNetwork.LoadLevel("KMS_ICE_Scene"); // 게임 연결하면서 이름따라서 변경
+        // 연결가능한 맵 목록
+        // KMS_FarmStroyScene
+        // KMS_ICE_Scene
+        // KMS_TomatoStroyScene
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 

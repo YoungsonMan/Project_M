@@ -50,9 +50,6 @@ MonoBehaviour:
   _waterBombLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _judgeLayerMask:
-    serializedVersion: 2
-    m_Bits: 200
   _effect: {fileID: 7393584585872107538, guid: 0090452153efdb5418b830ec030d6529, type: 3}
 --- !u!1001 &7598313444554028361
 PrefabInstance:

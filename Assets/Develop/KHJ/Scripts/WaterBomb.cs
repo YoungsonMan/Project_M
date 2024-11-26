@@ -54,7 +54,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     {
         _isExploded = true;
 
-        // Set ranges
+        // Set ranges with judging interactables
+        ProceedWaterStream();
         int upEnd = ProceedWaterStream(transform.forward, _range);
         int downEnd = ProceedWaterStream(-transform.forward, _range);
         int rightEnd = ProceedWaterStream(transform.right, _range);
@@ -78,6 +79,30 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
         // Return to pool
         _objectPool.Release(this);
+    }
+
+    private void ProceedWaterStream()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
+        foreach (Collider collider in colliders)
+        {
+            IExplosionInteractable interactable = null;
+            Transform curTransform = collider.transform;
+            while (curTransform != null)
+            {
+                interactable = curTransform.GetComponent<IExplosionInteractable>();
+                if (interactable != null)
+                    break;
+
+                curTransform = curTransform.parent;
+            }
+
+            if (interactable == null)
+                continue;
+
+            // Interact
+            interactable.Interact();
+        }
     }
 
     private int ProceedWaterStream(Vector3 direction, int maxRange)

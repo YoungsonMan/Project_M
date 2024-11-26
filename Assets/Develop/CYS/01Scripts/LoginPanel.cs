@@ -6,11 +6,14 @@ using UnityEngine.UI;
 using Firebase.Auth;
 using Firebase.Extensions;
 using Photon.Pun;
+using System;
 
 public class LoginPanel : BaseUI
 {
-    [SerializeField] TMP_InputField _emailInputField;
-    [SerializeField] TMP_InputField _pwInputField;
+    [SerializeField] TMP_InputField _emailInputField;   // 0
+    [SerializeField] TMP_InputField _pwInputField;      // 1
+
+    public int InputSelected;
 
     // [SerializeField] Image _nicknamePanel;
     // [SerializeField] Image _verificationPanel;
@@ -20,15 +23,64 @@ public class LoginPanel : BaseUI
     [SerializeField] GameObject _verificationPanel;
     [SerializeField] GameObject _nicknamePanel;
 
+    [SerializeField] GameObject _resetPwPanel;
+    TMP_InputField _restPwIDInputField;
+
     private void OnEnable()
     {
         Init();
         TestLogin();
     }
-  //  private void Start()
-  //  {
-  //      Init();
-  //  }
+    private void Update()
+    {
+        TabInputField();
+        // 엔터키에서 로그인 버튼 입력
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
+        {
+            Login();
+        }
+
+    }
+    /// <summary>
+    /// TabInputField
+    /// Int 변수로 InputField 하나씩지정해서 탭키 누르면 ++ 되고
+    /// 최대 수치를 넘어가면 처음으로 돌아가도록
+    /// </summary>
+    public void TabInputField()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            InputSelected++;
+            if (InputSelected > 1)
+                InputSelected = 0;
+            SelectInputField();
+        }
+    }
+    /// <summary>
+    /// 마우스로 클릭해서 하면 정해주는
+    /// </summary>
+    public void SelectInputField()
+    {
+        switch (InputSelected)
+        {
+            case 0: _emailInputField.Select();
+                break;
+            case 1: _pwInputField.Select();
+                break;
+
+        }
+    }
+    // 직접 클릭하면 바뀌는데 InputSelected는 안바뀌니까
+    // 각자 매서드로 InputSelected바뀌게설정
+    public void EmailSelected() => InputSelected = 0;
+    public void PwSelected() => InputSelected = 1;
+
+
+
+    //  private void Start()
+    //  {
+    //      Init();
+    //  }
     private void Init()
     {
         // TMP_Text
@@ -44,7 +96,7 @@ public class LoginPanel : BaseUI
         // Button
         GetUI<Button>("LoginButton").onClick.AddListener(Login);
         GetUI<Button>("SignUpButton").onClick.AddListener(GoToSignUp);
-        GetUI<Button>("ResetPWButton");
+        GetUI<Button>("ResetPWButton").onClick.AddListener(ResetPW);
 
         // VerificationPanel
         _verificationPanel = GetUI("VerificationPanel");
@@ -58,8 +110,15 @@ public class LoginPanel : BaseUI
         GetUI<Button>("ConfirmButton");
 
         _signUpPanel = GetUI("SignUpPanel");
-        
+
+
+        // ResetPasswordPanel
+        _resetPwPanel = GetUI("ResetPwPanel");
+        _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
+        GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
     }
+
+    
 
     /// <summary>
     /// 테스트 편하게하려는 로그인 코드
@@ -143,6 +202,36 @@ public class LoginPanel : BaseUI
             PhotonNetwork.LocalPlayer.NickName = user.DisplayName;
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    private void ResetPW()
+    {
+        _resetPwPanel.SetActive(true);
+    }
+    /// <summary>
+    /// 비밀번호 재설정
+    /// InputField에 적힌 주소로 비밀번호 재설정 이메일 보내기
+    /// </summary>
+    public void SendResetPwEmail()
+    {
+        string email = _restPwIDInputField.text;
+        BackendManager.Auth.SendPasswordResetEmailAsync(email).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SendPasswordResetEmailAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SendPasswordResetEmailAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            Debug.Log("Password reset email sent successfully.");
+            _resetPwPanel.SetActive(false);
+            
+        });
     }
 
 

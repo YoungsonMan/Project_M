@@ -9,10 +9,11 @@ using WebSocketSharp;
 
 public class SignUpPanel : BaseUI
 {
-    [SerializeField] TMP_InputField _signUpIDInputField;
-    [SerializeField] TMP_InputField _signUpPWInputField;
-    [SerializeField] TMP_InputField _PWConfirmInputField;
+    [SerializeField] TMP_InputField _signUpIDInputField;    // 0
+    [SerializeField] TMP_InputField _signUpPWInputField;    // 1
+    [SerializeField] TMP_InputField _PWConfirmInputField;   // 2
 
+    public int InputSelected;
 
     [SerializeField] GameObject _checkPopup;
     [SerializeField] GameObject _alreadyExistMsg;
@@ -52,10 +53,50 @@ public class SignUpPanel : BaseUI
 
     void Update()
     {
+        TabInputField();
         // 업데이트에서 돌리고 있는거 말고 다른방법있으면 변경
         // 일단 가입되고 비활성화되면 쓸일 없으니까 가입당시에만 돌아가는거정도는...
         CheckAvailability();
     }
+    /// <summary>
+    /// TabInputField
+    /// Int 변수로 InputField 하나씩지정해서 탭키 누르면 ++ 되고
+    /// 최대 수치를 넘어가면 처음으로 돌아가도록
+    /// </summary>
+    public void TabInputField()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            InputSelected++;
+            if (InputSelected > 2)
+                InputSelected = 0;
+            SelectInputField();
+        }
+    }
+    /// <summary>
+    /// 마우스로 클릭해서 하면 정해주는
+    /// </summary>
+    public void SelectInputField()
+    {
+        switch (InputSelected)
+        {
+            case 0:
+                _signUpIDInputField.Select();
+                break;
+            case 1:
+                _signUpPWInputField.Select();
+                break;
+             case 2:
+                _PWConfirmInputField.Select();
+                break;
+
+        }
+    }
+    // 직접 클릭하면 바뀌는데 InputSelected는 안바뀌니까
+    // 각자 매서드로 InputSelected바뀌게설정
+    public void EmailSelected() => InputSelected = 0;
+    public void PwSelected() => InputSelected = 1;
+    public void ConfirmationSelected() => InputSelected = 2;
 
 
     public void SignUp()

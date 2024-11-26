@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerSpwaner : MonoBehaviourPun
 {
     private SpawnPointManager spawnPointManager;
-    // private List<Vector3> spawnPoints = new List<Vector3>();
     private Vector3 spawnPoint;
 
     public void PlayerSpawn(int num)
@@ -13,8 +12,6 @@ public class PlayerSpwaner : MonoBehaviourPun
         // 플레이어 아이디를 찾아서 
         // 아이디에 할당되는 번호와 스폰 포인트 일치
         spawnPointManager = GameObject.Find("MapContainer").GetComponent<SpawnPointManager>();
-        // spawnPoints = spawnPointManager.spawnPoints;   
-        // Debug.Log($" 입력 숫자 : {num}");
         spawnPoint = spawnPointManager.spawnPoints[num];
 
 

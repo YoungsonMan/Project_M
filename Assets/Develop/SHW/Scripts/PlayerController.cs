@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
             rigid.velocity = moveDir.normalized * _status.speed;
         }
 
-        // Debug.Log($"{moveDir}");
         // 입력이 없어도 방향을 유지
         if (moveDir.magnitude > 0.1)
         {
@@ -95,7 +94,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     {
         // 플레이어 넘버에 따른 색상 임의 부여
         int num = photonView.Owner.GetPlayerNumber();
-        //color = _status.colors[num];
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
@@ -105,11 +103,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     public bool Interact()
     {
-        // Debug.Log("물방울에 갇힘!");
-
-        //_status.isBubble = true;
-        //bubble.SetActive(true);
-
         photonView.RPC("BubbledRPC", RpcTarget.All);
 
         return true;

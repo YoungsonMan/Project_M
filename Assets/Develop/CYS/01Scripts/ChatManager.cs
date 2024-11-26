@@ -16,9 +16,9 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     private string _userName;
     private string _currentChannelName;
 
-    public TMP_InputField inputFieldChat;   // 0 
-    public TMP_Text currentChannelText;
-    public TMP_Text outputText;
+    public TMP_InputField inputFieldChat;   // ChatInputField 0 
+    public TMP_Text currentChannelText;     // ChatDisplay
+    public TMP_Text outputText;             // ChatDisplay
 
 
     private bool _isTyping = false;
@@ -33,6 +33,8 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         _userName = PhotonNetwork.LocalPlayer.NickName;
         _currentChannelName = "Channel 001";
 
+        ClearChatMessage();
+
         _chatClient = new ChatClient(this);
 
         // true 가 아닌 경우 어플이 백그라운드로 갈 때 연결 끊김
@@ -42,7 +44,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     }
     private void OnDisable()
     {
-        ClearChatMessage(_currentChannelName);
+        ClearChatMessage();
         _chatClient.Disconnect();
 
     }
@@ -56,11 +58,11 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         OnEnterSend();
         _chatClient.Service();
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("P버튼누르면 나오는 로그");
-            ClearChatMessage(_currentChannelName);
-        }
+       // if (Input.GetKeyDown(KeyCode.P))
+       // {
+       //     Debug.Log("P버튼누르면 나오는 로그");
+       //     ClearChatMessage();
+       // }
     }
 
     /// <summary>
@@ -133,7 +135,9 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         AddLine("Connected to Server (ChatManager).");
 
         // 지정한 채널명으로 접속
-        _chatClient.Subscribe(new string[] { _currentChannelName }, 10);
+        _chatClient.Subscribe(new string[] { _currentChannelName }, 0);
+        // (이름, 이전기록을 최대 ___개 까지  ) 뒤에 숫자 
+        // (이름, 10) 기록된거 10개를 보여줌, 0이면 0개
     }
 
     // 서버와의 연결이 끊어짐
@@ -191,28 +195,35 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         this.currentChannelText.text = channel.ToStringMessages();
         Debug.Log("ShowChannel: " + _currentChannelName);
     }
-    public void ClearChatMessage(string channelName)
+    public void ClearChatMessage()
     {
+        currentChannelText.text = "";
+        // 그냥 보여주는 창을 한번 비움
+
+        /*
+         * 위에 ClearChatMessage(string channelName)
         //  ChatChannel channel = new ChatChannel(_currentChannelName);
         //  ChatChannel channel = null;
         //  this._currentChannelName = channel.Name;
 
-        if(string.IsNullOrEmpty(channelName))
-        {
-            return;
-        }
+      //  if(string.IsNullOrEmpty(channelName))
+      //  {
+      //      return;
+      //  }
+      //
+      //  ChatChannel channel = null;
+      //  bool found = this._chatClient.TryGetChannel(channelName, out channel);
+      //  if (!found)
+      //  {
+      //      Debug.Log("ShowChannel failed to find channel: " + channelName);
+      //      return;
+      //  }
+      //
+      //  this._currentChannelName = channelName;
+      //
+      //  channel.ClearMessages();
+        */
 
-        ChatChannel channel = null;
-        bool found = this._chatClient.TryGetChannel(channelName, out channel);
-        if (!found)
-        {
-            Debug.Log("ShowChannel failed to find channel: " + channelName);
-            return;
-        }
-
-        this._currentChannelName = channelName;
-
-        channel.ClearMessages();
     }
 
 

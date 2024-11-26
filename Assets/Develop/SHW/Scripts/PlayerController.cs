@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviourPun, IExplosionInteractable
@@ -11,14 +12,24 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
 
+    [SerializeField] int playerNumber;
+
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
+    // 색상 변경용 
+    [SerializeField] Color color;
+    [SerializeField] Renderer bodyRenderer;
+
     private void Awake()
     {
+        playerNumber = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
+
+        // SetColor();
+        photonView.RPC("SetColor", RpcTarget.All);
     }
 
     private void Update()
@@ -73,9 +84,22 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
         // Debug.Log($"{moveDir}");
         // 입력이 없어도 방향을 유지
-        if(moveDir.magnitude > 0.1)
+        if (moveDir.magnitude > 0.1)
         {
             transform.forward = moveDir;
+        }
+    }
+
+    [PunRPC]
+    public void SetColor()
+    {
+        // 플레이어 넘버에 따른 색상 임의 부여
+        int num = photonView.Owner.GetPlayerNumber();
+        //color = _status.colors[num];
+
+        for (int i = 0; i < bodyRenderer.materials.Length; i++)
+        {
+            bodyRenderer.materials[i].color = _status.colors[num];
         }
     }
 

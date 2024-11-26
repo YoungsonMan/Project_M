@@ -243,6 +243,9 @@ MonoBehaviour:
   rigid: {fileID: 2098898257}
   animator: {fileID: 815692183}
   bubble: {fileID: 851820312}
+  playerNumber: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  bodyRenderer: {fileID: 5323386284027289573}
 --- !u!114 &2098898258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +262,16 @@ MonoBehaviour:
   power: 1
   bombCount: 1
   isBubble: 0
+  curTeam: 0
+  colors:
+  - {r: 1, g: 0.99674284, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.093042135, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0.5891362, b: 0, a: 0}
+  - {r: 0, g: 0.97338057, b: 1, a: 0}
+  - {r: 0.031082153, g: 0, b: 1, a: 0}
+  - {r: 0.72492886, g: 0, b: 1, a: 0}
+  - {r: 1, g: 0.2924527, b: 0.8512092, a: 0}
 --- !u!114 &2098898255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,5 +581,10 @@ PrefabInstance:
 --- !u!4 &5323386284024336105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400042, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
+  m_PrefabInstance: {fileID: 5323386284024206403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5323386284027289573 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700006, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
   m_PrefabInstance: {fileID: 5323386284024206403}
   m_PrefabAsset: {fileID: 0}

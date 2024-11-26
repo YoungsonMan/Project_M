@@ -42,6 +42,7 @@ MonoBehaviour:
   - PlaceBomb
   - RPC_Chat
   - OnPickedUp_RPC
+  - BubbledRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

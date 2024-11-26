@@ -53,7 +53,9 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
     protected virtual void OnHitByWaterStream()
     {
         Debug.Log($"{itemName}이(가) 물줄기에 의해 제거되었습니다.");
-        Destroy(gameObject);
+
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
     }
 
     public virtual bool Interact()

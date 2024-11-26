@@ -44,6 +44,7 @@ MonoBehaviour:
   - OnPickedUp_RPC
   - BubbledRPC
   - DestroyObjectRPC
+  - SetColor
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -16,9 +16,13 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     private string _userName;
     private string _currentChannelName;
 
-    public TMP_InputField inputFieldChat;
+    public TMP_InputField inputFieldChat;   // 0 
     public TMP_Text currentChannelText;
     public TMP_Text outputText;
+
+
+    private bool _isTyping = false;
+    public int InputSelected;
 
     // Use this for initialization
     private void OnEnable()
@@ -36,14 +40,59 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         _chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new Photon.Chat.AuthenticationValues(_userName));
         AddLine(string.Format("Try CONNECTION", _userName));
     }
+    private void OnDisable()
+    {
+        ClearChatMessage(_currentChannelName);
+        _chatClient.Disconnect();
+
+    }
     // 포톤 공식 홈페이지에도 기술되어 있는 내용
     // chatClient.Service() 를 Update 에서 호출하던지
     // 필요에 따라 chatClient.Service() 를 반드시 호출 해야한다
     private void Update()
     {
+        ChatOn();
+        TabInputField();
         OnEnterSend();
         _chatClient.Service();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("P버튼누르면 나오는 로그");
+            ClearChatMessage(_currentChannelName);
+        }
     }
+
+    /// <summary>
+    /// TabInputField
+    /// Int 변수로 InputField 하나씩지정해서 탭키 누르면 ++ 되고
+    /// 최대 수치를 넘어가면 처음으로 돌아가도록
+    /// </summary>
+    public void TabInputField()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            InputSelected++;
+            if (InputSelected > 0)
+                InputSelected = 0;
+            SelectInputField();
+        }
+    }
+    /// <summary>
+    /// 마우스로 클릭해서 하면 정해주는
+    /// </summary>
+    public void SelectInputField()
+    {
+        switch (InputSelected)
+        {
+            case 0:
+                inputFieldChat.Select();
+                break;
+        }
+    }
+    public void ChatSelected() => InputSelected = 0;
+
+
 
     #region NoNeedToShowAlltheTime
     // 현재 채팅 상태를 출력해줄 UI.Text
@@ -91,6 +140,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public void OnDisconnected()
     {
         AddLine("Disconnected from server (ChatManager).");
+
     }
 
     // 현재 클라이언트의 상태를 출력
@@ -141,7 +191,29 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         this.currentChannelText.text = channel.ToStringMessages();
         Debug.Log("ShowChannel: " + _currentChannelName);
     }
+    public void ClearChatMessage(string channelName)
+    {
+        //  ChatChannel channel = new ChatChannel(_currentChannelName);
+        //  ChatChannel channel = null;
+        //  this._currentChannelName = channel.Name;
 
+        if(string.IsNullOrEmpty(channelName))
+        {
+            return;
+        }
+
+        ChatChannel channel = null;
+        bool found = this._chatClient.TryGetChannel(channelName, out channel);
+        if (!found)
+        {
+            Debug.Log("ShowChannel failed to find channel: " + channelName);
+            return;
+        }
+
+        this._currentChannelName = channelName;
+
+        channel.ClearMessages();
+    }
 
 
 
@@ -173,9 +245,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     /// </summary>
     public void OnEnterSend()
     {
-    //    Debug.Log("엔터치면채팅나가기");
-    //    this.SendChatMessage(this.inputFieldChat.text);
-    //    this.inputFieldChat.text = "";
         if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
         {
             Debug.Log("엔터치면채팅나가기");
@@ -192,7 +261,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         this.SendChatMessage(this.inputFieldChat.text);
         this.inputFieldChat.text = "";
     }
-
+    
 
     // 입력한 채팅을 서버로 전송한다.
     private void SendChatMessage(string inputLine)
@@ -203,4 +272,14 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         }
         this._chatClient.PublishMessage(_currentChannelName, inputLine);
     }
+
+    // 채팅입력창에 아무것도 없이 엔터 눌리면 채팅입력 ON.
+    private void ChatOn()
+    {
+        if (inputFieldChat.text != "" && Input.GetKey(KeyCode.Return))
+        {
+            inputFieldChat.Select();
+        }
+    }
+
 }

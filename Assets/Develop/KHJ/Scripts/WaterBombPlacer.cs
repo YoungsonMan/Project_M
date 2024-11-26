@@ -69,7 +69,7 @@ public class WaterBombPlacer : MonoBehaviourPun
     private WaterBomb CreateWaterBomb()
     {
         _curBombCount++;
-        WaterBomb waterBomb = Instantiate(_waterBombPrefab);
+        WaterBomb waterBomb = Instantiate(_waterBombPrefab, new Vector3(-50, 0, -50), Quaternion.identity); // setting zone
         waterBomb.ObjectPool = _waterBombPool;
         return waterBomb;
     }

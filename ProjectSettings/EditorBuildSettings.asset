@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: Assets/Develop/CYS/03Scenes/YSC_Scene.unity
     guid: 9e6caafc4f3472249915c06337c45f91
   - enabled: 1
+    path: Assets/Develop/KMS/Scenes/KMS_ICE_Scene.unity
+    guid: e7c9a95656b9855449a6fdae97000857
+  - enabled: 1
     path: Assets/Scenes/PlayerTestScene.unity
-    guid: 1a79471379e061640825f5e6e71aa0e6
+    guid: 7418a644f64103a47bd0607d6d82c426
   - enabled: 1
     path: Assets/Develop/CYS/03Scenes/GameStartTest.unity
     guid: f103dab1cbabb7d4d8b44cf72604481d
   - enabled: 1
     path: Assets/Develop/CYS/03Scenes/KMS_TestItemScene.unity
     guid: 601489e4d32e9f94a950f59d02c521b7
-  - enabled: 1
-    path: Assets/Develop/KMS/Scenes/KMS_ICE_Scene.unity
-    guid: e7c9a95656b9855449a6fdae97000857
   - enabled: 1
     path: Assets/Develop/KMS/Scenes/KMS_FarmStroyScene.unity
     guid: 2d41b9e8b70ea374595c87056f6f2821

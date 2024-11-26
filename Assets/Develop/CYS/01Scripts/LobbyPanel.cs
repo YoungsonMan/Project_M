@@ -70,6 +70,10 @@ public class LobbyPanel : BaseUI
     [SerializeField] TMP_InputField _roomNameInputField;
     [SerializeField] TMP_InputField _maxPlayerInputField;
 
+    public int InputSelected;
+
+    private bool _isMakingRoom = false;
+
     private Dictionary<string, RoomEntry> roomDictionary = new Dictionary<string, RoomEntry>();
 
     private void OnEnable()
@@ -107,11 +111,51 @@ public class LobbyPanel : BaseUI
         GetUI<Button>("CreateRoomtButton").onClick.AddListener(CreateRoomConfirm);
         GetUI<Button>("CreateRoomCancelButton").onClick.AddListener(CreateRoomCancel);
 
-
-
        // UpdateRoomList();
        // TestLog();
     }
+    private void Update()
+    {
+        if (_isMakingRoom)
+        {
+            TabInputField();
+        }
+    }
+    /// <summary>
+    /// TabInputField
+    /// Int 변수로 InputField 하나씩지정해서 탭키 누르면 ++ 되고
+    /// 최대 수치를 넘어가면 처음으로 돌아가도록
+    /// </summary>
+    public void TabInputField()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            InputSelected++;
+            if (InputSelected > 1)
+                InputSelected = 0;
+            SelectInputField();
+        }
+    }
+    /// <summary>
+    /// 마우스로 클릭해서 하면 정해주는
+    /// </summary>
+    public void SelectInputField()
+    {
+        switch (InputSelected)
+        {
+            case 0:
+                _roomNameInputField.Select();
+                break;
+            case 1:
+                _maxPlayerInputField.Select();
+                break;
+
+        }
+    }
+    public void RoomNameSelected() => InputSelected = 0;
+    public void MaxPlayerSelected() => InputSelected = 1;
+
+
     private void TestLog()
     {
         FirebaseUser user = BackendManager.Auth.CurrentUser;
@@ -130,13 +174,14 @@ public class LobbyPanel : BaseUI
     public void CreateRoomMenu()
     {
         _createRoomPanel.SetActive(true);
-
+        _isMakingRoom = true;
         _roomNameInputField.text = $"Room {Random.Range(1000, 10000)}";
         _maxPlayerInputField.text = "8";
     }
     public void CreateRoomCancel()
     {
         _createRoomPanel.SetActive(false);
+        _isMakingRoom = false;
     }
     public void CreateRoomConfirm()
     {

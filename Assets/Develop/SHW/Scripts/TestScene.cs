@@ -9,6 +9,7 @@ public class TestScene : MonoBehaviourPunCallbacks
     public const string RoomName = "TestRoom";
     private PlayerSpwaner spawner;
     private int playerNum;
+    public GameObject mapObject;
 
     private void Start()
     {
@@ -56,6 +57,8 @@ public class TestScene : MonoBehaviourPunCallbacks
     public void TestGameStart()
     {
         Debug.Log("게임 시작");
+
+        mapObject.SetActive(true);
 
         // 테스트용 게임 시작 부분
          spawner.PlayerSpawn(PhotonNetwork.LocalPlayer.ActorNumber-1);

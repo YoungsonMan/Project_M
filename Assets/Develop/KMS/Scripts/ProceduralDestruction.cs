@@ -19,13 +19,19 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     public float itemSpawnChance = 0.3f;    // 아이템 생성 확률
 
     /// <summary>
-    /// 테스트용 메서드
+    /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 동작을 실행할 RPC메서드.
     /// </summary>
-    private void Update()
+    public void DestroyObject()
     {
-        if(Input.GetKeyDown(KeyCode.X))
+        if (!photonView || photonView.ViewID == 0)
         {
-            DestroyObject();
+            Debug.LogError($"DestroyObject 호출 중 PhotonView가 유효하지 않음. {name} 오브젝트 확인 필요.");
+            return;
+        }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC(nameof(DestroyObjectRPC), RpcTarget.AllBuffered);
         }
     }
 
@@ -33,8 +39,15 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 메서드.
     /// 네트워크 동작시 해당 부분을 Rpc로 변환해서 동작해야한다.
     /// </summary>
-    public void DestroyObject()
+    [PunRPC]
+    private void DestroyObjectRPC()
     {
+        if (!this || !gameObject)
+        {
+            Debug.LogWarning($"DestroyObjectRPC 호출 실패: 오브젝트가 이미 삭제됨 {name}");
+            return;
+        }
+
         List<GameObject> fragments = CreateFragments();
 
         foreach(var fragment in fragments)
@@ -66,9 +79,13 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
         }
 
         // 아이템 생성 확률에 따라 스폰
-        SpawnItem();
+        // 생성 또한 권한 있는 플레이어만 생성하고 다른 플레이어에게 알린다.
+        if(PhotonNetwork.IsMasterClient)
+            SpawnItem();
 
-        Destroy(gameObject);
+        // 네트워크에서 벽 삭제
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject); 
     }
 
     /// <summary>
@@ -111,12 +128,16 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     /// </summary>
     private void SpawnItem()
     {
+        // 마스터 클라이언트에서만 실행
+        if (!PhotonNetwork.IsMasterClient) return;
+
         // 랜덤 확률로 아이템 생성
         if (Random.value <= itemSpawnChance)
         {
-            // 아이템 프리팹 중 하나를 랜덤 선택
+            // 아이템 프리팹 중 하나를 랜덤 선택.
+            // 아이템이 생생될때 방의 오브젝트로 생성하기.
             int randomIndex = Random.Range(0, itemPrefabs.Length);
-            GameObject item = PhotonNetwork.Instantiate($"Item/{itemPrefabs[randomIndex].name}", transform.position, Quaternion.identity);
+            GameObject item = PhotonNetwork.InstantiateRoomObject($"Item/{itemPrefabs[randomIndex].name}", transform.position, Quaternion.identity);
 
             if(parentContainer)
             {

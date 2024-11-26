@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 2414733106369756416}
   - component: {fileID: 5412227856658078202}
   - component: {fileID: 6729320149249589952}
+  - component: {fileID: 4423483410093060860}
   m_Layer: 0
   m_Name: crop_corn_sack_LOD0
   m_TagString: Untagged
@@ -184,3 +185,25 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+--- !u!114 &4423483410093060860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649804372162739865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

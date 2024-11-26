@@ -5,12 +5,17 @@ using UnityEngine.Pool;
 
 public class WaterBomb : MonoBehaviour, IExplosionInteractable
 {
+    private enum E_DirectionType
+    {
+        Up, Down, Right, Left, SIZE
+    }
+
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _range = 1;
     [SerializeField] private LayerMask _waterBombLayerMask;
 
     [Header("Explosion Effect")]
-    [SerializeField] GameObject _effect;
+    [SerializeField] private ExplosionEffect[] _effects;
 
     private ObjectPool<WaterBomb> _objectPool;
 
@@ -25,6 +30,7 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     {
         _isExploded = false;
 
+        InitWaterStream();
         Deactivate();
     }
 
@@ -50,32 +56,42 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         Explode();
     }
 
+    private void InitWaterStream()
+    {
+        foreach (var effect in _effects)
+        {
+            effect.gameObject.SetActive(false);
+        }
+    }
+
     private void Explode()
     {
         _isExploded = true;
 
         // Set ranges with judging interactables
+        // center
         ProceedWaterStream();
-        int upEnd = ProceedWaterStream(transform.forward, _range);
-        int downEnd = ProceedWaterStream(-transform.forward, _range);
-        int rightEnd = ProceedWaterStream(transform.right, _range);
-        int leftEnd = ProceedWaterStream(-transform.right, _range);
+        // 4-way directions
+        int upEnd = ProceedWaterStream(transform.forward, _range) * (int)E_DirectionType.SIZE + (int)E_DirectionType.Up;
+        int downEnd = ProceedWaterStream(-transform.forward, _range) * (int)E_DirectionType.SIZE + (int)E_DirectionType.Down;
+        int rightEnd = ProceedWaterStream(transform.right, _range) * (int)E_DirectionType.SIZE + (int)E_DirectionType.Right;
+        int leftEnd = ProceedWaterStream(-transform.right, _range) * (int)E_DirectionType.SIZE + (int)E_DirectionType.Left;
 
         // Visual Effect
         // center
-        Instantiate(_effect, transform.position, Quaternion.identity);
-        // up
-        for (int i = 1; i <= upEnd; i++)
-            Instantiate(_effect, transform.position + i * transform.forward, Quaternion.identity);
-        // down
-        for (int i = 1; i <= downEnd; i++)
-            Instantiate(_effect, transform.position - i * transform.forward, Quaternion.identity);
-        // right
-        for (int i = 1; i <= rightEnd; i++)
-            Instantiate(_effect, transform.position + i * transform.right, Quaternion.identity);
-        // end
-        for (int i = 1; i <= leftEnd; i++)
-            Instantiate(_effect, transform.position - i * transform.right, Quaternion.identity);
+        _effects[0].gameObject.SetActive(true);
+        // 4-way directions
+        for (int range = 1; range < _effects.Length; range += (int)E_DirectionType.SIZE)
+        {
+            if (range + (int)E_DirectionType.Up <= upEnd)
+                _effects[range + (int)E_DirectionType.Up].gameObject.SetActive(true);
+            if (range + (int)E_DirectionType.Down <= downEnd)
+                _effects[range + (int)E_DirectionType.Down].gameObject.SetActive(true);
+            if (range + (int)E_DirectionType.Right <= rightEnd)
+                _effects[range + (int)E_DirectionType.Right].gameObject.SetActive(true);
+            if (range + (int)E_DirectionType.Left <= leftEnd)
+                _effects[range + (int)E_DirectionType.Left].gameObject.SetActive(true);
+        }
 
         // Return to pool
         _objectPool.Release(this);

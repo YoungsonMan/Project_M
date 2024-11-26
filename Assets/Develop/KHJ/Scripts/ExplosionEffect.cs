@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class ExplosionEffect : MonoBehaviour
 {
+    [SerializeField] private float _lifeTime;
+
     private void OnEnable()
     {
-        Destroy(gameObject, 0.2f);
+        Deactivate();
     }
+
+    private void OnDisable()
+    {
+        if (_deactiveCoroutine != null)
+        {
+            StopCoroutine(_deactiveCoroutine);
+            _deactiveCoroutine = null;
+        }
+    }
+
+    private void Deactivate() => StartCoroutine(DeactivateRoutine());
+
+    private Coroutine _deactiveCoroutine;
+    IEnumerator DeactivateRoutine()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+
+        gameObject.SetActive(false);
+    }
+
 }

@@ -1,7 +1,5 @@
 using Photon.Pun;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bubble : MonoBehaviourPun
@@ -18,6 +16,7 @@ public class Bubble : MonoBehaviourPun
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
         _placer = player.GetComponent<WaterBombPlacer>();
+
     }
 
     private void OnEnable()
@@ -33,15 +32,17 @@ public class Bubble : MonoBehaviourPun
         // 5초 뒤에 터지는 것으로 작성
         yield return new WaitForSeconds(5f);
         bubble.SetActive(false);
-        _animator.SetBool("isDead",true);
+        _animator.SetBool("isDead", true);
         // 캐릭터 사망
         Destroy(player, 1f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Color otherColor = other.gameObject.GetComponent<PlayerController>().color;
+        Color playerColor = player.GetComponent<PlayerController>().color;
         // 팀이 방울을 터치할 경우
-        if (other.gameObject.name == "testTeam")
+        if (playerColor == otherColor)
         {
             Debug.Log("같은 팀 충돌 확인");
             StopAllCoroutines();
@@ -52,12 +53,12 @@ public class Bubble : MonoBehaviourPun
         }
         // 적이 방울을 터치할 경우
         // (임시) 하여튼 플레이어가 와서 터치하면 터짐
-        if (other.gameObject.layer == 3)
+        else if (other.gameObject.layer == 3)
         {
             bubble.SetActive(false);
             //_animator.SetBool("isBubble", false);
             _animator.SetBool("isDead", true);
-            Destroy(player,1f);
+            Destroy(player, 1f);
         }
     }
 }

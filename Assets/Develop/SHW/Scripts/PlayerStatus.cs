@@ -1,6 +1,5 @@
 using UnityEngine;
 
-public enum Team { Red, Green, Blue, Yello, Cyan, White, Black, Gray }
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -11,8 +10,6 @@ public class PlayerStatus : MonoBehaviour
     public bool isBubble;                      // 물방울에 갇힌 상태
 
     // 플레이어 색상을 위한
-
-    [SerializeField] public Team curTeam;
     [SerializeField] public Color[] colors;
 
 

@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1567488187008163329}
   m_Layer: 0
   m_Name: Tile_x(10)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1567488187026522011}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +229,7 @@ Transform:
   - {fileID: 1567488187189880269}
   - {fileID: 1567488187461288228}
   - {fileID: 1567488188154823317}
+  - {fileID: 8524688323261908176}
   - {fileID: 1567488188359741366}
   - {fileID: 1567488188326239876}
   - {fileID: 1567488188257030752}
@@ -252,7 +253,7 @@ GameObject:
   - component: {fileID: 1567488187042772985}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +367,7 @@ GameObject:
   - component: {fileID: 1567488187062038145}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,7 +450,7 @@ GameObject:
   - component: {fileID: 1567488187064078358}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +536,7 @@ GameObject:
   - component: {fileID: 7364864059095636037}
   m_Layer: 0
   m_Name: Tile_x(3)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -675,7 +676,7 @@ GameObject:
   - component: {fileID: 1567488187081885710}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,7 +758,7 @@ GameObject:
   - component: {fileID: 1567488187087552487}
   m_Layer: 0
   m_Name: Tile_x(12)_z(8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -776,7 +777,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188401836672}
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187087552487
 BoxCollider:
@@ -803,7 +804,7 @@ GameObject:
   - component: {fileID: 1567488187094848542}
   m_Layer: 0
   m_Name: Tile_x(14)_z(8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,7 +823,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188232385729}
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187094848542
 BoxCollider:
@@ -849,7 +850,7 @@ GameObject:
   - component: {fileID: 1567488187097190204}
   m_Layer: 0
   m_Name: Tile_x(1)_z(9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,7 +898,7 @@ GameObject:
   - component: {fileID: 1567488187100563915}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -980,7 +981,7 @@ GameObject:
   - component: {fileID: 1567488187110350436}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1062,7 +1063,7 @@ GameObject:
   - component: {fileID: 1567488187118084580}
   m_Layer: 0
   m_Name: Tile_x(13)_z(1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1081,7 +1082,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187598169559}
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187118084580
 BoxCollider:
@@ -1109,7 +1110,7 @@ GameObject:
   - component: {fileID: 1567488187147917810}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1192,7 +1193,7 @@ GameObject:
   - component: {fileID: 1567488187149486171}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,7 +1279,7 @@ GameObject:
   - component: {fileID: 4151359104972652358}
   m_Layer: 0
   m_Name: Tile_x(15)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1296,7 +1297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187153577271
 MeshFilter:
@@ -1421,7 +1422,7 @@ GameObject:
   - component: {fileID: 399602319132583763}
   m_Layer: 0
   m_Name: Tile_x(2)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1560,7 +1561,7 @@ GameObject:
   - component: {fileID: 1567488187160331418}
   m_Layer: 0
   m_Name: Tile_x(16)_z(1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1579,7 +1580,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187950433372}
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187160331418
 BoxCollider:
@@ -1606,7 +1607,7 @@ GameObject:
   - component: {fileID: 1567488187164705415}
   m_Layer: 0
   m_Name: Tile_x(2)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1652,7 +1653,7 @@ GameObject:
   - component: {fileID: 1567488187165579100}
   m_Layer: 0
   m_Name: Tile_x(3)_z(13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1699,7 +1700,7 @@ GameObject:
   - component: {fileID: 1567488187168893705}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1781,7 +1782,7 @@ GameObject:
   - component: {fileID: 1567488187174542475}
   m_Layer: 0
   m_Name: Tile_x(16)_z(13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1800,7 +1801,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187081885711}
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187174542475
 BoxCollider:
@@ -1827,7 +1828,7 @@ GameObject:
   - component: {fileID: 1567488187176233810}
   m_Layer: 0
   m_Name: Tile_x(8)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1877,7 +1878,7 @@ GameObject:
   - component: {fileID: 507068877431786834}
   m_Layer: 0
   m_Name: Tile_x(5)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2072,6 +2073,7 @@ Transform:
   - {fileID: 1567488187497291350}
   - {fileID: 1567488188643952007}
   - {fileID: 1567488188713901149}
+  - {fileID: 8518042857321493399}
   - {fileID: 1567488187860180941}
   - {fileID: 1567488188984977859}
   - {fileID: 1567488187239285923}
@@ -2093,7 +2095,7 @@ GameObject:
   - component: {fileID: 1567488187211358014}
   m_Layer: 0
   m_Name: Tile_x(11)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2141,7 +2143,7 @@ GameObject:
   - component: {fileID: 1567488187235703798}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2240,7 +2242,7 @@ GameObject:
   - component: {fileID: 6063883658545874384}
   m_Layer: 0
   m_Name: Tile_x(12)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2258,7 +2260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187239285924
 MeshFilter:
@@ -2380,7 +2382,7 @@ GameObject:
   - component: {fileID: 1567488187254235593}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2463,7 +2465,7 @@ GameObject:
   - component: {fileID: 1567488187258990673}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2569,6 +2571,7 @@ Transform:
   - {fileID: 1567488188807602106}
   - {fileID: 1567488188691489080}
   - {fileID: 1567488188616062922}
+  - {fileID: 3549440948472322431}
   - {fileID: 1567488188557030343}
   - {fileID: 1567488188488244757}
   - {fileID: 1567488187293508258}
@@ -2595,7 +2598,7 @@ GameObject:
   - component: {fileID: 3630178699087991981}
   m_Layer: 0
   m_Name: Tile_x(11)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2613,7 +2616,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187265931965
 MeshFilter:
@@ -2735,7 +2738,7 @@ GameObject:
   - component: {fileID: 1567488187267219530}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2823,7 +2826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1567488187270795922
 Transform:
   m_ObjectHideFlags: 0
@@ -2867,7 +2870,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cdfef7a5ff2f266408bd175962645603, type: 2}
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2914,7 +2917,7 @@ GameObject:
   - component: {fileID: 1567488187274404454}
   m_Layer: 0
   m_Name: Tile_x(2)_z(3)
-  m_TagString: SpawnPoint
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2949,7 +2952,7 @@ GameObject:
   - component: {fileID: 1567488187275549132}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3035,7 +3038,7 @@ GameObject:
   - component: {fileID: 5615639772019775458}
   m_Layer: 0
   m_Name: Tile_x(10)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3053,7 +3056,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187279292585
 MeshFilter:
@@ -3176,7 +3179,7 @@ GameObject:
   - component: {fileID: 1567488187286181758}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3275,7 +3278,7 @@ GameObject:
   - component: {fileID: 3114116737698263691}
   m_Layer: 0
   m_Name: Tile_x(5)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3414,7 +3417,7 @@ GameObject:
   - component: {fileID: 1567488187290794768}
   m_Layer: 0
   m_Name: Tile_x(0)_z(11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3460,7 +3463,7 @@ GameObject:
   - component: {fileID: 1567488187290958367}
   m_Layer: 0
   m_Name: Tile_x(8)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3506,7 +3509,7 @@ GameObject:
   - component: {fileID: 1567488187293508261}
   m_Layer: 0
   m_Name: Tile_x(12)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3525,7 +3528,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188224815800}
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187293508261
 BoxCollider:
@@ -3583,7 +3586,7 @@ GameObject:
   - component: {fileID: 1567488187311675575}
   m_Layer: 0
   m_Name: Tile_x(1)_z(11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3629,7 +3632,7 @@ GameObject:
   - component: {fileID: 1567488187313332465}
   m_Layer: 0
   m_Name: Tile_x(6)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3676,7 +3679,7 @@ GameObject:
   - component: {fileID: 1567488187316920708}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3758,7 +3761,7 @@ GameObject:
   - component: {fileID: 1567488187325899365}
   m_Layer: 0
   m_Name: Tile_x(4)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3804,7 +3807,7 @@ GameObject:
   - component: {fileID: 1567488187329608284}
   m_Layer: 0
   m_Name: Tile_x(6)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3850,7 +3853,7 @@ GameObject:
   - component: {fileID: 1567488187340038252}
   m_Layer: 0
   m_Name: Tile_x(0)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3896,7 +3899,7 @@ GameObject:
   - component: {fileID: 1567488187342724098}
   m_Layer: 0
   m_Name: Tile_x(16)_z(3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3915,7 +3918,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187254235590}
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187342724098
 BoxCollider:
@@ -3943,7 +3946,7 @@ GameObject:
   - component: {fileID: 1567488187345442586}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4024,7 +4027,7 @@ GameObject:
   - component: {fileID: 1567488187345595689}
   m_Layer: 0
   m_Name: Tile_x(14)_z(2)
-  m_TagString: SpawnPoint
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4044,7 +4047,7 @@ Transform:
   - {fileID: 1567488187286181756}
   - {fileID: 1567488188760713616}
   m_Father: {fileID: 1567488188636299257}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567488187350043312
 GameObject:
@@ -4062,7 +4065,7 @@ GameObject:
   - component: {fileID: 6052872021937072121}
   m_Layer: 0
   m_Name: Tile_x(13)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4080,7 +4083,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187350043316
 MeshFilter:
@@ -4201,7 +4204,7 @@ GameObject:
   - component: {fileID: 1567488187357066342}
   m_Layer: 0
   m_Name: Tile_x(13)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4220,7 +4223,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188486237004}
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187357066342
 BoxCollider:
@@ -4251,7 +4254,7 @@ GameObject:
   - component: {fileID: 4718918759368149179}
   m_Layer: 0
   m_Name: Tile_x(13)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4269,7 +4272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187364665053
 MeshFilter:
@@ -4394,11 +4397,11 @@ GameObject:
   - component: {fileID: 7337880295228919088}
   m_Layer: 0
   m_Name: Tile_x(7)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187370057422
 Transform:
   m_ObjectHideFlags: 0
@@ -4534,7 +4537,7 @@ GameObject:
   - component: {fileID: 1567488187385395700}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4620,7 +4623,7 @@ GameObject:
   - component: {fileID: 1513988934314391887}
   m_Layer: 0
   m_Name: Tile_x(10)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4638,7 +4641,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187393259034
 MeshFilter:
@@ -4760,7 +4763,7 @@ GameObject:
   - component: {fileID: 1567488187400874233}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4846,7 +4849,7 @@ GameObject:
   - component: {fileID: 1680930801575153593}
   m_Layer: 0
   m_Name: Tile_x(4)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4987,7 +4990,7 @@ GameObject:
   - component: {fileID: 1567488187412633691}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5082,7 +5085,7 @@ GameObject:
   - component: {fileID: 1567488187413795452}
   m_Layer: 0
   m_Name: Tile_x(5)_z(9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5133,7 +5136,7 @@ GameObject:
   - component: {fileID: 3861614875174953497}
   m_Layer: 0
   m_Name: Tile_x(15)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5151,7 +5154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187415721564
 MeshFilter:
@@ -5276,7 +5279,7 @@ GameObject:
   - component: {fileID: 4539456473854948798}
   m_Layer: 0
   m_Name: Tile_x(11)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5294,7 +5297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187432847142
 MeshFilter:
@@ -5419,11 +5422,11 @@ GameObject:
   - component: {fileID: 6500694764898390113}
   m_Layer: 0
   m_Name: Tile_x(8)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187435804922
 Transform:
   m_ObjectHideFlags: 0
@@ -5562,7 +5565,7 @@ GameObject:
   - component: {fileID: 5081437038101341707}
   m_Layer: 0
   m_Name: Tile_x(2)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5701,7 +5704,7 @@ GameObject:
   - component: {fileID: 1567488187438542290}
   m_Layer: 0
   m_Name: Tile_x(5)_z(11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5747,7 +5750,7 @@ GameObject:
   - component: {fileID: 1567488187439078106}
   m_Layer: 0
   m_Name: Tile_x(15)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5766,7 +5769,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187267219531}
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187439078106
 BoxCollider:
@@ -5794,7 +5797,7 @@ GameObject:
   - component: {fileID: 1567488187442150640}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5880,7 +5883,7 @@ GameObject:
   - component: {fileID: 7562477793877702335}
   m_Layer: 0
   m_Name: Tile_x(3)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6020,7 +6023,7 @@ GameObject:
   - component: {fileID: 1567488187444788678}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6106,7 +6109,7 @@ GameObject:
   - component: {fileID: 7356210332905082903}
   m_Layer: 0
   m_Name: Tile_x(4)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6245,7 +6248,7 @@ GameObject:
   - component: {fileID: 1567488187461288231}
   m_Layer: 0
   m_Name: Tile_x(6)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6292,7 +6295,7 @@ GameObject:
   - component: {fileID: 1567488187462119210}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6375,7 +6378,7 @@ GameObject:
   - component: {fileID: 1567488187462359192}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6458,7 +6461,7 @@ GameObject:
   - component: {fileID: 1567488187463421818}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6544,7 +6547,7 @@ GameObject:
   - component: {fileID: 7392444627811919106}
   m_Layer: 0
   m_Name: Tile_x(15)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6562,7 +6565,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187477392279
 MeshFilter:
@@ -6687,7 +6690,7 @@ GameObject:
   - component: {fileID: 1581580517645127913}
   m_Layer: 0
   m_Name: Tile_x(12)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6705,7 +6708,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187478243765
 MeshFilter:
@@ -6826,7 +6829,7 @@ GameObject:
   - component: {fileID: 1567488187483333423}
   m_Layer: 0
   m_Name: Tile_x(14)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6873,7 +6876,7 @@ GameObject:
   - component: {fileID: 1567488187493600469}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6955,7 +6958,7 @@ GameObject:
   - component: {fileID: 1567488187494743562}
   m_Layer: 0
   m_Name: Tile_x(15)_z(3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6974,7 +6977,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187444788679}
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187494743562
 BoxCollider:
@@ -7001,7 +7004,7 @@ GameObject:
   - component: {fileID: 1567488187497291353}
   m_Layer: 0
   m_Name: Tile_x(5)_z(13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7051,7 +7054,7 @@ GameObject:
   - component: {fileID: 2307307356760594376}
   m_Layer: 0
   m_Name: Tile_x(1)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7190,7 +7193,7 @@ GameObject:
   - component: {fileID: 1567488187513035561}
   m_Layer: 0
   m_Name: Tile_x(5)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7259,7 +7262,9 @@ Transform:
   - {fileID: 1567488188858855830}
   - {fileID: 1567488188493367547}
   - {fileID: 1567488187435804922}
+  - {fileID: 9104588635370025777}
   - {fileID: 1567488188126283702}
+  - {fileID: 8205159744822741599}
   - {fileID: 1567488188005754670}
   - {fileID: 1567488188182003503}
   - {fileID: 1567488188766198629}
@@ -7283,7 +7288,7 @@ GameObject:
   - component: {fileID: 1567488187532380784}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7366,7 +7371,7 @@ GameObject:
   - component: {fileID: 1567488187545142444}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7452,7 +7457,7 @@ GameObject:
   - component: {fileID: 5065315475217725822}
   m_Layer: 0
   m_Name: Tile_x(3)_z(2)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7595,7 +7600,7 @@ GameObject:
   - component: {fileID: 6029529969707456378}
   m_Layer: 0
   m_Name: Tile_x(6)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7735,7 +7740,7 @@ GameObject:
   - component: {fileID: 1567488187569776551}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7821,11 +7826,11 @@ GameObject:
   - component: {fileID: 4593436644461939404}
   m_Layer: 0
   m_Name: Tile_x(7)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187581232866
 Transform:
   m_ObjectHideFlags: 0
@@ -7960,7 +7965,7 @@ GameObject:
   - component: {fileID: 1567488187591808532}
   m_Layer: 0
   m_Name: Tile_x(16)_z(5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7979,7 +7984,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188871331146}
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187591808532
 BoxCollider:
@@ -8007,7 +8012,7 @@ GameObject:
   - component: {fileID: 1567488187595527284}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8090,7 +8095,7 @@ GameObject:
   - component: {fileID: 1567488187598169558}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8173,7 +8178,7 @@ GameObject:
   - component: {fileID: 1567488187613855630}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8287,7 +8292,7 @@ GameObject:
   - component: {fileID: 1567488187627116963}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8369,7 +8374,7 @@ GameObject:
   - component: {fileID: 1567488187633802547}
   m_Layer: 0
   m_Name: Tile_x(16)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8388,7 +8393,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187965464484}
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187633802547
 BoxCollider:
@@ -8417,7 +8422,7 @@ GameObject:
   - component: {fileID: 1567488187644166932}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8512,7 +8517,7 @@ GameObject:
   - component: {fileID: 1567488187657488387}
   m_Layer: 0
   m_Name: Tile_x(5)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8559,7 +8564,7 @@ GameObject:
   - component: {fileID: 1567488187663003153}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8641,7 +8646,7 @@ GameObject:
   - component: {fileID: 1567488187670412900}
   m_Layer: 0
   m_Name: Tile_x(16)_z(6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8661,7 +8666,7 @@ Transform:
   - {fileID: 1571720855812680424}
   - {fileID: 1567488187673338548}
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187670412900
 BoxCollider:
@@ -8689,7 +8694,7 @@ GameObject:
   - component: {fileID: 1567488187673338551}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8775,7 +8780,7 @@ GameObject:
   - component: {fileID: 708306502905745917}
   m_Layer: 0
   m_Name: Tile_x(14)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8793,7 +8798,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187673757801
 MeshFilter:
@@ -8914,7 +8919,7 @@ GameObject:
   - component: {fileID: 1567488187689774628}
   m_Layer: 0
   m_Name: Tile_x(0)_z(5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8965,7 +8970,7 @@ GameObject:
   - component: {fileID: 8369974417442278266}
   m_Layer: 0
   m_Name: Tile_x(11)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8983,7 +8988,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187730113916
 MeshFilter:
@@ -9108,7 +9113,7 @@ GameObject:
   - component: {fileID: 4934224324402375379}
   m_Layer: 0
   m_Name: Tile_x(10)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9126,7 +9131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187735924371
 MeshFilter:
@@ -9247,7 +9252,7 @@ GameObject:
   - component: {fileID: 1567488187753220957}
   m_Layer: 0
   m_Name: Tile_x(15)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9294,7 +9299,7 @@ GameObject:
   - component: {fileID: 1567488187755623568}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9377,7 +9382,7 @@ GameObject:
   - component: {fileID: 1567488187757774776}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9459,7 +9464,7 @@ GameObject:
   - component: {fileID: 1567488187771327212}
   m_Layer: 0
   m_Name: Tile_x(11)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9478,7 +9483,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188303260204}
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187771327212
 BoxCollider:
@@ -9505,7 +9510,7 @@ GameObject:
   - component: {fileID: 1567488187775815214}
   m_Layer: 0
   m_Name: Tile_x(13)_z(3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9524,7 +9529,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187955302055}
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187775815214
 BoxCollider:
@@ -9555,7 +9560,7 @@ GameObject:
   - component: {fileID: 98407681484726890}
   m_Layer: 0
   m_Name: Tile_x(12)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9573,7 +9578,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187777097683
 MeshFilter:
@@ -9691,7 +9696,7 @@ GameObject:
   - component: {fileID: 1567488187777705844}
   m_Layer: 0
   m_Name: Tile_x(15)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9741,7 +9746,7 @@ GameObject:
   - component: {fileID: 4192824959792087703}
   m_Layer: 0
   m_Name: Tile_x(1)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9881,7 +9886,7 @@ GameObject:
   - component: {fileID: 1567488187789417350}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9965,7 +9970,7 @@ GameObject:
   - component: {fileID: 1567488187790007213}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10061,7 +10066,7 @@ GameObject:
   - component: {fileID: 1567488187791015065}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10144,7 +10149,7 @@ GameObject:
   - component: {fileID: 1567488187793950547}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10227,7 +10232,7 @@ GameObject:
   - component: {fileID: 1567488187802368457}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10309,7 +10314,7 @@ GameObject:
   - component: {fileID: 1567488187809810562}
   m_Layer: 0
   m_Name: Tile_x(10)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10328,7 +10333,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188608974216}
   m_Father: {fileID: 1567488188636299257}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187809810562
 BoxCollider:
@@ -10355,7 +10360,7 @@ GameObject:
   - component: {fileID: 1567488187810323946}
   m_Layer: 0
   m_Name: Tile_x(3)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10405,7 +10410,7 @@ GameObject:
   - component: {fileID: 9049322876778054407}
   m_Layer: 0
   m_Name: Tile_x(10)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10423,7 +10428,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187822679168
 MeshFilter:
@@ -10548,7 +10553,7 @@ GameObject:
   - component: {fileID: 2397442185496983964}
   m_Layer: 0
   m_Name: Tile_x(12)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10566,7 +10571,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187824951316
 MeshFilter:
@@ -10691,11 +10696,11 @@ GameObject:
   - component: {fileID: 3109809259459258099}
   m_Layer: 0
   m_Name: Tile_x(7)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187844953020
 Transform:
   m_ObjectHideFlags: 0
@@ -10831,7 +10836,7 @@ GameObject:
   - component: {fileID: 1567488187846132720}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10914,7 +10919,7 @@ GameObject:
   - component: {fileID: 1567488187848079328}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10997,7 +11002,7 @@ GameObject:
   - component: {fileID: 1567488187849632497}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11083,7 +11088,7 @@ GameObject:
   - component: {fileID: 217966464960665886}
   m_Layer: 0
   m_Name: Tile_x(11)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11101,7 +11106,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187859115317
 MeshFilter:
@@ -11226,7 +11231,7 @@ GameObject:
   - component: {fileID: 7212646430131492087}
   m_Layer: 0
   m_Name: Tile_x(10)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11244,7 +11249,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187860180942
 MeshFilter:
@@ -11366,7 +11371,7 @@ GameObject:
   - component: {fileID: 1567488187865789360}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11448,7 +11453,7 @@ GameObject:
   - component: {fileID: 1567488187873313740}
   m_Layer: 0
   m_Name: Tile_x(12)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11494,7 +11499,7 @@ GameObject:
   - component: {fileID: 1567488187874204691}
   m_Layer: 0
   m_Name: Tile_x(0)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11544,7 +11549,7 @@ GameObject:
   - component: {fileID: 885166017771710568}
   m_Layer: 0
   m_Name: Tile_x(4)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11684,7 +11689,7 @@ GameObject:
   - component: {fileID: 1567488187881148319}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11767,7 +11772,7 @@ GameObject:
   - component: {fileID: 1567488187884836652}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11853,7 +11858,7 @@ GameObject:
   - component: {fileID: 6110845279957023265}
   m_Layer: 0
   m_Name: Tile_x(5)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11996,7 +12001,7 @@ GameObject:
   - component: {fileID: 6655664095961316641}
   m_Layer: 0
   m_Name: Tile_x(13)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12014,7 +12019,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187894792352
 MeshFilter:
@@ -12136,7 +12141,7 @@ GameObject:
   - component: {fileID: 1567488187894870826}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12270,7 +12275,7 @@ GameObject:
   - component: {fileID: 3107779258405234568}
   m_Layer: 0
   m_Name: Tile_x(2)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12413,11 +12418,11 @@ GameObject:
   - component: {fileID: 5174433138341846548}
   m_Layer: 0
   m_Name: Tile_x(9)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187925985162
 Transform:
   m_ObjectHideFlags: 0
@@ -12556,11 +12561,11 @@ GameObject:
   - component: {fileID: 6283866934270153120}
   m_Layer: 0
   m_Name: Tile_x(8)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488187944986638
 Transform:
   m_ObjectHideFlags: 0
@@ -12574,7 +12579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187944986643
 MeshFilter:
@@ -12696,7 +12701,7 @@ GameObject:
   - component: {fileID: 1567488187950433375}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12779,7 +12784,7 @@ GameObject:
   - component: {fileID: 1567488187955302054}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12861,7 +12866,7 @@ GameObject:
   - component: {fileID: 1567488187962867897}
   m_Layer: 0
   m_Name: Tile_x(11)_z(5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12881,7 +12886,7 @@ Transform:
   - {fileID: 1567488187258990670}
   - {fileID: 1571716071788465915}
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488187962867897
 BoxCollider:
@@ -12908,7 +12913,7 @@ GameObject:
   - component: {fileID: 1567488187964675944}
   m_Layer: 0
   m_Name: Tile_x(2)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12955,7 +12960,7 @@ GameObject:
   - component: {fileID: 1567488187965464487}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13041,7 +13046,7 @@ GameObject:
   - component: {fileID: 7696815679915175295}
   m_Layer: 0
   m_Name: Tile_x(14)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13059,7 +13064,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187967841881
 MeshFilter:
@@ -13180,7 +13185,7 @@ GameObject:
   - component: {fileID: 1567488187969457978}
   m_Layer: 0
   m_Name: Tile_x(14)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13230,7 +13235,7 @@ GameObject:
   - component: {fileID: 8707059217098666026}
   m_Layer: 0
   m_Name: Tile_x(4)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13373,7 +13378,7 @@ GameObject:
   - component: {fileID: 2022856407095767709}
   m_Layer: 0
   m_Name: Tile_x(12)_z(2)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13391,7 +13396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188636299257}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488187983060181
 MeshFilter:
@@ -13512,7 +13517,7 @@ GameObject:
   - component: {fileID: 1567488187989593970}
   m_Layer: 0
   m_Name: Tile_x(0)_z(8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13559,7 +13564,7 @@ GameObject:
   - component: {fileID: 1567488187994499709}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13642,7 +13647,7 @@ GameObject:
   - component: {fileID: 1567488188003193731}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13728,7 +13733,7 @@ GameObject:
   - component: {fileID: 3162697634565465144}
   m_Layer: 0
   m_Name: Tile_x(10)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13746,7 +13751,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188005754675
 MeshFilter:
@@ -13867,7 +13872,7 @@ GameObject:
   - component: {fileID: 1567488188014122116}
   m_Layer: 0
   m_Name: Tile_x(0)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13937,7 +13942,9 @@ Transform:
   - {fileID: 1567488188435918192}
   - {fileID: 1567488188719699232}
   - {fileID: 1567488187370057422}
+  - {fileID: 200142108251797249}
   - {fileID: 1567488187944986638}
+  - {fileID: 2211362548774312852}
   - {fileID: 1567488188480091633}
   - {fileID: 1567488187432847141}
   - {fileID: 1567488188363702846}
@@ -13959,7 +13966,7 @@ GameObject:
   - component: {fileID: 1567488188054833339}
   m_Layer: 0
   m_Name: Tile_x(16)_z(9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13978,7 +13985,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187595527285}
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188054833339
 BoxCollider:
@@ -14005,7 +14012,7 @@ GameObject:
   - component: {fileID: 1567488188056759034}
   m_Layer: 0
   m_Name: Tile_x(4)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14075,7 +14082,9 @@ Transform:
   - {fileID: 1567488187889889815}
   - {fileID: 1567488188109709915}
   - {fileID: 1567488187581232866}
+  - {fileID: 349475786993082551}
   - {fileID: 1567488189067969829}
+  - {fileID: 7949188014744983168}
   - {fileID: 1567488187859115312}
   - {fileID: 1567488188365577039}
   - {fileID: 1567488188667321698}
@@ -14098,7 +14107,7 @@ GameObject:
   - component: {fileID: 1567488188070914557}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14184,7 +14193,7 @@ GameObject:
   - component: {fileID: 8369841454170756910}
   m_Layer: 0
   m_Name: Tile_x(4)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14324,7 +14333,7 @@ GameObject:
   - component: {fileID: 1567488188078292707}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14454,7 +14463,7 @@ GameObject:
   - component: {fileID: 1567488188109709914}
   m_Layer: 0
   m_Name: Tile_x(6)_z(6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14500,7 +14509,7 @@ GameObject:
   - component: {fileID: 1567488188117993469}
   m_Layer: 0
   m_Name: Tile_x(15)_z(5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14520,7 +14529,7 @@ Transform:
   - {fileID: 1567488188320925050}
   - {fileID: 1571880137980361920}
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188117993469
 BoxCollider:
@@ -14551,7 +14560,7 @@ GameObject:
   - component: {fileID: 751024406515706971}
   m_Layer: 0
   m_Name: Tile_x(13)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14569,7 +14578,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188118797874
 MeshFilter:
@@ -14727,11 +14736,11 @@ GameObject:
   - component: {fileID: 4088291407216399977}
   m_Layer: 0
   m_Name: Tile_x(9)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188126283702
 Transform:
   m_ObjectHideFlags: 0
@@ -14745,7 +14754,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188126283707
 MeshFilter:
@@ -14866,7 +14875,7 @@ GameObject:
   - component: {fileID: 1567488188136483020}
   m_Layer: 0
   m_Name: Tile_x(9)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14935,6 +14944,7 @@ Transform:
   - {fileID: 1567488188854790836}
   - {fileID: 1567488187288787110}
   - {fileID: 1567488187844953020}
+  - {fileID: 3761307868826302076}
   - {fileID: 1567488188363700264}
   - {fileID: 1567488188810568532}
   - {fileID: 1567488187087552484}
@@ -14957,7 +14967,7 @@ GameObject:
   - component: {fileID: 1567488188143623683}
   m_Layer: 0
   m_Name: Tile_x(1)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15003,7 +15013,7 @@ GameObject:
   - component: {fileID: 1567488188146412937}
   m_Layer: 0
   m_Name: Tile_x(13)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15049,7 +15059,7 @@ GameObject:
   - component: {fileID: 1567488188151545482}
   m_Layer: 0
   m_Name: Tile_x(4)_z(6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15095,7 +15105,7 @@ GameObject:
   - component: {fileID: 1567488188153338562}
   m_Layer: 0
   m_Name: Tile_x(0)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15142,7 +15152,7 @@ GameObject:
   - component: {fileID: 1567488188154048705}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15228,11 +15238,11 @@ GameObject:
   - component: {fileID: 8636923725880577092}
   m_Layer: 0
   m_Name: Tile_x(7)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188154823317
 Transform:
   m_ObjectHideFlags: 0
@@ -15367,7 +15377,7 @@ GameObject:
   - component: {fileID: 1567488188155020211}
   m_Layer: 0
   m_Name: Tile_x(16)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15386,7 +15396,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187894870827}
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188155020211
 BoxCollider:
@@ -15414,7 +15424,7 @@ GameObject:
   - component: {fileID: 1567488188157441540}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15498,7 +15508,7 @@ GameObject:
   - component: {fileID: 1567488188161860521}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15594,7 +15604,7 @@ GameObject:
   - component: {fileID: 1567488188162493788}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15680,11 +15690,11 @@ GameObject:
   - component: {fileID: 4211558735916115103}
   m_Layer: 0
   m_Name: Tile_x(9)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188180807333
 Transform:
   m_ObjectHideFlags: 0
@@ -15819,7 +15829,7 @@ GameObject:
   - component: {fileID: 1567488188182003502}
   m_Layer: 0
   m_Name: Tile_x(11)_z(3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15838,7 +15848,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188078292704}
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188182003502
 BoxCollider:
@@ -15896,7 +15906,7 @@ GameObject:
   - component: {fileID: 1567488188197930319}
   m_Layer: 0
   m_Name: Tile_x(0)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15943,7 +15953,7 @@ GameObject:
   - component: {fileID: 1567488188209667357}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16026,7 +16036,7 @@ GameObject:
   - component: {fileID: 1567488188209816628}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16112,7 +16122,7 @@ GameObject:
   - component: {fileID: 892108108853352813}
   m_Layer: 0
   m_Name: Tile_x(5)_z(2)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16255,7 +16265,7 @@ GameObject:
   - component: {fileID: 6636691945347853686}
   m_Layer: 0
   m_Name: Tile_x(4)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16395,7 +16405,7 @@ GameObject:
   - component: {fileID: 1567488188224815803}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16478,7 +16488,7 @@ GameObject:
   - component: {fileID: 1567488188225678434}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16561,7 +16571,7 @@ GameObject:
   - component: {fileID: 1567488188232385728}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16647,7 +16657,7 @@ GameObject:
   - component: {fileID: 603358911183779831}
   m_Layer: 0
   m_Name: Tile_x(2)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16787,7 +16797,7 @@ GameObject:
   - component: {fileID: 1567488188244184848}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16873,7 +16883,7 @@ GameObject:
   - component: {fileID: 4550812078439768249}
   m_Layer: 0
   m_Name: Tile_x(14)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16891,7 +16901,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188244279398
 MeshFilter:
@@ -17012,7 +17022,7 @@ GameObject:
   - component: {fileID: 1567488188246430339}
   m_Layer: 0
   m_Name: Tile_x(10)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17058,7 +17068,7 @@ GameObject:
   - component: {fileID: 1567488188248664881}
   m_Layer: 0
   m_Name: Tile_x(5)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17108,7 +17118,7 @@ GameObject:
   - component: {fileID: 2205975654837743869}
   m_Layer: 0
   m_Name: Tile_x(1)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17247,7 +17257,7 @@ GameObject:
   - component: {fileID: 1567488188257030755}
   m_Layer: 0
   m_Name: Tile_x(12)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17266,7 +17276,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188433016414}
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188257030755
 BoxCollider:
@@ -17293,7 +17303,7 @@ GameObject:
   - component: {fileID: 1567488188282634604}
   m_Layer: 0
   m_Name: Tile_x(14)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17312,7 +17322,7 @@ Transform:
   m_Children:
   - {fileID: 1567488189137297016}
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188282634604
 BoxCollider:
@@ -17343,7 +17353,7 @@ GameObject:
   - component: {fileID: 6600147995741763484}
   m_Layer: 0
   m_Name: Tile_x(13)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17361,7 +17371,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188284092675
 MeshFilter:
@@ -17483,7 +17493,7 @@ GameObject:
   - component: {fileID: 1567488188288010817}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17566,7 +17576,7 @@ GameObject:
   - component: {fileID: 1567488188303260207}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17649,7 +17659,7 @@ GameObject:
   - component: {fileID: 1567488188308854010}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17731,7 +17741,7 @@ GameObject:
   - component: {fileID: 1567488188309915823}
   m_Layer: 0
   m_Name: Tile_x(2)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17778,7 +17788,7 @@ GameObject:
   - component: {fileID: 1567488188312599742}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17861,7 +17871,7 @@ GameObject:
   - component: {fileID: 1567488188320925053}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17944,7 +17954,7 @@ GameObject:
   - component: {fileID: 1567488188322536693}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18030,7 +18040,7 @@ GameObject:
   - component: {fileID: 380378011706196718}
   m_Layer: 0
   m_Name: Tile_x(11)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18048,7 +18058,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188326239881
 MeshFilter:
@@ -18193,6 +18203,7 @@ Transform:
   - {fileID: 1567488188248664878}
   - {fileID: 1567488188521605793}
   - {fileID: 1567488188180807333}
+  - {fileID: 4551534472062559587}
   - {fileID: 1567488187822679423}
   - {fileID: 1567488187771327213}
   - {fileID: 1567488187824951315}
@@ -18215,7 +18226,7 @@ GameObject:
   - component: {fileID: 1567488188334459329}
   m_Layer: 0
   m_Name: Tile_x(0)_z(3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18265,7 +18276,7 @@ GameObject:
   - component: {fileID: 6268155189480028572}
   m_Layer: 0
   m_Name: Tile_x(6)_z(11)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18404,7 +18415,7 @@ GameObject:
   - component: {fileID: 1567488188359741369}
   m_Layer: 0
   m_Name: Tile_x(10)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18423,7 +18434,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188950443568}
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188359741369
 BoxCollider:
@@ -18450,7 +18461,7 @@ GameObject:
   - component: {fileID: 1567488188363700267}
   m_Layer: 0
   m_Name: Tile_x(10)_z(8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18469,7 +18480,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188365169504}
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188363700267
 BoxCollider:
@@ -18496,7 +18507,7 @@ GameObject:
   - component: {fileID: 1567488188363702849}
   m_Layer: 0
   m_Name: Tile_x(12)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18515,7 +18526,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187848079329}
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188363702849
 BoxCollider:
@@ -18544,7 +18555,7 @@ GameObject:
   - component: {fileID: 1567488188365169507}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18643,7 +18654,7 @@ GameObject:
   - component: {fileID: 3289921180498699058}
   m_Layer: 0
   m_Name: Tile_x(12)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18661,7 +18672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188365577040
 MeshFilter:
@@ -18782,7 +18793,7 @@ GameObject:
   - component: {fileID: 1567488188375482561}
   m_Layer: 0
   m_Name: Tile_x(16)_z(11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18801,7 +18812,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187100563912}
   m_Father: {fileID: 1567488188900932962}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188375482561
 BoxCollider:
@@ -18828,7 +18839,7 @@ GameObject:
   - component: {fileID: 1567488188377539970}
   m_Layer: 0
   m_Name: Tile_x(7)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18878,7 +18889,7 @@ GameObject:
   - component: {fileID: 3588003239799095903}
   m_Layer: 0
   m_Name: Tile_x(6)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19019,7 +19030,7 @@ GameObject:
   - component: {fileID: 1567488188385262601}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19115,7 +19126,7 @@ GameObject:
   - component: {fileID: 1567488188387905406}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19197,7 +19208,7 @@ GameObject:
   - component: {fileID: 1567488188394332929}
   m_Layer: 0
   m_Name: Tile_x(16)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19216,7 +19227,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188714922755}
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188394332929
 BoxCollider:
@@ -19247,11 +19258,11 @@ GameObject:
   - component: {fileID: 8513630999708599787}
   m_Layer: 0
   m_Name: Tile_x(9)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188398353427
 Transform:
   m_ObjectHideFlags: 0
@@ -19387,7 +19398,7 @@ GameObject:
   - component: {fileID: 1567488188401836675}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19470,7 +19481,7 @@ GameObject:
   - component: {fileID: 1567488188402663142}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19552,7 +19563,7 @@ GameObject:
   - component: {fileID: 1567488188407290067}
   m_Layer: 0
   m_Name: Tile_x(2)_z(6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19598,7 +19609,7 @@ GameObject:
   - component: {fileID: 1567488188424115084}
   m_Layer: 0
   m_Name: MapContainer
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19663,7 +19674,7 @@ GameObject:
   - component: {fileID: 8903634818132680574}
   m_Layer: 0
   m_Name: Tile_x(15)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19681,7 +19692,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188424173599
 MeshFilter:
@@ -19803,7 +19814,7 @@ GameObject:
   - component: {fileID: 1567488188426084575}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19887,7 +19898,7 @@ GameObject:
   - component: {fileID: 1567488188426921718}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19983,7 +19994,7 @@ GameObject:
   - component: {fileID: 1567488188433016417}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20069,7 +20080,7 @@ GameObject:
   - component: {fileID: 4124157731011930377}
   m_Layer: 0
   m_Name: Tile_x(5)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20209,7 +20220,7 @@ GameObject:
   - component: {fileID: 1567488188436520043}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20295,7 +20306,7 @@ GameObject:
   - component: {fileID: 2308543907527087380}
   m_Layer: 0
   m_Name: Tile_x(4)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20434,7 +20445,7 @@ GameObject:
   - component: {fileID: 1567488188446598313}
   m_Layer: 0
   m_Name: Tile_x(16)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20453,7 +20464,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188209816629}
   m_Father: {fileID: 1567488188636299257}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188446598313
 BoxCollider:
@@ -20481,7 +20492,7 @@ GameObject:
   - component: {fileID: 1567488188452079157}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20567,7 +20578,7 @@ GameObject:
   - component: {fileID: 8793816856314669399}
   m_Layer: 0
   m_Name: Tile_x(3)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20706,7 +20717,7 @@ GameObject:
   - component: {fileID: 1567488188480091632}
   m_Layer: 0
   m_Name: Tile_x(10)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20725,7 +20736,7 @@ Transform:
   m_Children:
   - {fileID: 4805357488010569180}
   m_Father: {fileID: 1567488188045574504}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188480091632
 BoxCollider:
@@ -20752,7 +20763,7 @@ GameObject:
   - component: {fileID: 1567488188480590756}
   m_Layer: 0
   m_Name: Tile_x(0)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20799,7 +20810,7 @@ GameObject:
   - component: {fileID: 1567488188486237007}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20885,7 +20896,7 @@ GameObject:
   - component: {fileID: 3667645278098557647}
   m_Layer: 0
   m_Name: Tile_x(11)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20903,7 +20914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188488244758
 MeshFilter:
@@ -21028,7 +21039,7 @@ GameObject:
   - component: {fileID: 4720014915116197659}
   m_Layer: 0
   m_Name: Tile_x(12)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21046,7 +21057,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188488679970
 MeshFilter:
@@ -21171,7 +21182,7 @@ GameObject:
   - component: {fileID: 1957567613969013325}
   m_Layer: 0
   m_Name: Tile_x(4)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21314,7 +21325,7 @@ GameObject:
   - component: {fileID: 7305067432613980812}
   m_Layer: 0
   m_Name: Tile_x(3)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21457,7 +21468,7 @@ GameObject:
   - component: {fileID: 6896453078106333504}
   m_Layer: 0
   m_Name: Tile_x(6)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21596,7 +21607,7 @@ GameObject:
   - component: {fileID: 1567488188496425694}
   m_Layer: 0
   m_Name: Tile_x(0)_z(6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21644,7 +21655,7 @@ GameObject:
   - component: {fileID: 1567488188498082104}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21750,6 +21761,7 @@ Transform:
   - {fileID: 1567488188770295202}
   - {fileID: 1567488188382936881}
   - {fileID: 1567488189055560489}
+  - {fileID: 6801656291037658990}
   - {fileID: 1567488188619120000}
   - {fileID: 1567488187962867894}
   - {fileID: 1567488187777097678}
@@ -21772,7 +21784,7 @@ GameObject:
   - component: {fileID: 1567488188505099750}
   m_Layer: 0
   m_Name: Tile_x(16)_z(8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21791,7 +21803,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187275549133}
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188505099750
 BoxCollider:
@@ -21822,7 +21834,7 @@ GameObject:
   - component: {fileID: 2564070861776619315}
   m_Layer: 0
   m_Name: Tile_x(15)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21840,7 +21852,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188520942698
 MeshFilter:
@@ -21965,7 +21977,7 @@ GameObject:
   - component: {fileID: 3288365401229182948}
   m_Layer: 0
   m_Name: Tile_x(6)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22104,7 +22116,7 @@ GameObject:
   - component: {fileID: 1567488188525708012}
   m_Layer: 0
   m_Name: Tile_x(3)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22150,7 +22162,7 @@ GameObject:
   - component: {fileID: 1567488188528283714}
   m_Layer: 0
   m_Name: Tile_x(11)_z(1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22169,7 +22181,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187316920709}
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188528283714
 BoxCollider:
@@ -22200,7 +22212,7 @@ GameObject:
   - component: {fileID: 7395486763350265154}
   m_Layer: 0
   m_Name: Tile_x(2)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22343,7 +22355,7 @@ GameObject:
   - component: {fileID: 7377260103900564051}
   m_Layer: 0
   m_Name: Tile_x(3)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22486,7 +22498,7 @@ GameObject:
   - component: {fileID: 8010579875474539364}
   m_Layer: 0
   m_Name: Tile_x(6)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22625,7 +22637,7 @@ GameObject:
   - component: {fileID: 1567488188557030342}
   m_Layer: 0
   m_Name: Tile_x(10)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22644,7 +22656,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187790007210}
   m_Father: {fileID: 1567488187263389551}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188557030342
 BoxCollider:
@@ -22671,7 +22683,7 @@ GameObject:
   - component: {fileID: 1567488188558009709}
   m_Layer: 0
   m_Name: Tile_x(16)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22741,7 +22753,9 @@ Transform:
   - {fileID: 1567488187413795453}
   - {fileID: 1567488188553490446}
   - {fileID: 1567488188798260698}
+  - {fileID: 4405509430904419869}
   - {fileID: 1567488188991366145}
+  - {fileID: 4875613094474180287}
   - {fileID: 1567488187279292580}
   - {fileID: 1567488187730113915}
   - {fileID: 1567488188488679969}
@@ -22764,7 +22778,7 @@ GameObject:
   - component: {fileID: 1567488188571363863}
   m_Layer: 0
   m_Name: Tile_x(4)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22814,7 +22828,7 @@ GameObject:
   - component: {fileID: 7805988121238562189}
   m_Layer: 0
   m_Name: Tile_x(1)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22957,7 +22971,7 @@ GameObject:
   - component: {fileID: 8877366583166713876}
   m_Layer: 0
   m_Name: Tile_x(3)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23129,7 +23143,7 @@ GameObject:
   - component: {fileID: 1567488188597109113}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23226,7 +23240,7 @@ GameObject:
   - component: {fileID: 1567488188608974219}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23325,7 +23339,7 @@ GameObject:
   - component: {fileID: 906338407576180909}
   m_Layer: 0
   m_Name: Tile_x(14)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23343,7 +23357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188609092466
 MeshFilter:
@@ -23465,7 +23479,7 @@ GameObject:
   - component: {fileID: 1567488188609440535}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23548,7 +23562,7 @@ GameObject:
   - component: {fileID: 1567488188609531264}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23634,11 +23648,11 @@ GameObject:
   - component: {fileID: 5233535107039485443}
   m_Layer: 0
   m_Name: Tile_x(7)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188616062922
 Transform:
   m_ObjectHideFlags: 0
@@ -23774,7 +23788,7 @@ GameObject:
   - component: {fileID: 1567488188618629000}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23860,7 +23874,7 @@ GameObject:
   - component: {fileID: 7644448341643772324}
   m_Layer: 0
   m_Name: Tile_x(10)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23878,7 +23892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188619120005
 MeshFilter:
@@ -23999,7 +24013,7 @@ GameObject:
   - component: {fileID: 1567488188621293011}
   m_Layer: 0
   m_Name: Tile_x(1)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24049,7 +24063,7 @@ GameObject:
   - component: {fileID: 7655496752017710567}
   m_Layer: 0
   m_Name: Tile_x(11)_z(2)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24067,7 +24081,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188636299257}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188632491377
 MeshFilter:
@@ -24211,6 +24225,7 @@ Transform:
   - {fileID: 1567488188210781202}
   - {fileID: 1567488188781607909}
   - {fileID: 1567488188758594821}
+  - {fileID: 8910470141006593743}
   - {fileID: 1567488187809810563}
   - {fileID: 1567488188632491372}
   - {fileID: 1567488187983060176}
@@ -24235,7 +24250,7 @@ GameObject:
   - component: {fileID: 2579126705314584573}
   m_Layer: 0
   m_Name: Tile_x(6)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24378,7 +24393,7 @@ GameObject:
   - component: {fileID: 8964915609141106574}
   m_Layer: 0
   m_Name: Tile_x(14)_z(7)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24396,7 +24411,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188648681834
 MeshFilter:
@@ -24521,7 +24536,7 @@ GameObject:
   - component: {fileID: 4027836687839697579}
   m_Layer: 0
   m_Name: Tile_x(13)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24539,7 +24554,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188667321703
 MeshFilter:
@@ -24661,7 +24676,7 @@ GameObject:
   - component: {fileID: 1567488188680453441}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24743,7 +24758,7 @@ GameObject:
   - component: {fileID: 1567488188691489083}
   m_Layer: 0
   m_Name: Tile_x(6)_z(4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24790,7 +24805,7 @@ GameObject:
   - component: {fileID: 1567488188706513040}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24876,11 +24891,11 @@ GameObject:
   - component: {fileID: 6181453645777140176}
   m_Layer: 0
   m_Name: Tile_x(9)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188713901149
 Transform:
   m_ObjectHideFlags: 0
@@ -25016,7 +25031,7 @@ GameObject:
   - component: {fileID: 1567488188714922754}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25098,7 +25113,7 @@ GameObject:
   - component: {fileID: 1567488188719699235}
   m_Layer: 0
   m_Name: Tile_x(6)_z(12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25144,7 +25159,7 @@ GameObject:
   - component: {fileID: 1567488188721501208}
   m_Layer: 0
   m_Name: Tile_x(0)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25190,7 +25205,7 @@ GameObject:
   - component: {fileID: 1567488188729249033}
   m_Layer: 0
   m_Name: Tile_x(3)_z(11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25236,7 +25251,7 @@ GameObject:
   - component: {fileID: 1567488188731258868}
   m_Layer: 0
   m_Name: Tile_x(13)_z(5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25256,7 +25271,7 @@ Transform:
   - {fileID: 1567488188864172491}
   - {fileID: 1571548788970534214}
   m_Father: {fileID: 1567488188503610875}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188731258868
 BoxCollider:
@@ -25284,7 +25299,7 @@ GameObject:
   - component: {fileID: 1567488188740204442}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25367,7 +25382,7 @@ GameObject:
   - component: {fileID: 1567488188741814328}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25450,7 +25465,7 @@ GameObject:
   - component: {fileID: 1567488188743273833}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25533,7 +25548,7 @@ GameObject:
   - component: {fileID: 1567488188746781829}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25619,7 +25634,7 @@ GameObject:
   - component: {fileID: 3955649925375317055}
   m_Layer: 0
   m_Name: Tile_x(1)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25762,11 +25777,11 @@ GameObject:
   - component: {fileID: 3120596488181720614}
   m_Layer: 0
   m_Name: Tile_x(7)_z(2)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188758594821
 Transform:
   m_ObjectHideFlags: 0
@@ -25934,7 +25949,7 @@ GameObject:
   - component: {fileID: 1567488188764504460}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26033,7 +26048,7 @@ GameObject:
   - component: {fileID: 3234924971203891700}
   m_Layer: 0
   m_Name: Tile_x(12)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26051,7 +26066,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188766198630
 MeshFilter:
@@ -26176,7 +26191,7 @@ GameObject:
   - component: {fileID: 2122783081067856351}
   m_Layer: 0
   m_Name: Tile_x(5)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26319,7 +26334,7 @@ GameObject:
   - component: {fileID: 6961807947749273750}
   m_Layer: 0
   m_Name: Tile_x(5)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26462,7 +26477,7 @@ GameObject:
   - component: {fileID: 6914011995365950865}
   m_Layer: 0
   m_Name: Tile_x(13)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26480,7 +26495,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188781423747
 MeshFilter:
@@ -26601,7 +26616,7 @@ GameObject:
   - component: {fileID: 1567488188781607908}
   m_Layer: 0
   m_Name: Tile_x(6)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26651,7 +26666,7 @@ GameObject:
   - component: {fileID: 2848954402623852584}
   m_Layer: 0
   m_Name: Tile_x(12)_z(1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26669,7 +26684,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188787185958
 MeshFilter:
@@ -26794,11 +26809,11 @@ GameObject:
   - component: {fileID: 4324467464735146240}
   m_Layer: 0
   m_Name: Tile_x(8)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188798260698
 Transform:
   m_ObjectHideFlags: 0
@@ -26935,7 +26950,7 @@ GameObject:
   - component: {fileID: 1567488188801439009}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27034,7 +27049,7 @@ GameObject:
   - component: {fileID: 6623921213736073297}
   m_Layer: 0
   m_Name: Tile_x(5)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27177,7 +27192,7 @@ GameObject:
   - component: {fileID: 7431910141307401995}
   m_Layer: 0
   m_Name: Tile_x(3)_z(4)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27320,7 +27335,7 @@ GameObject:
   - component: {fileID: 1328407987215225578}
   m_Layer: 0
   m_Name: Tile_x(11)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27338,7 +27353,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188137551150}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188810568537
 MeshFilter:
@@ -27483,6 +27498,7 @@ Transform:
   - {fileID: 1567488187566811493}
   - {fileID: 1567488187191303727}
   - {fileID: 1567488188398353427}
+  - {fileID: 22312504237556946}
   - {fileID: 1567488187735924366}
   - {fileID: 1567488188528283715}
   - {fileID: 1567488188787185957}
@@ -27505,7 +27521,7 @@ GameObject:
   - component: {fileID: 1567488188817813956}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27591,7 +27607,7 @@ GameObject:
   - component: {fileID: 1440805765089449849}
   m_Layer: 0
   m_Name: Tile_x(2)_z(10)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27734,7 +27750,7 @@ GameObject:
   - component: {fileID: 2592275449598195228}
   m_Layer: 0
   m_Name: Tile_x(4)_z(12)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27877,7 +27893,7 @@ GameObject:
   - component: {fileID: 5171228751877186609}
   m_Layer: 0
   m_Name: Tile_x(4)_z(8)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28020,7 +28036,7 @@ GameObject:
   - component: {fileID: 4629704009901611109}
   m_Layer: 0
   m_Name: Tile_x(5)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28160,7 +28176,7 @@ GameObject:
   - component: {fileID: 1567488188864172490}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28243,7 +28259,7 @@ GameObject:
   - component: {fileID: 1567488188866533745}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28326,7 +28342,7 @@ GameObject:
   - component: {fileID: 1567488188871331149}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28408,7 +28424,7 @@ GameObject:
   - component: {fileID: 1567488188876804550}
   m_Layer: 0
   m_Name: Tile_x(1)_z(13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28454,7 +28470,7 @@ GameObject:
   - component: {fileID: 1567488188882869420}
   m_Layer: 0
   m_Name: Tile_x(13)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28473,7 +28489,7 @@ Transform:
   m_Children:
   - {fileID: 1567488187884836653}
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188882869420
 BoxCollider:
@@ -28500,7 +28516,7 @@ GameObject:
   - component: {fileID: 1567488188886088545}
   m_Layer: 0
   m_Name: Tile_x(0)_z(13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28570,6 +28586,7 @@ Transform:
   - {fileID: 1567488188338286967}
   - {fileID: 1567488188123445248}
   - {fileID: 1567488187925985162}
+  - {fileID: 3336523899463551914}
   - {fileID: 1567488187393259033}
   - {fileID: 1567488187265931960}
   - {fileID: 1567488187478243760}
@@ -28591,7 +28608,7 @@ GameObject:
   - component: {fileID: 1567488188901619914}
   m_Layer: 0
   m_Name: Tile_x(4)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28638,7 +28655,7 @@ GameObject:
   - component: {fileID: 1567488188904516246}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28720,7 +28737,7 @@ GameObject:
   - component: {fileID: 1567488188911626302}
   m_Layer: 0
   m_Name: Tile_x(3)_z(9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28810,7 +28827,7 @@ GameObject:
   - component: {fileID: 1567488188937578191}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28894,7 +28911,7 @@ GameObject:
   - component: {fileID: 1567488188950443571}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28990,7 +29007,7 @@ GameObject:
   - component: {fileID: 1567488188959228397}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29076,7 +29093,7 @@ GameObject:
   - component: {fileID: 5540731675987955012}
   m_Layer: 0
   m_Name: Tile_x(3)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29215,7 +29232,7 @@ GameObject:
   - component: {fileID: 1567488188968324755}
   m_Layer: 0
   m_Name: Tile_x(0)_z(1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29280,7 +29297,7 @@ Transform:
   - {fileID: 1567488188161860519}
   - {fileID: 1567488187060095184}
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567488188973325656
 GameObject:
@@ -29294,7 +29311,7 @@ GameObject:
   - component: {fileID: 1567488188973325658}
   m_Layer: 0
   m_Name: Tile_x(2)_z(2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29340,7 +29357,7 @@ GameObject:
   - component: {fileID: 1567488188977250698}
   m_Layer: 0
   m_Name: Tile_x(11)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29386,7 +29403,7 @@ GameObject:
   - component: {fileID: 1567488188981831566}
   m_Layer: 0
   m_Name: Tile_x(16)_z(7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29406,7 +29423,7 @@ Transform:
   - {fileID: 1571595234498941703}
   - {fileID: 1567488188609531265}
   m_Father: {fileID: 1567488188332870795}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488188981831566
 BoxCollider:
@@ -29437,7 +29454,7 @@ GameObject:
   - component: {fileID: 6114455872776524298}
   m_Layer: 0
   m_Name: Tile_x(11)_z(13)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29455,7 +29472,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187209773589}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188984977860
 MeshFilter:
@@ -29576,7 +29593,7 @@ GameObject:
   - component: {fileID: 1567488188988112457}
   m_Layer: 0
   m_Name: Tile_x(3)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29626,11 +29643,11 @@ GameObject:
   - component: {fileID: 8287844697524432240}
   m_Layer: 0
   m_Name: Tile_x(9)_z(9)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488188991366145
 Transform:
   m_ObjectHideFlags: 0
@@ -29644,7 +29661,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188570961927}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488188991366146
 MeshFilter:
@@ -29765,7 +29782,7 @@ GameObject:
   - component: {fileID: 1567488189000875396}
   m_Layer: 0
   m_Name: Tile_x(15)_z(1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29784,7 +29801,7 @@ Transform:
   m_Children:
   - {fileID: 1567488188904516247}
   m_Father: {fileID: 1567488188810661924}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488189000875396
 BoxCollider:
@@ -29811,7 +29828,7 @@ GameObject:
   - component: {fileID: 1567488189003318637}
   m_Layer: 0
   m_Name: Tile_x(1)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29857,7 +29874,7 @@ GameObject:
   - component: {fileID: 1567488189004168228}
   m_Layer: 0
   m_Name: Tile_x(9)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29907,7 +29924,7 @@ GameObject:
   - component: {fileID: 7139113071815010272}
   m_Layer: 0
   m_Name: Tile_x(14)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29925,7 +29942,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488189012266865
 MeshFilter:
@@ -30046,7 +30063,7 @@ GameObject:
   - component: {fileID: 1567488189014222076}
   m_Layer: 0
   m_Name: Tile_x(7)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30096,7 +30113,7 @@ GameObject:
   - component: {fileID: 4435331490436586000}
   m_Layer: 0
   m_Name: Tile_x(14)_z(3)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30114,7 +30131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488187523748374}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488189022577338
 MeshFilter:
@@ -30235,7 +30252,7 @@ GameObject:
   - component: {fileID: 1567488189037418744}
   m_Layer: 0
   m_Name: Tile_x(0)_z(9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30282,7 +30299,7 @@ GameObject:
   - component: {fileID: 1567488189053343298}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30366,7 +30383,7 @@ GameObject:
   - component: {fileID: 1567488189055200591}
   m_Layer: 0
   m_Name: block_wood1_LOD0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30465,11 +30482,11 @@ GameObject:
   - component: {fileID: 5422681175872905394}
   m_Layer: 0
   m_Name: Tile_x(9)_z(5)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488189055560489
 Transform:
   m_ObjectHideFlags: 0
@@ -30605,7 +30622,7 @@ GameObject:
   - component: {fileID: 1567488189062895529}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30687,7 +30704,7 @@ GameObject:
   - component: {fileID: 1567488189063486690}
   m_Layer: 0
   m_Name: Tile_x(13)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30737,11 +30754,11 @@ GameObject:
   - component: {fileID: 2858610296416485581}
   m_Layer: 0
   m_Name: Tile_x(8)_z(6)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567488189067969829
 Transform:
   m_ObjectHideFlags: 0
@@ -30755,7 +30772,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567488188061314183}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1567488189067969830
 MeshFilter:
@@ -30876,7 +30893,7 @@ GameObject:
   - component: {fileID: 1567488189089352599}
   m_Layer: 0
   m_Name: Tile_x(14)_z(10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30895,7 +30912,7 @@ Transform:
   m_Children:
   - {fileID: 1567488189090358829}
   m_Father: {fileID: 1567488187032374760}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567488189089352599
 BoxCollider:
@@ -30923,7 +30940,7 @@ GameObject:
   - component: {fileID: 1567488189090358828}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31005,7 +31022,7 @@ GameObject:
   - component: {fileID: 1567488189092607203}
   m_Layer: 0
   m_Name: Tile_x(16)_z(14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31051,7 +31068,7 @@ GameObject:
   - component: {fileID: 1567488189095228628}
   m_Layer: 0
   m_Name: Tile_x(12)_z(0)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31098,7 +31115,7 @@ GameObject:
   - component: {fileID: 1567488189137297019}
   m_Layer: 0
   m_Name: Ice_block_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31182,7 +31199,7 @@ GameObject:
   - component: {fileID: 4807914589925829449}
   m_Layer: 0
   m_Name: snowman_1_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31265,6 +31282,146 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.019527048, y: 0.8005263, z: 0.00067311525}
+--- !u!1001 &972672029666419433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188900932962}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &3336523899463551914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 972672029666419433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1328618502238695484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488187263389551}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &3549440948472322431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 1328618502238695484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1567488187027622566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32552,4 +32709,1054 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4716345977075468, guid: 6f31db4aafa0643d1ab6ffbb39d8ff58, type: 3}
   m_PrefabInstance: {fileID: 1567488189103018342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1657552629994889023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188137551150}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &3761307868826302076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 1657552629994889023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2024467800585800736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188332870795}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &4551534472062559587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 2024467800585800736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2166677538022694750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188570961927}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &4405509430904419869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 2166677538022694750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2446891583357574722
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188045574504}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &200142108251797249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 2446891583357574722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2557292363852082577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188810661924}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &22312504237556946 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 2557292363852082577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2876534219243997684
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188061314183}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &349475786993082551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 2876534219243997684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4432175645066425047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188045574504}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &2211362548774312852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 4432175645066425047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5576343233605353411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188061314183}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &7949188014744983168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 5576343233605353411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5975295464481186588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488187523748374}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &8205159744822741599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 5975295464481186588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6126087469242424020
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488187209773589}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &8518042857321493399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 6126087469242424020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6160871637968989587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488187032374760}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &8524688323261908176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 6160871637968989587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6384502985924663180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188636299257}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &8910470141006593743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 6384502985924663180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6731731222798539378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488187523748374}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &9104588635370025777 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 6731731222798539378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6961367137428017148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188570961927}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &4875613094474180287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 6961367137428017148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9031477148082263597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1567488188503610875}
+    m_Modifications:
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536146857349209087, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537812873513639501, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+      propertyPath: m_Name
+      value: MovingBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+--- !u!4 &6801656291037658990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536114561285220675, guid: f04cddc80c6e17444a767ef502f7a94c, type: 3}
+  m_PrefabInstance: {fileID: 9031477148082263597}
   m_PrefabAsset: {fileID: 0}

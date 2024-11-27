@@ -80935,6 +80935,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 3076753398919111343, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3217848519887571713, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
       propertyPath: sceneViewId
       value: 41

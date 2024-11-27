@@ -25,7 +25,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
 
     string _userName;
 
-
+    TMP_Text _roomChatDisplay;
 
     private void Start()
     {
@@ -111,11 +111,13 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     {
         Debug.Log("방 입장 성공 \n OnJoinedRoom");
         SetActivePanel(Panel.Room);
+        // ClearChatMessages();
     }
     public override void OnLeftRoom()
     {
         Debug.Log("방 퇴장 성공");
         SetActivePanel(Panel.Lobby);
+        ClearChatMessages();
     }
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
@@ -186,6 +188,22 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     void RPC_Chat(string message)
     {
         AddChatMessage(message);
+        
+    }
+    // 본인나갔다오는거로 다 채팅이 지워지면 안되니 RPC를 하면 안될거 같음.
+    void ClearChatMessages()
+    {
+        // 들어올때 한번 클리어하고 게임시작할때도 한번해야됨
+
+        // 뒤에 클론있는애들만 지워야됨
+        string objName = "RoomChatDisplay";
+        foreach (Transform child in _chatContent.transform)
+        {   
+            if (child.name != objName)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
 
 

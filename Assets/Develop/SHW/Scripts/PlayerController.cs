@@ -13,19 +13,15 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
 
-    [SerializeField] int playerNumber;
-
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
     // 색상 변경용 
     [SerializeField] public Color color;
     [SerializeField] Renderer bodyRenderer;
-    public int testNum = 0;
 
     private void Awake()
     {
-        playerNumber = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
@@ -96,51 +92,19 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     [PunRPC]
     public void SetColor()
     {
-        // test) 팀에 따른 색 변경
-        // 임시) 짝수팀 홀수 팀
+        // (다른팀 배정)
         int num = photonView.Owner.GetPlayerNumber();
+        // (임시) 같은팀 배정
         int num2 = num % 2;
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
-            bodyRenderer.materials[i].color = _status.colors[num2];
+            bodyRenderer.materials[i].color = _status.colors[num];
+            color = _status.colors[num];
             //bodyRenderer.materials[i].color = color;
         }
 
     }
-
-    // (테스트) 숫자를 입력할 경우 팀과 색상 설정
-    public void SetTeamColor(int num)
-    {
-        switch (num)
-        {
-            case 0:
-                color = _status.colors[0];
-                break;
-            case 1:
-                color = _status.colors[1];
-                break;
-            case 2:
-                color = _status.colors[2];
-                break;
-            case 3:
-                color = _status.colors[3];
-                break;
-            case 4:
-                color = _status.colors[4];
-                break;
-            case 5:
-                color = _status.colors[5];
-                break;
-            case 6:
-                color = _status.colors[6];
-                break;
-            case 7:
-                color = _status.colors[7];
-                break;
-        }
-    }
-
     public bool Interact()
     {
         photonView.RPC("BubbledRPC", RpcTarget.All);

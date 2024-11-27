@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviour
 
     // 플레이어 색상을 위한
     [SerializeField] public Color[] colors;
+    [SerializeField] public int testNum;
 
 
     private void Awake()

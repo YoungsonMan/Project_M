@@ -41,6 +41,7 @@ public class RoomPanel : BaseUI
     private void OnDisable()
     {
         PlayerNumbering.OnPlayerNumberingChanged -= UpdatePlayers;
+        _startButton.onClick.RemoveListener(StartGame);
     }
     private void Init()
     {
@@ -88,6 +89,10 @@ public class RoomPanel : BaseUI
         {
             _startButton.interactable = false;
         }
+
+        // 레디버튼 본인일때만 본인거 누를수 있게하기
+
+
     }
     public void UpdatePlayerProperty(Player targetPlayer, Hashtable properties)
     {

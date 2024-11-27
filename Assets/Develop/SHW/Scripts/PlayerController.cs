@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     private float bubbleSpeed = 0.5f;
 
     // 색상 변경용 
-    [SerializeField] Color color;
+    [SerializeField] public Color color;
     [SerializeField] Renderer bodyRenderer;
+    public int testNum = 0;
 
     private void Awake()
     {
@@ -95,12 +96,48 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     [PunRPC]
     public void SetColor()
     {
-        // 플레이어 넘버에 따른 색상 임의 부여
+        // test) 팀에 따른 색 변경
+        // 임시) 짝수팀 홀수 팀
         int num = photonView.Owner.GetPlayerNumber();
+        int num2 = num % 2;
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
-            bodyRenderer.materials[i].color = _status.colors[num];
+            bodyRenderer.materials[i].color = _status.colors[num2];
+            //bodyRenderer.materials[i].color = color;
+        }
+
+    }
+
+    // (테스트) 숫자를 입력할 경우 팀과 색상 설정
+    public void SetTeamColor(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                color = _status.colors[0];
+                break;
+            case 1:
+                color = _status.colors[1];
+                break;
+            case 2:
+                color = _status.colors[2];
+                break;
+            case 3:
+                color = _status.colors[3];
+                break;
+            case 4:
+                color = _status.colors[4];
+                break;
+            case 5:
+                color = _status.colors[5];
+                break;
+            case 6:
+                color = _status.colors[6];
+                break;
+            case 7:
+                color = _status.colors[7];
+                break;
         }
     }
 

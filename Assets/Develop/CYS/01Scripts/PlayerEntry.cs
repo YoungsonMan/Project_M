@@ -15,6 +15,8 @@ public class PlayerEntry : BaseUI
     [SerializeField] TMP_Text _readyText;
     [SerializeField] Button _readyButton;
     [SerializeField] GameObject _readyButtonText;
+    [SerializeField] GameObject _readyTextBox;
+    [SerializeField] TMP_Text _readyPopText;
 
     private void OnEnable()
     {
@@ -27,7 +29,8 @@ public class PlayerEntry : BaseUI
         _readyButton = GetUI<Button>("ReadyButton");
         _readyButtonText = GetUI("ReadyButtonText");
         _readyButton.onClick.AddListener(Ready);
-
+        _readyTextBox = GetUI("ReadyTextBox");
+        _readyPopText = GetUI<TMP_Text>("ReadyPopText");
     }
     public void SetPlayer(Player player)
     {
@@ -43,20 +46,36 @@ public class PlayerEntry : BaseUI
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
         // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
+        
+        // 내버튼만 활성화 / 다른사람꺼는 비활성화
+        if (_readyButton.interactable)
+        {
+            _readyTextBox.SetActive(true);
+        }
+        else
+        {
+            _readyTextBox.SetActive(false);
+            _readyPopText.text ="";
+        }
 
         if (player.GetReady())
         {
             _readyText.text = "Ready";
+            _readyText.color = new Color(1, .8f, 0, 1);
             // _readyButton.transition.;
+            _readyPopText.text = "READY";
         }
         else
         {
-            _readyText.text = "";
+            _readyText.text = "Ready";
+            _readyText.color = Color.white;
+            _readyPopText.text = "";
         }
     }
 
     public void SetEmpty()
     {
+        _readyPopText.text = "";
         _readyText.text = "";
         _nameText.text = "None";
         _readyButton.gameObject.SetActive(false);

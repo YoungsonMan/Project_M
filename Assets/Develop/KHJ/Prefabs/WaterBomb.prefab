@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97918cd59e904a54f9f9eeb446fa5fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 83646097529393077}
+  _collider: {fileID: 851763630409087793}
   _lifeTime: 2
   _range: 1
   _waterBombLayerMask:
@@ -2313,6 +2315,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+--- !u!23 &83646097529393077 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7519756281975012092, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+  m_PrefabInstance: {fileID: 7598313444554028361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &851763630409087793 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7106877384100859512, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+  m_PrefabInstance: {fileID: 7598313444554028361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1252571832939820250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8651598107160478099, guid: d086174f950b6254b99b1af536c9b15d, type: 3}

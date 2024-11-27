@@ -10,6 +10,9 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         Up, Down, Right, Left, SIZE
     }
 
+    [Header("Waterbomb")]
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Collider _collider;
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _range = 1;
     [SerializeField] private LayerMask _waterBombLayerMask;
@@ -21,6 +24,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private bool _isExploded;
     private float _lag;
+    private float _explosionDuration = 0.2f;
+    private WaitForSeconds _explosionDelay;
 
     public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
     public int Range { set { _range = value; } }
@@ -28,10 +33,17 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private void OnEnable()
     {
+        _renderer.enabled = true;
+        _collider.enabled = true;
         _isExploded = false;
 
         InitWaterStream();
         Deactivate();
+    }
+
+    private void Start()
+    {
+        _explosionDelay = new WaitForSeconds(_explosionDuration);
     }
 
     private void OnDisable()
@@ -54,6 +66,18 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         yield return new WaitForSeconds(_lifeTime - _lag);
 
         Explode();
+    }
+
+    IEnumerator WaitExplosionRoutine()
+    {
+        // Disable renderer and collider
+        _renderer.enabled = false;
+        _collider.enabled = false;
+
+        yield return _explosionDelay;
+
+        // Return to pool
+        _objectPool.Release(this);
     }
 
     private void InitWaterStream()
@@ -93,8 +117,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
                 _effects[range + (int)E_DirectionType.Left].gameObject.SetActive(true);
         }
 
-        // Return to pool
-        _objectPool.Release(this);
+        // Wait explosion effects
+        StartCoroutine(WaitExplosionRoutine());
     }
 
     private void ProceedWaterStream()

@@ -45,6 +45,7 @@ MonoBehaviour:
   - BubbledRPC
   - DestroyObjectRPC
   - SetColor
+  - RPC_ChatClear
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

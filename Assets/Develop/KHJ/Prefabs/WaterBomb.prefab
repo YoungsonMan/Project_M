@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7179409871981561732}
   - component: {fileID: 3751117291715941344}
+  - component: {fileID: 4822321674422271274}
   m_Layer: 6
   m_Name: WaterBomb
   m_TagString: Untagged
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97918cd59e904a54f9f9eeb446fa5fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 83646097529393077}
   _lifeTime: 2
   _range: 1
   _waterBombLayerMask:
@@ -160,6 +162,24 @@ MonoBehaviour:
   - {fileID: 3980784301499342848}
   - {fileID: 6322341780304534134}
   - {fileID: 657144416272801493}
+  _collider: {fileID: 851763630409087793}
+  _whiteList: 
+--- !u!54 &4822321674422271274
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647851150165733782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7060933629781080125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,6 +2333,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+--- !u!23 &83646097529393077 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7519756281975012092, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+  m_PrefabInstance: {fileID: 7598313444554028361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &851763630409087793 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7106877384100859512, guid: d086174f950b6254b99b1af536c9b15d, type: 3}
+  m_PrefabInstance: {fileID: 7598313444554028361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1252571832939820250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8651598107160478099, guid: d086174f950b6254b99b1af536c9b15d, type: 3}

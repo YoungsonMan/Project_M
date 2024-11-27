@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     {
         Up, Down, Right, Left, SIZE
     }
-
+    [Header("Waterbomb")]
+    [SerializeField] private Renderer _renderer;
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _range = 1;
     [SerializeField] private LayerMask _waterBombLayerMask;
@@ -17,10 +19,16 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     [Header("Explosion Effect")]
     [SerializeField] private ExplosionEffect[] _effects;
 
+    [Header("Collision Check")]
+    [SerializeField] private Collider _collider;
+    [SerializeField] List<int> _whiteList;          // list of elements allowed to overlap(ignore collider)
+
     private ObjectPool<WaterBomb> _objectPool;
 
     private bool _isExploded;
     private float _lag;
+    private float _explosionDuration = 0.2f;
+    private WaitForSeconds _explosionDelay;
 
     public ObjectPool<WaterBomb> ObjectPool { set { _objectPool = value; } }
     public int Range { set { _range = value; } }
@@ -28,10 +36,37 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private void OnEnable()
     {
+        _renderer.enabled = true;
+        _collider.enabled = true;
         _isExploded = false;
 
         InitWaterStream();
+
         Deactivate();
+    }
+
+    private void Start()
+    {
+        _explosionDelay = new WaitForSeconds(_explosionDuration);
+        _whiteList = new List<int>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Player")) return;
+        if (_whiteList.Contains(other.gameObject.GetInstanceID())) return;
+            
+        Debug.Log("Block!");
+        Rigidbody playerRb = other.gameObject.GetComponent<Rigidbody>();
+        Block(playerRb);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Player")) return;
+        if (!_whiteList.Contains(other.gameObject.GetInstanceID())) return;
+        
+        _whiteList.Remove(other.gameObject.GetInstanceID());
     }
 
     private void OnDisable()
@@ -56,12 +91,44 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         Explode();
     }
 
+    IEnumerator WaitExplosionRoutine()
+    {
+        // Disable renderer and collider
+        _renderer.enabled = false;
+        _collider.enabled = false;
+
+        yield return _explosionDelay;
+
+        // Return to pool
+        _objectPool.Release(this);
+    }
+
     private void InitWaterStream()
     {
         foreach (var effect in _effects)
         {
             effect.gameObject.SetActive(false);
         }
+    }
+
+    private void InitWhiteList()
+    {
+        _whiteList.Clear();
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Player"))
+            {
+                _whiteList.Add(collider.gameObject.GetInstanceID());
+            }
+        }
+    }
+
+    [PunRPC]
+    private void Block(Rigidbody rb)
+    {
+        rb.transform.position = transform.position + (rb.position - transform.position).normalized;
     }
 
     private void Explode()
@@ -93,8 +160,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
                 _effects[range + (int)E_DirectionType.Left].gameObject.SetActive(true);
         }
 
-        // Return to pool
-        _objectPool.Release(this);
+        // Wait explosion effects
+        StartCoroutine(WaitExplosionRoutine());
     }
 
     private void ProceedWaterStream()
@@ -177,6 +244,7 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
         // Move to location
         transform.position = location;
+        InitWhiteList();
         return true;
     }
 

@@ -81115,7 +81115,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3076753399210244903, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
+    - {fileID: 3076753399710924632, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
+    - {fileID: 3076753398950261472, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
+    - {fileID: 3076753398412706339, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: afe6abcf1d1a23c41abf423f14eb074d, type: 3}
 --- !u!1 &1898361203 stripped
 GameObject:

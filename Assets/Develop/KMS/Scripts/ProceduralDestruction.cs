@@ -40,7 +40,7 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     /// 네트워크 동작시 해당 부분을 Rpc로 변환해서 동작해야한다.
     /// </summary>
     [PunRPC]
-    private void DestroyObjectRPC()
+    private void DestroyObjectRPC(PhotonMessageInfo info)
     {
         if (!this || !gameObject)
         {
@@ -48,7 +48,10 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
             return;
         }
 
-        List<GameObject> fragments = CreateFragments();
+        float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+        Debug.Log($"DestroyObjectRPC 호출 지연 시간: {lag}초");
+
+        List<GameObject> fragments = CreateFragments(lag);
 
         foreach(var fragment in fragments)
         {
@@ -81,17 +84,18 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
         // 아이템 생성 확률에 따라 스폰
         // 생성 또한 권한 있는 플레이어만 생성하고 다른 플레이어에게 알린다.
         if(PhotonNetwork.IsMasterClient)
-            SpawnItem();
+            photonView.RPC(nameof(SpawnItemRPC), RpcTarget.AllBuffered, info.SentServerTime);
+
 
         // 네트워크에서 벽 삭제
-        if (photonView.IsMine)
+        if (PhotonNetwork.IsMasterClient || photonView.IsMine)
             PhotonNetwork.Destroy(gameObject); 
     }
 
     /// <summary>
     /// 부서진 파편 생성 메서드.
     /// </summary>
-    private List<GameObject> CreateFragments()
+    private List<GameObject> CreateFragments(float lag)
     {
         List<GameObject> fragments = new List<GameObject>();
 
@@ -110,6 +114,13 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
             Rigidbody rb = fragment.AddComponent<Rigidbody>();
             rb.mass = 0.1f;
 
+            // 지연 시간만큼 파편의 위치를 보정
+            if (rb)
+            {
+                Vector3 direction = (randomPos - transform.position).normalized;
+                rb.position += direction * lag * explosionForce * Time.deltaTime;
+            }
+
             // 부모 오브젝트 설정
             if (parentContainer)
             {
@@ -126,8 +137,13 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     /// <summary>
     /// 벽이 부서질시 생성되는 스폰 아이템
     /// </summary>
-    private void SpawnItem()
+    /// 
+    [PunRPC]
+    private void SpawnItemRPC(double sentServerTime)
     {
+        float lag = Mathf.Abs((float)(PhotonNetwork.Time - sentServerTime));
+        Debug.Log($"SpawnItemRPC 호출 지연 시간: {lag}초");
+
         // 마스터 클라이언트에서만 실행
         if (!PhotonNetwork.IsMasterClient) return;
 
@@ -137,7 +153,8 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
             // 아이템 프리팹 중 하나를 랜덤 선택.
             // 아이템이 생생될때 방의 오브젝트로 생성하기.
             int randomIndex = Random.Range(0, itemPrefabs.Length);
-            GameObject item = PhotonNetwork.InstantiateRoomObject($"Item/{itemPrefabs[randomIndex].name}", transform.position, Quaternion.identity);
+            Vector3 spawnPosition = transform.position + Vector3.down * lag;
+            GameObject item = PhotonNetwork.InstantiateRoomObject($"Item/{itemPrefabs[randomIndex].name}", spawnPosition, Quaternion.identity);
 
             if(parentContainer)
             {

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SpawnPoint
   - Fragment
+  - Box
+  - Obstacle
   layers:
   - Default
   - TransparentFX

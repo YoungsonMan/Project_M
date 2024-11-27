@@ -41,6 +41,7 @@ public class RoomPanel : BaseUI
     private void OnDisable()
     {
         PlayerNumbering.OnPlayerNumberingChanged -= UpdatePlayers;
+        _startButton.onClick.RemoveListener(StartGame);
     }
     private void Init()
     {

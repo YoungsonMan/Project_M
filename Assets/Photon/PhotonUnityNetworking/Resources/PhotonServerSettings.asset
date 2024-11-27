@@ -47,6 +47,7 @@ MonoBehaviour:
   - SetColor
   - SpawnItemRPC
   - RPC_ChatClear
+  - PushRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

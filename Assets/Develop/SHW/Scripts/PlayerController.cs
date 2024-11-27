@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
-
-        // SetColor();
+        // 색상 설정
         photonView.RPC("SetColor", RpcTarget.All);
     }
 
@@ -100,8 +99,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
             bodyRenderer.materials[i].color = _status.colors[num];
+            // 팀 인식을 위해 캐릭터 색상 설정
             color = _status.colors[num];
-            //bodyRenderer.materials[i].color = color;
         }
 
     }

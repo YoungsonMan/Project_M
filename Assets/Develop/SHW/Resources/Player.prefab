@@ -243,10 +243,8 @@ MonoBehaviour:
   rigid: {fileID: 2098898257}
   animator: {fileID: 815692183}
   bubble: {fileID: 851820312}
-  playerNumber: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   bodyRenderer: {fileID: 5323386284027289573}
-  testNum: 0
 --- !u!114 &2098898258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +270,7 @@ MonoBehaviour:
   - {r: 0.031082153, g: 0, b: 1, a: 0}
   - {r: 0.72492886, g: 0, b: 1, a: 0}
   - {r: 1, g: 0.2924527, b: 0.8512092, a: 0}
+  teamNum: 0
 --- !u!114 &2098898255
 MonoBehaviour:
   m_ObjectHideFlags: 0

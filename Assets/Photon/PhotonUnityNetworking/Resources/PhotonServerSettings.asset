@@ -47,6 +47,7 @@ MonoBehaviour:
   - SetColor
   - SpawnItemRPC
   - RPC_ChatClear
+  - PushRPC
   - SetTeamColor
   - Block
   DisableAutoOpenWizard: 1

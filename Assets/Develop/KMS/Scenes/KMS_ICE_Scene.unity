@@ -85987,6 +85987,22 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 1567488187777097681, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567488187777097681, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4793460919394925159, guid: ca5fe5016b742b5479be0826f14dbe9a, type: 3}
+    - target: {fileID: 1567488187777097681, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3965737416544119840, guid: 4db144e7585565e4494b2f1687c91605, type: 3}
+    - target: {fileID: 1567488187777097681, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
+      propertyPath: itemPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 2770734395660610429, guid: 2d772b6b47cc6124198b794567d30d0a, type: 3}
     - target: {fileID: 1567488188926327266, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -86380,6 +86396,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1567488188926327267, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
   m_PrefabInstance: {fileID: 1567488188597817729}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1567488188597817731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1567488187435804923, guid: c62be7315910d4a4f8c8b685e2862e89, type: 3}
+  m_PrefabInstance: {fileID: 1567488188597817729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1567488188597817732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567488188597817731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c4bd295dddf7e4da9c040b91913a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pushSpeed: 3
 --- !u!1 &3595671393246939042
 GameObject:
   m_ObjectHideFlags: 0

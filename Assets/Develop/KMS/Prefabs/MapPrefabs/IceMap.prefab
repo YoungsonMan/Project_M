@@ -2139,7 +2139,6 @@ GameObject:
   - component: {fileID: 1567488187235703800}
   - component: {fileID: 1567488187235703801}
   - component: {fileID: 1567488187235703798}
-  - component: {fileID: 1567488187235703799}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -2225,28 +2224,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488187235703799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488187235703797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488187617834817}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488187239285920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,7 +3174,6 @@ GameObject:
   - component: {fileID: 1567488187286181504}
   - component: {fileID: 1567488187286181505}
   - component: {fileID: 1567488187286181758}
-  - component: {fileID: 1567488187286181759}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -3283,28 +3259,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488187286181759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488187286181757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488188760713616}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488187288787111
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,7 +4985,6 @@ GameObject:
   - component: {fileID: 1567488187412633693}
   - component: {fileID: 1567488187412633690}
   - component: {fileID: 1567488187412633691}
-  - component: {fileID: 1567488187412633688}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -5117,28 +5070,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488187412633688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488187412633686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488188594895518}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488187413795450
 GameObject:
   m_ObjectHideFlags: 0
@@ -15565,7 +15496,6 @@ GameObject:
   - component: {fileID: 1567488188161860523}
   - component: {fileID: 1567488188161860520}
   - component: {fileID: 1567488188161860521}
-  - component: {fileID: 1567488188161860518}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -15651,28 +15581,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488188161860518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488188161860516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488187060095184}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488188162493786
 GameObject:
   m_ObjectHideFlags: 0
@@ -26024,7 +25932,6 @@ GameObject:
   - component: {fileID: 1567488188764504462}
   - component: {fileID: 1567488188764504463}
   - component: {fileID: 1567488188764504460}
-  - component: {fileID: 1567488188764504461}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -26110,28 +26017,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488188764504461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488188764504459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488187300327317}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488188766198626
 GameObject:
   m_ObjectHideFlags: 0
@@ -30479,7 +30364,6 @@ GameObject:
   - component: {fileID: 1567488189055200593}
   - component: {fileID: 1567488189055200590}
   - component: {fileID: 1567488189055200591}
-  - component: {fileID: 1567488189055200588}
   m_Layer: 0
   m_Name: block_wood1_LOD0
   m_TagString: Untagged
@@ -30565,28 +30449,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
---- !u!114 &1567488189055200588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567488189055200586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c329bd53db41442bbeba067156ffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fragmentsCount: 10
-  explosionForce: 30
-  explosionRadius: 5
-  fragmentPrefab: {fileID: 1666009160431028, guid: dba19c44e7e09ca498e58fe94be744da, type: 3}
-  parentContainer: {fileID: 1567488188192411270}
-  itemPrefabs:
-  - {fileID: 5624225149810185439, guid: f35de466dc2f04a448977a767585aaef, type: 3}
-  - {fileID: 5657609630374381933, guid: 2ba60e8d1feb4c5479bbf85fd8eef321, type: 3}
-  - {fileID: 2699694355897733541, guid: ac12a00841d2156498c7db5407cad713, type: 3}
-  itemSpawnChance: 0.7
 --- !u!1 &1567488189055560486
 GameObject:
   m_ObjectHideFlags: 0

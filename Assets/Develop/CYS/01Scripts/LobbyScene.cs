@@ -190,7 +190,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     {
         // if (Input.GetKeyDown(KeyCode.Return))
         // {
-        Debug.Log("채팅엔터 테스트");
+        Debug.Log("채팅버튼 테스트");
         string strMessage = _userName + " : " + _chatInputField.text;
 
         // target 받는이 모두에게 inputField에 적힌대로 

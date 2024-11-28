@@ -70,7 +70,7 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("StartButtonText").font = kFont;
         _startButton.onClick.AddListener(StartGame);
 
-
+        GetMapList();
         // 맵선택 관련
         GetUI<Button>("MapSelectButton").onClick.AddListener(OpenMapList);
         _mapListPanel = GetUI("MapListPanel");
@@ -87,8 +87,21 @@ public class RoomPanel : BaseUI
         _map04Button.onClick.AddListener(Map4Selected);
         _map05Button.onClick.AddListener(Map5Selected);
         _map06Button.onClick.AddListener(Map6Selected);
-    }
 
+        GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
+        GetUI<TMP_Text>("MapNameText02").text = (mapList[2]);
+        GetUI<TMP_Text>("MapNameText03").text = (mapList[3]);
+        GetUI<TMP_Text>("MapNameText04").text = (mapList[4]);
+        GetUI<TMP_Text>("MapNameText05").text = (mapList[5]);
+        GetUI<TMP_Text>("MapNameText06").text = (mapList[6]);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SelectMap();
+        }
+    }
     void OpenMapList()
     {
         _mapListPanel.SetActive(true);
@@ -96,6 +109,13 @@ public class RoomPanel : BaseUI
     void CloseMapList()
     {
         _mapListPanel.SetActive(false);
+    }
+    void GetMapList()
+    {
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
+        }
     }
    void SelectMap()
    {
@@ -203,10 +223,10 @@ public class RoomPanel : BaseUI
     public void StartGame()
     {
         
-        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-        {
-            mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
-        }
+      //  for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+      //  {
+      //      mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
+      //  }
         PhotonNetwork.LoadLevel(mapList[mapNumber]); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }

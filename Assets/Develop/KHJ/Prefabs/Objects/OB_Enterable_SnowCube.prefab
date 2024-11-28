@@ -126,7 +126,7 @@ MonoBehaviour:
   explosionForce: 30
   explosionRadius: 5
   fragmentPrefab: {fileID: 1479339484237943074, guid: 1b9bda3fc8e9b464484c719b8b683067, type: 3}
-  parentContainer: {fileID: 0}
+  parentContainer: {fileID: 8363235417977272301}
   itemPrefabs: []
   itemSpawnChance: 0
   isContinue: 1

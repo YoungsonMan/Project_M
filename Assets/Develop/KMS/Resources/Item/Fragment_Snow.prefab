@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1481341372513142330}
   - component: {fileID: 1510434253178483246}
   - component: {fileID: 1500701565694250286}
+  - component: {fileID: 7872064805594746357}
   - component: {fileID: 609392615894120710}
+  - component: {fileID: 6744027314458501737}
   m_Layer: 0
   m_Name: Fragment_Snow
   m_TagString: Untagged
@@ -84,6 +86,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7872064805594746357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479339484237943074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351e407ca4c111049ad600ced20c5e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveShader: {fileID: 4800000, guid: 773c51ed9f3ad0b45a0928ae52a15ea7, type: 3}
+  noiseTexture: {fileID: 2800000, guid: 3caf33891b8efbd4b902719e4603d61c, type: 3}
+  dissolveSpeed: 0.5
+  delayTime: 1.5
 --- !u!114 &609392615894120710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,3 +124,16 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!65 &6744027314458501737
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479339484237943074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39838478, y: 0.39838478, z: 0.39838478}
+  m_Center: {x: 0, y: 0, z: 0}

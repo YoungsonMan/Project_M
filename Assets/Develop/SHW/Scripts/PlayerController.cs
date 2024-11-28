@@ -137,21 +137,14 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
             // 이동 방향과 충돌 방향의 내적적용.
             float dotProduct = Vector3.Dot(moveDirection, collisionDirection);
 
-            // 플레이어의 이동 방향과 속도
-            Vector3 playerVelocity = rigid.velocity;
-            float velocityMagnitude = playerVelocity.magnitude; // 이동 속도의 크기 (힘에 비례)
-
-            // TODO: 힘에 맞게 움직이기.
-
-            if (dotProduct > 0.5f /*&& velocityMagnitude >= 0.5f*/) // 방향 유사도가 높을 경우 (1에 가까울수록 방향이 일치)
+            if (dotProduct > 0.5f) // 방향 유사도가 높을 경우 (1에 가까울수록 방향이 일치)
             {
                 // 오브젝트 밀기
-                pushable.Push(moveDirection);
-                Debug.Log($"playerVelocity  {playerVelocity.magnitude} ");
+                pushable.Push(photonView, moveDirection);
             }
             else
             {
-                Debug.Log($"방향이 일치하지 않아 오브젝트를 밀 수 없습니다.  {dotProduct},  {playerVelocity.magnitude}");
+                Debug.Log($"방향이 일치하지 않아 오브젝트를 밀 수 없습니다.  {dotProduct}");
             }
         }
     }

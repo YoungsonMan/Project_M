@@ -10,6 +10,9 @@ using System;
 
 public class LoginPanel : BaseUI
 {
+    [SerializeField] TMP_FontAsset kFont;
+
+
     [SerializeField] TMP_InputField _emailInputField;   // 0
     [SerializeField] TMP_InputField _pwInputField;      // 1
 
@@ -26,6 +29,7 @@ public class LoginPanel : BaseUI
     [SerializeField] GameObject _resetPwPanel;
     TMP_InputField _restPwIDInputField;
 
+    
     private void OnEnable()
     {
         Init();
@@ -84,14 +88,16 @@ public class LoginPanel : BaseUI
     private void Init()
     {
         // TMP_Text
-        GetUI<TMP_Text>("IDText");
-        GetUI<TMP_Text>("PWText");
+        GetUI<TMP_Text>("IDText").font = kFont;
+        GetUI<TMP_Text>("PWText").font = kFont;
         
         // TMP_InputField
         _emailInputField = GetUI<TMP_InputField>("IDInputField");
         GetUI<TMP_Text>("IDInputPlaceholder").text = "example@gmail.com";
+        GetUI<TMP_Text>("IDInputPlaceholder").font = kFont;
         _pwInputField = GetUI<TMP_InputField>("PWInputField");
         GetUI<TMP_Text>("PWInputPlaceholder").text = "Type your password in";
+        GetUI<TMP_Text>("PWInputPlaceholder").font = kFont;
 
         // Button
         GetUI<Button>("LoginButton").onClick.AddListener(Login);
@@ -100,12 +106,12 @@ public class LoginPanel : BaseUI
 
         // VerificationPanel
         _verificationPanel = GetUI("VerificationPanel");
-        GetUI<TMP_Text>("WaitingText");
+        GetUI<TMP_Text>("WaitingText").font = kFont;
         GetUI<Button>("VerificationCancelButton");
 
         // NicknamePanel
         _nicknamePanel = GetUI("NicknamePanel");
-        GetUI<TMP_Text>("NicknameText");
+        GetUI<TMP_Text>("NicknameText").font = kFont;
         GetUI<TMP_InputField>("NicknameInputField");
         GetUI<Button>("ConfirmButton");
 

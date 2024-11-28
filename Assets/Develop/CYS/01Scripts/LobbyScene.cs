@@ -94,7 +94,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         SetActivePanel(Panel.Lobby);
 
         //Chat 관련 FromChatManager
-        AddChatMessage("connect user : " + PhotonNetwork.LocalPlayer.NickName);
+        AddChatMessage($"{PhotonNetwork.LocalPlayer.NickName} has joined");
 
         // 같이 입장해야되서 일단 이런식으로 되면안됨
     }

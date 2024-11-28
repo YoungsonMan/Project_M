@@ -7,10 +7,12 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 using Firebase.Auth;
+using TMPro;
 
 
 public class RoomPanel : BaseUI
 {
+    [SerializeField] TMP_FontAsset kFont;
     [SerializeField] PlayerEntry[] _playerEntries;
     [SerializeField] Button _startButton;
 

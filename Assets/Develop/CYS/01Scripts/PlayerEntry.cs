@@ -10,6 +10,7 @@ using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerEntry : BaseUI
 {
+    [SerializeField] TMP_FontAsset kFont;
     // [SerializeField] GameObject _playerImage; ("PlayerImage") ³ªÁß¿¡ 
     [SerializeField] TMP_Text _nameText;
     [SerializeField] TMP_Text _readyText;
@@ -25,12 +26,16 @@ public class PlayerEntry : BaseUI
     private void Init()
     {
         _nameText = GetUI<TMP_Text>("PlayerNameText");
+        _nameText.font = kFont;
         _readyText = GetUI<TMP_Text>("ReadyText");
+        _readyText.font = kFont;
         _readyButton = GetUI<Button>("ReadyButton");
         _readyButtonText = GetUI("ReadyButtonText");
+        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
         _readyButton.onClick.AddListener(Ready);
         _readyTextBox = GetUI("ReadyTextBox");
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
+        _readyPopText.font = kFont;
     }
     public void SetPlayer(Player player)
     {

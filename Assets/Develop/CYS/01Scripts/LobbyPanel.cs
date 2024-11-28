@@ -10,6 +10,8 @@ using Photon.Realtime;
 
 public class LobbyPanel : BaseUI
 {
+    [SerializeField] TMP_FontAsset kFont;
+
     /*  LobbyPanel Objects List:
      *  + LobbyPanel (GameObject)
      *      - CreateRoomButton <Button>
@@ -89,16 +91,20 @@ public class LobbyPanel : BaseUI
         _logOutButton = GetUI<Button>("LogOutButton");
         _logOutButton.onClick.AddListener(LogOut);
         _logOutText = GetUI<TMP_Text>("LogOutText");
+        _logOutText.font = kFont;
 
 
         _lobbyPanel = GetUI("LobbyPanel");
         _createRoomButton = GetUI<Button>("CreateRoomButton");
         _createRoomButton.onClick.AddListener(CreateRoomMenu);
         _createRoomText = GetUI<TMP_Text>("CreateRoomText");
+        _createRoomText.font = kFont;
+
 
         _quickStartButton = GetUI<Button>("QuickStartButton");
         _quickStartButton.onClick.AddListener(RandomMatching); 
         _quickStartText = GetUI<TMP_Text>("QuickStartText");
+        _quickStartText.font = kFont;
 
         _roomListPanel = GetUI("RoomListPanel");
         _roomListContent = GetUI<RectTransform>("RoomListContent");

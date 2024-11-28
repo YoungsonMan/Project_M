@@ -9,6 +9,8 @@ using WebSocketSharp;
 
 public class SignUpPanel : BaseUI
 {
+    [SerializeField] TMP_FontAsset kFont;
+
     [SerializeField] TMP_InputField _signUpIDInputField;    // 0
     [SerializeField] TMP_InputField _signUpPWInputField;    // 1
     [SerializeField] TMP_InputField _PWConfirmInputField;   // 2
@@ -28,26 +30,34 @@ public class SignUpPanel : BaseUI
     {
         // ID & PW
         // TMP_Text
-        GetUI<TMP_Text>("SignUpIDText");
-        GetUI<TMP_Text>("SignUpPWText");
-        GetUI<TMP_Text>("PWConfirmText");
+        GetUI<TMP_Text>("SignUpIDText").font = kFont;
+        GetUI<TMP_Text>("SignUpPWText").font = kFont;
+        GetUI<TMP_Text>("PWConfirmText").font = kFont;
 
         // TMP_InputField
         _signUpIDInputField = GetUI<TMP_InputField>("SignUpIDInputField");
         GetUI<TMP_Text>("SignUpIDPlaceholder").text = "example@gmail.com";
+        GetUI<TMP_Text>("SignUpIDPlaceholder").font = kFont;
         _signUpPWInputField = GetUI<TMP_InputField>("SignUpPWInputField");
         GetUI<TMP_Text>("SUPWinputPlaceholder").text = "Cannot be too simple like\n qwer1234 & longer than 6 chars";
+        GetUI<TMP_Text>("SUPWinputPlaceholder").font = kFont;
         _PWConfirmInputField = GetUI<TMP_InputField>("PWConfirmInputField");
         GetUI<TMP_Text>("PWConfirmplaceholder").text = "Must to match with the password.";
+        GetUI<TMP_Text>("PWConfirmplaceholder").font = kFont;
 
         // Button
         GetUI<Button>("SignUpConfirmButton").onClick.AddListener(SignUp);  // Init ¹Ù²ã¾ßÇÔ
         GetUI<Button>("SignUpCancelButton").onClick.AddListener(Close);  // Init ¹Ù²ã¾ßÇÔ
+        GetUI<TMP_Text>("SignUpConfirmText").font = kFont;
+        GetUI<TMP_Text>("SignUpCancelText").font = kFont;
 
         // CheckPopup
         _checkPopup = GetUI("CheckPopup");
+        GetUI<TMP_Text>("CheckPopup").font = kFont;
         _alreadyExistMsg = GetUI("AlreadyExistMsg");
+        GetUI<TMP_Text>("AlreadyExistMsg").font = kFont;
         _availableAddressMsg = GetUI("AvailableAddressMsg");
+        GetUI<TMP_Text>("AvailableAddressMsg").font = kFont;
         GetUI<Button>("CheckPopupButton").onClick.AddListener(Close);
     }
 

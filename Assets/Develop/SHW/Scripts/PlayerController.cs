@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
 
+    [SerializeField] GameObject arrow;      // 플레이어를 가르킬 화살표
+
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
@@ -25,6 +28,9 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
+    }
+    private void Start()
+    {
         // 색상 설정
         photonView.RPC("SetColor", RpcTarget.All);
     }
@@ -32,7 +38,10 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     private void Update()
     {
         if (photonView.IsMine == false)
+        {
+            arrow.SetActive(false);
             return;
+        }
 
         Move();
     }
@@ -98,6 +107,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
+            // 플레이어 teamNum 세팅이 끝난다면 num2 자리에 _status.teamNum을 넣으면 됩니다.
+            // Debug.Log($"하운) TeamNum {_status.teamNum}");
             bodyRenderer.materials[i].color = _status.colors[num2];
             // 팀 인식을 위해 캐릭터 색상 설정
             color = _status.colors[num2];

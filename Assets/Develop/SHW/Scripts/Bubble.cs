@@ -39,25 +39,31 @@ public class Bubble : MonoBehaviourPun
 
     private void OnTriggerEnter(Collider other)
     {
-        Color otherColor = other.gameObject.GetComponent<PlayerController>().color;
-        Color playerColor = player.GetComponent<PlayerController>().color;
-        // 팀이 방울을 터치할 경우
-        if (playerColor == otherColor)
+        // 충돌체 플레이어일 경우
+        if (other.gameObject.layer == 3)
         {
-            Debug.Log("같은 팀 충돌 확인");
-            StopAllCoroutines();
-            bubble.SetActive(false);
-            _animator.SetBool("isBubble", false);
-            _status.isBubble = false;
-            _placer.enabled = true;
-        }
-        // 적이 방울을 터치할 경우
-        // (임시) 하여튼 플레이어가 와서 터치하면 터짐
-        if (playerColor != otherColor)
-        {
-            bubble.SetActive(false);
-            _animator.SetBool("isDead", true);
-            Destroy(player, 1f);
+            // 충돌체와 플레이어의 색을 판단
+            Color otherColor = other.gameObject.GetComponent<PlayerController>().color;
+            Color playerColor = player.GetComponent<PlayerController>().color;
+
+            // 팀이 방울을 터치할 경우
+            if (playerColor == otherColor)
+            {
+                Debug.Log("같은 팀 충돌 확인");
+                StopAllCoroutines();
+                bubble.SetActive(false);
+                _animator.SetBool("isBubble", false);
+                _status.isBubble = false;
+                _placer.enabled = true;
+            }
+            // 적이 방울을 터치할 경우
+            // (임시) 하여튼 플레이어가 와서 터치하면 터짐
+            if (playerColor != otherColor)
+            {
+                bubble.SetActive(false);
+                _animator.SetBool("isDead", true);
+                Destroy(player, 1f);
+            }
         }
     }
 }

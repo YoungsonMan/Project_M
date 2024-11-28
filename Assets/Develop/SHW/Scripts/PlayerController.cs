@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     [SerializeField] GameObject bubble;     // 물줄기에 맏고 갇힐 물방울
 
+    [SerializeField] GameObject arrow;      // 플레이어를 가르킬 화살표
+
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
@@ -32,7 +34,10 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     private void Update()
     {
         if (photonView.IsMine == false)
+        {
+            arrow.SetActive(false);
             return;
+        }
 
         Move();
     }

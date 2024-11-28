@@ -5,16 +5,48 @@ using UnityEngine;
 
 public class EnterableObject : MonoBehaviourPun
 {
-    [Header("Shrink rate to hide")]
-    [SerializeField] private float shrinkRate = 0.1f;
-
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.transform.localScale *= shrinkRate;
+        Transform root = GetRoot(other.transform);
+        List<Renderer> renderers = root.GetComponent<RendererCache>().Cache;
+
+        if (renderers != null)
+            Conceal(renderers);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        other.gameObject.transform.localScale /= shrinkRate;
+        Transform root = GetRoot(other.transform);
+        List<Renderer> renderers = root.GetComponent<RendererCache>().Cache;
+
+        if (renderers != null)
+            Reveal(renderers);
+    }
+
+    private Transform GetRoot(Transform target)
+    {
+        Transform curTransform = target;
+        while (curTransform.parent != null)
+        {
+            curTransform = curTransform.parent;
+        }
+
+        return curTransform;
+    }
+
+    private void Conceal(List<Renderer> renderers)
+    {
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
+    }
+
+    private void Reveal(List<Renderer> renderers)
+    {
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = true;
+        }
     }
 }

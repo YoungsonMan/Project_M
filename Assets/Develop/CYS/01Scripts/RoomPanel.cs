@@ -146,102 +146,28 @@ public class RoomPanel : BaseUI
         // SelectedMap 이름이 눌른 버튼과 동일하면 그버튼에 맞는 맵 넘버를 부여
         switch (SelectedMap)
         {
-            case "MapSelectButton01":
-                mapNumber = 0;
+            case "MapSelectButton01": mapNumber = 1; 
                 break;
-            case "MapSelectButton02":
-                mapNumber = 1;
+            case "MapSelectButton02": mapNumber = 2;
                 break;
-            case "MapSelectButton03":
-                mapNumber = 2;
+            case "MapSelectButton03": mapNumber = 3;
                 break;
-            case "MapSelectButton04":
-                mapNumber = 3;
+            case "MapSelectButton04": mapNumber = 4;
                 break;
-            case "MapSelectButton05":
-                mapNumber = 4;
+            case "MapSelectButton05": mapNumber = 5;
                 break;
-            case "MapSelectButton06":
-                mapNumber = 5;
+            case "MapSelectButton06": mapNumber = 6;
                 break;
-
         }
+        _miniMap = mapNumber - 1;
+        _mapRawImage.texture = _mapTexture[_miniMap];
+        _mapListPanel.SetActive(false);
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
-        // 그 번호로
-        // if (SelectedMap == _map01Button.name)
-        // {
-        //     Debug.Log("맵눌리는거테스트\n 1번눌렸습니다.");
-        //     SelectedMap = "";
-        // }
+        // 그 번호로 로드 씬
 
+    }
 
-        //  for (int i = 0; i < mapList.Count; i++)
-        //  {
-        //      if ( == _map01Button)
-        //      mapNumber = i;
-        //      switch (mapNumber)
-        //      {
-        //          case 1: mapNumber = 0;
-        //              break;
-        //          case 2: mapNumber = 1; 
-        //              break;
-        //          case 3: mapNumber = 2;
-        //              break;
-        //          case 4: mapNumber = 3;
-        //              break;
-        //          case 5: mapNumber = 4;
-        //              break;
-        //          case 6: mapNumber = 5;
-        //              break;
-        //
-        //      }
-        //  }
-    }
-    private void ChoseMap()
-    { 
-    }
-    public void Map1Selected()
-    {
-        mapNumber = 1;
-        _miniMap = mapNumber-1;
-        _mapListPanel.SetActive(false);
-        _mapRawImage.texture = _mapTexture[_miniMap];
-    }
-    public void Map2Selected()
-    {
-        mapNumber = 2;
-        _miniMap = mapNumber - 1;
-        _mapListPanel.SetActive(false);
-        _mapRawImage.texture = _mapTexture[_miniMap];
-    }
-    public void Map3Selected()
-    {
-        mapNumber = 3;
-        _miniMap = mapNumber - 1;
-        _mapListPanel.SetActive(false);
-        _mapRawImage.texture = _mapTexture[_miniMap];
-    }
-    public void Map4Selected()    
-    {
-        mapNumber = 4;
-        _miniMap = mapNumber-1;
-        _mapListPanel.SetActive(false);
-        _mapRawImage.texture = _mapTexture[_miniMap];
-    }
-    public void Map5Selected()    
-    {
-        mapNumber = 5;
-        _miniMap = mapNumber-1;
-        _mapListPanel.SetActive(false);
-    }
-    public void Map6Selected()   
-    {
-        mapNumber = 6;
-        _miniMap = mapNumber - 1;
-        _mapListPanel.SetActive(false);
-        _mapRawImage.texture = _mapTexture[_miniMap];
-    }
     public void UpdatePlayers()
     {
         foreach (PlayerEntry entry in _playerEntries)
@@ -305,11 +231,6 @@ public class RoomPanel : BaseUI
 
     public void StartGame()
     {
-        
-      //  for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-      //  {
-      //      mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
-      //  }
         PhotonNetwork.LoadLevel(mapList[mapNumber]); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2536114561285220675}
   m_Layer: 0
   m_Name: MovingBox
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 4db144e7585565e4494b2f1687c91605, type: 3}
   - {fileID: 2770734395660610429, guid: 2d772b6b47cc6124198b794567d30d0a, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &2553522775593406928
 BoxCollider:
   m_ObjectHideFlags: 0

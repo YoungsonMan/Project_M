@@ -18,6 +18,9 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     public GameObject[] itemPrefabs;        // 생성될 아이템 프리팹
     public float itemSpawnChance = 0.3f;    // 아이템 생성 확률
 
+    [Header("물줄기 추가 진행 여부")]
+    public bool isContinue;
+
     /// <summary>
     /// 원본 오브젝트가 사라지고 부서진 파편이 폭발로 날아갈 동작을 실행할 RPC메서드.
     /// </summary>
@@ -168,6 +171,6 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
     public bool Interact()
     {
         DestroyObject();
-        return false;
+        return isContinue;
     }
 }

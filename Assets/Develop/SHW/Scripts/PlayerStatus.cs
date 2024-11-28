@@ -28,8 +28,26 @@ public class PlayerStatus : MonoBehaviourPun
 
     private void Update()
     {
-
+        LimitStatus();
     }
 
+    public void LimitStatus()
+    {
+        // 속도제한
+        if (speed > 10)
+        {
+            speed = 10;
+        }
+        // 물풍선 파워 제한
+        if (power > 8)
+        {
+            power = 8;
+        }
+        // 물풍선 개수 제한 
+        if (bombCount > 8)
+        {
+            bombCount = 8;
+        }
+    }
 
 }

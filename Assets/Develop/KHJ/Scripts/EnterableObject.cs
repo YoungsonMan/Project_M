@@ -16,9 +16,13 @@ public class EnterableObject : MonoBehaviourPun
     private void OnTriggerEnter(Collider other)
     {
         Transform root = GetRoot(other.transform);
-        List<Renderer> renderers = root.GetComponent<RendererCache>().Cache;
+        RendererCache rendererCache = root.gameObject.GetComponent<RendererCache>();
+        if (rendererCache == null)
+            return;
 
         _innerObjs.Add(root.gameObject);
+
+        List<Renderer> renderers = rendererCache.Cache;
 
         if (renderers != null)
             Conceal(renderers);
@@ -27,9 +31,13 @@ public class EnterableObject : MonoBehaviourPun
     private void OnTriggerExit(Collider other)
     {
         Transform root = GetRoot(other.transform);
-        List<Renderer> renderers = root.GetComponent<RendererCache>().Cache;
+        RendererCache rendererCache = root.gameObject.GetComponent<RendererCache>();
+        if (rendererCache == null)
+            return;
 
         _innerObjs.Remove(root.gameObject);
+
+        List<Renderer> renderers = rendererCache.Cache;
 
         if (renderers != null)
             Reveal(renderers);

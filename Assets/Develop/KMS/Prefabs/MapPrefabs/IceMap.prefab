@@ -9679,7 +9679,10 @@ MonoBehaviour:
   explosionRadius: 5
   fragmentPrefab: {fileID: 1479339484237943074, guid: 1b9bda3fc8e9b464484c719b8b683067, type: 3}
   parentContainer: {fileID: 4493700620940722395}
-  itemPrefabs: []
+  itemPrefabs:
+  - {fileID: 4793460919394925159, guid: ca5fe5016b742b5479be0826f14dbe9a, type: 3}
+  - {fileID: 3965737416544119840, guid: 4db144e7585565e4494b2f1687c91605, type: 3}
+  - {fileID: 2770734395660610429, guid: 2d772b6b47cc6124198b794567d30d0a, type: 3}
   itemSpawnChance: 0.3
   isContinue: 0
 --- !u!114 &1398844494773148129

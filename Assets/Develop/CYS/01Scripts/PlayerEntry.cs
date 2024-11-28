@@ -36,12 +36,14 @@ public class PlayerEntry : BaseUI
         _readyTextBox = GetUI("ReadyTextBox");
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
+        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
     }
     public void SetPlayer(Player player)
     {
         if(player.IsMasterClient)
         {
-            _nameText.text = $"MASTER\n{player.NickName}";
+            _nameText.text = $"방장\n{player.NickName}";
+            _nameText.color = new Color(1, .8f, 0, 1);
             // 일단 "MASTER" 글씨, 추후 이미지라던가 의논후 변경
         }
         else

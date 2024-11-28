@@ -164,18 +164,41 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     {
         Debug.LogWarning($"랜덤 매칭 실패, 사유 : {message}");
     }
+
+
+    // 채팅관련
+    private void ChatOn()
+    {
+        if (_chatInputField.text == "" && Input.GetKey(KeyCode.Return))
+        {
+            _chatInputField.Select();
+        }
+    }
     public void OnEndEditEvent()
     {
-       // if (Input.GetKeyDown(KeyCode.Return))
-       // {
+       if (_chatInputField.text != "" && Input.GetKeyDown(KeyCode.Return))
+        {
             Debug.Log("채팅엔터 테스트");
             string strMessage = _userName + " : " + _chatInputField.text;
 
             // target 받는이 모두에게 inputField에 적힌대로 
             _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
             _chatInputField.text = "";
-       // }
+       }
     }
+    public void OnEndEditEventButton()
+    {
+        // if (Input.GetKeyDown(KeyCode.Return))
+        // {
+        Debug.Log("채팅버튼 테스트");
+        string strMessage = _userName + " : " + _chatInputField.text;
+
+        // target 받는이 모두에게 inputField에 적힌대로 
+        _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
+        _chatInputField.text = "";
+        // }
+    }
+
 
     // From ChatManager 채팅관련 함수들
     void AddChatMessage(string message)

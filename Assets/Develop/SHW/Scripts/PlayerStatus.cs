@@ -11,6 +11,9 @@ public class PlayerStatus : MonoBehaviour
 
     // 플레이어 색상을 위한
     [SerializeField] public Color[] colors;
+    // 팀넘버를 설정
+    // -> 플레이어가 참조해서 캐릭터 색상을 설정?
+    [SerializeField] public int teamNum;
 
 
     private void Awake()
@@ -30,34 +33,4 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    //public void SetTeamColor()
-    //{
-    //    switch (curTeam)
-    //    {
-    //        case Team.Green:
-    //            colors[0] = Color.green;
-    //            break;
-    //        case Team.Red:
-    //            colors[1] = Color.red;
-    //            break;
-    //        case Team.Blue:
-    //            colors[2] = Color.blue;
-    //            break;
-    //        case Team.Yello:
-    //            colors[3] = Color.yellow;
-    //            break;
-    //        case Team.White:
-    //            colors[4] = Color.white;
-    //            break;
-    //        case Team.Black:
-    //            colors[5] = Color.black;
-    //            break;
-    //        case Team.Gray:
-    //            colors[6] = Color.grey;
-    //            break;
-    //        case Team.Cyan:
-    //            colors[7] = Color.cyan;
-    //            break;
-    //    }
-    //}
 }

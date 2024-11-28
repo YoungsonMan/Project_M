@@ -53,10 +53,9 @@ public class Bubble : MonoBehaviourPun
         }
         // 적이 방울을 터치할 경우
         // (임시) 하여튼 플레이어가 와서 터치하면 터짐
-        else if (other.gameObject.layer == 3)
+        if (playerColor != otherColor)
         {
             bubble.SetActive(false);
-            //_animator.SetBool("isBubble", false);
             _animator.SetBool("isDead", true);
             Destroy(player, 1f);
         }

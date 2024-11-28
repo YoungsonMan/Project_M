@@ -53,12 +53,12 @@ public class SignUpPanel : BaseUI
 
         // CheckPopup
         _checkPopup = GetUI("CheckPopup");
-        GetUI<TMP_Text>("CheckPopup").font = kFont;
         _alreadyExistMsg = GetUI("AlreadyExistMsg");
         GetUI<TMP_Text>("AlreadyExistMsg").font = kFont;
         _availableAddressMsg = GetUI("AvailableAddressMsg");
         GetUI<TMP_Text>("AvailableAddressMsg").font = kFont;
         GetUI<Button>("CheckPopupButton").onClick.AddListener(Close);
+        GetUI<TMP_Text>("CheckPopupButtonText").font = kFont;
     }
 
     void Update()

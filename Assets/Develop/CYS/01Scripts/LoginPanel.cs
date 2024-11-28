@@ -122,6 +122,7 @@ public class LoginPanel : BaseUI
         _resetPwPanel = GetUI("ResetPwPanel");
         _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
         GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
+        GetUI<Button>("RestPwCancelButton").onClick.AddListener(CancelFindingPW);
     }
 
     
@@ -236,8 +237,11 @@ public class LoginPanel : BaseUI
 
             Debug.Log("Password reset email sent successfully.");
             _resetPwPanel.SetActive(false);
-            
         });
+    }
+    public void CancelFindingPW()
+    {
+        _resetPwPanel.SetActive(false);
     }
 
 

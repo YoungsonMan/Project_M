@@ -36,6 +36,7 @@ public class PlayerEntry : BaseUI
         _readyTextBox = GetUI("ReadyTextBox");
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
+        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
     }
     public void SetPlayer(Player player)
     {

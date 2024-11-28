@@ -287,7 +287,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     // 채팅입력창에 아무것도 없이 엔터 눌리면 채팅입력 ON.
     private void ChatOn()
     {
-        if (inputFieldChat.text != "" && Input.GetKey(KeyCode.Return))
+        if (inputFieldChat.text == "" && Input.GetKey(KeyCode.Return))
         {
             inputFieldChat.Select();
         }

@@ -48,7 +48,9 @@ public class RoomPanel : BaseUI
     private void Init()
     {
         GetUI<Button>("PreviousButton").onClick.AddListener(LeaveRoom);
+        GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
+        GetUI<TMP_Text>("StartButtonText").font = kFont;
         _startButton.onClick.AddListener(StartGame);
     }
     private void TestLog()

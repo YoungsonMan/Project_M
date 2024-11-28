@@ -9,6 +9,8 @@ using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 using Firebase.Auth;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 
 public class RoomPanel : BaseUI
@@ -17,11 +19,14 @@ public class RoomPanel : BaseUI
     [SerializeField] PlayerEntry[] _playerEntries;
     [SerializeField] Button _startButton;
 
+    // Map 관련
    // [SerializeField] List <string> mapList;
     private List<string> mapList = new List<string>();
+    GameObject _mapImage;
+    [SerializeField] Texture[] _mapTexture;
+    [SerializeField] RawImage _mapRawImage;
+    public int _miniMap = 0; // 방패널 맵 썸네일(레디버튼위) 0부터시작 _miniMap 0 == mapNumber 1
 
-
-    // Map 관련
     // [SerializeField] Button _mapSelectButton;
     GameObject _mapListPanel;
     GameObject _map01;
@@ -37,8 +42,11 @@ public class RoomPanel : BaseUI
     Button _map05Button;
     Button _map06Button;
     public int mapNumber = 1;
+    public int chosenMap;
 
+    
 
+   // enum MapButtons { _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button }
     private void OnEnable()
     {
         UpdatePlayers();
@@ -70,8 +78,14 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("StartButtonText").font = kFont;
         _startButton.onClick.AddListener(StartGame);
 
-        GetMapList();
         // 맵선택 관련
+        GetMapList();
+        _mapImage = GetUI("MapImage");
+        _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
+        _mapRawImage.texture = _mapTexture[_miniMap];
+
+
+
         GetUI<Button>("MapSelectButton").onClick.AddListener(OpenMapList);
         _mapListPanel = GetUI("MapListPanel");
         GetUI<Button>("MapCancelButton").onClick.AddListener(CloseMapList);
@@ -81,12 +95,12 @@ public class RoomPanel : BaseUI
         _map04Button = GetUI<Button>("MapSelectButton04");
         _map05Button = GetUI<Button>("MapSelectButton05");
         _map06Button = GetUI<Button>("MapSelectButton06");
-        _map01Button.onClick.AddListener(Map1Selected);
-        _map02Button.onClick.AddListener(Map2Selected);
-        _map03Button.onClick.AddListener(Map3Selected);
-        _map04Button.onClick.AddListener(Map4Selected);
-        _map05Button.onClick.AddListener(Map5Selected);
-        _map06Button.onClick.AddListener(Map6Selected);
+        _map01Button.onClick.AddListener(SelectMap);
+        _map02Button.onClick.AddListener(SelectMap);
+        _map03Button.onClick.AddListener(SelectMap);
+        _map04Button.onClick.AddListener(SelectMap);
+        _map05Button.onClick.AddListener(SelectMap);
+        _map06Button.onClick.AddListener(SelectMap);
 
         GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
         GetUI<TMP_Text>("MapNameText02").text = (mapList[2]);
@@ -97,9 +111,10 @@ public class RoomPanel : BaseUI
     }
     private void Update()
     {
+        // SelectMap();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SelectMap();
+            
         }
     }
     void OpenMapList()
@@ -117,39 +132,115 @@ public class RoomPanel : BaseUI
             mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
         }
     }
-   void SelectMap()
+    /// <summary>
+    ///  EventSystem.current.currentSelectedGameObject.name로
+    ///  맵이름을 비교해서 같은맵 눌린걸로 맵Int 변경
+    /// </summary>
+    public void SelectMap()
    {
+        string SelectedMap = EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log($"{SelectedMap} is selected.");
+        //if (SelectedMap == _map01Button.name)
+        //    mapNumber = 1;
 
-   }
+        // SelectedMap 이름이 눌른 버튼과 동일하면 그버튼에 맞는 맵 넘버를 부여
+        switch (SelectedMap)
+        {
+            case "MapSelectButton01":
+                mapNumber = 0;
+                break;
+            case "MapSelectButton02":
+                mapNumber = 1;
+                break;
+            case "MapSelectButton03":
+                mapNumber = 2;
+                break;
+            case "MapSelectButton04":
+                mapNumber = 3;
+                break;
+            case "MapSelectButton05":
+                mapNumber = 4;
+                break;
+            case "MapSelectButton06":
+                mapNumber = 5;
+                break;
+
+        }
+        // 맵 선택하면 => Button눌리면
+        // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
+        // 그 번호로
+        // if (SelectedMap == _map01Button.name)
+        // {
+        //     Debug.Log("맵눌리는거테스트\n 1번눌렸습니다.");
+        //     SelectedMap = "";
+        // }
+
+
+        //  for (int i = 0; i < mapList.Count; i++)
+        //  {
+        //      if ( == _map01Button)
+        //      mapNumber = i;
+        //      switch (mapNumber)
+        //      {
+        //          case 1: mapNumber = 0;
+        //              break;
+        //          case 2: mapNumber = 1; 
+        //              break;
+        //          case 3: mapNumber = 2;
+        //              break;
+        //          case 4: mapNumber = 3;
+        //              break;
+        //          case 5: mapNumber = 4;
+        //              break;
+        //          case 6: mapNumber = 5;
+        //              break;
+        //
+        //      }
+        //  }
+    }
+    private void ChoseMap()
+    { 
+    }
     public void Map1Selected()
     {
         mapNumber = 1;
+        _miniMap = mapNumber-1;
         _mapListPanel.SetActive(false);
+        _mapRawImage.texture = _mapTexture[_miniMap];
     }
     public void Map2Selected()
     {
         mapNumber = 2;
+        _miniMap = mapNumber - 1;
         _mapListPanel.SetActive(false);
+        _mapRawImage.texture = _mapTexture[_miniMap];
     }
     public void Map3Selected()
     {
         mapNumber = 3;
+        _miniMap = mapNumber - 1;
         _mapListPanel.SetActive(false);
+        _mapRawImage.texture = _mapTexture[_miniMap];
     }
     public void Map4Selected()    
     {
         mapNumber = 4;
+        _miniMap = mapNumber-1;
         _mapListPanel.SetActive(false);
+        _mapRawImage.texture = _mapTexture[_miniMap];
     }
     public void Map5Selected()    
     {
         mapNumber = 5;
+        _miniMap = mapNumber-1;
         _mapListPanel.SetActive(false);
     }
     public void Map6Selected()   
     {
         mapNumber = 6;
+        _miniMap = mapNumber - 1;
         _mapListPanel.SetActive(false);
+        _mapRawImage.texture = _mapTexture[_miniMap];
     }
     public void UpdatePlayers()
     {
@@ -210,15 +301,7 @@ public class RoomPanel : BaseUI
         }   // 다 돌고 다 레디면
         return true;
     }
-    public void ChoseMap()
-    {
 
-
-        for (int i = 0; i<SceneManager.sceneCountInBuildSettings; i++)
-        {
-            mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
-        }
-    }
 
     public void StartGame()
     {

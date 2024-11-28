@@ -91,7 +91,10 @@ public class PushableObject : MonoBehaviourPun
         Collider[] colliders = Physics.OverlapSphere(position, 0.4f);
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Obstacle") || collider.CompareTag("Box") || collider.CompareTag("Player"))
+            if (collider.CompareTag("Obstacle") 
+                || collider.CompareTag("Box") 
+                || collider.CompareTag("Player") 
+                || collider.gameObject.layer == LayerMask.NameToLayer("WaterBomb"))
             {
                 Debug.Log($"collider tag {collider.tag}");
                 // 이동 불가능

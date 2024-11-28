@@ -77,7 +77,6 @@ public class WaterBombPlacer : MonoBehaviourPun
     private void OnGetFromPool(WaterBomb pooledObject)
     {
         _curBombCount++;
-        pooledObject.transform.localScale = Vector3.one;
         pooledObject.gameObject.SetActive(true);
     }
 

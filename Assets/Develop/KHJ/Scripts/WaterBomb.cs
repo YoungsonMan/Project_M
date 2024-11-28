@@ -20,8 +20,8 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     [SerializeField] private ExplosionEffect[] _effects;
 
     [Header("Collision Check")]
-    [SerializeField] private Collider _collider;
-    [SerializeField] List<int> _whiteList;          // list of elements allowed to overlap(ignore collider)
+    [SerializeField] private SphereCollider _collider;
+    [SerializeField] private SphereCollider _trigger;
 
     private ObjectPool<WaterBomb> _objectPool;
 
@@ -48,25 +48,13 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     private void Start()
     {
         _explosionDelay = new WaitForSeconds(_explosionDuration);
-        _whiteList = new List<int>();
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!other.gameObject.CompareTag("Player")) return;
-        if (_whiteList.Contains(other.gameObject.GetInstanceID())) return;
-            
-        Debug.Log("Block!");
-        Rigidbody playerRb = other.gameObject.GetComponent<Rigidbody>();
-        Block(playerRb);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
-        if (!_whiteList.Contains(other.gameObject.GetInstanceID())) return;
         
-        _whiteList.Remove(other.gameObject.GetInstanceID());
+        ResetCollisionIgnorance(other);
     }
 
     private void OnDisable()
@@ -111,24 +99,23 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
         }
     }
 
-    private void InitWhiteList()
+    private void SetCollisionIgnorance()
     {
-        _whiteList.Clear();
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _collider.radius);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject.CompareTag("Player"))
             {
-                _whiteList.Add(collider.gameObject.GetInstanceID());
+                Debug.Log("Set");
+                Physics.IgnoreCollision(_collider, collider);
             }
         }
     }
 
-    [PunRPC]
-    private void Block(Rigidbody rb)
+    private void ResetCollisionIgnorance(Collider other)
     {
-        rb.transform.position = transform.position + (rb.position - transform.position).normalized;
+        Debug.Log("Reset");
+        Physics.IgnoreCollision(_collider, other, false);
     }
 
     private void Explode()
@@ -244,7 +231,10 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
         // Move to location
         transform.position = location;
-        InitWhiteList();
+
+        // Set collision ignorance
+        SetCollisionIgnorance();
+
         return true;
     }
 

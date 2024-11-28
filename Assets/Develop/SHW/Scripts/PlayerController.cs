@@ -98,9 +98,9 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
-            bodyRenderer.materials[i].color = _status.colors[num];
+            bodyRenderer.materials[i].color = _status.colors[num2];
             // 팀 인식을 위해 캐릭터 색상 설정
-            color = _status.colors[num];
+            color = _status.colors[num2];
         }
 
     }

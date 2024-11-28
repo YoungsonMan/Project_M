@@ -445,7 +445,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9554c186a77c534b8c59f664a56f4a9, type: 3}
   m_PrefabInstance: {fileID: 4416417920273089596}
   m_PrefabAsset: {fileID: 0}
-  --- !u!114 &-6957661459768671870
+--- !u!114 &-6957661459768671870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

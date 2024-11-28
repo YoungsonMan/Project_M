@@ -263,6 +263,9 @@ MonoBehaviour:
   speed: 5
   power: 1
   bombCount: 1
+  maxSpeed: 10
+  maxPower: 8
+  maxBombCount: 8
   isBubble: 0
   colors:
   - {r: 1, g: 0, b: 0, a: 0}
@@ -358,6 +361,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-6957661459768671870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323386283925807557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02208deaf0b2185498be9236bcc17018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cache: []
 --- !u!1001 &4416417920273089596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,19 +461,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9554c186a77c534b8c59f664a56f4a9, type: 3}
   m_PrefabInstance: {fileID: 4416417920273089596}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6957661459768671870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5323386283925807557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02208deaf0b2185498be9236bcc17018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cache: []
 --- !u!1001 &5323386284024206403
 PrefabInstance:
   m_ObjectHideFlags: 0

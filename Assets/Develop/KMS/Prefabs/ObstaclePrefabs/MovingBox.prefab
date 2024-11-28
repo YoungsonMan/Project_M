@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2536114561285220675}
+  - component: {fileID: 7723915710805811894}
   m_Layer: 0
   m_Name: MovingBox
   m_TagString: Untagged
@@ -64,6 +65,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7723915710805811894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537812873513639501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02208deaf0b2185498be9236bcc17018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cache: []
 --- !u!1 &2538861939443919259
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +187,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 4db144e7585565e4494b2f1687c91605, type: 3}
   - {fileID: 2770734395660610429, guid: 2d772b6b47cc6124198b794567d30d0a, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &2553522775593406928
 BoxCollider:
   m_ObjectHideFlags: 0

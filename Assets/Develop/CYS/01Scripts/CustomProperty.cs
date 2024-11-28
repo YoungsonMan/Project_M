@@ -9,6 +9,7 @@ public static class CustomProperty
 
     // (구현중) 팀 커스텀 프로퍼티
     public const string TEAM = "Team";
+    public const string CHARACTER = "Character";
 
     public static void SetReady(this Player player, bool ready)
     {
@@ -75,6 +76,27 @@ public static class CustomProperty
         else
         {
             // 키값이 없을 경우 임의로 0번 팀으로 강제배치?
+            num = 0;
+            return;
+        }
+    }
+
+    public static void  SetCharacter(this Player player, int num)
+    {
+        PhotonHashtable customProperty = new PhotonHashtable();
+        customProperty[CHARACTER] = num;
+        player.SetCustomProperties(customProperty);
+    }
+    public static void GetCharacter(this Player player, out int num)
+    {
+        PhotonHashtable customProperty = player.CustomProperties;
+        if (customProperty.ContainsKey(CHARACTER))
+        {
+            num = (int)customProperty[CHARACTER];
+            return;
+        }
+        else
+        {
             num = 0;
             return;
         }

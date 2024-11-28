@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
+    }
+    private void Start()
+    {
         // 색상 설정
         photonView.RPC("SetColor", RpcTarget.All);
     }
@@ -103,6 +107,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
+            // 플레이어 teamNum 세팅이 끝난다면 num2 자리에 _status.teamNum을 넣으면 됩니다.
+            // Debug.Log($"하운) TeamNum {_status.teamNum}");
             bodyRenderer.materials[i].color = _status.colors[num2];
             // 팀 인식을 위해 캐릭터 색상 설정
             color = _status.colors[num2];

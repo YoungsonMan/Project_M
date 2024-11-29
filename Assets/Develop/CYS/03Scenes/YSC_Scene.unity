@@ -9622,6 +9622,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &420333981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9975,6 +9978,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!1 &445447909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11573,6 +11579,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &524488369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12657,6 +12666,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &581578614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16184,6 +16196,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &829408675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16322,6 +16337,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &835376046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22369,6 +22387,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &1135427285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22716,7 +22737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1141869028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30451,6 +30472,9 @@ MonoBehaviour:
   _readyButtonText: {fileID: 0}
   _readyTextBox: {fileID: 0}
   _readyPopText: {fileID: 0}
+  TeamNumber: 0
+  _teamChoicePanel: {fileID: 0}
+  _teamButtons: []
 --- !u!114 &1599142533
 MonoBehaviour:
   m_ObjectHideFlags: 0

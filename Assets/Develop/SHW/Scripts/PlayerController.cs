@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         // (다른팀 배정)
         int num = photonView.Owner.GetPlayerNumber();
         // (임시) 같은팀 배정
-        //_status.teamNum = num % 2;
+        _status.teamNum = num % 2;
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {

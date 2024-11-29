@@ -11,6 +11,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 
 public class RoomPanel : BaseUI
@@ -44,9 +45,18 @@ public class RoomPanel : BaseUI
     public int mapNumber = 1;
     public int chosenMap;
 
-    
 
-   // enum MapButtons { _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button }
+    // 팀관련
+    public int TeamNumber; // 여기서 값설정해서 플레이어한테
+    Button _team1;
+    Button _team2;
+    Button _team3;
+    Button _team4;
+    Button _team5;
+    Button _team6;
+    Button _team7;
+    Button _team8;
+
     private void OnEnable()
     {
         UpdatePlayers();
@@ -63,7 +73,7 @@ public class RoomPanel : BaseUI
         Init();
 
         // TestLog();
-
+        Debug.Log($"들어가서 맵상태 로그, 맵 : {(mapList[mapNumber])}");
     }
     private void OnDisable()
     {
@@ -79,10 +89,10 @@ public class RoomPanel : BaseUI
         _startButton.onClick.AddListener(StartGame);
 
         // 맵선택 관련
-        GetMapList();
         _mapImage = GetUI("MapImage");
         _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
         _mapRawImage.texture = _mapTexture[_miniMap];
+        GetMapList();
 
 
 
@@ -101,6 +111,9 @@ public class RoomPanel : BaseUI
         _map04Button.onClick.AddListener(SelectMap);
         _map05Button.onClick.AddListener(SelectMap);
         _map06Button.onClick.AddListener(SelectMap);
+        mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언
+        // 의심되는 곳에서 디버그 찍고했는데 init() OnEnable에서는 안멈춤 .뭔가
+        Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
         GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
         GetUI<TMP_Text>("MapNameText02").text = (mapList[2]);
@@ -108,6 +121,17 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("MapNameText04").text = (mapList[4]);
         GetUI<TMP_Text>("MapNameText05").text = (mapList[5]);
         GetUI<TMP_Text>("MapNameText06").text = (mapList[6]);
+
+
+        // 팀관련
+        GetUI<Button>("Team1").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team2").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team3").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team4").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team5").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team6").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team7").onClick.AddListener(SelectTeam);
+        GetUI<Button>("Team8").onClick.AddListener(SelectTeam);
     }
     private void Update()
     {
@@ -116,6 +140,43 @@ public class RoomPanel : BaseUI
         {
             
         }
+    }
+    public void SelectTeam()
+    {
+        string SelectedTeam = EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log($"{SelectedTeam} is selected.");
+
+        // SelectedTeam 이름이 누른 버튼과 동일하면 그버튼에 맞는 팀 넘버를 부여
+        switch (SelectedTeam)
+        {
+            case "Team1":
+                TeamNumber = 1;
+                break;
+            case "Team2":
+                TeamNumber = 2;
+                break;
+            case "Team3":
+                TeamNumber = 3;
+                break;
+            case "Team4":
+                TeamNumber = 4;
+                break;
+            case "Team5":
+                TeamNumber = 5;
+                break;
+            case "Team6":
+                TeamNumber = 6;
+                break;
+            case "Team7":
+                TeamNumber = 7;
+                break;
+            case "Team8":
+                TeamNumber = 8;
+                break;
+        }
+        PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
+        // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+       // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
     }
     void OpenMapList()
     {
@@ -137,7 +198,7 @@ public class RoomPanel : BaseUI
     ///  맵이름을 비교해서 같은맵 눌린걸로 맵Int 변경
     /// </summary>
     public void SelectMap()
-   {
+    {
         string SelectedMap = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log($"{SelectedMap} is selected.");
         //if (SelectedMap == _map01Button.name)
@@ -165,7 +226,6 @@ public class RoomPanel : BaseUI
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
         // 그 번호로 로드 씬
-
     }
 
     public void UpdatePlayers()
@@ -231,6 +291,7 @@ public class RoomPanel : BaseUI
 
     public void StartGame()
     {
+        Debug.Log(mapList[mapNumber]);
         PhotonNetwork.LoadLevel(mapList[mapNumber]); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }

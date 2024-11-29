@@ -19,6 +19,18 @@ public class PlayerEntry : BaseUI
     [SerializeField] GameObject _readyTextBox;
     [SerializeField] TMP_Text _readyPopText;
 
+    // RoomPanel roomPanel;
+    // int _teamNum;
+
+    private void Update()
+    {   // 테스트 끝나면 지우기
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+           
+            Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer} from PlayerEntryScript");
+        }
+    }
+
     private void OnEnable()
     {
         Init();        
@@ -38,10 +50,12 @@ public class PlayerEntry : BaseUI
         _readyPopText.font = kFont;
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
     }
+
     public void SetPlayer(Player player)
     {
         if(player.IsMasterClient)
         {
+            
             _nameText.text = $"방장\n{player.NickName}";
             _nameText.color = new Color(1, .8f, 0, 1);
             // 일단 "MASTER" 글씨, 추후 이미지라던가 의논후 변경
@@ -50,6 +64,8 @@ public class PlayerEntry : BaseUI
         {
             _nameText.text = player.NickName;
         }
+
+
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
         // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
@@ -78,6 +94,15 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
+
+
+        // 룸패널에서 public int로 팀에 
+        // RoomPanel roomPanel = new RoomPanel();
+      //  if (player.GetTeam(_teamNum) == roomPanel.TeamNumber)
+      //  {
+      //      Debug.Log($"선택하신 팀번호: {roomPanel.TeamNumber} from PlayerEntryScript");
+      //
+      //  }
     }
 
     public void SetEmpty()

@@ -235,6 +235,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &3842741929887004506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +379,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7991636957379159887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +682,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &4707246319413260629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,6 +2545,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &3851638394975051303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2731,6 +2735,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &4813028494099888221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3484,6 +3489,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &1181808494169599251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3868,9 +3874,9 @@ BoxCollider:
   m_GameObject: {fileID: 1038816769313845423}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &1068680362282774463
 GameObject:
@@ -4248,6 +4254,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7960482121754558629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4487,6 +4494,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &3650628389119996230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4758,6 +4766,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &1118438256450895444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4997,6 +5006,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &3052358373727286538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5633,6 +5643,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7191219803136664448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6094,9 +6105,9 @@ BoxCollider:
   m_GameObject: {fileID: 1553135762664070064}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &1557162041274173948
 GameObject:
@@ -6468,6 +6479,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &6015914421590568024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6943,6 +6955,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &1368421834733622375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7285,6 +7298,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &3079814571481534194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7846,6 +7860,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &44421058703788184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8679,6 +8694,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7172081981256496292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9510,6 +9526,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &5707981290045922027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9971,6 +9988,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &342988813982288374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10184,6 +10202,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &8817684391695686199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10808,6 +10827,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &1233901210366884229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11615,6 +11635,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7513469748544869066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12761,6 +12782,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &3244402367420207463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13344,6 +13366,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &8607470761354055464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13673,6 +13696,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &1928792083412429545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14276,6 +14300,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &5157706422833410275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14858,6 +14883,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &227669013072412706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15488,6 +15514,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &6164865847537832368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16155,6 +16182,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &3813641842698045746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18260,6 +18288,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &6391142764261182871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19292,6 +19321,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &147494228951153937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19588,6 +19618,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &6124778705042625890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20488,6 +20519,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &7656695258849083712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20699,9 +20731,9 @@ BoxCollider:
   m_GameObject: {fileID: 5079919412265272336}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &5090533556639085276
 GameObject:
@@ -20977,6 +21009,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &3296857573088020694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21579,6 +21612,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &1704092962806351232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21792,6 +21826,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &3209676035090350303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22018,6 +22053,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &1809644237959200719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22738,6 +22774,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &232594962219289604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22868,6 +22905,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &1594424114585093985
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23611,6 +23649,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &333740437824792996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24078,6 +24117,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &6640080194081726384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24449,6 +24489,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7237077776623259613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24936,6 +24977,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &354638413359936804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25424,6 +25466,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &5093603441120131217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27866,6 +27909,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &1286691784853509802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28079,6 +28123,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &6139864712552010335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28235,6 +28280,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &7475472611581843565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28442,6 +28488,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &6357781890644352081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28671,9 +28718,9 @@ BoxCollider:
   m_GameObject: {fileID: 7160938323560200904}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &7164958903055437491
 GameObject:
@@ -29165,6 +29212,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &7022387270784833764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29435,6 +29483,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &901363476756124468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29915,6 +29964,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &2830224547642508322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30587,6 +30637,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &7957670269420199399
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31013,6 +31064,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &7095856370901803720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31303,6 +31355,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!65 &9023388640015455161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32890,6 +32943,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &2424214167727847861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33308,6 +33362,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &1609618905203055455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35304,6 +35359,7 @@ MonoBehaviour:
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &2625037481965634823
 MonoBehaviour:
   m_ObjectHideFlags: 0

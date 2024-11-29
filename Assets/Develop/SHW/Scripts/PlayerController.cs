@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
-
+    public Inventory inventory;
 
     // 색상 변경용 
     [SerializeField] public Color color;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     private void Awake()
     {
-        
+        inventory = gameObject.GetComponent<Inventory>();
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
         Move();
 
-
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            inventory.UseItem(0);
+        }
     }
 
     public void Move()

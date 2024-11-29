@@ -34,7 +34,7 @@ public class Bubble : MonoBehaviourPun
         bubble.SetActive(false);
         _animator.SetBool("isDead", true);
         // 캐릭터 사망
-        Destroy(player, 1f);
+        Dead();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,8 +43,8 @@ public class Bubble : MonoBehaviourPun
         if (other.gameObject.layer == 3)
         {
             // 충돌체와 플레이어의 색을 판단
-            Color otherColor = other.gameObject.GetComponent<PlayerController>().color;
-            Color playerColor = player.GetComponent<PlayerController>().color;
+            Color otherColor = other.gameObject.GetComponent<PlayerStatus>().color;
+            Color playerColor = player.GetComponent<PlayerStatus>().color;
 
             // 팀이 방울을 터치할 경우
             if (playerColor == otherColor)

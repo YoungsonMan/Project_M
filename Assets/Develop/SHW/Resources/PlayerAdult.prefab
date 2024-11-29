@@ -248,8 +248,6 @@ MonoBehaviour:
   bubble: {fileID: 6793124545502718102}
   arrow: {fileID: 5946843989256916367}
   inventory: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  bodyRenderer: {fileID: 6793124545110260559}
 --- !u!114 &6793124545863302561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +276,8 @@ MonoBehaviour:
   - {r: 0.03137255, g: 0, b: 1, a: 0}
   - {r: 0.7254902, g: 0, b: 1, a: 0}
   - {r: 1, g: 0.29411766, b: 0.85098046, a: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  bodyRenderer: {fileID: 6793124545110260559}
   teamNum: 0
 --- !u!114 &6793124545863302570
 MonoBehaviour:

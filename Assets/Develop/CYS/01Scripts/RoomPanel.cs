@@ -43,12 +43,13 @@ public class RoomPanel : BaseUI
     Button _map05Button;
     Button _map06Button;
     public int mapNumber = 1;
-    public int chosenMap;
+
 
 
     // 팀관련
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
-
+    [SerializeField] GameObject _teamChoicePanel;
+    // [SerializeField] GameObject[] _teamButtons;
 
     private void OnEnable()
     {
@@ -119,6 +120,7 @@ public class RoomPanel : BaseUI
 
 
         // 팀관련
+        _teamChoicePanel = GetUI("TeamChoicePanel");
         GetUI<Button>("Team1").onClick.AddListener(SelectTeam);
         GetUI<Button>("Team2").onClick.AddListener(SelectTeam);
         GetUI<Button>("Team3").onClick.AddListener(SelectTeam);
@@ -127,6 +129,7 @@ public class RoomPanel : BaseUI
         GetUI<Button>("Team6").onClick.AddListener(SelectTeam);
         GetUI<Button>("Team7").onClick.AddListener(SelectTeam);
         GetUI<Button>("Team8").onClick.AddListener(SelectTeam);
+
     }
     private void Update()
     {
@@ -136,6 +139,7 @@ public class RoomPanel : BaseUI
             
         }
     }
+
     public void SelectTeam()
     {
         string SelectedTeam = EventSystem.current.currentSelectedGameObject.name;
@@ -144,29 +148,21 @@ public class RoomPanel : BaseUI
         // SelectedTeam 이름이 누른 버튼과 동일하면 그버튼에 맞는 팀 넘버를 부여
         switch (SelectedTeam)
         {
-            case "Team1":
-                TeamNumber = 0;
+            case "Team1": TeamNumber = 0;
                 break;
-            case "Team2":
-                TeamNumber = 1;
+            case "Team2": TeamNumber = 1;
                 break;
-            case "Team3":
-                TeamNumber = 2;
+            case "Team3": TeamNumber = 2;
                 break;
-            case "Team4":
-                TeamNumber = 3;
+            case "Team4": TeamNumber = 3;
                 break;
-            case "Team5":
-                TeamNumber = 4;
+            case "Team5": TeamNumber = 4;
                 break;
-            case "Team6":
-                TeamNumber = 5;
+            case "Team6": TeamNumber = 5;
                 break;
-            case "Team7":
-                TeamNumber = 6;
+            case "Team7": TeamNumber = 6;
                 break;
-            case "Team8":
-                TeamNumber = 7;
+            case "Team8": TeamNumber = 7;
                 break;
         }
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);

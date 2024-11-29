@@ -19,12 +19,15 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     // 물방울 안에 갇혔을 때 속도 느리게 설정
     private float bubbleSpeed = 0.5f;
 
+
+
     // 색상 변경용 
     [SerializeField] public Color color;
     [SerializeField] Renderer bodyRenderer;
 
     private void Awake()
     {
+        
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);
@@ -45,11 +48,8 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         }
 
         Move();
-    }
 
-    private void OnDestroy()
-    {
-        GameManager.Instance.DecreaseTeammate(_status.teamNum);
+
     }
 
     public void Move()
@@ -106,11 +106,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     [PunRPC]
     public void SetColor()
     {
-        // (다른팀 배정)
-        int num = photonView.Owner.GetPlayerNumber();
-        // (임시) 같은팀 배정
-        _status.teamNum = num % 2;
-
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
             // 플레이어 teamNum 세팅이 끝난다면 num2 자리에 _status.teamNum을 넣으면 됩니다.

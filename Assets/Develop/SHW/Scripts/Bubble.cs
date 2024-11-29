@@ -73,6 +73,7 @@ public class Bubble : MonoBehaviourPun
 
     public void Dead()
     {
+        GameManager.Instance.DecreaseTeammate(_status.teamNum);
         bubble.SetActive(false);
         _animator.SetBool("isDead", true);
         Destroy(player, 1f);

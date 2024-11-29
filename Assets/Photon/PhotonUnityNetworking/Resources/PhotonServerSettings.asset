@@ -49,6 +49,7 @@ MonoBehaviour:
   - RPC_ChatClear
   - PushRPC
   - SetTeamColor
+  - Save
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SpeedUpItem : ItemBase
 {
-    public float speedIncreaseAmount = 2.0f;    // 속도 증가량
+    public float speedIncreaseAmount = 1.0f;    // 속도 증가량
+
+    private void Awake()
+    {
+        itemName = "캐릭터 스피드 아이템";
+        itemType = E_ITEMTYPE.InstantItem;
+    }
 
     public override void ApplyEffect(GameObject player)
     {

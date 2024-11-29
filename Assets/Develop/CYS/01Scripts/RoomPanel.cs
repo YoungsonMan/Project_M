@@ -48,14 +48,7 @@ public class RoomPanel : BaseUI
 
     // 팀관련
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
-    Button _team1;
-    Button _team2;
-    Button _team3;
-    Button _team4;
-    Button _team5;
-    Button _team6;
-    Button _team7;
-    Button _team8;
+
 
     private void OnEnable()
     {
@@ -79,6 +72,8 @@ public class RoomPanel : BaseUI
     {
         PlayerNumbering.OnPlayerNumberingChanged -= UpdatePlayers;
         _startButton.onClick.RemoveListener(StartGame);
+        // 방들어가면서 StartGameAddListner가 됐는데 그상태로 방장되서 시작되서 안되는것
+        // 방지위해서 방패널 비활성화시 구독취소를 했어야 했음.
     }
     private void Init()
     {
@@ -150,32 +145,32 @@ public class RoomPanel : BaseUI
         switch (SelectedTeam)
         {
             case "Team1":
-                TeamNumber = 1;
+                TeamNumber = 0;
                 break;
             case "Team2":
-                TeamNumber = 2;
+                TeamNumber = 1;
                 break;
             case "Team3":
-                TeamNumber = 3;
+                TeamNumber = 2;
                 break;
             case "Team4":
-                TeamNumber = 4;
+                TeamNumber = 3;
                 break;
             case "Team5":
-                TeamNumber = 5;
+                TeamNumber = 4;
                 break;
             case "Team6":
-                TeamNumber = 6;
+                TeamNumber = 5;
                 break;
             case "Team7":
-                TeamNumber = 7;
+                TeamNumber = 6;
                 break;
             case "Team8":
-                TeamNumber = 8;
+                TeamNumber = 7;
                 break;
         }
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
-        // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+        Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
        // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
     }
     void OpenMapList()
@@ -256,7 +251,9 @@ public class RoomPanel : BaseUI
             _startButton.interactable = false;
         }
 
+
         // 레디버튼 본인일때만 본인거 누를수 있게하기
+        // ㄴ PlayerEntry에서 구현
 
 
     }

@@ -63,7 +63,7 @@ public static class CustomProperty
         customProperty[TEAM] = num;
         player.SetCustomProperties(customProperty);
     }
-    public static void GetTeam(this Player player, out int num)
+    public static int GetTeam(this Player player, int num)
     {
         PhotonHashtable customProperty = player.CustomProperties;
         // 키값이 있는 경우
@@ -71,13 +71,13 @@ public static class CustomProperty
         {
             // 입력한 변수에 키값을 할당?
             num = (int)customProperty[TEAM];
-            return;
+            return num;
         }
         else
         {
             // 키값이 없을 경우 임의로 0번 팀으로 강제배치?
             num = 0;
-            return;
+            return int.MaxValue;
         }
     }
 

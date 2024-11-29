@@ -7,6 +7,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
+using UnityEngine.EventSystems;
 
 public class PlayerEntry : BaseUI
 {
@@ -19,8 +20,10 @@ public class PlayerEntry : BaseUI
     [SerializeField] GameObject _readyTextBox;
     [SerializeField] TMP_Text _readyPopText;
 
-    // RoomPanel roomPanel;
-    // int _teamNum;
+    // 팀관련
+    public int TeamNumber; // 여기서 값설정해서 플레이어한테
+    [SerializeField] GameObject _teamChoicePanel;
+    [SerializeField] GameObject[] _teamButtons;
 
     private void Update()
     {   // 테스트 끝나면 지우기
@@ -49,7 +52,20 @@ public class PlayerEntry : BaseUI
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
+      //  _teamChoicePanel = GetUI("TeamChoicePanel");
+
+      //  _teamButtons = GetChildren(_teamChoicePanel);
     }
+    public GameObject[] GetChildren(GameObject parent)
+    {
+        GameObject[] children = new GameObject[parent.transform.childCount];
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            children[i] = parent.transform.GetChild(i).gameObject;
+        }
+        return children;
+    }
+
 
     public void SetPlayer(Player player)
     {
@@ -69,7 +85,10 @@ public class PlayerEntry : BaseUI
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
         // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
-        
+        // _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
+        // 팀선택패널 본인인지 확인
+
+
         // 내버튼만 활성화 / 다른사람꺼는 비활성화
         if (_readyButton.interactable)
         {
@@ -94,16 +113,54 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
-
-
-        // 룸패널에서 public int로 팀에 
-        // RoomPanel roomPanel = new RoomPanel();
-      //  if (player.GetTeam(_teamNum) == roomPanel.TeamNumber)
-      //  {
-      //      Debug.Log($"선택하신 팀번호: {roomPanel.TeamNumber} from PlayerEntryScript");
-      //
-      //  }
+        // 팀관련
+      //  GetUI<Button>("Team1").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team2").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team3").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team4").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team5").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team6").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team7").onClick.AddListener(SelectTeam);
+      //  GetUI<Button>("Team8").onClick.AddListener(SelectTeam);
+        // 레디버튼 장동하는것처럼 팀 작동하게하기
     }
+  //  public void SelectTeam()
+  //  {
+  //      string SelectedTeam = EventSystem.current.currentSelectedGameObject.name;
+  //      Debug.Log($"{SelectedTeam} is selected.");
+  //
+  //      // SelectedTeam 이름이 누른 버튼과 동일하면 그버튼에 맞는 팀 넘버를 부여
+  //      switch (SelectedTeam)
+  //      {
+  //          case "Team1":
+  //              TeamNumber = 1;
+  //              break;
+  //          case "Team2":
+  //              TeamNumber = 2;
+  //              break;
+  //          case "Team3":
+  //              TeamNumber = 3;
+  //              break;
+  //          case "Team4":
+  //              TeamNumber = 4;
+  //              break;
+  //          case "Team5":
+  //              TeamNumber = 5;
+  //              break;
+  //          case "Team6":
+  //              TeamNumber = 6;
+  //              break;
+  //          case "Team7":
+  //              TeamNumber = 7;
+  //              break;
+  //          case "Team8":
+  //              TeamNumber = 8;
+  //              break;
+  //      }
+  //      PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
+  //      Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+  //      // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+  //  }
 
     public void SetEmpty()
     {
@@ -111,7 +168,10 @@ public class PlayerEntry : BaseUI
         _readyText.text = "";
         _nameText.text = "None";
         _readyButton.gameObject.SetActive(false);
+        
     }
+
+
 
     public void Ready()
     {

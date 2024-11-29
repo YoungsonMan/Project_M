@@ -27,7 +27,8 @@ public class PlayerStatus : MonoBehaviourPun
     private void Awake( )
     {
         // 팀 설정에서 번호가 매겨지면 주석 풀어서 팀 설정
-        // PhotonNetwork.LocalPlayer.GetTeam(out teamNum);
+        Debug.Log($"vsdsaasdfdsf {PhotonNetwork.LocalPlayer.GetTeam(teamNum)}");
+        teamNum = PhotonNetwork.LocalPlayer.GetTeam(teamNum);
     }
 
     private void Update()

@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     {
         // 색상 설정
         photonView.RPC("SetColor", RpcTarget.All);
+        GameManager.Instance.IncreaseTeammate(_status.teamNum);
     }
 
     private void Update()
@@ -44,6 +45,11 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         }
 
         Move();
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.DecreaseTeammate(_status.teamNum);
     }
 
     public void Move()
@@ -103,15 +109,15 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         // (다른팀 배정)
         int num = photonView.Owner.GetPlayerNumber();
         // (임시) 같은팀 배정
-        int num2 = num % 2;
+        _status.teamNum = num % 2;
 
         for (int i = 0; i < bodyRenderer.materials.Length; i++)
         {
             // 플레이어 teamNum 세팅이 끝난다면 num2 자리에 _status.teamNum을 넣으면 됩니다.
             // Debug.Log($"하운) TeamNum {_status.teamNum}");
-            bodyRenderer.materials[i].color = _status.colors[num2];
+            bodyRenderer.materials[i].color = _status.colors[_status.teamNum];
             // 팀 인식을 위해 캐릭터 색상 설정
-            color = _status.colors[num2];
+            color = _status.colors[_status.teamNum];
         }
 
     }

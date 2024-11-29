@@ -248,8 +248,6 @@ MonoBehaviour:
   bubble: {fileID: 851820312}
   arrow: {fileID: 3569997032334637421}
   inventory: {fileID: -1620983653133240983}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  bodyRenderer: {fileID: 5323386284027289573}
 --- !u!114 &2098898258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +276,8 @@ MonoBehaviour:
   - {r: 0.031082153, g: 0, b: 1, a: 0}
   - {r: 0.72492886, g: 0, b: 1, a: 0}
   - {r: 1, g: 0.2924527, b: 0.8512092, a: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  bodyRenderer: {fileID: 5323386284027289573}
   teamNum: 0
 --- !u!114 &2098898255
 MonoBehaviour:
@@ -687,6 +687,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 45e4daa04e170d44fbf65a139cad8821, type: 2}
+    - target: {fileID: 13700002, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 13700002, guid: 705ae9a2d62c9d04c89bfeef3dbd4f4c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

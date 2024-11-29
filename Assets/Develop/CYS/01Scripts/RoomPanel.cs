@@ -166,7 +166,7 @@ public class RoomPanel : BaseUI
                 break;
         }
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
-        Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+        Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam()}");
        // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
     }
     void OpenMapList()

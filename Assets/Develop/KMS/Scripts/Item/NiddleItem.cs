@@ -15,11 +15,11 @@ public class NiddleItem : ItemBase
         Bubble bubble = player.GetComponentInChildren<Bubble>();
         if (bubble != null)
         {
-            bubble.StopAllCoroutines();
-            bubble.bubble.SetActive(false);
-            bubble.player.GetComponent<Animator>().SetBool("isBubble", false);
-            bubble.player.GetComponent<PlayerStatus>().isBubble = false;
-            bubble.player.GetComponent<WaterBombPlacer>().enabled = true;
+            //bubble.StopAllCoroutines();
+            //bubble.bubble.SetActive(false);
+            //bubble.player.GetComponent<Animator>().SetBool("isBubble", false);
+            //bubble.player.GetComponent<PlayerStatus>().isBubble = false;
+            //bubble.player.GetComponent<WaterBombPlacer>().enabled = true;
         }
         else
         {

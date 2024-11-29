@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemBase item)
     {
-        if (item.itemType == ItemBase.E_ITEMTYPE.ActiveItem)
+        if (item.itemType == E_ITEMTYPE.ActiveItem)
         {
             if (inventory.Count < 1)
             {

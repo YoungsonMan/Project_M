@@ -66,20 +66,20 @@ public class MainPanel : BaseUI
         PhotonNetwork.Disconnect();
     }
 
-    private void TestLog()
-    {
-        FirebaseUser user = BackendManager.Auth.CurrentUser;
-        if (user == null)
-        {
-            Debug.Log("플레이어가 로그인이 올바르지않습니다.");
-            return;
-        }
-        Debug.Log("룸패널 테스트로그");
-        Debug.Log($"Display Name: \t {user.DisplayName}");
-        Debug.Log($"Email Address: \t {user.Email}");
-        Debug.Log($"Email Verification: \t {user.IsEmailVerified}");
-        Debug.Log($"User ID: \t\t {user.UserId}");
-        Debug.Log("");
-    }
+   // private void TestLog()
+   // {
+   //     FirebaseUser user = BackendManager.Auth.CurrentUser;
+   //     if (user == null)
+   //     {
+   //         Debug.Log("플레이어가 로그인이 올바르지않습니다.");
+   //         return;
+   //     }
+   //     Debug.Log("룸패널 테스트로그");
+   //     Debug.Log($"Display Name: \t {user.DisplayName}");
+   //     Debug.Log($"Email Address: \t {user.Email}");
+   //     Debug.Log($"Email Verification: \t {user.IsEmailVerified}");
+   //     Debug.Log($"User ID: \t\t {user.UserId}");
+   //     Debug.Log("");
+   // }
 
 }

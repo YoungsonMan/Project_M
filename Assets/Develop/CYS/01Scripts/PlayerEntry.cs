@@ -7,6 +7,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
+using UnityEngine.EventSystems;
 
 public class PlayerEntry : BaseUI
 {
@@ -19,8 +20,10 @@ public class PlayerEntry : BaseUI
     [SerializeField] GameObject _readyTextBox;
     [SerializeField] TMP_Text _readyPopText;
 
-    // RoomPanel roomPanel;
-    // int _teamNum;
+    // 팀관련
+    public int TeamNumber; // 여기서 값설정해서 플레이어한테
+    [SerializeField] GameObject _teamChoicePanel;
+    [SerializeField] GameObject[] _teamButtons;
 
     private void Update()
     {   // 테스트 끝나면 지우기
@@ -49,6 +52,7 @@ public class PlayerEntry : BaseUI
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
+
     }
 
     public void SetPlayer(Player player)
@@ -69,7 +73,8 @@ public class PlayerEntry : BaseUI
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
         // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
-        
+
+
         // 내버튼만 활성화 / 다른사람꺼는 비활성화
         if (_readyButton.interactable)
         {
@@ -94,24 +99,19 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
-
-
-        // 룸패널에서 public int로 팀에 
-        // RoomPanel roomPanel = new RoomPanel();
-      //  if (player.GetTeam(_teamNum) == roomPanel.TeamNumber)
-      //  {
-      //      Debug.Log($"선택하신 팀번호: {roomPanel.TeamNumber} from PlayerEntryScript");
-      //
-      //  }
+   
     }
-
+  
     public void SetEmpty()
     {
         _readyPopText.text = "";
         _readyText.text = "";
         _nameText.text = "None";
         _readyButton.gameObject.SetActive(false);
+        
     }
+
+
 
     public void Ready()
     {

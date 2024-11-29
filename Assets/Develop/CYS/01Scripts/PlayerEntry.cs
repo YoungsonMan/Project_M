@@ -111,8 +111,6 @@ public class PlayerEntry : BaseUI
         
     }
 
-
-
     public void Ready()
     {
         // !레디 -> 레디 || 레디 -> !레디 

@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbabecee615eda94e8510a6aeeb6d9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   itemName: 
   isPickup: 0
   speedIncreaseAmount: 1

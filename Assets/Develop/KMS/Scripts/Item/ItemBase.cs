@@ -5,6 +5,8 @@ using UnityEngine;
 
 public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
 {
+    public E_ITEMTYPE itemType;     // 현재 아이템의 타입
+
     public string itemName;         // 아이템 이름
     public bool isPickup = false;   // 아이템이 픽업되었는지 여부
 
@@ -17,7 +19,17 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
 
             if (playerView != null && playerView.IsMine)
             {
-                photonView.RPC(nameof(OnPickedUp_RPC), RpcTarget.AllBuffered, playerView.ViewID);
+                // 즉각 사용 아이템
+                if (itemType == E_ITEMTYPE.InstantItem)
+                {
+                    photonView.RPC(nameof(OnPickedUp_RPC), RpcTarget.AllBuffered, playerView.ViewID);
+                }
+                // 동작 필요 아이템(인벤토리에 추가)
+                else if (itemType == E_ITEMTYPE.ActiveItem)
+                {
+                    playerView.GetComponent<Inventory>().AddItem(this);
+                }
+                //photonView.RPC(nameof(OnPickedUp_RPC), RpcTarget.AllBuffered, playerView.ViewID);
             }
         }
     }

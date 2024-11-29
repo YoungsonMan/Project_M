@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             
         Debug.Log($"[GameManager]: Init");
         _teammates = new int[8];
+        _teamFlag = 0;
         _resultText.gameObject.SetActive(false);
     }
 

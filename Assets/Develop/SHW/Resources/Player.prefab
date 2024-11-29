@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: -6851490057093700692}
   - component: {fileID: 392858662762382359}
   - component: {fileID: -6957661459768671870}
+  - component: {fileID: -1620983653133240983}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -246,6 +247,7 @@ MonoBehaviour:
   animator: {fileID: 815692183}
   bubble: {fileID: 851820312}
   arrow: {fileID: 3569997032334637421}
+  inventory: {fileID: -1620983653133240983}
   color: {r: 0, g: 0, b: 0, a: 0}
   bodyRenderer: {fileID: 5323386284027289573}
 --- !u!114 &2098898258
@@ -374,6 +376,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cache: []
+--- !u!114 &-1620983653133240983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323386283925807557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4048f6146b7d6ac4d87c7b4b5b6713e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
 --- !u!1001 &4416417920273089596
 PrefabInstance:
   m_ObjectHideFlags: 0

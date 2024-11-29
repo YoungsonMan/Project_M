@@ -21,10 +21,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
 
     public Inventory inventory;
 
-    // 색상 변경용 
-    [SerializeField] public Color color;
-    [SerializeField] Renderer bodyRenderer;
-
     private void Awake()
     {
         inventory = gameObject.GetComponent<Inventory>();
@@ -34,9 +30,7 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     }
     private void Start()
     {
-        // 색상 설정
-        photonView.RPC("SetColor", RpcTarget.All);
-        GameManager.Instance.IncreaseTeammate(_status.teamNum);
+        //SetColor();
     }
 
     private void Update()
@@ -106,19 +100,19 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
         }
     }
 
-    [PunRPC]
-    public void SetColor()
-    {
-        for (int i = 0; i < bodyRenderer.materials.Length; i++)
-        {
-            // 플레이어 teamNum 세팅이 끝난다면 num2 자리에 _status.teamNum을 넣으면 됩니다.
-            // Debug.Log($"하운) TeamNum {_status.teamNum}");
-            bodyRenderer.materials[i].color = _status.colors[_status.teamNum];
-            // 팀 인식을 위해 캐릭터 색상 설정
-            color = _status.colors[_status.teamNum];
-        }
+    //public void SetColor()
+    //{
+    //    // Change color as team color
+    //    color = _status.colors[_status.teamNum];
+    //    for (int i = 0; i < bodyRenderer.materials.Length; i++)
+    //    {
+    //        bodyRenderer.materials[i].color = color;
+    //    }
 
-    }
+    //    // Notify to GameManager
+    //    GameManager.Instance.IncreaseTeammate(_status.teamNum);
+    //}
+
     public bool Interact()
     {
         photonView.RPC("BubbledRPC", RpcTarget.All);

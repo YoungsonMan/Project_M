@@ -20,21 +20,54 @@ public class PlayerStatus : MonoBehaviourPun
 
     // 플레이어 색상을 위한
     [SerializeField] public Color[] colors;
+    // 색상 변경용 
+    [SerializeField] public Color color;
+    [SerializeField] Renderer bodyRenderer;
+
     // 팀넘버를 설정
     // -> 플레이어가 참조해서 캐릭터 색상을 설정?
     [SerializeField] public int teamNum;
 
-    private void Awake( )
+    private void Awake()
     {
-        // 팀 설정에서 번호가 매겨지면 주석 풀어서 팀 설정
-        Debug.Log($"vsdsaasdfdsf {PhotonNetwork.LocalPlayer.GetTeam(teamNum)}");
-        teamNum = PhotonNetwork.LocalPlayer.GetTeam(teamNum);
+        if (photonView.IsMine)
+        {
+            // Set team number as the selected team number from custom properties
+            photonView.RPC(nameof(SetTeamNum), RpcTarget.AllViaServer, PhotonNetwork.LocalPlayer.GetTeam());
+        }
+    }
+
+    private void Start()
+    {
+        if (photonView.IsMine)
+        {
+            // Set color as team color
+            photonView.RPC(nameof(SetColor), RpcTarget.AllViaServer);
+        }
     }
 
     private void Update()
     {
         LimitStatus();
     }
+
+    [PunRPC]
+    private void SetTeamNum(int n) => teamNum = n;
+
+    [PunRPC]
+    public void SetColor()
+    {
+        // Change color as team color
+        color = colors[teamNum];
+        for (int i = 0; i < bodyRenderer.materials.Length; i++)
+        {
+            bodyRenderer.materials[i].color = color;
+        }
+
+        // Notify to GameManager
+        GameManager.Instance.IncreaseTeammate(teamNum);
+    }
+
 
     public void LimitStatus()
     {

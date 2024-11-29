@@ -50,20 +50,31 @@ public class Bubble : MonoBehaviourPun
             if (playerColor == otherColor)
             {
                 Debug.Log("같은 팀 충돌 확인");
-                StopAllCoroutines();
-                bubble.SetActive(false);
-                _animator.SetBool("isBubble", false);
-                _status.isBubble = false;
-                _placer.enabled = true;
+                Save();
             }
             // 적이 방울을 터치할 경우
             // (임시) 하여튼 플레이어가 와서 터치하면 터짐
             if (playerColor != otherColor)
             {
-                bubble.SetActive(false);
-                _animator.SetBool("isDead", true);
-                Destroy(player, 1f);
+                Dead();
             }
         }
+    }
+
+    [PunRPC]
+    public void Save()
+    {
+        StopAllCoroutines();
+        bubble.SetActive(false);
+        _animator.SetBool("isBubble", false);
+        _status.isBubble = false;
+        _placer.enabled = true;
+    }
+
+    public void Dead()
+    {
+        bubble.SetActive(false);
+        _animator.SetBool("isDead", true);
+        Destroy(player, 1f);
     }
 }

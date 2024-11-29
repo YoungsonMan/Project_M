@@ -61,7 +61,7 @@ public class TestScene : MonoBehaviourPunCallbacks
         mapObject.SetActive(true);
 
         // 테스트용 게임 시작 부분
-         spawner.PlayerSpawn(PhotonNetwork.LocalPlayer.ActorNumber-1);
+        //  spawner.PlayerSpawn(PhotonNetwork.LocalPlayer.ActorNumber-1);
     }
 
 }

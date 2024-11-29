@@ -11,6 +11,10 @@ public class PlayerStatus : MonoBehaviourPun
     [SerializeField] public float speed;       // ÇÃ·¹ÀÌ¾î ¼Óµµ
     [SerializeField] public int power;         // ÆøÅºÆÄ¿ö
     [SerializeField] public int bombCount;     // ÆøÅº¼ö 
+    [Header("MaxStatus")]
+    [SerializeField] public float maxSpeed;       // ÇÃ·¹ÀÌ¾î ¼Óµµ
+    [SerializeField] public int maxPower;         // ÆøÅºÆÄ¿ö
+    [SerializeField] public int maxBombCount;     // ÆøÅº¼ö 
 
     public bool isBubble;                      // ¹°¹æ¿ï¿¡ °¤Èù »óÅÂ
 
@@ -34,19 +38,19 @@ public class PlayerStatus : MonoBehaviourPun
     public void LimitStatus()
     {
         // ¼ÓµµÁ¦ÇÑ
-        if (speed > 10)
+        if (speed > maxSpeed)
         {
-            speed = 10;
+            speed = maxSpeed;
         }
         // ¹°Ç³¼± ÆÄ¿ö Á¦ÇÑ
-        if (power > 8)
+        if (power > maxPower)
         {
-            power = 8;
+            power = maxPower;
         }
         // ¹°Ç³¼± °³¼ö Á¦ÇÑ 
-        if (bombCount > 8)
+        if (bombCount > maxBombCount)
         {
-            bombCount = 8;
+            bombCount = maxBombCount;
         }
     }
 

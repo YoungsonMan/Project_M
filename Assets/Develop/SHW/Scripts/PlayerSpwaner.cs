@@ -1,12 +1,19 @@
 using Photon.Pun;
+using System.Linq;
 using UnityEngine;
 
-public class PlayerSpwaner : MonoBehaviourPun
+public class PlayerSpwaner : MonoBehaviourPunCallbacks
 {
     private SpawnPointManager spawnPointManager;
+    private Vector3[] randomPoints;
     private Vector3 spawnPoint;
 
-    private int charNum;
+    private int charNum;        // 캐릭터 넘버
+
+    private void Awake()
+    {
+        PlayerSpawn(PhotonNetwork.LocalPlayer.ActorNumber - 1);
+    }
 
     public void PlayerSpawn(int num)
     {
@@ -16,8 +23,13 @@ public class PlayerSpwaner : MonoBehaviourPun
         spawnPointManager = GameObject.Find("MapContainer").GetComponent<SpawnPointManager>();
         spawnPoint = spawnPointManager.spawnPoints[num];
 
-        // 리소스의 폴더안쪽에 들었다면 폴더의 주소로 작성 (예 : GameObject/Player)
-        // PhotonNetwork.Instantiate("Player", spawnPoint, Quaternion.identity);
+        // 랜덤 스폰
+        
+        //int randomNum = Random.Range(0, spawnPoints.Length);
+        //for (int i = 0; i == spawnPoints.Length; i++)
+        //{
+
+        //}
 
         // 프로퍼티 설정이 완료되면 주석 해제해서 사용
         // PhotonNetwork.LocalPlayer.GetTeam(out charNum);
@@ -28,7 +40,7 @@ public class PlayerSpwaner : MonoBehaviourPun
         {
             PhotonNetwork.Instantiate("PlayerAdult", spawnPoint, Quaternion.identity);
         }
-        else if (num == 2)
+        else if (num == 1)
         {
             PhotonNetwork.Instantiate("PlayerGirl", spawnPoint, Quaternion.identity);
         }

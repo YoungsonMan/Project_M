@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,9 @@ public class NiddleItem : ItemBase
         Bubble bubble = player.GetComponentInChildren<Bubble>();
         if (bubble != null)
         {
-            //bubble.StopAllCoroutines();
-            //bubble.bubble.SetActive(false);
-            //bubble.player.GetComponent<Animator>().SetBool("isBubble", false);
-            //bubble.player.GetComponent<PlayerStatus>().isBubble = false;
-            //bubble.player.GetComponent<WaterBombPlacer>().enabled = true;
+            // Bubble의 Save 함수 호출
+            bubble.photonView.RPC(nameof(bubble.Save), RpcTarget.All);
+            Debug.Log("바늘 아이템 사용: 물방울 상태에서 탈출");
         }
         else
         {

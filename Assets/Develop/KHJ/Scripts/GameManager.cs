@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Team Management")]
+    [Tooltip("Element represents the number of players belongs to each team")]
     [SerializeField] int[] _teammates;
+    [Tooltip("Bit On/Off : Someone survived/Nobody survived")]
     [SerializeField] byte _teamFlag;
+
+    [Header("Result UI")]
+    [SerializeField] TextMeshProUGUI _resultText;
 
     private void Awake()
     {
@@ -41,14 +48,12 @@ public class GameManager : MonoBehaviour
             
         Debug.Log($"[GameManager]: Init");
         _teammates = new int[8];
+        _resultText.gameObject.SetActive(false);
     }
 
     private void GameOver()
     {
-        int winner = GetWinner();
-        Debug.Log($"[GameManager]: Winner: Team {winner}");
-        PhotonNetwork.LoadLevel(0);
-        PhotonNetwork.CurrentRoom.IsOpen = true;
+        StartCoroutine(GameOverRoutine());
     }
 
     private bool IsGameOver()
@@ -66,6 +71,26 @@ public class GameManager : MonoBehaviour
         }
 
         return winner;
+    }
+
+    private void ShowResult()
+    {
+        int winner = GetWinner();
+        Debug.Log($"[GameManager]: Winner: Team {winner}");
+
+        _resultText.gameObject.SetActive(true);
+        // TODO: Show proper result to each player
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        ShowResult();
+
+        yield return new WaitForSeconds(5f);
+
+        PhotonNetwork.LoadLevel(0);
+        PhotonNetwork.CurrentRoom.IsOpen = true;
+
     }
 
     /// <summary>

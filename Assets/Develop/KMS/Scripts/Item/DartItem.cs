@@ -1,12 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DartItem : ItemBase
 {
-    [SerializeField] private float _maxRange = 10f; // 다트가 닿을 수 있는 최대 거리
-    [SerializeField] private LayerMask _waterBombLayer; // 물풍선만 감지하는 레이어
-
+    [SerializeField] private GameObject _dartPrefab;  // 다트 프리팹
 
     private void Awake()
     {
@@ -16,28 +15,21 @@ public class DartItem : ItemBase
 
     public override void ApplyEffect(GameObject player)
     {
-        RaycastHit hit;
-        Vector3 playerPosition = player.transform.position;
-        Vector3 forwardDirection = player.transform.forward;
+        // MuzzlePoint 가져오기
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController == null || playerController.muzzlePoint == null)
+        {
+            Debug.LogError("MuzzlePoint가 설정되지 않았습니다.");
+            return;
+        }
 
-        // 레이캐스트로 물풍선 감지
-        if (Physics.Raycast(playerPosition + Vector3.up * 0.5f, forwardDirection, out hit, _maxRange, _waterBombLayer))
-        {
-            WaterBomb waterBomb = hit.collider.GetComponent<WaterBomb>();
-            if (waterBomb != null)
-            {
-                // 물풍선 Interact 호출
-                waterBomb.Interact();
-                Debug.Log("다트 아이템 사용: 물풍선을 터뜨렸습니다.");
-            }
-            else
-            {
-                Debug.Log("다트 아이템 사용 실패: 물풍선을 찾지 못했습니다.");
-            }
-        }
-        else
-        {
-            Debug.Log("다트 아이템 사용 실패: 범위 내에 물풍선이 없습니다.");
-        }
+        // 다트를 MuzzlePoint에서 생성
+        Vector3 spawnPosition = playerController.muzzlePoint.position;
+        Quaternion spawnRotation = Quaternion.LookRotation(playerController.muzzlePoint.forward);
+
+        // 다트를 네트워크 상에서 생성
+        GameObject dart = PhotonNetwork.Instantiate($"Item/{_dartPrefab.name}", spawnPosition, spawnRotation);
+
+        Debug.Log("다트 아이템 사용: 다트를 발사했습니다.");
     }
 }

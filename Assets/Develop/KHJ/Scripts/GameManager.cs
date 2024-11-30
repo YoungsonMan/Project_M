@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Local Player Status")]
+    [SerializeField] PlayerStatus _localPlayerStatus;
+
     [Header("Team Management")]
     [Tooltip("Element represents the number of players belongs to each team")]
     [SerializeField] int[] _teammates;
@@ -17,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Result UI")]
     [SerializeField] TextMeshProUGUI _resultText;
+
+    public PlayerStatus LocalPlayerStatus { set { _localPlayerStatus = value; } }
 
     private void Awake()
     {
@@ -79,8 +84,17 @@ public class GameManager : MonoBehaviour
         int winner = GetWinner();
         Debug.Log($"[GameManager]: Winner: Team {winner}");
 
+        // Set proper result to each player
+        // TODO: Improve DRAW condition
+        if (_localPlayerStatus.teamNum == winner)
+            _resultText.text = "Win!";
+        else if (_teamFlag == 0)
+            _resultText.text = "Draw.";
+        else
+            _resultText.text = "Lose..";
+
+        // Show
         _resultText.gameObject.SetActive(true);
-        // TODO: Show proper result to each player
     }
 
     IEnumerator GameOverRoutine()

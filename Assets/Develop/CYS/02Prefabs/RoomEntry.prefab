@@ -93,10 +93,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 39.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -498,10 +498,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 47.45
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -892,10 +892,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2c4af69948fd141a7b0a919d27ba2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roomMap: {fileID: 0}
+  kFont: {fileID: 11400000, guid: ab8b64c67c0388444bb4fb23ba0ea7a4, type: 2}
   _roomTitle: {fileID: 0}
   _roomCapacity: {fileID: 0}
   _roomJoinButton: {fileID: 0}
+  _roomMap: {fileID: 0}
+  _mapTexture:
+  - {fileID: 2800000, guid: 1cfdb40eaa10f8248ba77f01c6931c1a, type: 3}
+  - {fileID: 2800000, guid: 26cb914b77b709c4db8c88bee4cce806, type: 3}
+  - {fileID: 2800000, guid: 224cef3628265f34ca474bed5aedcfa8, type: 3}
+  - {fileID: 2800000, guid: 801f0e6de7186054ea24d9ab75eb8574, type: 3}
+  - {fileID: 2800000, guid: eb4595023c9653c42b069237a024ba71, type: 3}
+  - {fileID: 2800000, guid: f3c5feedb9cd03541ac95fa080db6420, type: 3}
 --- !u!1 &4933010848388649647
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4933010848388649646}
   - component: {fileID: 4933010848388649640}
-  - component: {fileID: 4933010848388649641}
+  - component: {fileID: 5564806103818186548}
   m_Layer: 5
   m_Name: RoomMap
   m_TagString: Untagged
@@ -942,7 +950,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4933010848388649647}
   m_CullTransparentMesh: 1
---- !u!114 &4933010848388649641
+--- !u!114 &5564806103818186548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -951,7 +959,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4933010848388649647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -962,13 +970,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1

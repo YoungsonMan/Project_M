@@ -13,10 +13,15 @@ using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using static Photon.Pun.UtilityScripts.PunTeams;
 using UnityEngine.TextCore.Text;
+using System.Linq;
 
 
 public class RoomPanel : BaseUI
 {
+    [SerializeField] TMP_Text _roomTitle;
+    [SerializeField] TMP_Text _roomCapacity;
+
+
     [Header("한글폰트")]
     [SerializeField] TMP_FontAsset kFont;
     [Header("플레이어관련")]
@@ -94,6 +99,12 @@ public class RoomPanel : BaseUI
     }
     private void Init()
     {
+        _roomTitle = GetUI<TMP_Text>("RoomTitle");
+        _roomTitle.font = kFont;
+        _roomCapacity = GetUI<TMP_Text>("RoomCapacity");
+        _roomCapacity.font = kFont;
+        
+
         GetUI<Button>("PreviousButton").onClick.AddListener(LeaveRoom);
         GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
@@ -120,6 +131,9 @@ public class RoomPanel : BaseUI
 
         mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언
         // 의심되는 곳에서 디버그 찍고했는데 init() OnEnable에서는 안멈춤 .뭔가
+
+        SetRoomInfo(PhotonNetwork.CurrentRoom);
+
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
         GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
@@ -155,15 +169,29 @@ public class RoomPanel : BaseUI
     }
     private void Update()
     {
+        string roomName, roomMembers;
+        roomName = _roomTitle.text;
+        roomMembers = _roomCapacity.text;
+        if (roomName != PhotonNetwork.CurrentRoom.Name || 
+            roomMembers != $"{PhotonNetwork.CurrentRoom.PlayerCount}/{PhotonNetwork.CurrentRoom.MaxPlayers}")
+        {
+            SetRoomInfo(PhotonNetwork.CurrentRoom);
+        }
+
         // SelectMap();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
+            Debug.Log($"RoomName: {roomName}");
+            Debug.Log($"방인구수 : {roomMembers}");
+            Debug.Log($"포톤네이트워크 플레이어리스트 : {PhotonNetwork.PlayerList}");
+            Debug.Log($"PhotonNetwork 플레이어리스트아더: {PhotonNetwork.PlayerListOthers}");
+
         }
     }
 
     /// <summary>
-    /// 방장일때만 버튼을 누를수 있도록하기
+    /// 방장일때만 버튼을 누를수 있도록 함
+    /// 방장이 아니라면 그냥 리턴
     /// </summary>
     /// <param name="player"></param>
     public void MapButtonInit(Player player)
@@ -294,8 +322,6 @@ public class RoomPanel : BaseUI
             // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
             // 그 번호로 로드 씬
 
- 
-
     }
 
     public void UpdatePlayers()
@@ -330,8 +356,15 @@ public class RoomPanel : BaseUI
         // 레디버튼 본인일때만 본인거 누를수 있게하기
         // ㄴ PlayerEntry에서 구현
 
-
     }
+
+
+    /// <summary>
+    ///  플레이어 프로퍼티 업데이트
+    ///  레디상황
+    /// </summary>
+    /// <param name="targetPlayer"></param>
+    /// <param name="properties"></param>
     public void UpdatePlayerProperty(Player targetPlayer, Hashtable properties)
     {
         if(properties.ContainsKey(CustomProperty.READY))
@@ -360,7 +393,15 @@ public class RoomPanel : BaseUI
         return true;
     }
 
+    public void SetRoomInfo(RoomInfo info)
+    {
+        _roomTitle.text = info.Name;
+        //_roomCapacity.text = $"{info.PlayerCount}/{info.MaxPlayers}";
 
+        int currentMember =  info.PlayerCount;
+        _roomCapacity.text = $"{PhotonNetwork.PlayerList.Count()}/{info.MaxPlayers}";
+
+    }
     public void StartGame()
     {
         Debug.Log(mapList[mapNumber]);

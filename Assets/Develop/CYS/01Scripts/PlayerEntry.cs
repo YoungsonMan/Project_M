@@ -53,7 +53,6 @@ public class PlayerEntry : BaseUI
         _readyPopText.font = kFont;
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
 
-
     }
 
     public void SetPlayer(Player player)
@@ -98,8 +97,6 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
-
-
    
     }
   

@@ -53,6 +53,7 @@ public class PlayerEntry : BaseUI
         _readyPopText.font = kFont;
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
 
+
     }
 
     public void SetPlayer(Player player)
@@ -69,11 +70,9 @@ public class PlayerEntry : BaseUI
             _nameText.text = player.NickName;
         }
 
-
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
         // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
-
 
         // 내버튼만 활성화 / 다른사람꺼는 비활성화
         if (_readyButton.interactable)
@@ -99,6 +98,8 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
+
+
    
     }
   

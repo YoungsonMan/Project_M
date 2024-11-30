@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Result UI")]
     [SerializeField] TextMeshProUGUI _resultText;
+
+    private float _drawTolerance = 0.05f;
+    private ValueTuple<float, int>[] _eliminatedTimes;
 
     public PlayerStatus LocalPlayerStatus { set { _localPlayerStatus = value; } }
 
@@ -54,17 +58,20 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager]: Init");
         _teammates = new int[8];
         _teamFlag = 0;
+        _eliminatedTimes = new ValueTuple<float, int>[8];
+        _gameOverCoroutine = null;
         _resultText.gameObject.SetActive(false);
     }
 
     private void GameOver()
     {
-        StartCoroutine(GameOverRoutine());
+        if (_gameOverCoroutine == null)
+            StartCoroutine(GameOverRoutine());
     }
 
     private bool IsGameOver()
     {
-        return _teamFlag != 0 && (_teamFlag & (_teamFlag - 1)) == 0;
+        return _teamFlag == 0 || (_teamFlag & (_teamFlag - 1)) == 0;
     }
 
     private int GetWinner()
@@ -79,26 +86,53 @@ public class GameManager : MonoBehaviour
         return winner;
     }
 
+    private List<int> GetTies()
+    {
+        _drawTolerance = 0.05f;
+        List<int> ties = new();
+
+        Array.Sort(_eliminatedTimes, (x, y) => y.Item1.CompareTo(x.Item1));
+        for (int i = 1; i < _eliminatedTimes.Length; i++)
+        {
+            if (_eliminatedTimes[i - 1].Item1 - _eliminatedTimes[i].Item1 < _drawTolerance)
+                ties.Add(_eliminatedTimes[i].Item2);
+        }
+
+        if (ties.Count > 0)
+            ties.Add(_eliminatedTimes[0].Item2);
+
+        return ties;
+    }
+
     private void ShowResult()
     {
-        int winner = GetWinner();
-        Debug.Log($"[GameManager]: Winner: Team {winner}");
-
         // Set proper result to each player
-        // TODO: Improve DRAW condition
-        if (_localPlayerStatus.teamNum == winner)
-            _resultText.text = "Win!";
-        else if (_teamFlag == 0)
-            _resultText.text = "Draw.";
+        if(_teamFlag == 0)
+        {
+            List<int> ties = GetTies();
+
+            if (ties.Contains(_localPlayerStatus.teamNum))
+                _resultText.text = "Draw.";
+        }
         else
-            _resultText.text = "Lose..";
+        {
+            int winner = GetWinner();
+
+            if (_localPlayerStatus.teamNum == winner)
+                _resultText.text = "Win!";
+            else
+                _resultText.text = "Lose..";
+        }
 
         // Show
         _resultText.gameObject.SetActive(true);
     }
 
+    private Coroutine _gameOverCoroutine;
     IEnumerator GameOverRoutine()
     {
+        yield return new WaitForSeconds(_drawTolerance);
+
         ShowResult();
 
         yield return new WaitForSeconds(5f);
@@ -128,6 +162,7 @@ public class GameManager : MonoBehaviour
         {
             byte mask = (byte)~(1 << teamNum);
             _teamFlag &= mask;
+            _eliminatedTimes[teamNum] = new ValueTuple<float, int>(Time.time, teamNum);
 
             if (IsGameOver())
                 GameOver();

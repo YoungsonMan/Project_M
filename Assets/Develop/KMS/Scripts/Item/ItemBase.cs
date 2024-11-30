@@ -28,6 +28,9 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
                 else if (itemType == E_ITEMTYPE.ActiveItem)
                 {
                     playerView.GetComponent<Inventory>().AddItem(this);
+
+                    // 아이템을 모든 클라이언트에서 이동시킴
+                    photonView.RPC(nameof(MoveItemToInventory_RPC), RpcTarget.AllBuffered, playerView.ViewID);
                 }
                 //photonView.RPC(nameof(OnPickedUp_RPC), RpcTarget.AllBuffered, playerView.ViewID);
             }
@@ -56,6 +59,19 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
         if (photonView.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 아이템을 인벤토리로 이동
+    /// </summary>
+    [PunRPC]
+    public virtual void MoveItemToInventory_RPC(int playerViewID)
+    {
+        if (PhotonView.Find(playerViewID) != null)
+        {
+            // 아이템 위치 이동
+            transform.position = new Vector3(100, 0, 100);
         }
     }
 

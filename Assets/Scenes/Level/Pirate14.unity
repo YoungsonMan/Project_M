@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5072746184204294959, guid: 276ef2f3692fc8a4dad0d615121e1e47, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5072746184204294959, guid: 276ef2f3692fc8a4dad0d615121e1e47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -940,6 +940,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5072746184204294958, guid: 276ef2f3692fc8a4dad0d615121e1e47, type: 3}
   m_PrefabInstance: {fileID: 598027446}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &598027448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5072746184774828669, guid: 276ef2f3692fc8a4dad0d615121e1e47, type: 3}
+  m_PrefabInstance: {fileID: 598027446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec1be8d908f3874eb40d38268584619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1461448033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 598027447}
     - target: {fileID: 2513911926319218586, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2513911926319218586, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
       propertyPath: m_LocalPosition.x
@@ -995,6 +1006,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513911926319218587, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
+      propertyPath: _spawnPointManager
+      value: 
+      objectReference: {fileID: 598027448}
     - target: {fileID: 2513911926319218589, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
       propertyPath: m_Name
       value: TestScene

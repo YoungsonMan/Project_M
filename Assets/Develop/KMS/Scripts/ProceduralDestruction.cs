@@ -111,6 +111,9 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
             
             // 조각의 크기를 무작위로 조정(다양성 부여)
             float randomScale = Random.Range(0.5f, 1f);
+            
+            if(fragment.name == "Fragment_Wood(Clone)")
+                randomScale = Random.Range(0.1f, 0.3f);
             fragment.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             // 조각에 물리적 속성 추가

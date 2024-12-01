@@ -1,10 +1,11 @@
 using Photon.Pun;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
 public class PlayerSpwaner : MonoBehaviourPunCallbacks
 {
-    private SpawnPointManager spawnPointManager;
+    [SerializeField] private SpawnPointManager _spawnPointManager;
     private Vector3[] randomPoints;
     private Vector3 spawnPoint;
 
@@ -20,8 +21,13 @@ public class PlayerSpwaner : MonoBehaviourPunCallbacks
         // 플레이어 스폰 포인트 설정
         // 플레이어 아이디를 찾아서 
         // 아이디에 할당되는 번호와 스폰 포인트 일치
-        spawnPointManager = GameObject.Find("MapContainer").GetComponent<SpawnPointManager>();
-        spawnPoint = spawnPointManager.spawnPoints[num];
+
+        if(_spawnPointManager.spawnPoints.Count == 0)
+        {
+            _spawnPointManager.LoadSpawnPoints();
+        }
+
+        spawnPoint = _spawnPointManager.spawnPoints[num];
 
         // 랜덤 스폰
         

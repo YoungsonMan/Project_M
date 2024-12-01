@@ -20,10 +20,17 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     private float bubbleSpeed = 0.5f;
 
     public Inventory inventory;
+    public Transform muzzlePoint;
 
     private void Awake()
     {
         inventory = gameObject.GetComponent<Inventory>();
+        muzzlePoint = transform.Find("MuzzlePoint");
+        if (muzzlePoint == null)
+        {
+            Debug.LogError("MuzzlePoint를 찾을 수 없습니다.");
+        }
+
         _status = GetComponent<PlayerStatus>();
         _status.isBubble = false;
         bubble.SetActive(false);

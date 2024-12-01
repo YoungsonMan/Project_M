@@ -40,6 +40,6 @@ public class GameScene : MonoBehaviour
         Debug.Log("게임 시작");
 
         // 테스트용 게임 시작 부분
-        spawner.PlayerSpawn(playerNum);
+        //spawner.PlayerSpawn(playerNum);
     }
 }

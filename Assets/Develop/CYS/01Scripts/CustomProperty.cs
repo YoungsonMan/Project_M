@@ -96,7 +96,7 @@ public static class CustomProperty
         else
         {
             
-            return 0;
+            return -1;
         }
     }
 }

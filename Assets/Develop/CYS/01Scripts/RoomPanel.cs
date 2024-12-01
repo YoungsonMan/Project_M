@@ -56,7 +56,7 @@ public class RoomPanel : BaseUI
     GameObject _playerImage;
     public int charNumber; // 우측상단 캐릭터 선택창 캐릭터번호
 
-    
+
 
     private void OnEnable()
     {
@@ -186,7 +186,7 @@ public class RoomPanel : BaseUI
         }
         return children;
     }
-    public void SelectCharacter()       // 디폴트 값 넣기
+    public void SelectCharacter()
     {
         string SelectedChar = EventSystem.current.currentSelectedGameObject.name;
         switch (SelectedChar)
@@ -200,17 +200,16 @@ public class RoomPanel : BaseUI
             case "Character3":
                 charNumber = 2;
                 break;
-            
+            default:
+                Debug.LogWarning("잘못된 캐릭터 선택!");
+                return;
         }
         PhotonNetwork.LocalPlayer.SetCharacter(charNumber);
         //_charRawImage.texture = _charTexture[charNumber];
         Debug.Log($"캐릭터번호: {charNumber}");
-        // 플레이어 정보 갱신
-        UpdatePlayers();
-        PlayerEntry player = new PlayerEntry();
-        player.UpdateCharacter(charNumber);
-        
 
+        // KMS 플레이어 정보 갱신
+        UpdatePlayers();
     }
     public void SelectTeam()
     {
@@ -248,7 +247,8 @@ public class RoomPanel : BaseUI
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
         Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam()}");
         // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
-        // 선택시 플레이어 갱신
+
+        // KMS 색상 또한 선택시 플레이어 갱신
         UpdatePlayers();
     }
     void OpenMapList()
@@ -289,7 +289,7 @@ public class RoomPanel : BaseUI
     }
 
 
-    
+
     public void SelectMap()
     {
 
@@ -336,15 +336,16 @@ public class RoomPanel : BaseUI
             Debug.LogWarning("PlayerEntries 배열이 초기화되지 않았습니다.");
             return;
         }
+
         foreach (PlayerEntry entry in _playerEntries)
         {
-            if(entry !=  null)
+            if (entry != null)
             {
                 entry.SetEmpty();
             }
             else
             {
-                Debug.LogWarning("PlayerEntry가 null 입니다.");
+                Debug.LogWarning("PlayerEntry가 null입니다.");
             }
         }
         // 현제 방에 있는 모든 플레이어 가져오기
@@ -356,11 +357,13 @@ public class RoomPanel : BaseUI
 
             int number = player.GetPlayerNumber();
             _playerEntries[number].SetPlayer(player);
+
+            // KMS 캐릭터 정보 업데이트
             {
-                // 캐릭터 정보 업데이트
-                int characterID = player.GetCharacter();
-                _playerEntries[number].UpdateCharacter(characterID);
-                // 팀정보 업데이트
+                int characterId = player.GetCharacter();
+                _playerEntries[number].UpdateCharacter(characterId);
+
+                // KMS 팀 정보 업데이트
                 int teamNumber = player.GetTeam();
                 _playerEntries[number].UpdateTeam(teamNumber);
             }
@@ -376,6 +379,8 @@ public class RoomPanel : BaseUI
         {
             _startButton.interactable = false;
         }
+
+
         // 레디버튼 본인일때만 본인거 누를수 있게하기
         // ㄴ PlayerEntry에서 구현
 
@@ -392,6 +397,15 @@ public class RoomPanel : BaseUI
     {
         if (properties.ContainsKey(CustomProperty.READY))
         {
+            UpdatePlayers();
+        }
+
+        // KMS CHARACTER 변경 처리
+        if (properties.ContainsKey(CustomProperty.CHARACTER))
+        {
+            Debug.Log($"{targetPlayer.NickName}의 캐릭터가 변경됨: {targetPlayer.GetCharacter()}");
+
+            // 변경된 캐릭터 UI 갱신
             UpdatePlayers();
         }
     }

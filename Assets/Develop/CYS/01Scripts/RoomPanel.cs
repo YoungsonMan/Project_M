@@ -56,7 +56,7 @@ public class RoomPanel : BaseUI
     GameObject _playerImage;
     public int charNumber; // 우측상단 캐릭터 선택창 캐릭터번호
 
-
+    
 
     private void OnEnable()
     {

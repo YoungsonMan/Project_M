@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] byte _teamFlag;
 
     [Header("Result UI")]
+    [SerializeField] GameObject _resultUI;
     [SerializeField] TextMeshProUGUI _resultText;
+    [SerializeField] PlayerInfo[] _playerInfos;
 
     private float _drawTolerance = 0.05f;
     private ValueTuple<float, int>[] _eliminatedTimes;
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
         _teamFlag = 0;
         _eliminatedTimes = new ValueTuple<float, int>[8];
         _gameOverCoroutine = null;
-        _resultText.gameObject.SetActive(false);
+        _resultUI.gameObject.SetActive(false);
     }
 
     private void GameOver()
@@ -112,22 +114,22 @@ public class GameManager : MonoBehaviour
             List<int> ties = GetTies();
 
             if (ties.Contains(_localPlayerStatus.teamNum))
-                _resultText.text = "Draw.";
+                _resultText.SetDraw();
             else
-                _resultText.text = "Lose..";
+                _resultText.SetLose();
         }
         else
         {
             int winner = GetWinner();
 
             if (_localPlayerStatus.teamNum == winner)
-                _resultText.text = "Win!";
+                _resultText.SetWin();
             else
-                _resultText.text = "Lose..";
+                _resultText.SetLose();
         }
 
         // Show
-        _resultText.gameObject.SetActive(true);
+        _resultUI.gameObject.SetActive(true);
     }
 
     private Coroutine _gameOverCoroutine;
@@ -139,9 +141,10 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
+        _resultUI.SetActive(false);
+
         PhotonNetwork.LoadLevel(0);
         PhotonNetwork.CurrentRoom.IsOpen = true;
-
     }
 
     /// <summary>

@@ -31,8 +31,6 @@ public class Bubble : MonoBehaviourPun
     {
         // 5초 뒤에 터지는 것으로 작성
         yield return new WaitForSeconds(5f);
-        bubble.SetActive(false);
-        _animator.SetBool("isDead", true);
         // 캐릭터 사망
         Dead();
     }

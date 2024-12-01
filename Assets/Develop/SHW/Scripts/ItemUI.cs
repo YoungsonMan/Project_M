@@ -22,13 +22,13 @@ public class ItemUI : MonoBehaviour
     private void OnEnable()
     {
         // 인벤토리 이벤트 등록
-        // inventory.OnItemChanged += UpdateUI;
+         inventory.OnItemChanged += UpdateUI;
     }
 
     private void OnDisable()
     {
         // 이벤트 해제
-        // inventory.OnItemChanged -= UpdateUI;
+         inventory.OnItemChanged -= UpdateUI;
     }
 
     private void UpdateUI(bool hasItem, ItemBase item)

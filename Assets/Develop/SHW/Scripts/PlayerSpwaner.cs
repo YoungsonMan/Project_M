@@ -29,30 +29,22 @@ public class PlayerSpwaner : MonoBehaviourPunCallbacks
 
         spawnPoint = _spawnPointManager.spawnPoints[num];
 
-        // 랜덤 스폰
-        
-        //int randomNum = Random.Range(0, spawnPoints.Length);
-        //for (int i = 0; i == spawnPoints.Length; i++)
-        //{
-
-        //}
-
         // 프로퍼티 설정이 완료되면 주석 해제해서 사용
-        // PhotonNetwork.LocalPlayer.GetTeam(out charNum);
+        charNum =  PhotonNetwork.LocalPlayer.GetCharacter();
 
         // 스폰 캐릭터 테스트용
         // num 자리에 charNum을 넣어서 캐릭터 할당
-        if (num == 0)
+        if (charNum == 0)
+        {
+            PhotonNetwork.Instantiate("Player", spawnPoint, Quaternion.identity);
+        }
+        else if (charNum == 1)
         {
             PhotonNetwork.Instantiate("PlayerAdult", spawnPoint, Quaternion.identity);
         }
-        else if (num == 1)
-        {
-            PhotonNetwork.Instantiate("PlayerGirl", spawnPoint, Quaternion.identity);
-        }
         else
         {
-            PhotonNetwork.Instantiate("Player", spawnPoint, Quaternion.identity);
+            PhotonNetwork.Instantiate("PlayerGirl", spawnPoint, Quaternion.identity);
         }
     }
 }

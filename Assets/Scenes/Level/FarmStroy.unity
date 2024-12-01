@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPointManager: {fileID: 1932474343}
+  map: {fileID: 403681862}
 --- !u!114 &8689462
 MonoBehaviour:
   m_ObjectHideFlags: 0

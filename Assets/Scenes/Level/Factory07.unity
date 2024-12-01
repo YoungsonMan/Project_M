@@ -356,6 +356,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2513911926319218587, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 6653071582211647237}
+    - target: {fileID: 2513911926319218587, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
       propertyPath: _spawnPointManager
       value: 
       objectReference: {fileID: 6653071582211647238}
@@ -364,9 +368,17 @@ PrefabInstance:
       value: TestScene
       objectReference: {fileID: 0}
     - target: {fileID: 4382745013904991555, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382745013904991555, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
       propertyPath: mapObject
       value: 
       objectReference: {fileID: 6653071582211647237}
+    - target: {fileID: 7018324567052094214, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff917981b102fe43bea7deadb6f0853, type: 3}
 --- !u!1 &1563450301

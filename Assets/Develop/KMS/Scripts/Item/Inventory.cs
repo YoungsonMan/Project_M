@@ -84,6 +84,10 @@ public class Inventory : MonoBehaviourPun
                 PhotonNetwork.Destroy(item.gameObject);
             }
         }
+        else
+        {
+            Debug.Log($"인벤토리에 아이템이 없습니다.");
+        }
     }
 
     /// <summary>

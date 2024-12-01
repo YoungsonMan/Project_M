@@ -65,6 +65,9 @@ public class PushableObject : MonoBehaviourPun
     [PunRPC]
     private void PushRPC(Vector3 newTargetPosition)
     {
+        // 이동 상태를 모든 클라이언트에서 동기화
+        isMoving = true;
+
         StartCoroutine(MoveObject(newTargetPosition));
     }
 

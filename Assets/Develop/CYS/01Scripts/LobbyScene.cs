@@ -119,6 +119,11 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         SetActivePanel(Panel.Lobby);
         ClearChatMessages();
     }
+    public override void OnRoomPropertiesUpdate(Hashtable changedProperty)
+    {
+        // 현재 참여한 방의 프로퍼티가 업데이트시 호출됨
+        _roomPanel.UpdateRoomProperty(changedProperty);
+    }
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         // 방의 목록이 변경이 있는 경우 서버에서 보내는 정보들

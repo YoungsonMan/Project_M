@@ -283,6 +283,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   bodyRenderer: {fileID: 6793124545110260559}
   teamNum: 0
+  canvas: {fileID: 5630080982161190425}
 --- !u!114 &6793124545863302570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5601275345679438233, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
 --- !u!224 &1116214344311526570 stripped
@@ -562,6 +567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5630080982161190425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5601275345679438233, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
+  m_PrefabInstance: {fileID: 259426001384521600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6793124545115566313
 PrefabInstance:
   m_ObjectHideFlags: 0

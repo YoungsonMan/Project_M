@@ -28,12 +28,17 @@ public class PlayerStatus : MonoBehaviourPun
     // -> 플레이어가 참조해서 캐릭터 색상을 설정?
     [SerializeField] public int teamNum;
 
+    [SerializeField] GameObject canvas;
+
     private void Awake()
     {
         if (photonView.IsMine)
         {
             // Set team number as the selected team number from custom properties
             photonView.RPC(nameof(SetTeamNum), RpcTarget.AllViaServer, PhotonNetwork.LocalPlayer.GetTeam());
+
+
+            canvas.SetActive(true);
         }
     }
 

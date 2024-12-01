@@ -19,11 +19,18 @@ public class BaseUI : MonoBehaviour
         foreach (Transform child in transforms)
         {
             // 혹시 이름 겹쳐서 추가 안되면 알 수 있도록 로그 띄우기.
-            bool isSuccess =  gameObjectDic.TryAdd(child.gameObject.name, child.gameObject);
-            if (isSuccess == false)
+            // bool isSuccess =  gameObjectDic.TryAdd(child.gameObject.name, child.gameObject);
+            // if (isSuccess == false)
+            // {
+            //     Debug.LogWarning($"이미 {child.gameObject.name} Object가 있어서 추가되지 않습니다. ");
+            // }
+
+            if (gameObjectDic.ContainsKey(child.gameObject.name))
             {
                 Debug.LogWarning($"이미 {child.gameObject.name} Object가 있어서 추가되지 않습니다. ");
+                continue;
             }
+            gameObjectDic[child.gameObject.name] = child.gameObject;
         }
     }
 

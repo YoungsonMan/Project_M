@@ -223,7 +223,7 @@ MonoBehaviour:
   parentContainer: {fileID: 6123422836511505297}
   itemPrefabs: []
   itemSpawnChance: 0
-  isContinue: 0
+  isContinue: 1
 --- !u!114 &6715341833984215056
 MonoBehaviour:
   m_ObjectHideFlags: 0

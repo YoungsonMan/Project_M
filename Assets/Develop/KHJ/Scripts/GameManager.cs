@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,7 +63,12 @@ public class GameManager : MonoBehaviour
         _teamFlag = 0;
         _eliminatedTimes = new ValueTuple<float, int>[8];
         _gameOverCoroutine = null;
-        _resultUI.gameObject.SetActive(false);
+
+        _resultUI.SetActive(false);
+        foreach (PlayerInfo info in _playerInfos)
+        {
+            info.gameObject.SetActive(false);
+        }
     }
 
     private void GameOver()
@@ -108,28 +114,66 @@ public class GameManager : MonoBehaviour
 
     private void ShowResult()
     {
-        // Set proper result to each player
+        List<int> ties = null;
+        int winner;
+
+        // Winner not exist (draw)
         if(_teamFlag == 0)
         {
-            List<int> ties = GetTies();
+            // Set proper main result text to each player
+            ties = GetTies();
 
             if (ties.Contains(_localPlayerStatus.teamNum))
                 _resultText.SetDraw();
             else
                 _resultText.SetLose();
+
+            // Set each players' result and nickname
+            for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+            {
+                int teamNum = PhotonNetwork.PlayerList[i].GetTeam();
+                PlayerInfo info = _playerInfos[i];
+
+                if (ties.Contains(teamNum))
+                    info.resultText.SetDraw();
+                else
+                    info.resultText.SetLose();
+
+                info.nicknameText.text = PhotonNetwork.PlayerList[i].NickName;
+
+                info.gameObject.SetActive(true);
+            }
         }
+        // Winner exist
         else
         {
-            int winner = GetWinner();
+            // Set proper main result text to each player
+            winner = GetWinner();
 
             if (_localPlayerStatus.teamNum == winner)
                 _resultText.SetWin();
             else
                 _resultText.SetLose();
+
+            // Set each players' result and nickname
+            for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+            {
+                int teamNum = PhotonNetwork.PlayerList[i].GetTeam();
+                PlayerInfo info = _playerInfos[i];
+
+                if (teamNum == winner)
+                    info.resultText.SetWin();
+                else
+                    info.resultText.SetLose();
+
+                info.nicknameText.text = PhotonNetwork.PlayerList[i].NickName;
+
+                info.gameObject.SetActive(true);
+            }
         }
 
         // Show
-        _resultUI.gameObject.SetActive(true);
+        _resultUI.SetActive(true);
     }
 
     private Coroutine _gameOverCoroutine;

@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public TextMeshProUGUI _resultText;
-    public TextMeshProUGUI _nicknameText;
+    public TextMeshProUGUI resultText;
+    public TextMeshProUGUI nicknameText;
 }

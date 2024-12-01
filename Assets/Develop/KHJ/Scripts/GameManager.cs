@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour
 
             if (ties.Contains(_localPlayerStatus.teamNum))
                 _resultText.text = "Draw.";
+            else
+                _resultText.text = "Lose..";
         }
         else
         {

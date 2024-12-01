@@ -26,10 +26,10 @@ public class PlayerEntry : BaseUI
     // 팀관련
     [Header("팀관련")]
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
-    [SerializeField] GameObject[] _teamButtons;
     // KMS 색상 관련 배열 및 표시 이미지.
-    [SerializeField] private Color[] _teamColors;           // 팀 색상 배열
-    [SerializeField] private RawImage _teamColorIndicator;  // 선택된 팀 색상 표시
+    [SerializeField] public Color[] _teamColors;           // 팀 색상 배열
+    [SerializeField] public RawImage _teamColorIndicator;  // 선택된 팀 색상 표시
+    
 
     // 캐릭터관련
     [Header("캐릭터 관련")]
@@ -61,6 +61,8 @@ public class PlayerEntry : BaseUI
         // 플레이어 이름
         _nameText = GetUI<TMP_Text>("PlayerNameText");
         _nameText.font = kFont;
+        _teamColorIndicator = GetUI<RawImage>("TeamColorBox");
+
 
         // 레디버튼 레디 (스타트버튼옆)
         _readyTextBox = GetUI("ReadyTextBox");
@@ -221,7 +223,7 @@ public class PlayerEntry : BaseUI
             _charRawImage.texture = null;
             _charRawImage.color = new Color(0, 0, 0, 0); // 완전히 투명
         }
-        if (_teamColorIndicator != null) _teamColorIndicator.color = Color.clear;
+        if (_teamColorIndicator != null) _teamColorIndicator.color = new Color(0, .61f, 1f, 1f);
     }
 
     public void Ready()

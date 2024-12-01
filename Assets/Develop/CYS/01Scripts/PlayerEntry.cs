@@ -11,19 +11,28 @@ using UnityEngine.EventSystems;
 
 public class PlayerEntry : BaseUI
 {
+    [Header ("한글")]
     [SerializeField] TMP_FontAsset kFont;
-    // [SerializeField] GameObject _playerImage; ("PlayerImage") 나중에 
+    [Header("텍스트관련")]
     [SerializeField] TMP_Text _nameText;
     [SerializeField] TMP_Text _readyText;
+    [SerializeField] TMP_Text _readyPopText;
+    [Header("레디버튼관련")]
     [SerializeField] Button _readyButton;
     [SerializeField] GameObject _readyButtonText;
     [SerializeField] GameObject _readyTextBox;
-    [SerializeField] TMP_Text _readyPopText;
 
     // 팀관련
+    [Header("팀관련")]
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
-    [SerializeField] GameObject _teamChoicePanel;
     [SerializeField] GameObject[] _teamButtons;
+
+    // 캐릭터관련
+    [Header("캐릭터 관련")]
+    [SerializeField] Texture[] _charTexture;
+    [SerializeField] RawImage _charRawImage;
+    GameObject _playerImage;
+    // public int charNumber;
 
     private void Update()
     {   // 테스트 끝나면 지우기
@@ -40,24 +49,35 @@ public class PlayerEntry : BaseUI
     }
     private void Init()
     {
+        // 플레이어 이름
         _nameText = GetUI<TMP_Text>("PlayerNameText");
         _nameText.font = kFont;
+        
+        // 레디버튼 레디 (스타트버튼옆)
+        _readyTextBox = GetUI("ReadyTextBox");
         _readyText = GetUI<TMP_Text>("ReadyText");
         _readyText.font = kFont;
-        _readyButton = GetUI<Button>("ReadyButton");
-        _readyButtonText = GetUI("ReadyButtonText");
-        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
-        _readyButton.onClick.AddListener(Ready);
-        _readyTextBox = GetUI("ReadyTextBox");
+            // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
+            // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
+            _readyButton = GetUI<Button>("ReadyButton");
+            _readyButtonText = GetUI("ReadyButtonText");
+             GetUI<TMP_Text>("ReadyButtonText").font = kFont;
+            _readyButton.onClick.AddListener(Ready);
+        
+        // 레디하면 플레이어 위에 나오는 READY텍스트
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
-        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
 
+
+        // _playerImage = GetUI("PlayerImage");
+        // _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
+        // _charRawImage.texture = _charTexture[charNumber];
     }
 
     public void SetPlayer(Player player)
     {
-        if(player.IsMasterClient)
+        
+        if (player.IsMasterClient)
         {
             
             _nameText.text = $"방장\n{player.NickName}";
@@ -97,7 +117,10 @@ public class PlayerEntry : BaseUI
             _readyText.color = Color.white;
             _readyPopText.text = "";
         }
-   
+        // 캐릭터 갱신
+        PhotonNetwork.LocalPlayer.GetCharacter();
+        _charRawImage.texture = _charTexture[PhotonNetwork.LocalPlayer.GetCharacter()];
+
     }
   
     public void SetEmpty()
@@ -106,7 +129,7 @@ public class PlayerEntry : BaseUI
         _readyText.text = "";
         _nameText.text = "None";
         _readyButton.gameObject.SetActive(false);
-        
+        _readyTextBox.SetActive(false);
     }
 
     public void Ready()

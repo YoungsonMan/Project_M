@@ -1,55 +1,62 @@
-using System.Collections.Generic;
-using UnityEngine;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using UnityEngine.UI;
-using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
-using Firebase.Auth;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
-using static Photon.Pun.UtilityScripts.PunTeams;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class RoomPanel : BaseUI
 {
+    [Header("방이름 인원수")]
+    [SerializeField] TMP_Text _roomTitle;
+    [SerializeField] TMP_Text _roomCapacity;
+    // 방제목, 인원수 갱신을 위한 변수들
+    private string _roomName, _roomMembers;
+
+
+    [Header("한글폰트")]
     [SerializeField] TMP_FontAsset kFont;
+    [Header("플레이어관련")]
     [SerializeField] PlayerEntry[] _playerEntries;
     [SerializeField] Button _startButton;
 
     // Map 관련
-   // [SerializeField] List <string> mapList;
+    [Header("맵관련")]
+    // [SerializeField] List <string> mapList;
     private List<string> mapList = new List<string>();
     GameObject _mapImage;
     [SerializeField] Texture[] _mapTexture;
     [SerializeField] RawImage _mapRawImage;
     public int _miniMap = 0; // 방패널 맵 썸네일(레디버튼위) 0부터시작 _miniMap 0 == mapNumber 1
-
-    // [SerializeField] Button _mapSelectButton;
     GameObject _mapListPanel;
-    GameObject _map01;
-    GameObject _map02;
-    GameObject _map03;
-    GameObject _map04;
-    GameObject _map05;
-    GameObject _map06;
-    Button _map01Button;
-    Button _map02Button;
-    Button _map03Button;
-    Button _map04Button;
-    Button _map05Button;
-    Button _map06Button;
+    GameObject _map01, _map02, _map03, _map04, _map05, _map06;
+    Button _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button;
     public int mapNumber = 1;
 
 
 
     // 팀관련
+    [Header("팀관련")]
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
     [SerializeField] GameObject _teamChoicePanel;
-    // [SerializeField] GameObject[] _teamButtons;
+    [SerializeField] GameObject[] _teamButtons;
+
+    // 캐릭터관련
+    [Header("캐릭터관련")]
+    [SerializeField] GameObject _charChoicePanel;
+    [SerializeField] GameObject[] _character;
+    [SerializeField] Texture[] _charTexture;
+    [SerializeField] RawImage _charRawImage;
+    GameObject _playerImage;
+    public int charNumber; // 우측상단 캐릭터 선택창 캐릭터번호
+
+
 
     private void OnEnable()
     {
@@ -78,6 +85,15 @@ public class RoomPanel : BaseUI
     }
     private void Init()
     {
+        _roomTitle = GetUI<TMP_Text>("RoomTitle");
+        _roomTitle.font = kFont;
+        _roomCapacity = GetUI<TMP_Text>("RoomCapacity");
+        _roomCapacity.font = kFont;
+        _roomName = _roomTitle.text;
+        _roomMembers = _roomCapacity.text;
+
+
+
         GetUI<Button>("PreviousButton").onClick.AddListener(LeaveRoom);
         GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
@@ -90,8 +106,6 @@ public class RoomPanel : BaseUI
         _mapRawImage.texture = _mapTexture[_miniMap];
         GetMapList();
 
-
-
         GetUI<Button>("MapSelectButton").onClick.AddListener(OpenMapList);
         _mapListPanel = GetUI("MapListPanel");
         GetUI<Button>("MapCancelButton").onClick.AddListener(CloseMapList);
@@ -101,14 +115,14 @@ public class RoomPanel : BaseUI
         _map04Button = GetUI<Button>("MapSelectButton04");
         _map05Button = GetUI<Button>("MapSelectButton05");
         _map06Button = GetUI<Button>("MapSelectButton06");
-        _map01Button.onClick.AddListener(SelectMap);
-        _map02Button.onClick.AddListener(SelectMap);
-        _map03Button.onClick.AddListener(SelectMap);
-        _map04Button.onClick.AddListener(SelectMap);
-        _map05Button.onClick.AddListener(SelectMap);
-        _map06Button.onClick.AddListener(SelectMap);
+
+        MapButtonInit(PhotonNetwork.LocalPlayer);
+
         mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언
         // 의심되는 곳에서 디버그 찍고했는데 init() OnEnable에서는 안멈춤 .뭔가
+
+        SetRoomInfo(PhotonNetwork.CurrentRoom);
+
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
         GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
@@ -130,44 +144,103 @@ public class RoomPanel : BaseUI
         GetUI<Button>("Team7").onClick.AddListener(SelectTeam);
         GetUI<Button>("Team8").onClick.AddListener(SelectTeam);
 
+        // 캐릭터관련
+        _charChoicePanel = GetUI("CharChoicePanel");
+        _character = GetChildren(_charChoicePanel);
+        GetUI<Button>("Character1").onClick.AddListener(SelectCharacter);
+        GetUI<Button>("Character2").onClick.AddListener(SelectCharacter);
+        GetUI<Button>("Character3").onClick.AddListener(SelectCharacter);
+
+        _playerImage = GetUI("PlayerImage");
+        _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
+        _charRawImage.texture = _charTexture[charNumber];
+        // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
+
     }
     private void Update()
     {
+        // 방제가 바뀌거나 / 인원수가 바뀌면 업데이트 
+        if (_roomName != PhotonNetwork.CurrentRoom.Name ||
+            _roomMembers != $"{PhotonNetwork.CurrentRoom.PlayerCount}/{PhotonNetwork.CurrentRoom.MaxPlayers}")
+        {
+            SetRoomInfo(PhotonNetwork.CurrentRoom);
+        }
+
         // SelectMap();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
+
+
         }
     }
 
+
+
+    // 뭔가 지금 딱히 쓸데가 없는거같음
+    public GameObject[] GetChildren(GameObject parent)
+    {
+        GameObject[] children = new GameObject[parent.transform.childCount];
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            children[i] = parent.transform.GetChild(i).gameObject;
+        }
+        return children;
+    }
+    public void SelectCharacter()
+    {
+        string SelectedChar = EventSystem.current.currentSelectedGameObject.name;
+        switch (SelectedChar)
+        {
+            case "Character1":
+                charNumber = 0;
+                break;
+            case "Character2":
+                charNumber = 1;
+                break;
+            case "Character3":
+                charNumber = 2;
+                break;
+        }
+        PhotonNetwork.LocalPlayer.SetCharacter(charNumber);
+        //_charRawImage.texture = _charTexture[charNumber];
+        Debug.Log($"캐릭터번호: {charNumber}");
+    }
     public void SelectTeam()
     {
         string SelectedTeam = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log($"{SelectedTeam} is selected.");
+        // Debug.Log($"{SelectedTeam} is selected.");
 
         // SelectedTeam 이름이 누른 버튼과 동일하면 그버튼에 맞는 팀 넘버를 부여
         switch (SelectedTeam)
         {
-            case "Team1": TeamNumber = 0;
+            case "Team1":
+                TeamNumber = 0;
                 break;
-            case "Team2": TeamNumber = 1;
+            case "Team2":
+                TeamNumber = 1;
                 break;
-            case "Team3": TeamNumber = 2;
+            case "Team3":
+                TeamNumber = 2;
                 break;
-            case "Team4": TeamNumber = 3;
+            case "Team4":
+                TeamNumber = 3;
                 break;
-            case "Team5": TeamNumber = 4;
+            case "Team5":
+                TeamNumber = 4;
                 break;
-            case "Team6": TeamNumber = 5;
+            case "Team6":
+                TeamNumber = 5;
                 break;
-            case "Team7": TeamNumber = 6;
+            case "Team7":
+                TeamNumber = 6;
                 break;
-            case "Team8": TeamNumber = 7;
+            case "Team8":
+                TeamNumber = 7;
                 break;
         }
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
         Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam()}");
-       // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+        // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
     }
     void OpenMapList()
     {
@@ -184,12 +257,33 @@ public class RoomPanel : BaseUI
             mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
         }
     }
+
+
     /// <summary>
-    ///  EventSystem.current.currentSelectedGameObject.name로
-    ///  맵이름을 비교해서 같은맵 눌린걸로 맵Int 변경
+    /// 방장일때만 버튼을 누를수 있도록 함
+    /// 방장이 아니라면 그냥 리턴
     /// </summary>
+    /// <param name="player"></param>
+    public void MapButtonInit(Player player)
+    {
+        if (player.IsMasterClient)
+        {
+            _map01Button.onClick.AddListener(SelectMap);
+            _map02Button.onClick.AddListener(SelectMap);
+            _map03Button.onClick.AddListener(SelectMap);
+            _map04Button.onClick.AddListener(SelectMap);
+            _map05Button.onClick.AddListener(SelectMap);
+            _map06Button.onClick.AddListener(SelectMap);
+        }
+        else
+            return;
+    }
+
+
+    
     public void SelectMap()
     {
+
         string SelectedMap = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log($"{SelectedMap} is selected.");
         //if (SelectedMap == _map01Button.name)
@@ -198,17 +292,23 @@ public class RoomPanel : BaseUI
         // SelectedMap 이름이 눌른 버튼과 동일하면 그버튼에 맞는 맵 넘버를 부여
         switch (SelectedMap)
         {
-            case "MapSelectButton01": mapNumber = 1; 
+            case "MapSelectButton01":
+                mapNumber = 1;
                 break;
-            case "MapSelectButton02": mapNumber = 2;
+            case "MapSelectButton02":
+                mapNumber = 2;
                 break;
-            case "MapSelectButton03": mapNumber = 3;
+            case "MapSelectButton03":
+                mapNumber = 3;
                 break;
-            case "MapSelectButton04": mapNumber = 4;
+            case "MapSelectButton04":
+                mapNumber = 4;
                 break;
-            case "MapSelectButton05": mapNumber = 5;
+            case "MapSelectButton05":
+                mapNumber = 5;
                 break;
-            case "MapSelectButton06": mapNumber = 6;
+            case "MapSelectButton06":
+                mapNumber = 6;
                 break;
         }
         _miniMap = mapNumber - 1;
@@ -217,6 +317,7 @@ public class RoomPanel : BaseUI
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
         // 그 번호로 로드 씬
+
     }
 
     public void UpdatePlayers()
@@ -236,7 +337,7 @@ public class RoomPanel : BaseUI
             _playerEntries[number].SetPlayer(player);
         }
         // 여기서 몇명이상은 안되게끔, 조건문을 걸면 몇며이상부터~ 하게 할 수 있다.
-        
+
         // 본인이 방장일대만 누를 수 있게하기
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
@@ -251,11 +352,18 @@ public class RoomPanel : BaseUI
         // 레디버튼 본인일때만 본인거 누를수 있게하기
         // ㄴ PlayerEntry에서 구현
 
-
     }
+
+
+    /// <summary>
+    ///  플레이어 프로퍼티 업데이트
+    ///  레디상황
+    /// </summary>
+    /// <param name="targetPlayer"></param>
+    /// <param name="properties"></param>
     public void UpdatePlayerProperty(Player targetPlayer, Hashtable properties)
     {
-        if(properties.ContainsKey(CustomProperty.READY))
+        if (properties.ContainsKey(CustomProperty.READY))
         {
             UpdatePlayers();
         }
@@ -275,13 +383,20 @@ public class RoomPanel : BaseUI
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             // 다 돌면서 한명이라도 false면 리턴
-            if(player.GetReady() == false)
+            if (player.GetReady() == false)
                 return false;
         }   // 다 돌고 다 레디면
         return true;
     }
 
+    public void SetRoomInfo(RoomInfo info)
+    {
+        _roomTitle.text = info.Name;
+        //_roomCapacity.text = $"{info.PlayerCount}/{info.MaxPlayers}";
+        int currentMember = info.PlayerCount;
+        _roomCapacity.text = $"{PhotonNetwork.PlayerList.Count()}/{info.MaxPlayers}";
 
+    }
     public void StartGame()
     {
         Debug.Log(mapList[mapNumber]);

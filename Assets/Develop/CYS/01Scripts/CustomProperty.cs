@@ -85,18 +85,18 @@ public static class CustomProperty
         customProperty[CHARACTER] = num;
         player.SetCustomProperties(customProperty);
     }
-    public static void GetCharacter(this Player player, out int num)
+    public static int GetCharacter(this Player player)
     {
         PhotonHashtable customProperty = player.CustomProperties;
         if (customProperty.ContainsKey(CHARACTER))
         {
-            num = (int)customProperty[CHARACTER];
-            return;
+            
+            return (int)customProperty[CHARACTER];
         }
         else
         {
-            num = 0;
-            return;
+            
+            return 0;
         }
     }
 }

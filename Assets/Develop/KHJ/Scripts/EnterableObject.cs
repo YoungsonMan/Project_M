@@ -18,12 +18,12 @@ public class EnterableObject : MonoBehaviourPun
 
     private void OnTriggerEnter(Collider other)
     {
-        Transform root = GetRoot(other.transform);
-        RendererCache rendererCache = root.gameObject.GetComponent<RendererCache>();
+        Debug.Log("Something Entered");
+        RendererCache rendererCache = GetRenderCache(other.transform);
         if (rendererCache == null)
             return;
 
-        _innerObjs.Add(root.gameObject);
+        _innerObjs.Add(rendererCache.gameObject);
 
         List<Renderer> renderers = rendererCache.Cache;
 
@@ -33,12 +33,12 @@ public class EnterableObject : MonoBehaviourPun
 
     private void OnTriggerExit(Collider other)
     {
-        Transform root = GetRoot(other.transform);
-        RendererCache rendererCache = root.gameObject.GetComponent<RendererCache>();
+        Debug.Log("Something Exited");
+        RendererCache rendererCache = GetRenderCache(other.transform);
         if (rendererCache == null)
             return;
 
-        _innerObjs.Remove(root.gameObject);
+        _innerObjs.Remove(rendererCache.gameObject);
 
         List<Renderer> renderers = rendererCache.Cache;
 
@@ -62,22 +62,30 @@ public class EnterableObject : MonoBehaviourPun
         }
     }
 
-    private Transform GetRoot(Transform target)
+    private RendererCache GetRenderCache(Transform target)
     {
+        RendererCache rendererCache = null;
         Transform curTransform = target;
-        while (curTransform.parent != null)
+
+        while (curTransform != null)
         {
+            rendererCache = curTransform.GetComponent<RendererCache>();
+            Debug.Log($"Finding RendererCache.. {curTransform.name}: {rendererCache}");
+            if (rendererCache != null)
+                return rendererCache;
+
             curTransform = curTransform.parent;
         }
 
-        return curTransform;
+        return null;
     }
 
     private void Conceal(List<Renderer> renderers)
     {
         foreach (Renderer renderer in renderers)
         {
-            renderer.enabled = false;
+            if (renderer != null)
+                renderer.enabled = false;
         }
     }
 
@@ -85,7 +93,8 @@ public class EnterableObject : MonoBehaviourPun
     {
         foreach (Renderer renderer in renderers)
         {
-            renderer.enabled = true;
+            if (renderer != null)
+                renderer.enabled = true;
         }
     }
 }

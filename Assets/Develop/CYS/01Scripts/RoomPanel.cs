@@ -186,7 +186,7 @@ public class RoomPanel : BaseUI
         }
         return children;
     }
-    public void SelectCharacter()
+    public void SelectCharacter()       // 디폴트 값 넣기
     {
         string SelectedChar = EventSystem.current.currentSelectedGameObject.name;
         switch (SelectedChar)
@@ -200,10 +200,17 @@ public class RoomPanel : BaseUI
             case "Character3":
                 charNumber = 2;
                 break;
+            
         }
         PhotonNetwork.LocalPlayer.SetCharacter(charNumber);
         //_charRawImage.texture = _charTexture[charNumber];
         Debug.Log($"캐릭터번호: {charNumber}");
+        // 플레이어 정보 갱신
+        UpdatePlayers();
+        PlayerEntry player = new PlayerEntry();
+        player.UpdateCharacter(charNumber);
+        
+
     }
     public void SelectTeam()
     {
@@ -241,6 +248,8 @@ public class RoomPanel : BaseUI
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
         Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam()}");
         // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
+        // 선택시 플레이어 갱신
+        UpdatePlayers();
     }
     void OpenMapList()
     {
@@ -322,9 +331,21 @@ public class RoomPanel : BaseUI
 
     public void UpdatePlayers()
     {
+        if (_playerEntries == null || _playerEntries.Length == 0)
+        {
+            Debug.LogWarning("PlayerEntries 배열이 초기화되지 않았습니다.");
+            return;
+        }
         foreach (PlayerEntry entry in _playerEntries)
         {
-            entry.SetEmpty();
+            if(entry !=  null)
+            {
+                entry.SetEmpty();
+            }
+            else
+            {
+                Debug.LogWarning("PlayerEntry가 null 입니다.");
+            }
         }
         // 현제 방에 있는 모든 플레이어 가져오기
         foreach (Player player in PhotonNetwork.PlayerList)
@@ -335,6 +356,14 @@ public class RoomPanel : BaseUI
 
             int number = player.GetPlayerNumber();
             _playerEntries[number].SetPlayer(player);
+            {
+                // 캐릭터 정보 업데이트
+                int characterID = player.GetCharacter();
+                _playerEntries[number].UpdateCharacter(characterID);
+                // 팀정보 업데이트
+                int teamNumber = player.GetTeam();
+                _playerEntries[number].UpdateTeam(teamNumber);
+            }
         }
         // 여기서 몇명이상은 안되게끔, 조건문을 걸면 몇며이상부터~ 하게 할 수 있다.
 
@@ -347,8 +376,6 @@ public class RoomPanel : BaseUI
         {
             _startButton.interactable = false;
         }
-
-
         // 레디버튼 본인일때만 본인거 누를수 있게하기
         // ㄴ PlayerEntry에서 구현
 

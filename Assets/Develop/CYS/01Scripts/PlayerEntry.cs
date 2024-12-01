@@ -35,7 +35,7 @@ public class PlayerEntry : BaseUI
     [SerializeField] Texture[] _charTexture;
     [SerializeField] RawImage _charRawImage;
     GameObject _playerImage;
-    // public int charNumber;
+    public int charNumber;
     // Local Player reference
     private Player _player;
     private readonly Color readyColor = new Color(1, 0.8f, 0, 1);
@@ -48,6 +48,7 @@ public class PlayerEntry : BaseUI
            
             Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer} from PlayerEntryScript");
         }
+        
     }
 
     private void OnEnable()
@@ -75,7 +76,7 @@ public class PlayerEntry : BaseUI
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
         _readyPopText.font = kFont;
 
-
+        charNumber = PhotonNetwork.LocalPlayer.GetCharacter();
         // _playerImage = GetUI("PlayerImage");
         // _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
         // _charRawImage.texture = _charTexture[charNumber];
@@ -119,6 +120,10 @@ public class PlayerEntry : BaseUI
             UpdateCharacter(player.GetCharacter());
             UpdateTeam(player.GetTeam());
         }
+       // if (charNumber != player.GetCharacter())
+       // {
+       //     UpdateCharacter(player.GetCharacter());
+       // }
         
     }
     private void UpdateReadyState()
@@ -202,6 +207,7 @@ public class PlayerEntry : BaseUI
         }
 
     }
+
 
     /// <summary>
     /// 팀정보 업데이트

@@ -41,6 +41,8 @@ public class PlayerStatus : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
+            GameManager.Instance.LocalPlayerStatus = this;
+
             // Set color as team color
             photonView.RPC(nameof(SetColor), RpcTarget.AllViaServer);
         }

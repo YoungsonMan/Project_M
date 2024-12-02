@@ -61,6 +61,9 @@ public class PlayerEntry : BaseUI
         // 플레이어 이름
         _nameText = GetUI<TMP_Text>("PlayerNameText");
         _nameText.font = kFont;
+        _nameText.fontSizeMin = 14;
+        _nameText.fontSize = 22;
+        _nameText.fontSizeMax = 58;
         _teamColorIndicator = GetUI<RawImage>("TeamColorBox");
 
 
@@ -68,11 +71,17 @@ public class PlayerEntry : BaseUI
         _readyTextBox = GetUI("ReadyTextBox");
         _readyText = GetUI<TMP_Text>("ReadyText");
         _readyText.font = kFont;
+        _readyText.fontSizeMin = 14;
+        _readyText.fontSize = 22;
+        _readyText.fontSizeMax = 58;
         // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
         // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
         _readyButton = GetUI<Button>("ReadyButton");
         _readyButtonText = GetUI("ReadyButtonText");
         GetUI<TMP_Text>("ReadyButtonText").font = kFont;
+        GetUI<TMP_Text>("ReadyButtonText").fontSizeMin = 14;
+        GetUI<TMP_Text>("ReadyButtonText").fontSize = 36;
+        GetUI<TMP_Text>("ReadyButtonText").fontSizeMax = 72;
         _readyButton.onClick.AddListener(Ready);
 
         // 레디하면 플레이어 위에 나오는 READY텍스트

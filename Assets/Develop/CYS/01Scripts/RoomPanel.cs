@@ -65,6 +65,9 @@ public class RoomPanel : BaseUI
 
 
 
+
+
+
     private void OnEnable()
     {
         UpdatePlayers();
@@ -132,16 +135,19 @@ public class RoomPanel : BaseUI
         _mapRawImage.texture = _mapTexture[_miniMap];
         _mapTitleText = GetUI<TMP_Text>("MapTitleText");
         _mapTitleText.text = (mapList[mapNumber]);
+        _mapTitleText.fontSizeMin = 14;
+        _mapTitleText.fontSize = 22;
+        _mapTitleText.fontSizeMax = 58;
         SetRoomInfo(PhotonNetwork.CurrentRoom);
 
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
-        GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
-        GetUI<TMP_Text>("MapNameText02").text = (mapList[2]);
-        GetUI<TMP_Text>("MapNameText03").text = (mapList[3]);
-        GetUI<TMP_Text>("MapNameText04").text = (mapList[4]);
-        GetUI<TMP_Text>("MapNameText05").text = (mapList[5]);
-        GetUI<TMP_Text>("MapNameText06").text = (mapList[6]);
+        GetUI<TMP_Text>("MapNameText01").text = "팜스트로이";
+        GetUI<TMP_Text>("MapNameText02").text = "토마토스트로이";
+        GetUI<TMP_Text>("MapNameText03").text = "아이스빌리지 10";
+        GetUI<TMP_Text>("MapNameText04").text = "해적 14";
+        GetUI<TMP_Text>("MapNameText05").text = "팩토리 07";
+        GetUI<TMP_Text>("MapNameText06").text = "포레스트07";
 
 
         // 팀관련
@@ -167,6 +173,11 @@ public class RoomPanel : BaseUI
         _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
         _charRawImage.texture = _charTexture[charNumber];
         // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
+
+
+
+
+
 
     }
     private void Update()

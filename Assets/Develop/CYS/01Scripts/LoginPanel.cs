@@ -209,9 +209,19 @@ public class LoginPanel : BaseUI
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
 
-
+        GetUI<Button>("ExitButton").onClick.AddListener(QuitGame);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                    Application.Quit();
+        #endif
+
+    }
     
 
     /// <summary>

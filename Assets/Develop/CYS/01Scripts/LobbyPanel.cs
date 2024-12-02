@@ -164,8 +164,10 @@ public class LobbyPanel : BaseUI
         GetUI<Button>("CreateRoomtButton").onClick.AddListener(CreateRoomConfirm);
         GetUI<Button>("CreateRoomCancelButton").onClick.AddListener(CreateRoomCancel);
 
-       // UpdateRoomList();
-       // TestLog();
+
+        GetUI<Button>("ExitButton").onClick.AddListener(QuitGame);
+        // UpdateRoomList();
+        // TestLog();
     }
     private void Update()
     {
@@ -318,4 +320,15 @@ public class LobbyPanel : BaseUI
         PhotonNetwork.Disconnect();
     }
 
+
+    public void QuitGame()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                    Application.Quit();
+#endif
+
+    }
 }

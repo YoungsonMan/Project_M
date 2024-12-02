@@ -11,8 +11,6 @@ using UnityEngine.UI;
 
 public class ChatManager : MonoBehaviour, IChatClientListener
 {
-    SoundManager soundManager = SoundManager.Instance;
-
     private ChatClient _chatClient;
     private string _userName;
     private string _currentChannelName;
@@ -273,7 +271,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         Debug.Log("엔터치면채팅나가기");
         this.SendChatMessage(this.inputFieldChat.text);
         this.inputFieldChat.text = "";
-        // soundManager.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
+        // SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
     }
     
 

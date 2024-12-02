@@ -5,12 +5,11 @@ using UnityEngine;
 public class Bubble : MonoBehaviourPun
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject bubble;
+    [SerializeField] GameObject bubble;     
 
-    private PlayerStatus _status;
-    private Animator _animator;
-    private WaterBombPlacer _placer;
-    private Collider collider;
+    private PlayerStatus _status;           // 플레이어 스탯
+    private Animator _animator;             // 애니메이션 출력
+    private WaterBombPlacer _placer;        // 물풍선 설치
 
     private void Awake()
     {
@@ -23,7 +22,7 @@ public class Bubble : MonoBehaviourPun
     {
         _animator.SetBool("isBubble", true);
         _placer.enabled = false;
-        // n초 후 물방울 비활성화
+        // n초 후 자동 사망
         StartCoroutine(BubbleRoutine());
     }
 
@@ -57,7 +56,6 @@ public class Bubble : MonoBehaviourPun
                 Save();
             }
             // 적이 방울을 터치할 경우
-            // (임시) 하여튼 플레이어가 와서 터치하면 터짐
             if (playerColor != otherColor)
             {
                 Dead();

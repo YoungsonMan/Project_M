@@ -105,34 +105,61 @@ public class LoginPanel : BaseUI
 
 
         // TMP_Text
+        // ID_Text
         GetUI<TMP_Text>("IDText").font = kFont;
-        GetUI<TMP_Text>("PWText").font = kFont;
+        GetUI<TMP_Text>("IDText").fontSizeMin = 14;
         GetUI<TMP_Text>("IDText").fontSize = 36;
+        GetUI<TMP_Text>("IDText").fontSizeMax = 72;
+        // PW_Text
+        GetUI<TMP_Text>("PWText").font = kFont;
+        GetUI<TMP_Text>("PWText").fontSizeMin = 14;
         GetUI<TMP_Text>("PWText").fontSize = 36;
+        GetUI<TMP_Text>("PWText").fontSizeMax = 72;
+        
         GetUI<TMP_Text>("IDText").text = "이메일";
         GetUI<TMP_Text>("PWText").text = "비밀번호";
 
         // TMP_InputField
+        // ID
         _emailInputField = GetUI<TMP_InputField>("IDInputField");
         GetUI<TMP_Text>("IDInputPlaceholder").text = "example@gmail.com";
         GetUI<TMP_Text>("IDInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSizeMin = 14;
         GetUI<TMP_Text>("IDInputPlaceholder").fontSize = 22;
-        GetUI<TMP_Text>("IDInputText").fontSize= 22;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("IDInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("IDInputText").fontSize = 22;
+        GetUI<TMP_Text>("IDInputText").fontSizeMax = 58;
+
+        // PW
         _pwInputField = GetUI<TMP_InputField>("PWInputField");
         GetUI<TMP_Text>("PWInputPlaceholder").text = "비밀번호를 입력하세요";
         GetUI<TMP_Text>("PWInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSizeMin = 14;
         GetUI<TMP_Text>("PWInputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("PWInputText").fontSizeMin = 14;
         GetUI<TMP_Text>("PWInputText").fontSize = 22;
+        GetUI<TMP_Text>("PWInputText").fontSizeMax = 58;
 
         // Button
+        // LoginButton
         GetUI<Button>("LoginButton").onClick.AddListener(Login);
+        GetUI<TMP_Text>("LoginButtonText").fontSizeMin = 14;
         GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("LoginButtonText").fontSizeMax = 72;
         GetUI<TMP_Text>("LoginButtonText").text = "로그인";
+        // SignUpButton
         GetUI<Button>("SignUpButton").onClick.AddListener(GoToSignUp);
-        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpText").fontSizeMax = 72;
         GetUI<TMP_Text>("SignUpText").text = "회원가입";
+        // ResetPWButton
         GetUI<Button>("ResetPWButton").onClick.AddListener(ResetPW);
-        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("ResetPWText").fontSizeMin = 14;
+        GetUI<TMP_Text>("ResetPWText").fontSize = 36;
+        GetUI<TMP_Text>("ResetPWText").fontSizeMax = 72;
         GetUI<TMP_Text>("ResetPWText").text = "비밀번호 찾기";
 
         // VerificationPanel

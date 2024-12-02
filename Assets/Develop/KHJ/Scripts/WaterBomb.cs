@@ -121,6 +121,7 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
     private void Explode()
     {
         _isExploded = true;
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
 
         // Set ranges with judging interactables
         // center

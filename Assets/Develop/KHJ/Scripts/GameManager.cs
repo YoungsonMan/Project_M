@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
             {
                 info.gameObject.SetActive(false);
             }
+
+            // Sound
+            SoundManager.Instance.StopBGM();
+            SoundManager.Instance.PlayBGM((SoundManager.E_BGM)PhotonNetwork.CurrentRoom.GetMapNum() + (int)SoundManager.E_BGM.ROOM);
+            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.START);
         }
     }
 
@@ -133,9 +138,16 @@ public class GameManager : MonoBehaviour
             ties = GetTies();
 
             if (ties.Contains(_localPlayerStatus.teamNum))
+            {
+                SoundManager.Instance.PlaySFX(SoundManager.E_SFX.DRAW);
                 _resultText.SetDraw();
+            }
             else
+            {
+
+                SoundManager.Instance.PlaySFX(SoundManager.E_SFX.LOSE);
                 _resultText.SetLose();
+            }
 
             // Set each players' result and nickname
             for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
@@ -160,9 +172,15 @@ public class GameManager : MonoBehaviour
             winner = GetWinner();
 
             if (_localPlayerStatus.teamNum == winner)
+            {
+                SoundManager.Instance.PlaySFX(SoundManager.E_SFX.WIN);
                 _resultText.SetWin();
+            }
             else
+            {
+                SoundManager.Instance.PlaySFX(SoundManager.E_SFX.LOSE);
                 _resultText.SetLose();
+            }
 
             // Set each players' result and nickname
             for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)

@@ -61,6 +61,7 @@ public class WaterBombPlacer : MonoBehaviourPun
         waterBomb.Lag = lag;
         if (waterBomb.SetLocation(transform.position))
         {
+            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_SET);
             waterBomb.Range = (int)_playerStatus.power;
         }
     }

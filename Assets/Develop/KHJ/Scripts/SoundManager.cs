@@ -33,6 +33,7 @@ public class SoundManager : MonoBehaviour
         BOMB_RESCUED,
         BOMB_DEAD,
 
+        COUNTDOWN,
         START,
         WIN,
         LOSE,

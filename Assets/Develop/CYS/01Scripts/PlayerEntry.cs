@@ -185,7 +185,7 @@ public class PlayerEntry : BaseUI
             _charRawImage.texture = _charTexture[characterId];
 
             // 색상 초기화 (알파 값을 1로 설정)
-            _charRawImage.color = new Color(1, 1, 1, 1); // 흰색, 불투명
+             _charRawImage.color = new Color(1, 1, 1, 1); // 흰색, 불투명
 
             Debug.Log($"업데이트 된 캐릭터 이미지: {_charRawImage.texture.name}, Character ID: {characterId}");
         }

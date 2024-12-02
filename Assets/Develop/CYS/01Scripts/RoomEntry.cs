@@ -18,7 +18,7 @@ public class RoomEntry : BaseUI
     [SerializeField] GameObject _roomImage;
     [SerializeField] RawImage _roomMap;
     [SerializeField] Texture[] _mapTexture;
-    private int _defaultMap = 0;
+    private int _defaultMap = 1;
     public int mapNum;
 
     // RoomStatus - Availability to join (waiting / started)
@@ -64,6 +64,7 @@ public class RoomEntry : BaseUI
         _roomJoinButton.onClick.AddListener(JoinRoom);
         _roomImage = GetUI("RoomMap");
         _roomMap = (RawImage)_roomImage.GetComponent<RawImage>();
+        mapNum = _defaultMap;
         _roomMap.texture = _mapTexture[mapNum];
 
 

@@ -17,12 +17,10 @@ public class Bubble : MonoBehaviourPun
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
         _placer = player.GetComponent<WaterBombPlacer>();
-        collider = player.GetComponent<Collider>();
     }
 
     private void OnEnable()
     {
-        collider.enabled = false;
         _animator.SetBool("isBubble", true);
         _placer.enabled = false;
         // n초 후 물방울 비활성화
@@ -42,6 +40,12 @@ public class Bubble : MonoBehaviourPun
         // 충돌체 플레이어일 경우
         if (other.gameObject.layer == 3)
         {
+            if (other.gameObject.GetComponent<PlayerStatus>().isBubble == true)
+            {
+                Debug.Log("버블 상태 플레이어 충돌");
+                return;
+            }
+
             // 충돌체와 플레이어의 색을 판단
             Color otherColor = other.gameObject.GetComponent<PlayerStatus>().color;
             Color playerColor = player.GetComponent<PlayerStatus>().color;
@@ -69,7 +73,6 @@ public class Bubble : MonoBehaviourPun
         _animator.SetBool("isBubble", false);
         _status.isBubble = false;
         _placer.enabled = true;
-        collider.enabled = true;
     }
 
     public void Dead()

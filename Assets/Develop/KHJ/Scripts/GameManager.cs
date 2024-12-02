@@ -229,6 +229,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_drawTolerance);
 
+        SoundManager.Instance.StopBGM();
         ShowResult();
 
         yield return new WaitForSeconds(5f);

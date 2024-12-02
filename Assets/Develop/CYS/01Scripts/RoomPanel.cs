@@ -34,7 +34,8 @@ public class RoomPanel : BaseUI
     GameObject _mapImage;
     [SerializeField] Texture[] _mapTexture;
     [SerializeField] RawImage _mapRawImage;
-    public int _miniMap = 0; // 방패널 맵 썸네일(레디버튼위) 0부터시작 _miniMap 0 == mapNumber 1
+    [SerializeField] TMP_Text _mapTitleText;    // 맵이름
+    public int _miniMap = 0;                    // 방패널 맵 썸네일(레디버튼위) 0부터시작 _miniMap 0 == mapNumber 1
     GameObject _mapListPanel;
     GameObject _map01, _map02, _map03, _map04, _map05, _map06;
     Button _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button;
@@ -107,11 +108,7 @@ public class RoomPanel : BaseUI
         _startButton.onClick.AddListener(StartGame);
 
         // 맵선택 관련
-       // _mapImage = GetUI("MapImage");
-       // _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
-       // _mapRawImage.texture = _mapTexture[_miniMap];
         GetMapList();
-
         GetUI<Button>("MapSelectButton").onClick.AddListener(OpenMapList);
         _mapListPanel = GetUI("MapListPanel");
         GetUI<Button>("MapCancelButton").onClick.AddListener(CloseMapList);
@@ -127,14 +124,14 @@ public class RoomPanel : BaseUI
         _map04Button.onClick.AddListener(SelectMap);
         _map05Button.onClick.AddListener(SelectMap);
         _map06Button.onClick.AddListener(SelectMap);
-
         // MapButtonInit(PhotonNetwork.LocalPlayer);
         _miniMap = 1;  // 시작맵 토마토설정
         mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언 (시작맵토마토...)
         _mapImage = GetUI("MapImage");
         _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
         _mapRawImage.texture = _mapTexture[_miniMap];
-
+        _mapTitleText = GetUI<TMP_Text>("MapTitleText");
+        _mapTitleText.text = (mapList[mapNumber]);
         SetRoomInfo(PhotonNetwork.CurrentRoom);
 
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
@@ -170,8 +167,6 @@ public class RoomPanel : BaseUI
         _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
         _charRawImage.texture = _charTexture[charNumber];
         // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
-
-
 
     }
     private void Update()
@@ -285,33 +280,11 @@ public class RoomPanel : BaseUI
     }
 
 
-    /// <summary>
-    /// 방장일때만 버튼을 누를수 있도록 함
-    /// 방장이 아니라면 그냥 리턴
-    /// </summary>
-    /// <param name="player"></param>
-    public void MapButtonInit(Player player)
-    {
-        if (player.IsMasterClient)
-        {
-            _map01Button.onClick.AddListener(SelectMap);
-            _map02Button.onClick.AddListener(SelectMap);
-            _map03Button.onClick.AddListener(SelectMap);
-            _map04Button.onClick.AddListener(SelectMap);
-            _map05Button.onClick.AddListener(SelectMap);
-            _map06Button.onClick.AddListener(SelectMap);
-        }
-        else
-            return;
-    }
-
-
-
     public void SelectMap()
     {
 
         string SelectedMap = EventSystem.current.currentSelectedGameObject.name;
-        // Debug.Log($"{SelectedMap} is selected.");
+        //Debug.Log($"{SelectedMap} is selected.");  // 클릭한Object 이름 따오기
         //if (SelectedMap == _map01Button.name)
         //    mapNumber = 1;
 
@@ -338,11 +311,9 @@ public class RoomPanel : BaseUI
                 break;
         }
         
-        // 맵 전달
-        //PhotonNetwork.CurrentRoom.GetMap();
-        //UpdateMap(_miniMap);
-        //UpdateRoomProperty();
         _mapListPanel.SetActive(false);
+        // 맵 전달
+        // 방장일때만 가능하도록 | 방장아니면 그냥 창닫기
         // PhotonNetwork.CurrentRoom.SetMap(mapNumber);
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
@@ -351,8 +322,10 @@ public class RoomPanel : BaseUI
         {
             _miniMap = mapNumber - 1;
             _mapRawImage.texture = _mapTexture[_miniMap];
-            PhotonNetwork.CurrentRoom.SetMap(mapNumber);
+            PhotonNetwork.CurrentRoom.SetMapNum(mapNumber);
+            PhotonNetwork.CurrentRoom.SetMapName(mapList[mapNumber]);
             Debug.Log($"맵 번호 {mapNumber}가 설정되었습니다.");
+            _mapTitleText.text = (mapList[mapNumber]);
         }
 
     }
@@ -363,12 +336,20 @@ public class RoomPanel : BaseUI
     /// <param name="mapNumber"></param>
     public void UpdateMapUI(int mapNumber)
     {
-        mapNumber = PhotonNetwork.CurrentRoom.GetMap()-1;
+        mapNumber = PhotonNetwork.CurrentRoom.GetMapNum()-1;
         if (_mapRawImage == null || _mapTexture == null) return;
 
         if (mapNumber >= 0 && mapNumber < _mapTexture.Length)
         {
             _mapRawImage.texture = _mapTexture[mapNumber];
+        }
+    }
+    public void UpdateMapName(string mapName)
+    {
+        mapName = PhotonNetwork.CurrentRoom.GetMapName();
+        if (_mapTitleText.text != mapName)
+        {
+            _mapTitleText.text = mapName;
         }
     }
 
@@ -431,10 +412,17 @@ public class RoomPanel : BaseUI
 
     public void UpdateRoomProperty(Hashtable properties)
     {
+        // 맵변경, num & UI
         if (properties.ContainsKey(CustomProperty.MAP))
         {
             UpdateMapUI(mapNumber);
         }
+        // 맵이름UI 변경
+        if (properties.ContainsKey(CustomProperty.MAPNAME))
+        {
+            UpdateMapName(mapList[mapNumber]);
+        }
+
 
     }
     /// <summary>

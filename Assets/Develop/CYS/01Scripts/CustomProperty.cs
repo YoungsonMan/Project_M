@@ -13,14 +13,15 @@ public static class CustomProperty
 
     // ¸ÊÄ¿½ºÅÒÇÁ·ÎÆÛÆ¼
     public const string MAP = "Map";
+    public const string MAPNAME = "MapName";
 
-    public static void SetMap(this Room room, int map)
+    public static void SetMapNum(this Room room, int map)
     {
         PhotonHashtable customRoomProperty = new PhotonHashtable();
         customRoomProperty[MAP] = map;
         room.SetCustomProperties(customRoomProperty);
     }
-    public static int GetMap(this Room room)
+    public static int GetMapNum(this Room room)
     {
         PhotonHashtable customRoomProperty = room.CustomProperties;
         if (customRoomProperty.ContainsKey(MAP))
@@ -31,6 +32,24 @@ public static class CustomProperty
         {
             // Scene 1¹øÀÌ 1¹ø¸ÊÀÌ´Ï±î, 0Àº ·Îºñ¾À
             return 1;
+        }
+    }
+    public static void SetMapName(this Room room, string mapName)
+    {
+        PhotonHashtable customRoomProperty = new PhotonHashtable();
+        customRoomProperty[MAPNAME] = mapName;
+        room.SetCustomProperties(customRoomProperty);
+    }
+    public static string GetMapName(this Room room)
+    {
+        PhotonHashtable customRoomProperty = room.CustomProperties;
+        if(customRoomProperty.ContainsKey(MAPNAME))
+        {
+            return (string) customRoomProperty[MAPNAME];
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 

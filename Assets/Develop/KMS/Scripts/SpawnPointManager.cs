@@ -12,8 +12,9 @@ public class SpawnPointManager : MonoBehaviour
 
     public void LoadSpawnPoints()
     {
-        if (spawnPoints.Count == 0)
+        //if (spawnPoints.Count == 0)
         {
+            spawnPoints.Clear();
             // "SpawnPoint" 태그를 가진 오브젝트에서 스폰 위치를 검색
             GameObject[] spawnObjects = GameObject.FindGameObjectsWithTag("SpawnPoint");
             foreach (GameObject spawnObject in spawnObjects)

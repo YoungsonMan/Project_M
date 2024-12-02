@@ -1,5 +1,8 @@
 using Photon.Realtime;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using UnityEngine;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 public static class CustomProperty
@@ -13,6 +16,7 @@ public static class CustomProperty
 
     // ¸ÊÄ¿½ºÅÒÇÁ·ÎÆÛÆ¼
     public const string MAP = "Map";
+    public const string SPAWNPOINT = "SpawnPoint";
 
     public static void SetMap(this Room room, int map)
     {
@@ -25,7 +29,7 @@ public static class CustomProperty
         PhotonHashtable customRoomProperty = room.CustomProperties;
         if (customRoomProperty.ContainsKey(MAP))
         {
-            return (int) customRoomProperty[MAP];
+            return (int)customRoomProperty[MAP];
         }
         else
         {
@@ -103,7 +107,7 @@ public static class CustomProperty
         }
     }
 
-    public static void  SetCharacter(this Player player, int num)
+    public static void SetCharacter(this Player player, int num)
     {
         PhotonHashtable customProperty = new PhotonHashtable();
         customProperty[CHARACTER] = num;
@@ -114,12 +118,29 @@ public static class CustomProperty
         PhotonHashtable customProperty = player.CustomProperties;
         if (customProperty.ContainsKey(CHARACTER))
         {
-            
             return (int)customProperty[CHARACTER];
         }
         else
         {
-            
+            return 0;
+        }
+    }
+
+    public static void SetSpawnIndex(this Player player, int spawnPoint)
+    {
+        PhotonHashtable customProperty = new PhotonHashtable();
+        customProperty[SPAWNPOINT] = spawnPoint;
+        player.SetCustomProperties(customProperty);
+    }
+    public static int GetSpawnIndex(this Player player)
+    {
+        PhotonHashtable customProperty = player.CustomProperties;
+        if (customProperty.ContainsKey(SPAWNPOINT))
+        {
+            return (int)customProperty[SPAWNPOINT];
+        }
+        else
+        {
             return -1;
         }
     }

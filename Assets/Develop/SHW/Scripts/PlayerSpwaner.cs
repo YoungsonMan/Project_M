@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,35 +10,82 @@ public class PlayerSpwaner : MonoBehaviourPunCallbacks
     [SerializeField] private SpawnPointManager _spawnPointManager;
     public GameObject map;
 
-    // KMS 사용 가능한 스폰 포인트 목록
-    private List<Vector3> _availableSpawnPoints = new List<Vector3>();
+    // KMS 사용 가능한 스폰 포인트 인덱스
+    private List<int> _shuffledIndices = new List<int>();
 
     private void Start()
     {
         map.SetActive(true);
-        // 스폰 포인트 로드
-        if (_spawnPointManager.spawnPoints.Count == 0)
-        {
-            _spawnPointManager.LoadSpawnPoints();
-        }
 
-        // 사용 가능한 스폰 포인트 초기화
-        _availableSpawnPoints = new List<Vector3>(_spawnPointManager.spawnPoints);
+        // 스폰 포인터 리스트 갱신.
+        _spawnPointManager.LoadSpawnPoints();
+
+        // 마스터만 스폰 포인터 리스트 인덱스 섞고 플레이어들에게 인덱스 전달.
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ShuffleSpawnIndices();
+            AssignSpawnIndicesToPlayers();
+        }
 
         // 캐릭터 ID 동기화를 기다린 후 스폰
         StartCoroutine(WaitForCharacterIdAndSpawn());
     }
 
-    private IEnumerator WaitForCharacterIdAndSpawn()
+    /// <summary>
+    /// 스폰 포인트의 인덱스만 섞기
+    /// </summary>
+    private void ShuffleSpawnIndices()
     {
-        while (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Character"))
+        // 맵 변경시 전에 있던 값들 초기화.
+        _shuffledIndices.Clear();
+        for (int i = 0; i < _spawnPointManager.spawnPoints.Count; i++)
         {
-            Debug.Log("캐릭터 ID를 기다리는 중");
-            yield return null; // 다음 프레임 대기
+            _shuffledIndices.Add(i);
         }
 
-        Debug.Log($"캐릭터 ID를 찾음: {PhotonNetwork.LocalPlayer.CustomProperties["Character"]}");
-        SpawnPlayer();
+        // Fisher-Yates 셔플(무작위 배정 알고리즘)
+        for (int i = _shuffledIndices.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            int temp = _shuffledIndices[i];
+            _shuffledIndices[i] = _shuffledIndices[randomIndex];
+            _shuffledIndices[randomIndex] = temp;
+        }
+    }
+
+    /// <summary>
+    /// 각 플레이어에게 섞인 스폰 인덱스 할당
+    /// </summary>
+    private void AssignSpawnIndicesToPlayers()
+    {
+        var players = PhotonNetwork.PlayerList;
+
+        for (int i = 0; i < players.Length && i < _shuffledIndices.Count; i++)
+        {
+            players[i].SetSpawnIndex(_shuffledIndices[i]);
+        }
+
+        Debug.Log("스폰 인덱스가 모든 플레이어에게 할당되었습니다.");
+    }
+
+    private IEnumerator WaitForCharacterIdAndSpawn()
+    {
+        while (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey(CustomProperty.CHARACTER))
+        {
+            Debug.Log("캐릭터 ID를 기다리는 중");
+            yield return null;
+        }
+
+        Debug.Log($"캐릭터 ID를 찾음: {PhotonNetwork.LocalPlayer.CustomProperties[CustomProperty.CHARACTER]}");
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        if (targetPlayer == PhotonNetwork.LocalPlayer && changedProps.ContainsKey(CustomProperty.SPAWNPOINT))
+        {
+            Debug.Log($"스폰 인덱스 갱신됨: {targetPlayer.GetSpawnIndex()}");
+            SpawnPlayer();
+        }
     }
 
     /// <summary>
@@ -45,8 +93,16 @@ public class PlayerSpwaner : MonoBehaviourPunCallbacks
     /// </summary>
     public void SpawnPlayer()
     {
-        // 스폰 위치 설정
-        Vector3 spawnPoint = GetRandomSpawnPoint();
+        int spawnIndex = PhotonNetwork.LocalPlayer.GetSpawnIndex();
+
+        if (spawnIndex < 0 || spawnIndex >= _spawnPointManager.spawnPoints.Count)
+        {
+            Debug.LogError("잘못된 스폰 인덱스입니다!");
+            return;
+        }
+
+        Vector3 spawnPoint = _spawnPointManager.spawnPoints[spawnIndex];
+        Debug.Log($"스폰 위치: {spawnPoint}");
 
         // 캐릭터 ID 가져오기
         int characterId = GetCharacterId();
@@ -58,35 +114,10 @@ public class PlayerSpwaner : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate(prefabName, spawnPoint, Quaternion.identity);
     }
 
-    /// <summary>
-    /// 스폰 포인터 매니저의 위치를 랜덤하게 배정하는 메서드.
-    /// </summary>
-    /// <returns></returns>
-    private Vector3 GetRandomSpawnPoint()
-    {
-        // 사용 가능한 스폰 포인트가 없으면 오류 처리
-        if (_availableSpawnPoints.Count == 0)
-        {
-            Debug.LogError("스폰 포인트가 부족합니다.");
-            return Vector3.zero;
-        }
-
-        // 랜덤한 스폰 포인트 선택
-        int randomIndex = Random.Range(0, _availableSpawnPoints.Count);
-        Vector3 selectedSpawnPoint = _availableSpawnPoints[randomIndex];
-
-        Debug.Log($"랜덤 위치는 {selectedSpawnPoint}");
-
-        // 선택된 스폰 포인트를 리스트에서 제거하여 중복 방지
-        _availableSpawnPoints.RemoveAt(randomIndex);
-
-        return selectedSpawnPoint;
-    }
-
     private int GetCharacterId()
     {
         // Photon의 Custom Properties에서 캐릭터 ID 가져오기
-        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("Character", out object characterId))
+        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue(CustomProperty.CHARACTER, out object characterId))
         {
             return (int)characterId;
         }

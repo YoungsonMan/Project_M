@@ -68,6 +68,7 @@ public class Bubble : MonoBehaviourPun
     [PunRPC]
     public void Save()
     {
+        // SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_rescued);
         StopAllCoroutines();
         bubble.SetActive(false);
         _animator.SetBool("isBubble", false);

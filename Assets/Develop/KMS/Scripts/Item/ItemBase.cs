@@ -19,6 +19,9 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
 
             if (playerView != null && playerView.IsMine)
             {
+                // 아이템 획득 사운드
+                SoundManager.Instance.PlaySFX(SoundManager.E_SFX.GET_ITEM);
+
                 // 즉각 사용 아이템
                 if (itemType == E_ITEMTYPE.InstantItem)
                 {

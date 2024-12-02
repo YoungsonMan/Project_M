@@ -11,7 +11,6 @@ using UnityEngine.UI;
 
 public class ChatManager : MonoBehaviour, IChatClientListener
 {
-    SoundManager soundManager = SoundManager.Instance;
 
     private ChatClient _chatClient;
     private string _userName;
@@ -262,7 +261,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
             Debug.Log("엔터치면채팅나가기");
             this.SendChatMessage(this.inputFieldChat.text);
             this.inputFieldChat.text = "";
-            
         }
     }
     /// <summary>
@@ -273,7 +271,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         Debug.Log("엔터치면채팅나가기");
         this.SendChatMessage(this.inputFieldChat.text);
         this.inputFieldChat.text = "";
-        // soundManager.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
     }
     
 
@@ -292,7 +289,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     {
         if (inputFieldChat.text == "" && Input.GetKey(KeyCode.Return))
         {
-            // soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
             inputFieldChat.Select();
         }
     }

@@ -233,7 +233,7 @@ public class PlayerEntry : BaseUI
         ready = !ready;
 
         PhotonNetwork.LocalPlayer.SetReady(ready);
-        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+
         // KMS 레디 부분갱신.
         {
             UpdateReadyState();

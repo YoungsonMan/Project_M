@@ -14,8 +14,6 @@ using UnityEngine.UI;
 
 public class RoomPanel : BaseUI
 {
-    SoundManager soundManager = SoundManager.Instance;
-
     [Header("방이름 인원수")]
     [SerializeField] TMP_Text _roomTitle;
     [SerializeField] TMP_Text _roomCapacity;
@@ -219,7 +217,6 @@ public class RoomPanel : BaseUI
                 return;
         }
         PhotonNetwork.LocalPlayer.SetCharacter(charNumber);
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         //_charRawImage.texture = _charTexture[charNumber];
         Debug.Log($"캐릭터번호: {charNumber}");
 
@@ -260,7 +257,6 @@ public class RoomPanel : BaseUI
                 break;
         }
         PhotonNetwork.LocalPlayer.SetTeam(TeamNumber);
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam()}");
         // Debug.Log($"선택하신 팀번호: {PhotonNetwork.LocalPlayer.GetTeam(TeamNumber)}");
 
@@ -269,12 +265,10 @@ public class RoomPanel : BaseUI
     }
     void OpenMapList()
     {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         _mapListPanel.SetActive(true);
     }
     void CloseMapList()
     {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         _mapListPanel.SetActive(false);
     }
     void GetMapList()
@@ -316,7 +310,7 @@ public class RoomPanel : BaseUI
                 mapNumber = 6;
                 break;
         }
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
+        
         _mapListPanel.SetActive(false);
         // 맵 전달
         // 방장일때만 가능하도록 | 방장아니면 그냥 창닫기
@@ -494,12 +488,10 @@ public class RoomPanel : BaseUI
         Debug.Log(mapList[mapNumber]);
         PhotonNetwork.LoadLevel(mapList[mapNumber]); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
 
     public void LeaveRoom()
     {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         PhotonNetwork.LeaveRoom();
     }
 

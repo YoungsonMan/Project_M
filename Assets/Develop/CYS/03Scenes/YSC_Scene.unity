@@ -1128,7 +1128,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eb4595023c9653c42b069237a024ba71, type: 3}
   - {fileID: 2800000, guid: f3c5feedb9cd03541ac95fa080db6420, type: 3}
   _mapRawImage: {fileID: 0}
-  _mapTitleText: {fileID: 0}
   _miniMap: 0
   mapNumber: 0
   TeamNumber: 0
@@ -35264,10 +35263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8684664824650248198, guid: 8b582a32833348e46adb312b4814700c, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8684664825217491482, guid: 8b582a32833348e46adb312b4814700c, type: 3}
       propertyPath: m_RootOrder
       value: 9

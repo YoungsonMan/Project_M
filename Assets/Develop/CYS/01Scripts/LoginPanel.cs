@@ -29,16 +29,11 @@ public class LoginPanel : BaseUI
     [SerializeField] GameObject _resetPwPanel;
     TMP_InputField _restPwIDInputField;
 
-    SoundManager soundManager = SoundManager.Instance;
-
+    
     private void OnEnable()
     {
         Init();
         TestLogin();
-    }
-    private void OnDisable()
-    {
-        soundManager.StopBGM();
     }
     private void Update()
     {
@@ -46,7 +41,6 @@ public class LoginPanel : BaseUI
         // 엔터키에서 로그인 버튼 입력
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
         {
-            soundManager.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
             Login();
         }
 
@@ -77,22 +71,13 @@ public class LoginPanel : BaseUI
                 break;
             case 1: _pwInputField.Select();
                 break;
+
         }
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
     // 직접 클릭하면 바뀌는데 InputSelected는 안바뀌니까
     // 각자 매서드로 InputSelected바뀌게설정
-    public void EmailSelected()
-    {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
-        InputSelected = 0;
-    } 
-
-    public void PwSelected()
-    {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
-        InputSelected = 1; 
-    }
+    public void EmailSelected() => InputSelected = 0;
+    public void PwSelected() => InputSelected = 1;
 
 
 
@@ -102,10 +87,6 @@ public class LoginPanel : BaseUI
     //  }
     private void Init()
     {
-        soundManager.StopBGM();
-        soundManager.PlayBGM(SoundManager.E_BGM.LOGIN);
-
-
         // TMP_Text
         GetUI<TMP_Text>("IDText").font = kFont;
         GetUI<TMP_Text>("PWText").font = kFont;
@@ -164,7 +145,6 @@ public class LoginPanel : BaseUI
     {
         Debug.Log("회원가입 창 열기");
         _signUpPanel.SetActive(true);
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
     public void Login()
     {
@@ -201,7 +181,7 @@ public class LoginPanel : BaseUI
                CheckUserInfo();
            });
 
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
+        
     }
     public void CheckUserInfo()
     {
@@ -234,7 +214,6 @@ public class LoginPanel : BaseUI
     private void ResetPW()
     {
         _resetPwPanel.SetActive(true);
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
     /// <summary>
     /// 비밀번호 재설정
@@ -259,11 +238,9 @@ public class LoginPanel : BaseUI
             Debug.Log("Password reset email sent successfully.");
             _resetPwPanel.SetActive(false);
         });
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
     public void CancelFindingPW()
     {
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         _resetPwPanel.SetActive(false);
     }
 

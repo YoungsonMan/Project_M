@@ -9,7 +9,6 @@ using WebSocketSharp;
 
 public class SignUpPanel : BaseUI
 {
-    SoundManager soundManager = SoundManager.Instance;
     [SerializeField] TMP_FontAsset kFont;
 
     [SerializeField] TMP_InputField _signUpIDInputField;    // 0
@@ -159,7 +158,6 @@ public class SignUpPanel : BaseUI
             Debug.Log($"Firebase user created successfully: {result.User.DisplayName} ({result.User.UserId})");
             gameObject.SetActive(false);
         });
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
 
     }
 
@@ -184,7 +182,6 @@ public class SignUpPanel : BaseUI
     public void Close()
     {
         Debug.Log("´Ý±â¹öÆ°");
-        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         gameObject.SetActive(false);
     }
 }

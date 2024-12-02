@@ -9,26 +9,33 @@ public class SoundManager : MonoBehaviour
     // BGM types
     public enum E_BGM
     {
-        BGM_TITLE,
+        LOGIN,
+        LOBBY,
+        ROOM,
 
-        BGM_FACTORY,
-        BGM_FARM,
-        BGM_FOREST,
-        BGM_ICEVILLAGE,
-        BGM_PIRATE,
-        BGM_TOMATO,
+        FARM,
+        TOMATO,
+        ICE_VILLAGE,
+        PIRATE,
+        FACTORY,
+        FOREST,
     }
 
     // SFX typs
     public enum E_SFX
     {
-        SFX_BUTTON,
+        CLICK,
 
-        SFX_EXPLOSION,
+        GET_ITEM,
+        BOMB_SET,
+        BOMB_EXPLOSION,
+        BOMB_LOCKED,
+        BOMB_DEAD,
 
-        SFX_WIN,
-        SFX_LOSE,
-        SFX_DRAW,
+        START,
+        WIN,
+        LOSE,
+        DRAW,
     }
 
     [Header("Audio Clips")]

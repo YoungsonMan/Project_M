@@ -44,7 +44,7 @@ public class LobbyPanel : BaseUI
      *  - LogOutText
      * 
      */
-    [SerializeField] TMP_Dropdown _userInfoDropdown;
+    // [SerializeField] TMP_Dropdown _userInfoDropdown;
     // TODO : 유저 데이터베이스 구성으로 따라 뭘 보여줄지 의논해보고 구성하기.
 
     // mainPanel
@@ -99,25 +99,68 @@ public class LobbyPanel : BaseUI
 
 
         _lobbyPanel = GetUI("LobbyPanel");
+        // 방만들기 버튼
         _createRoomButton = GetUI<Button>("CreateRoomButton");
         _createRoomButton.onClick.AddListener(CreateRoomMenu);
         _createRoomText = GetUI<TMP_Text>("CreateRoomText");
+        _createRoomText.fontSizeMin = 14;
+        _createRoomText.fontSize = 36;
+        _createRoomText.fontSizeMax = 72;
+        _createRoomText.text = "방만들기";
         _createRoomText.font = kFont;
 
-
+        // 빠른시작버튼
         _quickStartButton = GetUI<Button>("QuickStartButton");
         _quickStartButton.onClick.AddListener(RandomMatching); 
         _quickStartText = GetUI<TMP_Text>("QuickStartText");
+        _quickStartText.fontSizeMin = 14;
+        _quickStartText.fontSize = 36;
+        _quickStartText.fontSizeMax = 72;
+        _quickStartText.text = "빠른시작";
         _quickStartText.font = kFont;
 
         _roomListPanel = GetUI("RoomListPanel");
         _roomListContent = GetUI<RectTransform>("RoomListContent");
 
-        // TODO: 밑에 기재된것들 만들어야됨 
         // 방만들기패널
         _createRoomPanel = GetUI("CreateRoomPanel");
+        // 방이름_Text
+        GetUI<TMP_Text>("RoomName");
+        GetUI<TMP_Text>("RoomName").fontSizeMin = 14;
+        GetUI<TMP_Text>("RoomName").fontSize = 36;
+        GetUI<TMP_Text>("RoomName").fontSizeMax = 72;
+        GetUI<TMP_Text>("RoomName").text = "방이름";
+        // 최대인원_Text
+        GetUI<TMP_Text>("CapText");
+        GetUI<TMP_Text>("CapText").fontSizeMin = 14;
+        GetUI<TMP_Text>("CapText").fontSize = 36;
+        GetUI<TMP_Text>("CapText").fontSizeMax = 72;
+        GetUI<TMP_Text>("CapText").text = "최대인원";
+        // 방이름기재_IputField
         _roomNameInputField = GetUI<TMP_InputField>("RoomNameInputField");
+        GetUI<TMP_Text>("RoomNamePlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("RoomNamePlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("RoomNamePlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("RoomNamePlaceholder").text = "방이름을 적어주세요";
+        // 방이름기재_IputFieldText
+        GetUI<TMP_Text>("RoomNameText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RoomNameText").fontSize = 22;
+        GetUI<TMP_Text>("RoomNameText").fontSizeMax = 58;
+        // 최대인원기재_IputField
         _maxPlayerInputField = GetUI<TMP_InputField>("MaxPlayerInputField");
+        GetUI<TMP_Text>("MaxPlayerPlaceholder");
+        GetUI<TMP_Text>("MaxPlayerPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("MaxPlayerPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("MaxPlayerPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("MaxPlayerPlaceholder").text = "2~8";
+        // 최대인원기재_IputFieldText
+        GetUI<TMP_Text>("MaxPlayerText").fontSizeMin = 14;
+        GetUI<TMP_Text>("MaxPlayerText").fontSize = 22;
+        GetUI<TMP_Text>("MaxPlayerText").fontSizeMax = 58;
+
+
+
+
         GetUI<Button>("CreateRoomtButton").onClick.AddListener(CreateRoomConfirm);
         GetUI<Button>("CreateRoomCancelButton").onClick.AddListener(CreateRoomCancel);
 

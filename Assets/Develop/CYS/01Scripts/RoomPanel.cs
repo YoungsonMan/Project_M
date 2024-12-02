@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 public class RoomPanel : BaseUI
@@ -64,9 +65,15 @@ public class RoomPanel : BaseUI
     public int charNumber; // 우측상단 캐릭터 선택창 캐릭터번호
 
 
-
-
-
+    [Header("레디버튼관련")]
+    [SerializeField] Button _readyButton;
+    [SerializeField] GameObject _readyTextBox;
+    [SerializeField] TMP_Text _readyText;
+    private readonly Color readyColor = new Color(1, 0.8f, 0, 1);
+    private readonly Color notReadyColor = Color.white;
+    private Player _player;
+    PlayerEntry _playerEntry;
+    [SerializeField] TMP_Text _readyPopText;
 
     private void OnEnable()
     {
@@ -175,9 +182,20 @@ public class RoomPanel : BaseUI
         // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
 
 
-
-
-
+        // 레디버튼 레디 (스타트버튼옆)
+        _readyTextBox = GetUI("ReadyTextBox");
+        _readyText = GetUI<TMP_Text>("ReadyText");
+        _readyText.font = kFont;
+        _readyText.fontSizeMin = 14;
+        _readyText.fontSize = 22;
+        _readyText.fontSizeMax = 58;
+        // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
+        // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
+        _readyButton = GetUI<Button>("ReadyButton");
+        _readyButton.onClick.AddListener(Ready);
+        // 레디하면 플레이어 위에 나오는 READY텍스트
+        _readyPopText = GetUI<TMP_Text>("ReadyPopText");
+        _readyPopText.font = kFont;
 
     }
     private void Update()
@@ -196,9 +214,75 @@ public class RoomPanel : BaseUI
 
         }
     }
+    public void SetPlayer(Player player)
+    {
+        // KMS 플레이어 가져오기.
+        _player = player;
 
+       
+        _readyButton.gameObject.SetActive(true);
+        _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
+        // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
 
+        // 내버튼만 활성화 / 다른사람꺼는 비활성화
+       // if (_readyButton.interactable)
+       // {
+       //     _readyTextBox.SetActive(true);
+       // }
+       // else
+       // {
+       //     _readyTextBox.SetActive(false);
+       //     _readyPopText.text = "";
+       // }
 
+        
+        {
+ 
+            UpdateReadyState();
+        }
+
+    }
+
+    public void Ready()
+    {
+        // !레디 -> 레디 || 레디 -> !레디 
+        bool ready = PhotonNetwork.LocalPlayer.GetReady();
+        ready = !ready;
+
+        PhotonNetwork.LocalPlayer.SetReady(ready);
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+        // KMS 레디 부분갱신.
+        {
+            //UpdateReadyState();
+
+            if (ready)
+            {
+                PhotonNetwork.LocalPlayer.SetReady(true);
+                _readyText.text = "Ready";
+                Debug.Log($"준비상태: {ready}");
+            }
+            else
+            {
+                PhotonNetwork.LocalPlayer.SetReady(false);
+                _readyText.text = "";
+            }
+        }
+    }
+    private void UpdateReadyState()
+    {
+        if (_player.GetReady())
+        {
+            _readyText.text = "Ready";
+            _readyText.color = readyColor;
+            _readyPopText.text = "READY";
+        }
+        else
+        {
+            _readyText.text = "Ready";
+            _readyText.color = notReadyColor;
+            _readyPopText.text = "";
+        }
+    }
     // 뭔가 지금 딱히 쓸데가 없는거같음
     public GameObject[] GetChildren(GameObject parent)
     {

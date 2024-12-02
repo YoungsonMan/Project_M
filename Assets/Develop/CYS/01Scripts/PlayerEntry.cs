@@ -16,12 +16,12 @@ public class PlayerEntry : BaseUI
     [SerializeField] TMP_FontAsset kFont;
     [Header("텍스트관련")]
     [SerializeField] TMP_Text _nameText;
-    [SerializeField] TMP_Text _readyText;
+   // [SerializeField] TMP_Text _readyText;
     [SerializeField] TMP_Text _readyPopText;
     [Header("레디버튼관련")]
-    [SerializeField] Button _readyButton;
-    [SerializeField] GameObject _readyButtonText;
-    [SerializeField] GameObject _readyTextBox;
+  //  [SerializeField] Button _readyButton;
+  //  [SerializeField] GameObject _readyButtonText;
+  //  [SerializeField] GameObject _readyTextBox;
 
     // 팀관련
     [Header("팀관련")]
@@ -68,21 +68,21 @@ public class PlayerEntry : BaseUI
 
 
         // 레디버튼 레디 (스타트버튼옆)
-        _readyTextBox = GetUI("ReadyTextBox");
-        _readyText = GetUI<TMP_Text>("ReadyText");
-        _readyText.font = kFont;
-        _readyText.fontSizeMin = 14;
-        _readyText.fontSize = 22;
-        _readyText.fontSizeMax = 58;
+        // _readyTextBox = GetUI("ReadyTextBox");
+        // _readyText = GetUI<TMP_Text>("ReadyText");
+       // _readyText.font = kFont;
+       // _readyText.fontSizeMin = 14;
+       // _readyText.fontSize = 22;
+       // _readyText.fontSizeMax = 58;
         // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
         // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
-        _readyButton = GetUI<Button>("ReadyButton");
-        _readyButtonText = GetUI("ReadyButtonText");
-        GetUI<TMP_Text>("ReadyButtonText").font = kFont;
-        GetUI<TMP_Text>("ReadyButtonText").fontSizeMin = 14;
-        GetUI<TMP_Text>("ReadyButtonText").fontSize = 36;
-        GetUI<TMP_Text>("ReadyButtonText").fontSizeMax = 72;
-        _readyButton.onClick.AddListener(Ready);
+      //  _readyButton = GetUI<Button>("ReadyButton");
+      //  _readyButtonText = GetUI("ReadyButtonText");
+      //  GetUI<TMP_Text>("ReadyButtonText").font = kFont;
+      //  GetUI<TMP_Text>("ReadyButtonText").fontSizeMin = 14;
+      //  GetUI<TMP_Text>("ReadyButtonText").fontSize = 36;
+      //  GetUI<TMP_Text>("ReadyButtonText").fontSizeMax = 72;
+      //  _readyButton.onClick.AddListener(Ready);
 
         // 레디하면 플레이어 위에 나오는 READY텍스트
         _readyPopText = GetUI<TMP_Text>("ReadyPopText");
@@ -112,21 +112,6 @@ public class PlayerEntry : BaseUI
 
             // KMS 방장 자리에 있다가 다시 들어가도 색이 변경이 안되었던 부분 수정.
             _nameText.color = Color.white;
-        }
-
-        _readyButton.gameObject.SetActive(true);
-        _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
-        // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
-
-        // 내버튼만 활성화 / 다른사람꺼는 비활성화
-        if (_readyButton.interactable)
-        {
-            _readyTextBox.SetActive(true);
-        }
-        else
-        {
-            _readyTextBox.SetActive(false);
-            _readyPopText.text = "";
         }
 
         // KMS Ready상태 갱신 메서드. 
@@ -162,18 +147,18 @@ public class PlayerEntry : BaseUI
     /// <summary>
     /// KMS 준비 상태 업데이트
     /// </summary>
-    private void UpdateReadyState()
+    public void UpdateReadyState()
     {
         if (_player.GetReady())
         {
-            _readyText.text = "Ready";
-            _readyText.color = readyColor;
+           // _readyText.text = "Ready";
+           // _readyText.color = readyColor;
             _readyPopText.text = "READY";
         }
         else
         {
-            _readyText.text = "Ready";
-            _readyText.color = notReadyColor;
+           // _readyText.text = "Ready";
+           // _readyText.color = notReadyColor;
             _readyPopText.text = "";
         }
     }
@@ -219,12 +204,12 @@ public class PlayerEntry : BaseUI
     public void SetEmpty()
     {
         _readyPopText.text = "";
-        _readyText.text = "";
+      //  _readyText.text = "";
         _nameText.text = "None";
         // KMS 비어있는 이름 공간의 색상을 흰색으로 갱신.
         if (_nameText != null) _nameText.color = Color.white;
-        if (_readyButton != null) _readyButton.gameObject.SetActive(false);
-        if (_readyTextBox != null) _readyTextBox.SetActive(false);
+       // if (_readyButton != null) _readyButton.gameObject.SetActive(false);
+       // if (_readyTextBox != null) _readyTextBox.SetActive(false);
 
         // KMS 플레이어 칸이 비어지게 되었을시 해당 칸의 이미지 삭제.
         if (_charRawImage != null)
@@ -252,13 +237,13 @@ public class PlayerEntry : BaseUI
                 //PhotonNetwork.LocalPlayer.SetReady(true);
                 //_readyText.text = "Ready";
                 Debug.Log($"준비상태: {ready}");
-                _readyButtonText.SetActive(false);
+             //   _readyButtonText.SetActive(false);
             }
             else
             {
                 //PhotonNetwork.LocalPlayer.SetReady(false);
                 //_readyText.text = "";
-                _readyButtonText.SetActive(true);
+              //  _readyButtonText.SetActive(true);
             }
         }
     }

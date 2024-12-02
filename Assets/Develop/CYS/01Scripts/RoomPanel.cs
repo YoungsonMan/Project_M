@@ -1,5 +1,6 @@
 using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Pun.Demo.Cockpit;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using System.Collections.Generic;
@@ -46,6 +47,11 @@ public class RoomPanel : BaseUI
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
     [SerializeField] GameObject _teamChoicePanel;
     [SerializeField] GameObject[] _teamButtons;
+    [SerializeField] GameObject[] _teamColor;
+    public int teamColorNum;
+    Image _teamImage;
+
+
 
     // 캐릭터관련
     [Header("캐릭터관련")]
@@ -146,7 +152,7 @@ public class RoomPanel : BaseUI
 
         // 캐릭터관련
         _charChoicePanel = GetUI("CharChoicePanel");
-        _character = GetChildren(_charChoicePanel);
+        
         GetUI<Button>("Character1").onClick.AddListener(SelectCharacter);
         GetUI<Button>("Character2").onClick.AddListener(SelectCharacter);
         GetUI<Button>("Character3").onClick.AddListener(SelectCharacter);
@@ -155,6 +161,8 @@ public class RoomPanel : BaseUI
         _charRawImage = (RawImage)_playerImage.GetComponent<RawImage>();
         _charRawImage.texture = _charTexture[charNumber];
         // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
+
+
 
     }
     private void Update()
@@ -322,11 +330,30 @@ public class RoomPanel : BaseUI
         }
         _miniMap = mapNumber - 1;
         _mapRawImage.texture = _mapTexture[_miniMap];
+        // 맵 전달
+        PhotonNetwork.CurrentRoom.SetMap(mapNumber);
+        //PhotonNetwork.CurrentRoom.GetMap();
+        //UpdateMap(_miniMap);
+        //UpdateRoomProperty();
         _mapListPanel.SetActive(false);
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
         // 그 번호로 로드 씬
+    }
 
+    /// <summary>
+    /// 맵 선택 정보 업데이트
+    /// </summary>
+    /// <param name="mapNumber"></param>
+    public void UpdateMap(int mapNumber)
+    {
+        mapNumber = PhotonNetwork.CurrentRoom.GetMap();
+        if (_mapRawImage == null || _mapTexture == null) return;
+
+        if (mapNumber >= 0 && mapNumber < _mapTexture.Length+1)
+        {
+            _mapRawImage.texture = _mapTexture[mapNumber-1];
+        }
     }
 
     public void UpdatePlayers()
@@ -386,7 +413,14 @@ public class RoomPanel : BaseUI
 
     }
 
+    public void UpdateRoomProperty(Hashtable properties)
+    {
+        if (properties.ContainsKey(CustomProperty.MAP))
+        {
+            UpdateMap(mapNumber);
+        }
 
+    }
     /// <summary>
     ///  플레이어 프로퍼티 업데이트
     ///  레디상황
@@ -404,6 +438,13 @@ public class RoomPanel : BaseUI
         if (properties.ContainsKey(CustomProperty.CHARACTER))
         {
             Debug.Log($"{targetPlayer.NickName}의 캐릭터가 변경됨: {targetPlayer.GetCharacter()}");
+
+            // 변경된 캐릭터 UI 갱신
+            UpdatePlayers();
+        }
+        if (properties.ContainsKey(CustomProperty.TEAM))
+        {
+            Debug.Log($"{targetPlayer.NickName}의 팀을 변경: {targetPlayer.GetTeam()}");
 
             // 변경된 캐릭터 UI 갱신
             UpdatePlayers();

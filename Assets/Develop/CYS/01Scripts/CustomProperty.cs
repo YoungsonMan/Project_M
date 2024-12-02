@@ -11,6 +11,30 @@ public static class CustomProperty
     public const string TEAM = "Team";
     public const string CHARACTER = "Character";
 
+    // ¸ÊÄ¿½ºÅÒÇÁ·ÎÆÛÆ¼
+    public const string MAP = "Map";
+
+    public static void SetMap(this Room room, int map)
+    {
+        PhotonHashtable customRoomProperty = new PhotonHashtable();
+        customRoomProperty[MAP] = map;
+        room.SetCustomProperties(customRoomProperty);
+    }
+    public static int GetMap(this Room room)
+    {
+        PhotonHashtable customRoomProperty = room.CustomProperties;
+        if (customRoomProperty.ContainsKey(MAP))
+        {
+            return (int) customRoomProperty[MAP];
+        }
+        else
+        {
+            // Scene 1¹øÀÌ 1¹ø¸ÊÀÌ´Ï±î, 0Àº ·Îºñ¾À
+            return 1;
+        }
+    }
+
+
     public static void SetReady(this Player player, bool ready)
     {
         PhotonHashtable customProperty = new PhotonHashtable();

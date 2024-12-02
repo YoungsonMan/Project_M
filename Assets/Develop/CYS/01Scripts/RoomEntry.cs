@@ -15,8 +15,11 @@ public class RoomEntry : BaseUI
     [SerializeField] Button _roomJoinButton;
 
     [Header("¸Ê°ü·Ã")]
+    [SerializeField] GameObject _roomImage;
     [SerializeField] RawImage _roomMap;
     [SerializeField] Texture[] _mapTexture;
+    private int _defaultMap = 0;
+    public int mapNum;
 
     // RoomStatus - Availability to join (waiting / started)
     // RoomInfo, protected bool isOpen = true; (IsOpen)
@@ -38,12 +41,15 @@ public class RoomEntry : BaseUI
     private void OnEnable()
     {
         Init();
+        
     }
     public void SetRoomInfo(RoomInfo info)
     {
         _roomTitle.text = info.Name;
         _roomCapacity.text = $"{info.PlayerCount}/{info.MaxPlayers}";
         _roomJoinButton.interactable = info.PlayerCount < info.MaxPlayers;
+       // mapNum = PhotonNetwork.CurrentRoom.GetMap();
+       // _roomMap.texture = _mapTexture[mapNum];
     }
     private void Init()
     {
@@ -53,10 +59,12 @@ public class RoomEntry : BaseUI
         _roomCapacity.font = kFont;
         GetUI<TMP_Text>("RoomJoinButtonText").font = kFont;
         GetUI<TMP_Text>("RoomSetting").font = kFont;
-        GetUI<TMP_Text>("RoomStatus").font = kFont; 
+        GetUI<TMP_Text>("RoomStatus").font = kFont;
         _roomJoinButton = GetUI<Button>("RoomJoinButton");
         _roomJoinButton.onClick.AddListener(JoinRoom);
-
+        _roomImage = GetUI("RoomMap");
+        _roomMap = (RawImage)_roomImage.GetComponent<RawImage>();
+        _roomMap.texture = _mapTexture[mapNum];
 
 
     }

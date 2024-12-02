@@ -55,19 +55,28 @@ public class GameManager : MonoBehaviour
 
     private void Init(Scene scene, LoadSceneMode mode)
     {
+        // Lobby Scene
         if (SceneManager.GetActiveScene().buildIndex == 0)
-            return;
-            
-        Debug.Log($"[GameManager]: Init");
-        _teammates = new int[8];
-        _teamFlag = 0;
-        _eliminatedTimes = new ValueTuple<float, int>[8];
-        _gameOverCoroutine = null;
-
-        _resultUI.SetActive(false);
-        foreach (PlayerInfo info in _playerInfos)
         {
-            info.gameObject.SetActive(false);
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in players)
+            {
+                Destroy(player);
+            }
+        }
+        // Game Scene
+        else
+        {
+            _teammates = new int[8];
+            _teamFlag = 0;
+            _eliminatedTimes = new ValueTuple<float, int>[8];
+            _gameOverCoroutine = null;
+
+            _resultUI.SetActive(false);
+            foreach (PlayerInfo info in _playerInfos)
+            {
+                info.gameObject.SetActive(false);
+            }
         }
     }
 

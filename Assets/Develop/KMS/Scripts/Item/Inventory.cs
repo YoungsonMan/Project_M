@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviourPun
 {
@@ -30,10 +30,20 @@ public class Inventory : MonoBehaviourPun
                 ItemBase oldItem = inventory[0];
                 inventory.RemoveAt(0);
 
-                // 이전 아이템 삭제 동기화
-                oldItem.photonView.RPC(nameof(ItemBase.Interact), RpcTarget.AllBuffered);
+                 // 이전 아이템 삭제 동기화
+            if (oldItem != null)
+            {
+                // 충돌 방지
+                Collider oldCollider = oldItem.GetComponent<Collider>();
+                Collider newCollider = item.GetComponent<Collider>();
+                if (oldCollider != null && newCollider != null)
+                {
+                    Physics.IgnoreCollision(oldCollider, newCollider, true);
+                }
 
+                oldItem.photonView.RPC(nameof(ItemBase.Interact), RpcTarget.AllBuffered);
                 Debug.Log($"기존 아이템 {oldItem.itemName}이 삭제되었습니다.");
+            }
                 EquipItem(item);
             }
         }

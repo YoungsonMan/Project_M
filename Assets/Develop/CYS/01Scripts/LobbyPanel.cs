@@ -10,6 +10,8 @@ using Photon.Realtime;
 
 public class LobbyPanel : BaseUI
 {
+    SoundManager soundManager = SoundManager.Instance;
+
     [SerializeField] TMP_FontAsset kFont;
 
     /*  LobbyPanel Objects List:
@@ -183,9 +185,11 @@ public class LobbyPanel : BaseUI
         _isMakingRoom = true;
         _roomNameInputField.text = $"Room {Random.Range(1000, 10000)}";
         _maxPlayerInputField.text = "8";
+        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
     }
     public void CreateRoomCancel()
     {
+        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         _createRoomPanel.SetActive(false);
         _isMakingRoom = false;
     }
@@ -205,7 +209,8 @@ public class LobbyPanel : BaseUI
         RoomOptions options = new RoomOptions();
         options.MaxPlayers = maxPlayer;
 
-        PhotonNetwork.CreateRoom(roomName, options); 
+        PhotonNetwork.CreateRoom(roomName, options);
+        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         // 방 패널 만들어야됨
     }
     public void RandomMatching()
@@ -214,7 +219,7 @@ public class LobbyPanel : BaseUI
 
         // 비어 있는 방이 없으면 들어가지 않는 방식
         // PhotonNetwork.JoinRandomRoom();
-
+        soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         // 비어 있는 방이 없으면 새로 방을 만들어서 들어가는 방식
         string name = $"Room {Random.Range(1000, 10000)}";
         RoomOptions options = new RoomOptions() { MaxPlayers = 8 };

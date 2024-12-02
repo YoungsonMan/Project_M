@@ -7,6 +7,7 @@ using TMPro;
 
 public class LobbyScene : MonoBehaviourPunCallbacks
 {
+    SoundManager soundManager = SoundManager.Instance;
     public enum Panel { Login, Lobby, Room } // 메인메뉴에 로비가 같이있어서 음..???
 
     [SerializeField] LoginPanel _loginPanel;
@@ -85,14 +86,16 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
+        soundManager.StopBGM();
         Debug.Log($"접속이 끊겼다. cause : {cause} \n OnDisconnected");
         SetActivePanel(Panel.Login);
     }
     public override void OnJoinedLobby()
     {
+        soundManager.StopBGM();
         Debug.Log("로비 입장 성공");
         SetActivePanel(Panel.Lobby);
-
+        soundManager.PlayBGM(SoundManager.E_BGM.LOBBY);
         //Chat 관련 FromChatManager
         AddChatMessage($"{PhotonNetwork.LocalPlayer.NickName} has joined");
 
@@ -110,14 +113,16 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공 \n OnJoinedRoom");
+        soundManager.StopBGM();
         SetActivePanel(Panel.Room);
-        
+        soundManager.PlayBGM(SoundManager.E_BGM.ROOM);
         // ClearChatMessages();
     }
     public override void OnLeftRoom()
     {
         Debug.Log("방 퇴장 성공");
         SetActivePanel(Panel.Lobby);
+        soundManager.StopBGM();
         ClearChatMessages();
     }
     /// <summary>
@@ -182,6 +187,8 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         if (_chatInputField.text == "" && Input.GetKey(KeyCode.Return))
         {
             _chatInputField.Select();
+            // 타자사운드
+            soundManager.PlaySFX(SoundManager.E_SFX.CLICK);
         }
     }
     public void OnEndEditEvent()
@@ -194,7 +201,9 @@ public class LobbyScene : MonoBehaviourPunCallbacks
             // target 받는이 모두에게 inputField에 적힌대로 
             _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
             _chatInputField.text = "";
-       }
+            // 채팅 엔터 사운드
+            soundManager.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
+        }
     }
     public void OnEndEditEventButton()
     {
@@ -206,6 +215,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         // target 받는이 모두에게 inputField에 적힌대로 
         _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
         _chatInputField.text = "";
+        soundManager.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
         // }
     }
 

@@ -186,9 +186,6 @@ public class RoomPanel : BaseUI
         _readyTextBox = GetUI("ReadyTextBox");
         _readyText = GetUI<TMP_Text>("ReadyText");
         _readyText.font = kFont;
-        _readyText.fontSizeMin = 14;
-        _readyText.fontSize = 22;
-        _readyText.fontSizeMax = 58;
         // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
         // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
         _readyButton = GetUI<Button>("ReadyButton");
@@ -218,23 +215,8 @@ public class RoomPanel : BaseUI
     {
         // KMS 플레이어 가져오기.
         _player = player;
-
-       
         _readyButton.gameObject.SetActive(true);
         _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
-        // 플레이어가 본인이지 확인 -> 레디버튼 player =isLocal 도 가능
-
-        // 내버튼만 활성화 / 다른사람꺼는 비활성화
-       // if (_readyButton.interactable)
-       // {
-       //     _readyTextBox.SetActive(true);
-       // }
-       // else
-       // {
-       //     _readyTextBox.SetActive(false);
-       //     _readyPopText.text = "";
-       // }
-
         
         {
  

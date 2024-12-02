@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 851820314}
   - component: {fileID: 851820317}
   - component: {fileID: 7419649438223639742}
+  - component: {fileID: 325195807299191390}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -95,7 +96,7 @@ SphereCollider:
   m_GameObject: {fileID: 851820312}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5323386283925807557}
   bubble: {fileID: 851820312}
+  collider: {fileID: 325195807299191390}
 --- !u!114 &7419649438223639742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,20 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!136 &325195807299191390
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851820312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12941721
+  m_Height: 0.7168118
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.016374111, z: -0.00090903044}
 --- !u!1 &5323386283925807557
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,8 @@
 using Photon.Realtime;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using UnityEngine;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 public static class CustomProperty
@@ -7,13 +10,14 @@ public static class CustomProperty
     public const string READY = "Ready";
     public const string LOAD = "load";
 
-    // (±¸ÇöÁß) ÆÀ Ä¿½ºÅÒ ÇÁ·ÎÆÛÆ¼
+    // (êµ¬í˜„ì¤‘) íŒ€ ì»¤ìŠ¤í…€ í”„ë¡œí¼í‹°
     public const string TEAM = "Team";
     public const string CHARACTER = "Character";
 
-    // ¸ÊÄ¿½ºÅÒÇÁ·ÎÆÛÆ¼
+    // ë§µì»¤ìŠ¤í…€í”„ë¡œí¼í‹°
     public const string MAP = "Map";
     public const string MAPNAME = "MapName";
+    public const string SPAWNPOINT = "SpawnPoint";
 
     public static void SetMapNum(this Room room, int map)
     {
@@ -26,11 +30,11 @@ public static class CustomProperty
         PhotonHashtable customRoomProperty = room.CustomProperties;
         if (customRoomProperty.ContainsKey(MAP))
         {
-            return (int) customRoomProperty[MAP];
+            return (int)customRoomProperty[MAP];
         }
         else
         {
-            // Scene 1¹øÀÌ 1¹ø¸ÊÀÌ´Ï±î, 0Àº ·Îºñ¾À
+            // Scene 1ë²ˆì´ 1ë²ˆë§µì´ë‹ˆê¹Œ, 0ì€ ë¡œë¹„ì”¬
             return 1;
         }
     }
@@ -92,11 +96,11 @@ public static class CustomProperty
         }
     }
 
-    // ÆÀ ¼³Á¤ Ä¿½ºÄÄ ÇÁ·ÎÆÛÆ¼
+    // íŒ€ ì„¤ì • ì»¤ìŠ¤ì»´ í”„ë¡œí¼í‹°
     /// <summary>
-    /// ÆÀÀ» ¼³Á¤ÇÏ´Â ÇÔ¼ö ÀÔ´Ï´Ù.
-    /// num¿¡ ÆÀÀÇ ¹øÈ£¸¦ ³Ö¾îÁÖ¼¼¿ä(0~7¹ø)
-    /// PlayerEntryÀÇ SetPlayer¿¡¼­ »ç¿ëÇßÀ» ¶§, Àß µ¿ÀÛµÊÀ» È®ÀÎÇß½À´Ï´Ù.
+    /// íŒ€ì„ ì„¤ì •í•˜ëŠ” í•¨ìˆ˜ ì…ë‹ˆë‹¤.
+    /// numì— íŒ€ì˜ ë²ˆí˜¸ë¥¼ ë„£ì–´ì£¼ì„¸ìš”(0~7ë²ˆ)
+    /// PlayerEntryì˜ SetPlayerì—ì„œ ì‚¬ìš©í–ˆì„ ë•Œ, ì˜ ë™ì‘ë¨ì„ í™•ì¸í–ˆìŠµë‹ˆë‹¤.
     /// </summary>
     /// <param name="player"></param>
     /// <param name="num"></param>
@@ -109,20 +113,20 @@ public static class CustomProperty
     public static int GetTeam(this Player player)
     {
         PhotonHashtable customProperty = player.CustomProperties;
-        // Å°°ªÀÌ ÀÖ´Â °æ¿ì
+        // í‚¤ê°’ì´ ìˆëŠ” ê²½ìš°
         if (customProperty.ContainsKey(TEAM))
         {
-            // ÀÔ·ÂÇÑ º¯¼ö¿¡ Å°°ªÀ» ÇÒ´ç?
+            // ì…ë ¥í•œ ë³€ìˆ˜ì— í‚¤ê°’ì„ í• ë‹¹?
             return (int)customProperty[TEAM];
         }
         else
         {
-            // Å°°ªÀÌ ¾øÀ» °æ¿ì ÀÓÀÇ·Î 0¹ø ÆÀÀ¸·Î °­Á¦¹èÄ¡?
+            // í‚¤ê°’ì´ ì—†ì„ ê²½ìš° ì„ì˜ë¡œ 0ë²ˆ íŒ€ìœ¼ë¡œ ê°•ì œë°°ì¹˜?
             return 0;
         }
     }
 
-    public static void  SetCharacter(this Player player, int num)
+    public static void SetCharacter(this Player player, int num)
     {
         PhotonHashtable customProperty = new PhotonHashtable();
         customProperty[CHARACTER] = num;
@@ -133,13 +137,30 @@ public static class CustomProperty
         PhotonHashtable customProperty = player.CustomProperties;
         if (customProperty.ContainsKey(CHARACTER))
         {
-            
             return (int)customProperty[CHARACTER];
         }
         else
         {
-            
             return 0;
+        }
+    }
+
+    public static void SetSpawnIndex(this Player player, int spawnPoint)
+    {
+        PhotonHashtable customProperty = new PhotonHashtable();
+        customProperty[SPAWNPOINT] = spawnPoint;
+        player.SetCustomProperties(customProperty);
+    }
+    public static int GetSpawnIndex(this Player player)
+    {
+        PhotonHashtable customProperty = player.CustomProperties;
+        if (customProperty.ContainsKey(SPAWNPOINT))
+        {
+            return (int)customProperty[SPAWNPOINT];
+        }
+        else
+        {
+            return -1;
         }
     }
 }

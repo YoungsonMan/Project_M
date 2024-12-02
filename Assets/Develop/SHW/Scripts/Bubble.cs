@@ -5,27 +5,24 @@ using UnityEngine;
 public class Bubble : MonoBehaviourPun
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject bubble;
+    [SerializeField] GameObject bubble;     
 
-    private PlayerStatus _status;
-    private Animator _animator;
-    private WaterBombPlacer _placer;
-    private Collider collider;
+    private PlayerStatus _status;           // 플레이어 스탯
+    private Animator _animator;             // 애니메이션 출력
+    private WaterBombPlacer _placer;        // 물풍선 설치
 
     private void Awake()
     {
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
         _placer = player.GetComponent<WaterBombPlacer>();
-        collider = player.GetComponent<Collider>();
     }
 
     private void OnEnable()
     {
-        collider.enabled = false;
         _animator.SetBool("isBubble", true);
         _placer.enabled = false;
-        // n초 후 물방울 비활성화
+        // n초 후 자동 사망
         StartCoroutine(BubbleRoutine());
     }
 
@@ -42,6 +39,12 @@ public class Bubble : MonoBehaviourPun
         // 충돌체 플레이어일 경우
         if (other.gameObject.layer == 3)
         {
+            if (other.gameObject.GetComponent<PlayerStatus>().isBubble == true)
+            {
+                Debug.Log("버블 상태 플레이어 충돌");
+                return;
+            }
+
             // 충돌체와 플레이어의 색을 판단
             Color otherColor = other.gameObject.GetComponent<PlayerStatus>().color;
             Color playerColor = player.GetComponent<PlayerStatus>().color;
@@ -53,7 +56,6 @@ public class Bubble : MonoBehaviourPun
                 Save();
             }
             // 적이 방울을 터치할 경우
-            // (임시) 하여튼 플레이어가 와서 터치하면 터짐
             if (playerColor != otherColor)
             {
                 Dead();
@@ -69,7 +71,6 @@ public class Bubble : MonoBehaviourPun
         _animator.SetBool("isBubble", false);
         _status.isBubble = false;
         _placer.enabled = true;
-        collider.enabled = true;
     }
 
     public void Dead()

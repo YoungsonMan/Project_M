@@ -101,26 +101,39 @@ public class LoginPanel : BaseUI
     //  }
     private void Init()
     {
-        SoundManager.Instance.StopBGM();
-        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+        
 
 
         // TMP_Text
         GetUI<TMP_Text>("IDText").font = kFont;
         GetUI<TMP_Text>("PWText").font = kFont;
-        
+        GetUI<TMP_Text>("IDText").fontSize = 36;
+        GetUI<TMP_Text>("PWText").fontSize = 36;
+        GetUI<TMP_Text>("IDText").text = "이메일";
+        GetUI<TMP_Text>("PWText").text = "비밀번호";
+
         // TMP_InputField
         _emailInputField = GetUI<TMP_InputField>("IDInputField");
         GetUI<TMP_Text>("IDInputPlaceholder").text = "example@gmail.com";
         GetUI<TMP_Text>("IDInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("IDInputText").fontSize= 22;
         _pwInputField = GetUI<TMP_InputField>("PWInputField");
-        GetUI<TMP_Text>("PWInputPlaceholder").text = "Type your password in";
+        GetUI<TMP_Text>("PWInputPlaceholder").text = "비밀번호를 입력하세요";
         GetUI<TMP_Text>("PWInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("PWInputText").fontSize = 22;
 
         // Button
         GetUI<Button>("LoginButton").onClick.AddListener(Login);
+        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("LoginButtonText").text = "로그인";
         GetUI<Button>("SignUpButton").onClick.AddListener(GoToSignUp);
+        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpText").text = "회원가입";
         GetUI<Button>("ResetPWButton").onClick.AddListener(ResetPW);
+        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("ResetPWText").text = "비밀번호 찾기";
 
         // VerificationPanel
         _verificationPanel = GetUI("VerificationPanel");
@@ -141,6 +154,11 @@ public class LoginPanel : BaseUI
         _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
         GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
         GetUI<Button>("RestPwCancelButton").onClick.AddListener(CancelFindingPW);
+
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+
+
     }
 
     

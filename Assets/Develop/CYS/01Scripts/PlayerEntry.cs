@@ -156,7 +156,7 @@ public class PlayerEntry : BaseUI
     public void SetEmpty()
     {
         _readyPopText.text = "";
-        _nameText.text = "None";
+        _nameText.text = "없음";
         // KMS 비어있는 이름 공간의 색상을 흰색으로 갱신.
         if (_nameText != null) _nameText.color = Color.white;
 

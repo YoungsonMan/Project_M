@@ -43,7 +43,6 @@ public class RoomPanel : BaseUI
     public int mapNumber = 1;
 
 
-
     // 팀관련
     [Header("팀관련")]
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
@@ -115,6 +114,9 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
         GetUI<TMP_Text>("StartButtonText").font = kFont;
+        GetUI<TMP_Text>("StartButtonText").fontSizeMin = 14;
+        GetUI<TMP_Text>("StartButtonText").fontSize = 22;
+        GetUI<TMP_Text>("StartButtonText").fontSizeMax = 58;
         _startButton.onClick.AddListener(StartGame);
 
         // 맵선택 관련
@@ -141,12 +143,12 @@ public class RoomPanel : BaseUI
         _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
         _mapRawImage.texture = _mapTexture[_miniMap];
         _mapTitleText = GetUI<TMP_Text>("MapTitleText");
-        _mapTitleText.text = (mapList[mapNumber]);
+        //_mapTitleText.text = (mapList[mapNumber]);
         _mapTitleText.fontSizeMin = 14;
         _mapTitleText.fontSize = 22;
         _mapTitleText.fontSizeMax = 58;
         SetRoomInfo(PhotonNetwork.CurrentRoom);
-
+        KoreanMap();
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
         GetUI<TMP_Text>("MapNameText01").text = "팜스트로이";
@@ -155,7 +157,6 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("MapNameText04").text = "해적 14";
         GetUI<TMP_Text>("MapNameText05").text = "팩토리 07";
         GetUI<TMP_Text>("MapNameText06").text = "포레스트07";
-
 
         // 팀관련
         _teamChoicePanel = GetUI("TeamChoicePanel");
@@ -358,6 +359,7 @@ public class RoomPanel : BaseUI
         {
             mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
         }
+        
     }
 
 
@@ -406,9 +408,24 @@ public class RoomPanel : BaseUI
             PhotonNetwork.CurrentRoom.SetMapNum(mapNumber);
             PhotonNetwork.CurrentRoom.SetMapName(mapList[mapNumber]);
             Debug.Log($"맵 번호 {mapNumber}가 설정되었습니다.");
-            _mapTitleText.text = (mapList[mapNumber]);
+            // KoreanMap();
+            //_mapTitleText.text = (mapList[mapNumber]);
         }
-
+    }
+    private void KoreanMap()
+    {
+        if (mapNumber == 1)
+            _mapTitleText.text = "팜스트로이";
+        else if (mapNumber == 2)
+            _mapTitleText.text = "토마토 스트로이";
+        else if (mapNumber == 3)
+            _mapTitleText.text = "아이스빌리지 10";
+        else if (mapNumber == 4)
+            _mapTitleText.text = "해적 14";
+        else if (mapNumber == 5)
+            _mapTitleText.text = "팩토리 07";
+        else if (mapNumber == 6)
+            _mapTitleText.text = "포레스트07";
     }
 
     /// <summary>
@@ -432,6 +449,7 @@ public class RoomPanel : BaseUI
         {
             _mapTitleText.text = mapName;
         }
+        KoreanMap();
     }
 
     public void UpdatePlayers()

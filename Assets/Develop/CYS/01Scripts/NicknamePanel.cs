@@ -65,7 +65,7 @@ public class NicknamePanel : BaseUI
                 PhotonNetwork.ConnectUsingSettings();
                 gameObject.SetActive(false);
             });
-
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
     }
 
 }

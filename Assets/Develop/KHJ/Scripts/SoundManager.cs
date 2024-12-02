@@ -30,6 +30,7 @@ public class SoundManager : MonoBehaviour
         BOMB_SET,
         BOMB_EXPLOSION,
         BOMB_LOCKED,
+        BOMB_RESCUED,
         BOMB_DEAD,
 
         START,

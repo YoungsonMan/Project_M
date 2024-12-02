@@ -18,9 +18,23 @@ public class NicknamePanel : BaseUI
     private void Init()
     {
         _nicknamePanel = GetUI("NicknamePanel");
+        GetUI<TMP_Text>("NicknameText");
+        GetUI<TMP_Text>("NicknameText").text = "닉네임을 지어주세요";
+        GetUI<TMP_Text>("NicknameText").fontSizeMin = 14;
+        GetUI<TMP_Text>("NicknameText").fontSize = 36;
+        GetUI<TMP_Text>("NicknameText").fontSizeMax = 72;
+
         _nickNameInputField = GetUI<TMP_InputField>("NicknameInputField");
-        _nickNameInputField.text = "Create your own unique name";
+        _nickNameInputField.text = "창의력을 발휘하세요!";
+        GetUI<TMP_Text>("NicknamePlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("NicknamePlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("NicknamePlaceholder").fontSizeMax = 58;
+
         _confirmButton = GetUI<Button>("NicknameConfirmButton");
+        GetUI<TMP_Text>("NicknameConfirmText").text = "확인";
+        GetUI<TMP_Text>("NicknameConfirmText").fontSizeMin = 14;
+        GetUI<TMP_Text>("NicknameConfirmText").fontSize = 22;
+        GetUI<TMP_Text>("NicknameConfirmText").fontSizeMax = 58;
         _confirmButton.onClick.AddListener(Confirm);
     }
     public void Confirm()

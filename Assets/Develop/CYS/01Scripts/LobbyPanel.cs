@@ -88,10 +88,14 @@ public class LobbyPanel : BaseUI
 
         _mainPanel = GetUI("MainPanel");
 
+        // LogOutButton
         _logOutButton = GetUI<Button>("LogOutButton");
         _logOutButton.onClick.AddListener(LogOut);
         _logOutText = GetUI<TMP_Text>("LogOutText");
         _logOutText.font = kFont;
+        _logOutText.fontSizeMin = 14;
+        _logOutText.fontSize = 36;
+        _logOutText.fontSizeMax = 72;
 
 
         _lobbyPanel = GetUI("LobbyPanel");

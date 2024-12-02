@@ -178,9 +178,33 @@ public class LoginPanel : BaseUI
 
         // ResetPasswordPanel
         _resetPwPanel = GetUI("ResetPwPanel");
+        GetUI<TMP_Text>("RestPwIDText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDText").fontSize = 36;
+        GetUI<TMP_Text>("RestPwIDText").fontSizeMax = 72;
+        GetUI<TMP_Text>("RestPwIDText").text = "이메일";
+        // placeInput
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").text = "이메일을 입력하세요";
+        // RestPwIDInputText
+        GetUI<TMP_Text>("RestPwIDInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDInputText").fontSize = 22;
+        GetUI<TMP_Text>("RestPwIDInputText").fontSizeMax = 58;
+
         _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
         GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
+        GetUI<TMP_Text>("RestPwConfirmText").text = "초기화 매일발송";
+        GetUI<TMP_Text>("RestPwConfirmText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwConfirmText").fontSize = 22;
+        GetUI<TMP_Text>("RestPwConfirmText").fontSizeMax = 58;
+
         GetUI<Button>("RestPwCancelButton").onClick.AddListener(CancelFindingPW);
+        GetUI<TMP_Text>("RestPwCancelText").text = "취소";
+        GetUI<TMP_Text>("RestPwCancelText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwCancelText").fontSize = 36;
+        GetUI<TMP_Text>("RestPwCancelText").fontSizeMax = 72;
+
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);

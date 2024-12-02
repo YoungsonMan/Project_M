@@ -10,17 +10,19 @@ public class Bubble : MonoBehaviourPun
     private PlayerStatus _status;
     private Animator _animator;
     private WaterBombPlacer _placer;
+    private Collider collider;
 
     private void Awake()
     {
         _status = player.GetComponent<PlayerStatus>();
         _animator = player.GetComponent<Animator>();
         _placer = player.GetComponent<WaterBombPlacer>();
-
+        collider = player.GetComponent<Collider>();
     }
 
     private void OnEnable()
     {
+        collider.enabled = false;
         _animator.SetBool("isBubble", true);
         _placer.enabled = false;
         // n초 후 물방울 비활성화
@@ -67,6 +69,7 @@ public class Bubble : MonoBehaviourPun
         _animator.SetBool("isBubble", false);
         _status.isBubble = false;
         _placer.enabled = true;
+        collider.enabled = true;
     }
 
     public void Dead()

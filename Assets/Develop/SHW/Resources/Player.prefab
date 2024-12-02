@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 392858662762382359}
   - component: {fileID: -6957661459768671870}
   - component: {fileID: -1620983653133240983}
-  - component: {fileID: 8348296238525809224}
+  - component: {fileID: 3484481379589026835}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -283,6 +283,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   bodyRenderer: {fileID: 5323386284027289573}
   teamNum: 0
+  canvas: {fileID: 8129486976166608586}
 --- !u!114 &2098898255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
---- !u!114 &8348296238525809224
+--- !u!114 &3484481379589026835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,6 +621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5601275345679438233, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
 --- !u!114 &1103266920027359467 stripped
@@ -647,6 +652,11 @@ MonoBehaviour:
 --- !u!224 &3570855944283161721 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 928935158535711530, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
+  m_PrefabInstance: {fileID: 4425357371576119123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8129486976166608586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5601275345679438233, guid: b6dc8507e4a7dd045936deac85b9271a, type: 3}
   m_PrefabInstance: {fileID: 4425357371576119123}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5323386284024206403

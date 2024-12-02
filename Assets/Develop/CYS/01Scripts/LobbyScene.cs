@@ -111,6 +111,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     {
         Debug.Log("방 입장 성공 \n OnJoinedRoom");
         SetActivePanel(Panel.Room);
+        
         // ClearChatMessages();
     }
     public override void OnLeftRoom()
@@ -119,6 +120,10 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         SetActivePanel(Panel.Lobby);
         ClearChatMessages();
     }
+    /// <summary>
+    /// 벙프로퍼티 업데이트
+    /// </summary>
+    /// <param name="changedProperty"></param>
     public override void OnRoomPropertiesUpdate(Hashtable changedProperty)
     {
         // 현재 참여한 방의 프로퍼티가 업데이트시 호출됨

@@ -120,7 +120,7 @@ public static class CustomProperty
         else
         {
             
-            return -1;
+            return 0;
         }
     }
 }

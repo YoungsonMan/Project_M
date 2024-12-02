@@ -107,9 +107,9 @@ public class RoomPanel : BaseUI
         _startButton.onClick.AddListener(StartGame);
 
         // 맵선택 관련
-        _mapImage = GetUI("MapImage");
-        _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
-        _mapRawImage.texture = _mapTexture[_miniMap];
+       // _mapImage = GetUI("MapImage");
+       // _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
+       // _mapRawImage.texture = _mapTexture[_miniMap];
         GetMapList();
 
         GetUI<Button>("MapSelectButton").onClick.AddListener(OpenMapList);
@@ -121,11 +121,19 @@ public class RoomPanel : BaseUI
         _map04Button = GetUI<Button>("MapSelectButton04");
         _map05Button = GetUI<Button>("MapSelectButton05");
         _map06Button = GetUI<Button>("MapSelectButton06");
+        _map01Button.onClick.AddListener(SelectMap);
+        _map02Button.onClick.AddListener(SelectMap);
+        _map03Button.onClick.AddListener(SelectMap);
+        _map04Button.onClick.AddListener(SelectMap);
+        _map05Button.onClick.AddListener(SelectMap);
+        _map06Button.onClick.AddListener(SelectMap);
 
-        MapButtonInit(PhotonNetwork.LocalPlayer);
-
-        mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언
-        // 의심되는 곳에서 디버그 찍고했는데 init() OnEnable에서는 안멈춤 .뭔가
+        // MapButtonInit(PhotonNetwork.LocalPlayer);
+        _miniMap = 1;  // 시작맵 토마토설정
+        mapNumber = 2; // 처음맵 세팅 위한 다시 변수값선언 (시작맵토마토...)
+        _mapImage = GetUI("MapImage");
+        _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
+        _mapRawImage.texture = _mapTexture[_miniMap];
 
         SetRoomInfo(PhotonNetwork.CurrentRoom);
 
@@ -152,7 +160,8 @@ public class RoomPanel : BaseUI
 
         // 캐릭터관련
         _charChoicePanel = GetUI("CharChoicePanel");
-        
+        // charNumber = 0; //처음에 캐릭터 0 (보이)
+        PhotonNetwork.LocalPlayer.SetCharacter(charNumber);
         GetUI<Button>("Character1").onClick.AddListener(SelectCharacter);
         GetUI<Button>("Character2").onClick.AddListener(SelectCharacter);
         GetUI<Button>("Character3").onClick.AddListener(SelectCharacter);
@@ -302,7 +311,7 @@ public class RoomPanel : BaseUI
     {
 
         string SelectedMap = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log($"{SelectedMap} is selected.");
+        // Debug.Log($"{SelectedMap} is selected.");
         //if (SelectedMap == _map01Button.name)
         //    mapNumber = 1;
 
@@ -328,31 +337,38 @@ public class RoomPanel : BaseUI
                 mapNumber = 6;
                 break;
         }
-        _miniMap = mapNumber - 1;
-        _mapRawImage.texture = _mapTexture[_miniMap];
+        
         // 맵 전달
-        PhotonNetwork.CurrentRoom.SetMap(mapNumber);
         //PhotonNetwork.CurrentRoom.GetMap();
         //UpdateMap(_miniMap);
         //UpdateRoomProperty();
         _mapListPanel.SetActive(false);
+        // PhotonNetwork.CurrentRoom.SetMap(mapNumber);
         // 맵 선택하면 => Button눌리면
         // 그냥 눌리면 ___하는 함수 만들어서 거기서 정하게
         // 그 번호로 로드 씬
+        if (PhotonNetwork.IsMasterClient)
+        {
+            _miniMap = mapNumber - 1;
+            _mapRawImage.texture = _mapTexture[_miniMap];
+            PhotonNetwork.CurrentRoom.SetMap(mapNumber);
+            Debug.Log($"맵 번호 {mapNumber}가 설정되었습니다.");
+        }
+
     }
 
     /// <summary>
     /// 맵 선택 정보 업데이트
     /// </summary>
     /// <param name="mapNumber"></param>
-    public void UpdateMap(int mapNumber)
+    public void UpdateMapUI(int mapNumber)
     {
-        mapNumber = PhotonNetwork.CurrentRoom.GetMap();
+        mapNumber = PhotonNetwork.CurrentRoom.GetMap()-1;
         if (_mapRawImage == null || _mapTexture == null) return;
 
-        if (mapNumber >= 0 && mapNumber < _mapTexture.Length+1)
+        if (mapNumber >= 0 && mapNumber < _mapTexture.Length)
         {
-            _mapRawImage.texture = _mapTexture[mapNumber-1];
+            _mapRawImage.texture = _mapTexture[mapNumber];
         }
     }
 
@@ -417,7 +433,7 @@ public class RoomPanel : BaseUI
     {
         if (properties.ContainsKey(CustomProperty.MAP))
         {
-            UpdateMap(mapNumber);
+            UpdateMapUI(mapNumber);
         }
 
     }
@@ -457,7 +473,7 @@ public class RoomPanel : BaseUI
     }
     public void ExitPlayer(Player oldPlayer)
     {
-        Debug.Log($"{oldPlayer.NickName}님이 입장하였습니다.");
+        Debug.Log($"{oldPlayer.NickName}님이 퇴장하였습니다.");
         UpdatePlayers();
     }
     private bool CheckAllReady()

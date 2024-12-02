@@ -20,6 +20,8 @@ public class Bubble : MonoBehaviourPun
 
     private void OnEnable()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_LOCKED);
+
         _animator.SetBool("isBubble", true);
         _placer.enabled = false;
         // n초 후 자동 사망
@@ -75,6 +77,7 @@ public class Bubble : MonoBehaviourPun
 
     public void Dead()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_DEAD);
         GameManager.Instance.DecreaseTeammate(_status.teamNum);
         bubble.SetActive(false);
         _animator.SetBool("isDead", true);

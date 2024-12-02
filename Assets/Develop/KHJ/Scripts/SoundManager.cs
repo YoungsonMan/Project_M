@@ -74,8 +74,9 @@ public class SoundManager : MonoBehaviour
     /// 원하는 SFX를 한 번 재생합니다.
     /// </summary>
     /// <param name="sfxIdx">재생을 원하는 SFX</param>
-    public void PlaySFX(E_SFX sfxIdx)
+    /// <param name="volumeScale">볼륨 조절 [0, 1]</param>
+    public void PlaySFX(E_SFX sfxIdx, float volumeScale = 1f)
     {
-        _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx]);
+        _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx], volumeScale);
     }
 }

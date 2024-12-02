@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviourPun
     [SerializeField] public float speed;       // 플레이어 속도
     [SerializeField] public int power;         // 폭탄파워
     [SerializeField] public int bombCount;     // 폭탄수 
+
     [Header("MaxStatus")]
     [SerializeField] public float maxSpeed;       // 플레이어 속도
     [SerializeField] public int maxPower;         // 폭탄파워
@@ -20,14 +21,13 @@ public class PlayerStatus : MonoBehaviourPun
 
     // 플레이어 색상을 위한
     [SerializeField] public Color[] colors;
-    // 색상 변경용 
-    [SerializeField] public Color color;
+    [SerializeField] public Color color;            // 색상 변경용 
     [SerializeField] Renderer bodyRenderer;
 
     // 팀넘버를 설정
-    // -> 플레이어가 참조해서 캐릭터 색상을 설정?
     [SerializeField] public int teamNum;
 
+    // 아이템 UI용 캔버스 
     [SerializeField] GameObject canvas;
 
     private void Awake()

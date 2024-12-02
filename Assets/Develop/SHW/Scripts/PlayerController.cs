@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
     }
     private void Start()
     {
-        //SetColor();
     }
 
     private void Update()
@@ -106,19 +105,6 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
             transform.forward = moveDir;
         }
     }
-
-    //public void SetColor()
-    //{
-    //    // Change color as team color
-    //    color = _status.colors[_status.teamNum];
-    //    for (int i = 0; i < bodyRenderer.materials.Length; i++)
-    //    {
-    //        bodyRenderer.materials[i].color = color;
-    //    }
-
-    //    // Notify to GameManager
-    //    GameManager.Instance.IncreaseTeammate(_status.teamNum);
-    //}
 
     public bool Interact()
     {

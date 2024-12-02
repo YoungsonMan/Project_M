@@ -25,9 +25,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _resultText;
     [SerializeField] PlayerInfo[] _playerInfos;
 
+    private bool _isStart;
     private float _drawTolerance = 0.05f;
     private ValueTuple<float, int>[] _eliminatedTimes;
 
+    public bool IsStart { get { return _isStart; } }
     public PlayerStatus LocalPlayerStatus { set { _localPlayerStatus = value; } }
 
     private void Awake()
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour
         // Lobby Scene
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+            _isStart = false;
+            _gameStartCoroutine = null;
+            _gameOverCoroutine = null;
+
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject player in players)
             {
@@ -67,6 +73,11 @@ public class GameManager : MonoBehaviour
         // Game Scene
         else
         {
+            // Count down while initializing scene
+            SoundManager.Instance.StopBGM();
+            if (_gameStartCoroutine == null)
+                _gameStartCoroutine = StartCoroutine(GameStartRoutine());
+
             _teammates = new int[8];
             _teamFlag = 0;
             _eliminatedTimes = new ValueTuple<float, int>[8];
@@ -77,11 +88,6 @@ public class GameManager : MonoBehaviour
             {
                 info.gameObject.SetActive(false);
             }
-
-            // Sound
-            SoundManager.Instance.StopBGM();
-            SoundManager.Instance.PlayBGM((SoundManager.E_BGM)PhotonNetwork.CurrentRoom.GetMapNum() + (int)SoundManager.E_BGM.ROOM);
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.START);
         }
     }
 
@@ -201,6 +207,21 @@ public class GameManager : MonoBehaviour
 
         // Show
         _resultUI.SetActive(true);
+    }
+
+    private Coroutine _gameStartCoroutine;
+    IEnumerator GameStartRoutine()
+    {
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.COUNTDOWN);
+
+        yield return new WaitForSeconds(3f);
+
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.START);
+        
+        yield return new WaitForSeconds(2f);
+        
+        _isStart = true;
+        SoundManager.Instance.PlayBGM((SoundManager.E_BGM)PhotonNetwork.CurrentRoom.GetMapNum() + (int)SoundManager.E_BGM.ROOM);
     }
 
     private Coroutine _gameOverCoroutine;

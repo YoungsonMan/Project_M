@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviourPun, IExplosionInteractable
             return;
         }
 
+        if (!GameManager.Instance.IsStart)
+            return;
+
         Move();
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

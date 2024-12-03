@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine.UI;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.EventSystems;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerEntry : BaseUI
 {

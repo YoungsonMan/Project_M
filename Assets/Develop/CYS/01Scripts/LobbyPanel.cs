@@ -96,7 +96,7 @@ public class LobbyPanel : BaseUI
         _logOutText.fontSizeMin = 14;
         _logOutText.fontSize = 36;
         _logOutText.fontSizeMax = 72;
-
+        _logOutText.text = "로그아웃";
 
         _lobbyPanel = GetUI("LobbyPanel");
         // 방만들기 버튼

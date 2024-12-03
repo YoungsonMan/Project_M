@@ -31,19 +31,65 @@ public class SignUpPanel : BaseUI
         // ID & PW
         // TMP_Text
         GetUI<TMP_Text>("SignUpIDText").font = kFont;
+        GetUI<TMP_Text>("SignUpIDText").text = "이메일";
+        GetUI<TMP_Text>("SignUpIDText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpIDText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpIDText").fontSizeMax = 72;
+
         GetUI<TMP_Text>("SignUpPWText").font = kFont;
+        GetUI<TMP_Text>("SignUpPWText").text = "비밀번호";
+        GetUI<TMP_Text>("SignUpPWText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpPWText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpPWText").fontSizeMax = 72;
+
         GetUI<TMP_Text>("PWConfirmText").font = kFont;
+        GetUI<TMP_Text>("PWConfirmText").text = "비밀번호 확인";
+        GetUI<TMP_Text>("PWConfirmText").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWConfirmText").fontSize = 36;
+        GetUI<TMP_Text>("PWConfirmText").fontSizeMax = 72;
 
         // TMP_InputField
         _signUpIDInputField = GetUI<TMP_InputField>("SignUpIDInputField");
         GetUI<TMP_Text>("SignUpIDPlaceholder").text = "example@gmail.com";
         GetUI<TMP_Text>("SignUpIDPlaceholder").font = kFont;
+        GetUI<TMP_Text>("SignUpIDPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpIDPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("SignUpIDPlaceholder").fontSizeMax = 58;
+        // 아이디 입력란 문자
+        GetUI<TMP_Text>("SignUpIDInputText").font = kFont;
+        GetUI<TMP_Text>("SignUpIDInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpIDInputText").fontSize = 22;
+        GetUI<TMP_Text>("SignUpIDInputText").fontSizeMax = 58;
+
+        // 비밀번호 입력
         _signUpPWInputField = GetUI<TMP_InputField>("SignUpPWInputField");
-        GetUI<TMP_Text>("SUPWinputPlaceholder").text = "Cannot be too simple like\n qwer1234 & longer than 6 chars";
+        GetUI<TMP_Text>("SUPWinputPlaceholder").text = "비밀번호를 입력하세요";
         GetUI<TMP_Text>("SUPWinputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("SUPWinputPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("SUPWinputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("SUPWinputPlaceholder").fontSizeMax = 58;
+        // 비밀번호 입력란 문자
+        GetUI<TMP_Text>("SUPWInputText").font = kFont;
+        GetUI<TMP_Text>("SUPWInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SUPWInputText").fontSize = 22;
+        GetUI<TMP_Text>("SUPWInputText").fontSizeMax = 58;
+
+        // 비밀번호 확인란
         _PWConfirmInputField = GetUI<TMP_InputField>("PWConfirmInputField");
-        GetUI<TMP_Text>("PWConfirmplaceholder").text = "Must to match with the password.";
+        GetUI<TMP_Text>("PWConfirmplaceholder").text = "위와 동일해야 합니다.";
         GetUI<TMP_Text>("PWConfirmplaceholder").font = kFont;
+        GetUI<TMP_Text>("PWConfirmplaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWConfirmplaceholder").fontSize = 22;
+        GetUI<TMP_Text>("PWConfirmplaceholder").fontSizeMax = 58;
+        // 비밀번호 확인란 입력란 문자
+        GetUI<TMP_Text>("PWConfirmInputText").font = kFont;
+        GetUI<TMP_Text>("PWConfirmInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWConfirmInputText").fontSize = 22;
+        GetUI<TMP_Text>("PWConfirmInputText").fontSizeMax = 58;
+
+
+
+
 
         // Button
         GetUI<Button>("SignUpConfirmButton").onClick.AddListener(SignUp);  // Init 바꿔야함

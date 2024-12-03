@@ -101,26 +101,66 @@ public class LoginPanel : BaseUI
     //  }
     private void Init()
     {
-        SoundManager.Instance.StopBGM();
-        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+        
 
 
         // TMP_Text
+        // ID_Text
         GetUI<TMP_Text>("IDText").font = kFont;
+        GetUI<TMP_Text>("IDText").fontSizeMin = 14;
+        GetUI<TMP_Text>("IDText").fontSize = 36;
+        GetUI<TMP_Text>("IDText").fontSizeMax = 72;
+        // PW_Text
         GetUI<TMP_Text>("PWText").font = kFont;
+        GetUI<TMP_Text>("PWText").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWText").fontSize = 36;
+        GetUI<TMP_Text>("PWText").fontSizeMax = 72;
         
+        GetUI<TMP_Text>("IDText").text = "이메일";
+        GetUI<TMP_Text>("PWText").text = "비밀번호";
+
         // TMP_InputField
+        // ID
         _emailInputField = GetUI<TMP_InputField>("IDInputField");
         GetUI<TMP_Text>("IDInputPlaceholder").text = "example@gmail.com";
         GetUI<TMP_Text>("IDInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("IDInputPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("IDInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("IDInputText").fontSize = 22;
+        GetUI<TMP_Text>("IDInputText").fontSizeMax = 58;
+
+        // PW
         _pwInputField = GetUI<TMP_InputField>("PWInputField");
-        GetUI<TMP_Text>("PWInputPlaceholder").text = "Type your password in";
+        GetUI<TMP_Text>("PWInputPlaceholder").text = "비밀번호를 입력하세요";
         GetUI<TMP_Text>("PWInputPlaceholder").font = kFont;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("PWInputPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("PWInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("PWInputText").fontSize = 22;
+        GetUI<TMP_Text>("PWInputText").fontSizeMax = 58;
 
         // Button
+        // LoginButton
         GetUI<Button>("LoginButton").onClick.AddListener(Login);
+        GetUI<TMP_Text>("LoginButtonText").fontSizeMin = 14;
+        GetUI<TMP_Text>("LoginButtonText").fontSize = 36;
+        GetUI<TMP_Text>("LoginButtonText").fontSizeMax = 72;
+        GetUI<TMP_Text>("LoginButtonText").text = "로그인";
+        // SignUpButton
         GetUI<Button>("SignUpButton").onClick.AddListener(GoToSignUp);
+        GetUI<TMP_Text>("SignUpText").fontSizeMin = 14;
+        GetUI<TMP_Text>("SignUpText").fontSize = 36;
+        GetUI<TMP_Text>("SignUpText").fontSizeMax = 72;
+        GetUI<TMP_Text>("SignUpText").text = "회원가입";
+        // ResetPWButton
         GetUI<Button>("ResetPWButton").onClick.AddListener(ResetPW);
+        GetUI<TMP_Text>("ResetPWText").fontSizeMin = 14;
+        GetUI<TMP_Text>("ResetPWText").fontSize = 36;
+        GetUI<TMP_Text>("ResetPWText").fontSizeMax = 72;
+        GetUI<TMP_Text>("ResetPWText").text = "비밀번호 찾기";
 
         // VerificationPanel
         _verificationPanel = GetUI("VerificationPanel");
@@ -138,11 +178,50 @@ public class LoginPanel : BaseUI
 
         // ResetPasswordPanel
         _resetPwPanel = GetUI("ResetPwPanel");
+        GetUI<TMP_Text>("RestPwIDText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDText").fontSize = 36;
+        GetUI<TMP_Text>("RestPwIDText").fontSizeMax = 72;
+        GetUI<TMP_Text>("RestPwIDText").text = "이메일";
+        // placeInput
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSize = 22;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").fontSizeMax = 58;
+        GetUI<TMP_Text>("RestPwIDInputTextPlaceholder").text = "이메일을 입력하세요";
+        // RestPwIDInputText
+        GetUI<TMP_Text>("RestPwIDInputText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwIDInputText").fontSize = 22;
+        GetUI<TMP_Text>("RestPwIDInputText").fontSizeMax = 58;
+
         _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
         GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
+        GetUI<TMP_Text>("RestPwConfirmText").text = "초기화 매일발송";
+        GetUI<TMP_Text>("RestPwConfirmText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwConfirmText").fontSize = 22;
+        GetUI<TMP_Text>("RestPwConfirmText").fontSizeMax = 58;
+
         GetUI<Button>("RestPwCancelButton").onClick.AddListener(CancelFindingPW);
+        GetUI<TMP_Text>("RestPwCancelText").text = "취소";
+        GetUI<TMP_Text>("RestPwCancelText").fontSizeMin = 14;
+        GetUI<TMP_Text>("RestPwCancelText").fontSize = 36;
+        GetUI<TMP_Text>("RestPwCancelText").fontSizeMax = 72;
+
+
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+
+        GetUI<Button>("ExitButton").onClick.AddListener(QuitGame);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                    Application.Quit();
+        #endif
+
+    }
     
 
     /// <summary>

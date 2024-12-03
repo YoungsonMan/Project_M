@@ -96,7 +96,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         SetActivePanel(Panel.Lobby);
         SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOBBY);
         //Chat 관련 FromChatManager
-        AddChatMessage($"{PhotonNetwork.LocalPlayer.NickName} has joined");
+        AddChatMessage($"{PhotonNetwork.LocalPlayer.NickName}님이 입장하였습니다.");
 
         // 같이 입장해야되서 일단 이런식으로 되면안됨
     }

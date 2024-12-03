@@ -1,6 +1,7 @@
 using Firebase.Auth;
 using Firebase.Extensions;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class VerificationPanel : BaseUI
@@ -25,6 +26,12 @@ public class VerificationPanel : BaseUI
     private void OnEnable()
     {
         _verificationPanel = GetUI("VerificationPanel");
+        GetUI<TMP_Text>("WaitingText");
+        GetUI<TMP_Text>("WaitingText").text = "본인인증을 기다리는 중입니다.\r\n이메일을 확인해주세요";
+        GetUI<TMP_Text>("WaitingText").fontSizeMin = 14;
+        GetUI<TMP_Text>("WaitingText").fontSize = 22;
+        GetUI<TMP_Text>("WaitingText").fontSizeMin = 58;
+
         // _nicknamePanel = GameObject.Find("NicknamePanel"); // 이게 비활성화되있으면 안되네
         // 아 일단 모르겠다 그냥 일단 지금은 Inspector에서 연결해서 쓰기
         SendVerifyEmail();

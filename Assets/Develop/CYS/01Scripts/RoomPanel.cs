@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 public class RoomPanel : BaseUI
@@ -42,7 +43,6 @@ public class RoomPanel : BaseUI
     public int mapNumber = 1;
 
 
-
     // 팀관련
     [Header("팀관련")]
     public int TeamNumber; // 여기서 값설정해서 플레이어한테
@@ -64,6 +64,15 @@ public class RoomPanel : BaseUI
     public int charNumber; // 우측상단 캐릭터 선택창 캐릭터번호
 
 
+    [Header("레디버튼관련")]
+    [SerializeField] Button _readyButton;
+    [SerializeField] GameObject _readyTextBox;
+    [SerializeField] TMP_Text _readyText;
+    private readonly Color readyColor = new Color(1, 0.8f, 0, 1);
+    private readonly Color notReadyColor = Color.white;
+    private Player _player;
+    PlayerEntry _playerEntry;
+    [SerializeField] TMP_Text _readyPopText;
 
     private void OnEnable()
     {
@@ -105,6 +114,9 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
         GetUI<TMP_Text>("StartButtonText").font = kFont;
+        GetUI<TMP_Text>("StartButtonText").fontSizeMin = 14;
+        GetUI<TMP_Text>("StartButtonText").fontSize = 22;
+        GetUI<TMP_Text>("StartButtonText").fontSizeMax = 58;
         _startButton.onClick.AddListener(StartGame);
 
         // 맵선택 관련
@@ -131,18 +143,20 @@ public class RoomPanel : BaseUI
         _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
         _mapRawImage.texture = _mapTexture[_miniMap];
         _mapTitleText = GetUI<TMP_Text>("MapTitleText");
-        _mapTitleText.text = (mapList[mapNumber]);
+        //_mapTitleText.text = (mapList[mapNumber]);
+        _mapTitleText.fontSizeMin = 14;
+        _mapTitleText.fontSize = 22;
+        _mapTitleText.fontSizeMax = 58;
         SetRoomInfo(PhotonNetwork.CurrentRoom);
-
+        KoreanMap();
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
-        GetUI<TMP_Text>("MapNameText01").text = (mapList[1]);
-        GetUI<TMP_Text>("MapNameText02").text = (mapList[2]);
-        GetUI<TMP_Text>("MapNameText03").text = (mapList[3]);
-        GetUI<TMP_Text>("MapNameText04").text = (mapList[4]);
-        GetUI<TMP_Text>("MapNameText05").text = (mapList[5]);
-        GetUI<TMP_Text>("MapNameText06").text = (mapList[6]);
-
+        GetUI<TMP_Text>("MapNameText01").text = "팜스트로이";
+        GetUI<TMP_Text>("MapNameText02").text = "토마토스트로이";
+        GetUI<TMP_Text>("MapNameText03").text = "아이스빌리지 10";
+        GetUI<TMP_Text>("MapNameText04").text = "해적 14";
+        GetUI<TMP_Text>("MapNameText05").text = "팩토리 07";
+        GetUI<TMP_Text>("MapNameText06").text = "포레스트07";
 
         // 팀관련
         _teamChoicePanel = GetUI("TeamChoicePanel");
@@ -168,6 +182,19 @@ public class RoomPanel : BaseUI
         _charRawImage.texture = _charTexture[charNumber];
         // 위에 이렇게 이미지 받는걸 PlayerEntry에서도 하면 될듯?? (GetCharacter)써서?
 
+
+        // 레디버튼 레디 (스타트버튼옆)
+        _readyTextBox = GetUI("ReadyTextBox");
+        _readyText = GetUI<TMP_Text>("ReadyText");
+        _readyText.font = kFont;
+        // 레디텍스트박스 밑에 레디버튼 (평상시 흰색글씨에 레디하면 노랑색되기위한구조)++처음에 만들고수정하다보니이렇게됨
+        // 구조조정하려다가 망할뻔해서 일단 그냥 두기로함.
+        _readyButton = GetUI<Button>("ReadyButton");
+        _readyButton.onClick.AddListener(Ready);
+        // 레디하면 플레이어 위에 나오는 READY텍스트
+        _readyPopText = GetUI<TMP_Text>("ReadyPopText");
+        _readyPopText.font = kFont;
+
     }
     private void Update()
     {
@@ -185,9 +212,60 @@ public class RoomPanel : BaseUI
 
         }
     }
+    public void SetPlayer(Player player)
+    {
+        // KMS 플레이어 가져오기.
+        _player = player;
+        _readyButton.gameObject.SetActive(true);
+        _readyButton.interactable = player == PhotonNetwork.LocalPlayer;
+        
+        {
+ 
+            UpdateReadyState();
+        }
 
+    }
 
+    public void Ready()
+    {
+        // !레디 -> 레디 || 레디 -> !레디 
+        bool ready = PhotonNetwork.LocalPlayer.GetReady();
+        ready = !ready;
 
+        PhotonNetwork.LocalPlayer.SetReady(ready);
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+        // KMS 레디 부분갱신.
+        {
+            //UpdateReadyState();
+
+            if (ready)
+            {
+                PhotonNetwork.LocalPlayer.SetReady(true);
+                _readyText.text = "Ready";
+                Debug.Log($"준비상태: {ready}");
+            }
+            else
+            {
+                PhotonNetwork.LocalPlayer.SetReady(false);
+                _readyText.text = "";
+            }
+        }
+    }
+    private void UpdateReadyState()
+    {
+        if (_player.GetReady())
+        {
+            _readyText.text = "Ready";
+            _readyText.color = readyColor;
+            _readyPopText.text = "READY";
+        }
+        else
+        {
+            _readyText.text = "Ready";
+            _readyText.color = notReadyColor;
+            _readyPopText.text = "";
+        }
+    }
     // 뭔가 지금 딱히 쓸데가 없는거같음
     public GameObject[] GetChildren(GameObject parent)
     {
@@ -281,6 +359,7 @@ public class RoomPanel : BaseUI
         {
             mapList.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
         }
+        
     }
 
 
@@ -329,9 +408,24 @@ public class RoomPanel : BaseUI
             PhotonNetwork.CurrentRoom.SetMapNum(mapNumber);
             PhotonNetwork.CurrentRoom.SetMapName(mapList[mapNumber]);
             Debug.Log($"맵 번호 {mapNumber}가 설정되었습니다.");
-            _mapTitleText.text = (mapList[mapNumber]);
+            // KoreanMap();
+            //_mapTitleText.text = (mapList[mapNumber]);
         }
-
+    }
+    private void KoreanMap()
+    {
+        if (mapNumber == 1)
+            _mapTitleText.text = "팜스트로이";
+        else if (mapNumber == 2)
+            _mapTitleText.text = "토마토 스트로이";
+        else if (mapNumber == 3)
+            _mapTitleText.text = "아이스빌리지 10";
+        else if (mapNumber == 4)
+            _mapTitleText.text = "해적 14";
+        else if (mapNumber == 5)
+            _mapTitleText.text = "팩토리 07";
+        else if (mapNumber == 6)
+            _mapTitleText.text = "포레스트07";
     }
 
     /// <summary>
@@ -355,6 +449,7 @@ public class RoomPanel : BaseUI
         {
             _mapTitleText.text = mapName;
         }
+        KoreanMap();
     }
 
     public void UpdatePlayers()

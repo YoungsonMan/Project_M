@@ -89,6 +89,9 @@ public class RoomPanel : BaseUI
 
         Init();
 
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.ROOM);
+
         // TestLog();
         Debug.Log($"들어가서 맵상태 로그, 맵 : {(mapList[mapNumber])}");
     }

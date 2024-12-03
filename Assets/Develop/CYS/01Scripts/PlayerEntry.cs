@@ -59,7 +59,7 @@ public class PlayerEntry : BaseUI
         _nameText.font = kFont;
         _nameText.fontSizeMin = 14;
         _nameText.fontSize = 22;
-        _nameText.fontSizeMax = 58;
+        _nameText.fontSizeMax = 50;
         _teamColorIndicator = GetUI<RawImage>("TeamColorBox");
 
         // 레디하면 플레이어 위에 나오는 READY텍스트

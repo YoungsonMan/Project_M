@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8786447781190431886}
   - component: {fileID: 1063433537253734184}
   - component: {fileID: 7718743306693638602}
+  - component: {fileID: 8498529065732487665}
   m_Layer: 0
   m_Name: Fragment_MovingBox
   m_TagString: Untagged
@@ -137,3 +138,15 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8498529065732487665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362689704862667906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8be6a0829f7a54aa3628992be05277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

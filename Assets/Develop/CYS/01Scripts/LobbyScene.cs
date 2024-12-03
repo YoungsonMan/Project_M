@@ -85,16 +85,16 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
-        //SoundManager.Instance.StopBGM();
+   
         Debug.Log($"접속이 끊겼다. cause : {cause} \n OnDisconnected");
         SetActivePanel(Panel.Login);
     }
     public override void OnJoinedLobby()
     {
-        //SoundManager.Instance.StopBGM();
+      
         Debug.Log("로비 입장 성공");
         SetActivePanel(Panel.Lobby);
-        //SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOBBY);
+     
         //Chat 관련 FromChatManager
         AddChatMessage($"{PhotonNetwork.LocalPlayer.NickName}님이 입장하였습니다.");
 
@@ -112,16 +112,15 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공 \n OnJoinedRoom");
-       // SoundManager.Instance.StopBGM();
+
         SetActivePanel(Panel.Room);
-       // SoundManager.Instance.PlayBGM(SoundManager.E_BGM.ROOM);
-        // ClearChatMessages();
+
     }
     public override void OnLeftRoom()
     {
         Debug.Log("방 퇴장 성공");
         SetActivePanel(Panel.Lobby);
-        //SoundManager.Instance.StopBGM();
+
         ClearChatMessages();
     }
     /// <summary>
@@ -201,7 +200,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
             _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
             _chatInputField.text = "";
             // 채팅 엔터 사운드
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
+            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
         }
     }
     public void OnEndEditEventButton()
@@ -214,7 +213,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
         // target 받는이 모두에게 inputField에 적힌대로 
         _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
         _chatInputField.text = "";
-        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
         // }
     }
 

@@ -334,12 +334,13 @@ public class LobbyPanel : BaseUI
     {
         if (!PhotonNetwork.InLobby)
             return;
+        PhotonNetwork.Disconnect();
         Application.Quit();
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+        #else
                     Application.Quit();
-#endif
+        #endif
 
     }
 }

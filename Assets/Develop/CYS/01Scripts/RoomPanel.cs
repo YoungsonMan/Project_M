@@ -41,7 +41,7 @@ public class RoomPanel : BaseUI
     GameObject _map01, _map02, _map03, _map04, _map05, _map06;
     Button _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button;
     public int mapNumber = 1;
-    string[] _korMap;
+    [SerializeField] string[] _korMap;
 
 
     // 팀관련
@@ -52,7 +52,6 @@ public class RoomPanel : BaseUI
     [SerializeField] GameObject[] _teamColor;
     public int teamColorNum;
     Image _teamImage;
-
 
 
     // 캐릭터관련
@@ -110,7 +109,6 @@ public class RoomPanel : BaseUI
         _roomMembers = _roomCapacity.text;
 
 
-
         GetUI<Button>("PreviousButton").onClick.AddListener(LeaveRoom);
         GetUI<TMP_Text>("PreviousButtonText").font = kFont;
         _startButton = GetUI<Button>("StartButton");
@@ -158,13 +156,6 @@ public class RoomPanel : BaseUI
         GetUI<TMP_Text>("MapNameText04").text = "해적 14";
         GetUI<TMP_Text>("MapNameText05").text = "팩토리 07";
         GetUI<TMP_Text>("MapNameText06").text = "포레스트 07";
-      //  _korMap[1] = "팜 스토리";
-      //  _korMap[2] = "토마토 스토리";
-      //  _korMap[3] = "아이스빌리지 10";
-      //  _korMap[4] = "해적 14";
-      //  _korMap[5] = "팩토리 07";
-      //  _korMap[6] = "포레스트 07";
-
 
         // 팀관련
         _teamChoicePanel = GetUI("TeamChoicePanel");
@@ -422,23 +413,23 @@ public class RoomPanel : BaseUI
     }
     private void KoreanMap()
     {
-        if (mapNumber == 1 || _mapTitleText.text == "FarmStroy")
+        if (_mapTitleText.text == "FarmStroy")
         {
             _mapTitleText.text = "팜 스토리";
         }
-        else if (mapNumber == 2 || _mapTitleText.text == "TomatoStroy") 
+        else if (_mapTitleText.text == "TomatoStroy") 
         {
             _mapTitleText.text = "토마토 스토리"; 
         }
-        else if (mapNumber == 3 || _mapTitleText.text == "ICE_Villege10")
+        else if (_mapTitleText.text == "ICE_Villege10")
         {
             _mapTitleText.text = "아이스빌리지 10"; 
         }
-        else if (mapNumber == 4 || _mapTitleText.text == "Pirate14")
+        else if (_mapTitleText.text == "Pirate14")
         {
             _mapTitleText.text = "해적 14"; 
         }
-        else if (mapNumber == 5 || _mapTitleText.text == "Factory07") 
+        else if (_mapTitleText.text == "Factory07") 
         {
             _mapTitleText.text = "팩토리 07"; 
         }

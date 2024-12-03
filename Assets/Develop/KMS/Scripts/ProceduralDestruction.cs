@@ -160,6 +160,9 @@ public class ProceduralDestruction : MonoBehaviourPun, IExplosionInteractable
             // 아이템이 생생될때 방의 오브젝트로 생성하기.
             int randomIndex = Random.Range(0, itemPrefabs.Length);
             Vector3 spawnPosition = transform.position + Vector3.down * lag;
+            if (transform.name == "stun_hammer_head_lvl3_LOD1")
+                spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
+
             GameObject item = PhotonNetwork.InstantiateRoomObject($"Item/{itemPrefabs[randomIndex].name}", spawnPosition, Quaternion.identity);
 
             if(parentContainer)

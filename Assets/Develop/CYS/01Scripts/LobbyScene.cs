@@ -218,13 +218,19 @@ public class LobbyScene : MonoBehaviourPunCallbacks
        //if (_chatInputField.text != "") //&& _chatInputField.text.Length > 0 && Input.GetKeyDown(KeyCode.Return)
        // {
             Debug.Log("채팅엔터 보내기 테스트");
-            string strMessage = _userName + " : " + _chatInputField.text;
+        if (_userName != PhotonNetwork.LocalPlayer.NickName)
+        {
+            Debug.Log($"닉네임갱신 : {_userName}");
+            _userName = PhotonNetwork.LocalPlayer.NickName;
+            Debug.Log($"닉네임갱신 (선언후) : {_userName}");
+        }
+        string strMessage = _userName + " : " + _chatInputField.text;
 
-            // target 받는이 모두에게 inputField에 적힌대로 
-            _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
-            _chatInputField.text = "";
-            // 채팅 엔터 사운드
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+         // target 받는이 모두에게 inputField에 적힌대로 
+         _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
+         _chatInputField.text = "";
+         // 채팅 엔터 사운드
+         SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
        // }
     }
     public void OnEndEditEventButton()

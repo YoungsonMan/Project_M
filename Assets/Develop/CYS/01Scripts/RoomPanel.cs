@@ -41,6 +41,7 @@ public class RoomPanel : BaseUI
     GameObject _map01, _map02, _map03, _map04, _map05, _map06;
     Button _map01Button, _map02Button, _map03Button, _map04Button, _map05Button, _map06Button;
     public int mapNumber = 1;
+    string[] _korMap;
 
 
     // 팀관련
@@ -151,12 +152,19 @@ public class RoomPanel : BaseUI
         KoreanMap();
         Debug.Log($"들어가서 맵상태 로그, 버튼이닛후 맵 : {(mapList[mapNumber])}");
 
-        GetUI<TMP_Text>("MapNameText01").text = "팜스트로이";
-        GetUI<TMP_Text>("MapNameText02").text = "토마토스트로이";
+        GetUI<TMP_Text>("MapNameText01").text = "팜 스토리";
+        GetUI<TMP_Text>("MapNameText02").text = "토마토 스토리";
         GetUI<TMP_Text>("MapNameText03").text = "아이스빌리지 10";
         GetUI<TMP_Text>("MapNameText04").text = "해적 14";
         GetUI<TMP_Text>("MapNameText05").text = "팩토리 07";
-        GetUI<TMP_Text>("MapNameText06").text = "포레스트07";
+        GetUI<TMP_Text>("MapNameText06").text = "포레스트 07";
+      //  _korMap[1] = "팜 스토리";
+      //  _korMap[2] = "토마토 스토리";
+      //  _korMap[3] = "아이스빌리지 10";
+      //  _korMap[4] = "해적 14";
+      //  _korMap[5] = "팩토리 07";
+      //  _korMap[6] = "포레스트 07";
+
 
         // 팀관련
         _teamChoicePanel = GetUI("TeamChoicePanel");
@@ -408,24 +416,36 @@ public class RoomPanel : BaseUI
             PhotonNetwork.CurrentRoom.SetMapNum(mapNumber);
             PhotonNetwork.CurrentRoom.SetMapName(mapList[mapNumber]);
             Debug.Log($"맵 번호 {mapNumber}가 설정되었습니다.");
-            // KoreanMap();
+            KoreanMap();
             //_mapTitleText.text = (mapList[mapNumber]);
         }
     }
     private void KoreanMap()
     {
-        if (mapNumber == 1)
-            _mapTitleText.text = "팜스트로이";
-        else if (mapNumber == 2)
-            _mapTitleText.text = "토마토 스트로이";
-        else if (mapNumber == 3)
-            _mapTitleText.text = "아이스빌리지 10";
-        else if (mapNumber == 4)
-            _mapTitleText.text = "해적 14";
-        else if (mapNumber == 5)
-            _mapTitleText.text = "팩토리 07";
-        else if (mapNumber == 6)
-            _mapTitleText.text = "포레스트07";
+        if (mapNumber == 1 || _mapTitleText.text == "FarmStroy")
+        {
+            _mapTitleText.text = "팜 스토리";
+        }
+        else if (mapNumber == 2 || _mapTitleText.text == "TomatoStroy") 
+        {
+            _mapTitleText.text = "토마토 스토리"; 
+        }
+        else if (mapNumber == 3 || _mapTitleText.text == "ICE_Villege10")
+        {
+            _mapTitleText.text = "아이스빌리지 10"; 
+        }
+        else if (mapNumber == 4 || _mapTitleText.text == "Pirate14")
+        {
+            _mapTitleText.text = "해적 14"; 
+        }
+        else if (mapNumber == 5 || _mapTitleText.text == "Factory07") 
+        {
+            _mapTitleText.text = "팩토리 07"; 
+        }
+        else
+        {
+            _mapTitleText.text = "포레스트 07";
+        }
     }
 
     /// <summary>
@@ -448,8 +468,8 @@ public class RoomPanel : BaseUI
         if (_mapTitleText.text != mapName)
         {
             _mapTitleText.text = mapName;
+            KoreanMap();
         }
-        KoreanMap();
     }
 
     public void UpdatePlayers()
@@ -560,6 +580,7 @@ public class RoomPanel : BaseUI
     }
     public void ExitPlayer(Player oldPlayer)
     {
+        if (!PhotonNetwork.InRoom) return;
         Debug.Log($"{oldPlayer.NickName}님이 퇴장하였습니다.");
         UpdatePlayers();
     }
@@ -584,6 +605,7 @@ public class RoomPanel : BaseUI
     }
     public void StartGame()
     {
+        if (!PhotonNetwork.InRoom) return;
         Debug.Log(mapList[mapNumber]);
         PhotonNetwork.LoadLevel(mapList[mapNumber]); // 게임 연결하면서 이름따라서 변경
         PhotonNetwork.CurrentRoom.IsOpen = false;
@@ -592,6 +614,7 @@ public class RoomPanel : BaseUI
 
     public void LeaveRoom()
     {
+        if (!PhotonNetwork.InRoom) return;
         SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
         PhotonNetwork.LeaveRoom();
     }

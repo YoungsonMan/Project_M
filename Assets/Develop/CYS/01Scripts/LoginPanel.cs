@@ -101,9 +101,6 @@ public class LoginPanel : BaseUI
     //  }
     private void Init()
     {
-        
-
-
         // TMP_Text
         // ID_Text
         GetUI<TMP_Text>("IDText").font = kFont;

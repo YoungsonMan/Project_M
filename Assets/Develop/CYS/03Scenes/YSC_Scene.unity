@@ -31103,7 +31103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25A0\u25A0\u25A0\u25A0\u25A1\u25A1\u25A1\u25A1\n\u25A0\u25A0\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\n\u25A0\u25A0\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1"
+  m_text: "\u25A0\u25A0\u25A0\u25A0\u25A1\u25A1\u25A1\u25A1\n\u25A0\u25A0\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\n\u25A0\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1\u25A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab8b64c67c0388444bb4fb23ba0ea7a4, type: 2}
   m_sharedMaterial: {fileID: -8287948236840994008, guid: ab8b64c67c0388444bb4fb23ba0ea7a4, type: 2}

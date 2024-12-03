@@ -37,7 +37,7 @@ public class LoginPanel : BaseUI
 
     private void OnDisable()
     {
-        SoundManager.Instance.StopBGM();
+        
     }
     private void Update()
     {
@@ -45,7 +45,7 @@ public class LoginPanel : BaseUI
         // 엔터키에서 로그인 버튼 입력
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
         {
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.BOMB_EXPLOSION);
+            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
             Login();
         }
 
@@ -101,9 +101,6 @@ public class LoginPanel : BaseUI
     //  }
     private void Init()
     {
-        
-
-
         // TMP_Text
         // ID_Text
         GetUI<TMP_Text>("IDText").font = kFont;
@@ -206,14 +203,14 @@ public class LoginPanel : BaseUI
         GetUI<TMP_Text>("RestPwCancelText").fontSizeMax = 72;
 
 
-        SoundManager.Instance.StopBGM();
-        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+
 
         GetUI<Button>("ExitButton").onClick.AddListener(QuitGame);
     }
 
     public void QuitGame()
     {
+        
         Application.Quit();
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;

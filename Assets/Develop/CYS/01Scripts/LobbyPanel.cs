@@ -228,6 +228,8 @@ public class LobbyPanel : BaseUI
     }
     public void CreateRoomMenu()
     {
+        if (!PhotonNetwork.InLobby)
+            return;
         _createRoomPanel.SetActive(true);
         _isMakingRoom = true;
         _roomNameInputField.text = $"Room {Random.Range(1000, 10000)}";
@@ -242,6 +244,8 @@ public class LobbyPanel : BaseUI
     }
     public void CreateRoomConfirm()
     {
+        if (!PhotonNetwork.InLobby)
+            return;
         string roomName = _roomNameInputField.text;
         if (roomName == "")
         {
@@ -258,11 +262,14 @@ public class LobbyPanel : BaseUI
 
         PhotonNetwork.CreateRoom(roomName, options);
         SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+        _createRoomPanel.SetActive(false);
         // 방 패널 만들어야됨
     }
     public void RandomMatching()
     {
         Debug.Log("랜덤 매칭 요청");
+        if (!PhotonNetwork.InLobby) return;
+
 
         // 비어 있는 방이 없으면 들어가지 않는 방식
         // PhotonNetwork.JoinRandomRoom();
@@ -316,6 +323,8 @@ public class LobbyPanel : BaseUI
     // From mainPanel
     public void LogOut()
     {
+        if (!PhotonNetwork.InLobby)
+            return;
         Debug.Log("로그아웃 테스트 로그");
         PhotonNetwork.Disconnect();
     }
@@ -323,12 +332,15 @@ public class LobbyPanel : BaseUI
 
     public void QuitGame()
     {
+        if (!PhotonNetwork.InLobby)
+            return;
+        PhotonNetwork.Disconnect();
         Application.Quit();
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+        #else
                     Application.Quit();
-#endif
+        #endif
 
     }
 }

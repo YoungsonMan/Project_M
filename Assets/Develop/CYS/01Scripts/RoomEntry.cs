@@ -72,8 +72,11 @@ public class RoomEntry : BaseUI
 
     public void JoinRoom()
     {
+        if (!PhotonNetwork.InLobby)
+            return;
         PhotonNetwork.LeaveLobby();
         PhotonNetwork.JoinRoom(_roomTitle.text);
+
     }
 
 }

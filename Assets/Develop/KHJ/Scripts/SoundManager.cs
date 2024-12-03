@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class SoundManager : MonoBehaviour
         BOMB_RESCUED,
         BOMB_DEAD,
 
+        COUNTDOWN,
         START,
         WIN,
         LOSE,
@@ -85,6 +87,14 @@ public class SoundManager : MonoBehaviour
     /// <param name="volumeScale">º¼·ý Á¶Àý [0, 1]</param>
     public void PlaySFX(E_SFX sfxIdx, float volumeScale = 1f)
     {
-        _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx], volumeScale);
+        if (SceneManager.GetActiveScene().buildIndex != 0 && GameManager.Instance.IsStart == false)
+        {
+            if (sfxIdx == E_SFX.COUNTDOWN || sfxIdx == E_SFX.START)
+                _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx], volumeScale);
+            else
+                _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx], 0f);
+        }
+        else
+            _audioSfx.PlayOneShot(_sfxs[(int)sfxIdx], volumeScale);
     }
 }

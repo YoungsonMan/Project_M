@@ -39,7 +39,7 @@ public class WaterBombPlacer : MonoBehaviourPun
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && GameManager.Instance.IsStart)
         {
             if (Input.GetKeyDown(KeyCode.Space) && _waterBombPool != null && _curBombCount < _playerStatus.bombCount)
             {

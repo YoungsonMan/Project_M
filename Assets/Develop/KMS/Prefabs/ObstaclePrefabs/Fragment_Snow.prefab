@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1500701565694250286}
   - component: {fileID: 4989483571100710948}
   - component: {fileID: 2971336934552848003}
+  - component: {fileID: 2501653089926198213}
   m_Layer: 0
   m_Name: Fragment_Snow
   m_TagString: Untagged
@@ -114,3 +115,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.39838478, y: 0.39838478, z: 0.39838478}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2501653089926198213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479339484237943074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8be6a0829f7a54aa3628992be05277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5031030150293042190}
   - component: {fileID: 3452392877675476291}
   m_Layer: 0
-  m_Name: Dirt_Item
+  m_Name: Dart_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

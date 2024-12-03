@@ -28868,6 +28868,7 @@ MonoBehaviour:
   _roomPanel: {fileID: 47153932}
   _chatContent: {fileID: 1375621995}
   _chatInputField: {fileID: 2094901744}
+  _chatInputFieldText: {fileID: 520761520}
 --- !u!4 &1892130475
 Transform:
   m_ObjectHideFlags: 0

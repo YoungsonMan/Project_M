@@ -114,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5323386283925807557}
   bubble: {fileID: 851820312}
-  collider: {fileID: 325195807299191390}
 --- !u!114 &7419649438223639742
 MonoBehaviour:
   m_ObjectHideFlags: 0

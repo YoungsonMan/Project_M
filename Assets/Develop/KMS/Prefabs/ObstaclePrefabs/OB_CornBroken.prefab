@@ -184,7 +184,10 @@ MonoBehaviour:
   - {fileID: 4793460919394925159, guid: f0c6be0bfa2ceee4b83489dd99758c5a, type: 3}
   - {fileID: 3965737416544119840, guid: 0d9051e0ff51e4f4faf4a41edcb54b33, type: 3}
   - {fileID: 2770734395660610429, guid: 618c577ac00fe8f4fbf163a5cfddb45e, type: 3}
+  - {fileID: 5910107999764745864, guid: 51bd3a3357bed3448b5ca0d2f5a2315a, type: 3}
+  - {fileID: 6281382887573115803, guid: b5f2ce8eb2631234ba5875bd0819f2f1, type: 3}
   itemSpawnChance: 0.3
+  isContinue: 0
 --- !u!114 &4423483410093060860
 MonoBehaviour:
   m_ObjectHideFlags: 0

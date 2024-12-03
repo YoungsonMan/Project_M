@@ -240,6 +240,7 @@ public class GameManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("Return to lobby scene==============");
+            PhotonNetwork.DestroyAll();
             PhotonNetwork.LoadLevel(0);
             PhotonNetwork.CurrentRoom.IsOpen = true;
         }

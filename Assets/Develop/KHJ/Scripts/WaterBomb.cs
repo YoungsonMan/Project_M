@@ -178,14 +178,14 @@ public class WaterBomb : MonoBehaviour, IExplosionInteractable
 
     private int ProceedWaterStream(Vector3 direction, int maxRange)
     {
-        RaycastHit hit;
         Vector3 origin = transform.position;
         Vector3 offset = new Vector3(0, 0.5f, 0);
         bool isContinue = true;
 
         for(int range = 0; range < maxRange; range++)
         {
-            if (Physics.Raycast(origin + offset, direction, out hit, 1f))
+            RaycastHit[] hits = Physics.RaycastAll(origin + offset, direction, 1f);
+            foreach (RaycastHit hit in hits)
             {
                 // Find IExplosionInteractable
                 IExplosionInteractable interactable = null;

@@ -29,10 +29,13 @@ public class LoginPanel : BaseUI
     [SerializeField] GameObject _resetPwPanel;
     TMP_InputField _restPwIDInputField;
 
+    [SerializeField] GameObject _notificationPanel;
+    // string _notification;
+
     private void Start()
     {
         Init();
-        TestLogin();
+        // TestLogin();
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
@@ -214,9 +217,22 @@ public class LoginPanel : BaseUI
         GetUI<TMP_Text>("RestPwCancelText").fontSize = 36;
         GetUI<TMP_Text>("RestPwCancelText").fontSizeMax = 72;
 
+        // 알림창
+        _notificationPanel = GetUI("NotificationPanel");
+        // 알림 메세지
+        GetUI<TMP_Text>("NotificationText").font = kFont;
+        GetUI<TMP_Text>("NotificationText").fontSizeMin = 14;
+        GetUI<TMP_Text>("NotificationText").fontSize = 22;
+        GetUI<TMP_Text>("NotificationText").fontSizeMax = 40;
+      //  GetUI<TMP_Text>("NotificationText").text = _notification;
+        // 확인/닫기버튼
+        GetUI<Button>("NotificationButton").onClick.AddListener(CloseNotification);
 
 
 
+
+
+        // 종료버튼
         GetUI<Button>("ExitButton").onClick.AddListener(QuitGame);
     }
 
@@ -260,12 +276,16 @@ public class LoginPanel : BaseUI
         string email = _emailInputField.text;
         if (email == "")
         {
-            Debug.Log("Email is empty, please put your eamil");
+            Debug.Log("이메일을 입력 해 주세요.");
+            GetUI<TMP_Text>("NotificationText").text = "이메일을 입력 해 주세요.";
+            OpenNotifiaction();
         }
         string password = _pwInputField.text;
         if (password == "")
         {
-            Debug.Log("Password is empty, please put your eamil");
+            Debug.Log("비밀번호를 입력 하세요.");
+            GetUI<TMP_Text>("NotificationText").text = "비밀번호를 입력 하세요.";
+            OpenNotifiaction();
         }
 
         
@@ -274,12 +294,16 @@ public class LoginPanel : BaseUI
            {
                if (task.IsCanceled)
                {
-                   Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                   Debug.LogWarning("SignInWithEmailAndPasswordAsync was canceled.");
+                   GetUI<TMP_Text>("NotificationText").text = "로그인 인증이 취소되었습니다. ";
+                   OpenNotifiaction();
                    return;
                }
                if (task.IsFaulted)
                {
-                   Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                   Debug.LogWarning("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                   GetUI<TMP_Text>("NotificationText").text = $"올바른 아이디/비밀번호를\n 입력해주세요.";
+                   OpenNotifiaction();
                    return;
                }
 
@@ -334,12 +358,12 @@ public class LoginPanel : BaseUI
         {
             if (task.IsCanceled)
             {
-                Debug.LogError("SendPasswordResetEmailAsync was canceled.");
+                Debug.LogWarning("SendPasswordResetEmailAsync was canceled.");
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("SendPasswordResetEmailAsync encountered an error: " + task.Exception);
+                Debug.LogWarning("SendPasswordResetEmailAsync encountered an error: " + task.Exception);
                 return;
             }
 
@@ -353,6 +377,15 @@ public class LoginPanel : BaseUI
         SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
         _resetPwPanel.SetActive(false);
     }
-
+    public void OpenNotifiaction()
+    {
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+        _notificationPanel.SetActive(true);
+    }
+    public void CloseNotification()
+    {
+        SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+        _notificationPanel.SetActive(false);
+    }
 
 }

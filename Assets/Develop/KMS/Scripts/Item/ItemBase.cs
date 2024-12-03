@@ -89,6 +89,7 @@ public abstract class ItemBase : MonoBehaviourPun, IExplosionInteractable
             PhotonNetwork.Destroy(gameObject);
     }
 
+    [PunRPC]
     public virtual bool Interact()
     {
         OnHitByWaterStream();

@@ -33,6 +33,18 @@ public class LoginPanel : BaseUI
     {
         Init();
         TestLogin();
+
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+    }
+
+    private void OnEnable()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.StopBGM();
+            SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOGIN);
+        }
     }
 
     private void OnDisable()

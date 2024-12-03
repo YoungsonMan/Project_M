@@ -81,6 +81,9 @@ public class LobbyPanel : BaseUI
     private void OnEnable()
     {
         Init();
+
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(SoundManager.E_BGM.LOBBY);
     }
     public void Init()
     {
@@ -158,7 +161,7 @@ public class LobbyPanel : BaseUI
         GetUI<TMP_Text>("MaxPlayerText").fontSize = 22;
         GetUI<TMP_Text>("MaxPlayerText").fontSizeMax = 58;
 
-
+        _createRoomPanel.SetActive(false);
 
 
         GetUI<Button>("CreateRoomtButton").onClick.AddListener(CreateRoomConfirm);

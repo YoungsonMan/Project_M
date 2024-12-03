@@ -206,7 +206,7 @@ public class LoginPanel : BaseUI
 
         _restPwIDInputField = GetUI<TMP_InputField>("RestPwIDInputField");
         GetUI<Button>("RestPwConfirmButton").onClick.AddListener(SendResetPwEmail);
-        GetUI<TMP_Text>("RestPwConfirmText").text = "초기화 매일발송";
+        GetUI<TMP_Text>("RestPwConfirmText").text = "초기화 메일발송";
         GetUI<TMP_Text>("RestPwConfirmText").fontSizeMin = 14;
         GetUI<TMP_Text>("RestPwConfirmText").fontSize = 22;
         GetUI<TMP_Text>("RestPwConfirmText").fontSizeMax = 58;

@@ -187,6 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _lifetime: 5
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!95 &-6462955379375709405
 Animator:
   serializedVersion: 5

@@ -5,6 +5,7 @@ public class DartProjectile : MonoBehaviourPun
 {
     [SerializeField] private float _speed = 15f;    // 다트의 속도
     [SerializeField] private float _lifetime = 5f;  // 다트의 수명
+    [SerializeField] private LayerMask _playerLayer;// 플레이어 레이어 설정
     private Vector3 _direction;                     // 다트의 이동 방향
     private Vector3 _startPosition;                 // 다트의 시작 위치
     private double _creationTime;                   // 다트 생성 시 서버 시간
@@ -71,12 +72,20 @@ public class DartProjectile : MonoBehaviourPun
 
     private void OnTriggerEnter(Collider other)
     {
+        // 플레이어 레이어와 충돌 시 무시
+        if (((1 << other.gameObject.layer) & _playerLayer) != 0)
+        {
+            Debug.Log("플레이어와의 충돌 무시");
+            return;
+        }
+
         // 충돌 시 동작 처리
         WaterBomb waterBomb = other.GetComponent<WaterBomb>();
         if (waterBomb != null)
         {
             waterBomb.Interact(); // 물풍선 터뜨리기
-            Destroy(gameObject); // 다트 파괴
         }
+
+        Destroy(gameObject); // 다트 파괴
     }
 }

@@ -19,8 +19,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public TMP_Text currentChannelText;     // ChatDisplay
     public TMP_Text outputText;             // ChatDisplay
 
-
-    private bool _isTyping = false;
     public int InputSelected;
 
     // Use this for initialization

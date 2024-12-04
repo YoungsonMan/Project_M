@@ -63,12 +63,6 @@ public class GameManager : MonoBehaviour
             _isStart = false;
             _gameStartCoroutine = null;
             _gameOverCoroutine = null;
-
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject player in players)
-            {
-                Destroy(player);
-            }
         }
         // Game Scene
         else

@@ -3,7 +3,6 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
-using static Photon.Pun.UtilityScripts.PunTeams;
 
 
 public class PlayerStatus : MonoBehaviourPun

@@ -3,6 +3,7 @@ using Firebase.Extensions;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VerificationPanel : BaseUI
 {
@@ -32,6 +33,8 @@ public class VerificationPanel : BaseUI
         GetUI<TMP_Text>("WaitingText").fontSize = 22;
         GetUI<TMP_Text>("WaitingText").fontSizeMin = 58;
 
+        GetUI<Button>("VerificationCancelButton").onClick.AddListener(GoBack);
+
         // _nicknamePanel = GameObject.Find("NicknamePanel"); // 이게 비활성화되있으면 안되네
         // 아 일단 모르겠다 그냥 일단 지금은 Inspector에서 연결해서 쓰기
         SendVerifyEmail();
@@ -43,6 +46,10 @@ public class VerificationPanel : BaseUI
         {
             StopCoroutine(_verificationRoutine);
         }
+    }
+    private void GoBack()
+    {
+        _verificationPanel.SetActive(false);
     }
     private void SendVerifyEmail()
     {

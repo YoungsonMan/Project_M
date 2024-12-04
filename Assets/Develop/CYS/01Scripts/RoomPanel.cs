@@ -145,7 +145,7 @@ public class RoomPanel : BaseUI
         _mapRawImage = (RawImage)_mapImage.GetComponent<RawImage>();
         _mapRawImage.texture = _mapTexture[_miniMap];
         _mapTitleText = GetUI<TMP_Text>("MapTitleText");
-        //_mapTitleText.text = (mapList[mapNumber]);
+        _mapTitleText.text = (mapList[mapNumber]);
         _mapTitleText.fontSizeMin = 14;
         _mapTitleText.fontSize = 22;
         _mapTitleText.fontSizeMax = 58;

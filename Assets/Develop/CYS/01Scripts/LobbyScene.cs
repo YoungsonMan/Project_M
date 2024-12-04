@@ -4,6 +4,7 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using Unity.VisualScripting;
 
 public class LobbyScene : MonoBehaviourPunCallbacks
 {
@@ -18,12 +19,14 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     // ChatFunction
     public GameObject _chatContent;
     public TMP_InputField _chatInputField;
+    public TMP_Text _chatInputFieldText;
 
     PhotonView _photonView;
 
     GameObject _chatDisplay;
 
     string _userName;
+    string _savedName;
 
     TMP_Text _roomChatDisplay;
 
@@ -59,9 +62,29 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && _chatInputField.isFocused == false)
+
+        
+
+        
+
+        if (PhotonNetwork.InRoom)
         {
-            _chatInputField.ActivateInputField();
+            if (_userName == "")
+            {
+                Debug.Log($"닉네임갱신 : {_userName}");
+                _userName = PhotonNetwork.LocalPlayer.NickName;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) && _chatInputField.isFocused == false)
+            {
+                Debug.Log("Update안에 채팅활성화 테스트로그");
+                _chatInputField.ActivateInputField();
+            }
+            else if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Debug.Log("Update안에 채팅 엔터키 반응(인풋필드 더해졌을떄)");
+                OnEndEditEvent();
+            }            
         }
     }
 
@@ -182,34 +205,48 @@ public class LobbyScene : MonoBehaviourPunCallbacks
     // 채팅관련
     private void ChatOn()
     {
-        if (_chatInputField.text == "" && Input.GetKey(KeyCode.Return))
+        if (_chatInputField.text.Length == 0 && Input.GetKey(KeyCode.Return))
         {
+            Debug.Log("채팅시작 엔터 로그");
             _chatInputField.Select();
             // 타자사운드
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+            // SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
         }
     }
     public void OnEndEditEvent()
     {
-       if (_chatInputField.text != "" && Input.GetKeyDown(KeyCode.Return))
+       //if (_chatInputField.text != "") //&& _chatInputField.text.Length > 0 && Input.GetKeyDown(KeyCode.Return)
+       // {
+            Debug.Log("채팅엔터 보내기 테스트");
+        if (_userName != PhotonNetwork.LocalPlayer.NickName)
         {
-            Debug.Log("채팅엔터 테스트");
-            string strMessage = _userName + " : " + _chatInputField.text;
-
-            // target 받는이 모두에게 inputField에 적힌대로 
-            _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
-            _chatInputField.text = "";
-            // 채팅 엔터 사운드
-            SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+            Debug.Log($"닉네임갱신 : {_userName}");
+            _userName = PhotonNetwork.LocalPlayer.NickName;
+            Debug.Log($"닉네임갱신 (선언후) : {_userName}");
         }
+        string strMessage = _userName + " : " + _chatInputField.text;
+
+         // target 받는이 모두에게 inputField에 적힌대로 
+         _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
+         _chatInputField.text = "";
+         // 채팅 엔터 사운드
+         SoundManager.Instance.PlaySFX(SoundManager.E_SFX.CLICK);
+       // }
     }
     public void OnEndEditEventButton()
     {
         // if (Input.GetKeyDown(KeyCode.Return))
         // {
         Debug.Log("채팅버튼 테스트");
+        
+        Debug.Log($"닉네임채크 버튼텍스트 : {_userName}");
+        if (_userName != PhotonNetwork.LocalPlayer.NickName)
+        {
+            Debug.Log($"닉네임갱신 : {_userName}");
+            _userName = PhotonNetwork.LocalPlayer.NickName;
+            Debug.Log($"닉네임갱신 (선언후) : {_userName}");
+        }
         string strMessage = _userName + " : " + _chatInputField.text;
-
         // target 받는이 모두에게 inputField에 적힌대로 
         _photonView.RPC("RPC_Chat", RpcTarget.All, strMessage);
         _chatInputField.text = "";
@@ -220,7 +257,7 @@ public class LobbyScene : MonoBehaviourPunCallbacks
 
     // From ChatManager 채팅관련 함수들
     void AddChatMessage(string message)
-    {
+    { 
         GameObject goText = Instantiate(_chatDisplay, _chatContent.transform);
         goText.GetComponent<TextMeshProUGUI>().text = message;
         _chatDisplay.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;

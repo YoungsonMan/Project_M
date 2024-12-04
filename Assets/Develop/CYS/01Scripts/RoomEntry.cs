@@ -14,12 +14,12 @@ public class RoomEntry : BaseUI
     [SerializeField] TMP_Text _roomCapacity;
     [SerializeField] Button _roomJoinButton;
 
-    [Header("¸Ê°ü·Ã")]
-    [SerializeField] GameObject _roomImage;
-    [SerializeField] RawImage _roomMap;
-    [SerializeField] Texture[] _mapTexture;
-    private int _defaultMap = 1;
-    public int mapNum;
+    // [Header("¸Ê°ü·Ã")]
+    // [SerializeField] GameObject _roomImage;
+    // [SerializeField] RawImage _roomMap;
+    // [SerializeField] Texture[] _mapTexture;
+    // private int _defaultMap = 1;
+    // public int mapNum;
 
     // RoomStatus - Availability to join (waiting / started)
     // RoomInfo, protected bool isOpen = true; (IsOpen)
@@ -62,10 +62,10 @@ public class RoomEntry : BaseUI
         GetUI<TMP_Text>("RoomStatus").font = kFont;
         _roomJoinButton = GetUI<Button>("RoomJoinButton");
         _roomJoinButton.onClick.AddListener(JoinRoom);
-        _roomImage = GetUI("RoomMap");
-        _roomMap = (RawImage)_roomImage.GetComponent<RawImage>();
-        mapNum = _defaultMap;
-        _roomMap.texture = _mapTexture[mapNum];
+       // _roomImage = GetUI("RoomMap");
+       // _roomMap = (RawImage)_roomImage.GetComponent<RawImage>();
+       // mapNum = _defaultMap;
+       // _roomMap.texture = _mapTexture[mapNum];
 
 
     }

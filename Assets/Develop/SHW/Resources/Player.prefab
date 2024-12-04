@@ -114,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5323386283925807557}
   bubble: {fileID: 851820312}
-  collider: {fileID: 325195807299191390}
 --- !u!114 &7419649438223639742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,10 +208,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.32731324
-  m_Height: 1.8207426
+  m_Radius: 0.35
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: -0.007995367, y: 0.9247711, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &2098898257
 Rigidbody:
   m_ObjectHideFlags: 0
